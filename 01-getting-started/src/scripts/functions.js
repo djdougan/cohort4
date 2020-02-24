@@ -14,9 +14,10 @@ const functions = {
 
     subtract: (num1, num2) => {
         return num1 - num2;
+    },
+    isEven: (number) => {
+        return number % 2 == 0;
     }
-
-
 };
 
 export default functions;
