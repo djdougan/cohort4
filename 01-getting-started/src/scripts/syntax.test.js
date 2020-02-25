@@ -63,3 +63,10 @@ test("Test if Object is undefined", () => {
     expect(syntax.isDefined(e)).toBe(true);
     expect(syntax.isDefined(f)).toBe(true);
 });
+
+test("Test if color is red", () => {
+    expect(syntax.isRedColor("red")).toBe(true);
+    expect(syntax.isRedColor("Red")).toBe(true);
+    expect(syntax.isRedColor("Blue")).toBe(false);
+    expect(syntax.isRedColor("orange")).toBe(false);
+});

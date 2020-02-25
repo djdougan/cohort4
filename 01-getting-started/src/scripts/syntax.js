@@ -1,27 +1,3 @@
-// •	define attributes / variables
-//        (X) o	number
-//        (X) o	string
-//        (X) o	boolean
-//        (X) o	array
-//        (X) o	dictionary / objects
-//        (X) o	undefined
-// •	sample if / else
-// •	functions
-//          o	parameters
-//          o	returns
-// •	arrays
-//          o	add to the front
-//          o	add to the end
-//          o	update values
-// •	loops
-//          o	for
-//          o	for/in
-//          o	while
-//          o	do while
-//          o	forEach(with array and function)
-// •	Objects / Dictionaries
-//          o	declare object
-//          o	lookup key to retrieve value
 
 /**
  * <summary></summary>
@@ -90,14 +66,53 @@ const syntax = {
        */
     isDefined: (aType) => {
         return !(typeof aType === 'undefined');
-    }
+    },
 
-
-
-
+    /**
+       * @description Checks if a color is red;
+       * @name isRedColor
+      * @param {string} color -- a color value.
+      * @returns {boolean} tue if color is red .
+       */
+    isRedColor: (color) => {
+        let result;
+        if (color != 'undefined') {
+            let col = color.toLowerCase();
+            if (col === 'red') {
+                result = true;
+            } else {
+                result = false;
+            }
+        }
+        return result;
+    },
 
 
 }
 
 
 export default syntax;
+// •    define attributes / variables
+//        (X) o	number
+//        (X) o	string
+//        (X) o	boolean
+//        (X) o	array
+//        (X) o	dictionary / objects
+//        (X) o	undefined
+// •	(X) sample if / else
+// •	functions
+//          o	parameters
+//          o	returns
+// •	arrays
+//          o	add to the front
+//          o	add to the end
+//          o	update values
+// •	loops
+//          o	for
+//          o	for/in
+//          o	while
+//          o	do while
+//          o	forEach(with array and function)
+// •	Objects / Dictionaries
+//          o	declare object
+//          o	lookup key to retrieve value
