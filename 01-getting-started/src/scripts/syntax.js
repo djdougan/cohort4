@@ -83,13 +83,13 @@ const syntax = {
     },
 
     /**
-     * @description Checks is the value has been assigned a value.
-     * @name isDefined
-    * @param {number|string|boolean} aType -- value to be tested for a value.
-    * @returns {boolean} tue if the type has a value .
-     */
+       * @description Checks is the value has been assigned a value.
+       * @name isDefined
+      * @param {number|string|boolean} aType -- value to be tested for a value.
+      * @returns {boolean} tue if the type has a value .
+       */
     isDefined: (aType) => {
-        return true;
+        return !(typeof aType === 'undefined');
     }
 
 

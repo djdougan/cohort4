@@ -54,6 +54,12 @@ test("Test persons age", () => {
 });
 
 test("Test if Object is undefined", () => {
-    let age;
-    expect(syntax.isDefined(age)).toBe(true);
+    let a, b, c;
+    let d = "", e = "", f = "";
+    expect(syntax.isDefined(a)).toBe(false);
+    expect(syntax.isDefined(b)).toBe(false);
+    expect(syntax.isDefined(c)).toBe(false);
+    expect(syntax.isDefined(d)).toBe(true);
+    expect(syntax.isDefined(e)).toBe(true);
+    expect(syntax.isDefined(f)).toBe(true);
 });
