@@ -87,6 +87,57 @@ const syntax = {
         return result;
     },
 
+    /**
+       * @description counts the number arguments passed to function
+       * @name countArgs
+      * @param {number|string|boolean} ...args -- random number of arguments.
+      * @returns {number} number of args passed in function.
+       */
+    countArgs: (...args) => {
+        return args.length;
+    },
+
+    /**
+       * @description adds to front of Array
+       * @name FIFO First In First Out
+      * @param {number[]|string[]|boolean[]} array -- array any type.
+      * @param {number|string|boolean} item -- item to be added to front of array.
+      * @returns {number|string|boolean} first item in array.
+       */
+    LIFO: (array, item) => {
+        if (item !== undefined) {
+            array.unshift(item);
+        }
+        return array[0];
+    },
+    /**
+       * @description adds to end of Array
+       * @name LILO
+      * @param {number[]|string[]|boolean[]} array -- array any type.
+      * @param {number|string|boolean} item -- item to be added to front of array.
+      * @returns {number|string|boolean} first item in array.
+       */
+    LILO: (array, item) => {
+        if (item !== undefined) {
+            array.push(item);
+        }
+        return array[array.length - 1];
+    },
+    /**
+       * @description adds to front of Array
+       * @name FIFO
+      * @param {number|string|boolean} item -- item to be update.
+      * @param {number[]|string[]|boolean[]} array -- array any type.
+      * @param {number} index -- index of element.
+      * @returns {number|string|boolean} first item in array.
+       */
+    updateArray: (item, array, index) => {
+        if (item !== undefined) {
+            array.push(item);
+        }
+        return array[array.length - 1];
+    }
+
 
 }
 
@@ -101,12 +152,12 @@ export default syntax;
 //        (X) o	undefined
 // •	(X) sample if / else
 // •	functions
-//          o	parameters
-//          o	returns
+//         (X) o parameters
+//         (X) o returns
 // •	arrays
-//          o	add to the front
-//          o	add to the end
-//          o	update values
+//          (X) o add to the front
+//          (X) o add to the end
+//          (X) o update values
 // •	loops
 //          o	for
 //          o	for/in

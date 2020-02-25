@@ -70,3 +70,22 @@ test("Test if color is red", () => {
     expect(syntax.isRedColor("Blue")).toBe(false);
     expect(syntax.isRedColor("orange")).toBe(false);
 });
+test("Test the number of arguments", () => {
+    expect(syntax.countArgs(1, 2, 3, 4, 5)).toBe(5);
+    expect(syntax.countArgs("dog", "cat", "love bird", "rabbit")).toBe(4);
+    expect(syntax.countArgs({ make: "Ford", model: "f-150" }, { make: "GMC", model: "2500" })).toBe(2);
+    expect(syntax.countArgs(1, "a", 2, 3, 4)).not.toBe(4);
+    expect(syntax.countArgs()).toBe(0);
+});
+
+test("Test adding to start of array", () => {
+    expect(syntax.LIFO(["Tom", "Sara"], "Sally")).toBe("Sally");
+    expect(syntax.LIFO(["Tom", "Sara"], "Billy")).toBe("Billy");
+    expect(syntax.LIFO(["Tom", "Sara"], "Jerry")).not.toBe("Sally");
+});
+
+test("Test adding to end of array", () => {
+    expect(syntax.LILO(["Tom", "Sara"], "Sally")).toBe("Sally");
+    expect(syntax.LILO(["Tom", "Sara"], "Billy")).toBe("Billy");
+    expect(syntax.LILO(["Tom", "Sara"], "Jerry")).not.toBe("Sally");
+});
