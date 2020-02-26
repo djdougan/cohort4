@@ -198,6 +198,43 @@ const syntax = {
         } while (i <= size)
         return total;;
     },
+    /**
+      * @description adds all numbers from 0 to size
+      * @name toUpperCaseArray
+     * @param {string[]} array -- number of elements to add 
+     * @return {string[]} -- the sum of numbers from 0 to size.
+      */
+    toUpperCaseArray: (array) => {
+        array.forEach((x, i) => {
+            array[i] = x.toUpperCase();
+        });
+        return array;
+    },
+    /**
+      * @description creates a object with key/value pair
+      * @name createObject
+     * @param {number} key -- key for object
+     * @param {number} value -- value for object
+     * @return {{key:number, value: number}} -- object with key/value pair.
+      */
+    createObject: (key, value) => {
+        let obj = {};
+        obj.key = key;
+        obj.value = value;
+        return obj;
+    },
+    /**
+      * @description find a  object by key in an array
+      * @name keyValueLookUp
+     * @param {number} id -- id to find in object array
+     * @param {{id:number, name:string }[]} obj -- array of objects
+     * @return {{id:number, name:string}} -- found object.
+      */
+    keyValueLookUp: (id, arr) => {
+        var obj = arr.find(x => x.id === id);
+        return obj;
+    },
+
 
 
 
@@ -227,5 +264,5 @@ export default syntax;
 //          (X) o do while
 //          (X) o forEach(with array and function)
 // •	Objects / Dictionaries
-//          o	declare object
-//          o	lookup key to retrieve value
+//          (X) o declare object
+//          (X) o lookup key to retrieve value

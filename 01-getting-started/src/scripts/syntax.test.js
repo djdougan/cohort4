@@ -124,3 +124,31 @@ test("The reduced numbers added up", () => {
     expect(syntax.reduce(10)).toBe(55);
     expect(syntax.reduce(100)).toBe(5050);
 });
+
+test("Test toUpperCaseArray ", () => {
+    expect(syntax.toUpperCaseArray(['Sam', 'Sara', 'Bob'])).toEqual(['SAM', 'SARA', 'BOB']);
+    expect(syntax.toUpperCaseArray(['luke', 'kim', 'phil'])).toEqual(['LUKE', 'KIM', 'PHIL']);
+    expect(syntax.toUpperCaseArray(['bIlLy', 'DeAN'])).toEqual(['BILLY', 'DEAN']);
+
+});
+
+test("Test the createObject", () => {
+    expect(syntax.createObject(1, 100)).toEqual({ key: 1, value: 100 });
+    expect(syntax.createObject(2, 200)).toEqual({ key: 2, value: 200 });
+    expect(syntax.createObject(3, 300)).toEqual({ key: 3, value: 300 });
+    expect(syntax.createObject(101, 1010)).toEqual({ key: 101, value: 1010 });
+});
+
+test("Test keyValueLookUp", () => {
+    const employees = [
+        { id: 1, name: "James" },
+        { id: 2, name: "Lori" },
+        { id: 3, name: "Tom" },
+        { id: 4, name: "Frank" },
+        { id: 5, name: "Sara" },
+        { id: 6, name: "Jackie" }];
+
+    expect(syntax.keyValueLookUp(3, employees)).toEqual({ id: 3, name: "Tom" });
+    expect(syntax.keyValueLookUp(6, employees)).toEqual({ id: 6, name: "Jackie" });
+    expect(syntax.keyValueLookUp(2, employees)).toEqual({ id: 2, name: "Lori" });
+});
