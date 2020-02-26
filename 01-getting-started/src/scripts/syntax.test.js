@@ -4,7 +4,7 @@
  * @author Douglas J Dougan <djdougan@gmail.com>
  * @
  * @description test file for syntax.js
- * @example to run syntax tests use: npm test -- 'syntax.test.js'
+ * @example to run syntax tests use: npm test 'syntax.test.js'
  * 
  */
 import syntax from './syntax';
@@ -88,4 +88,39 @@ test("Test adding to end of array", () => {
     expect(syntax.LILO(["Tom", "Sara"], "Sally")).toBe("Sally");
     expect(syntax.LILO(["Tom", "Sara"], "Billy")).toBe("Billy");
     expect(syntax.LILO(["Tom", "Sara"], "Jerry")).not.toBe("Sally");
+});
+
+test("Test update element in array", () => {
+    expect(syntax.updateArray([1, 4], 1, 5)).toEqual([5, 4]);
+    expect(syntax.updateArray([3, 9, 12], 9, 5)).toEqual([3, 5, 12]);
+    // nothing will be updated no match found
+    expect(syntax.updateArray([5, 18, 21], 9, 5)).toEqual([5, 18, 21]);
+    expect(syntax.updateArray(["Bob", "Sam"], "Bob", "Tom")).toEqual(["Tom", "Sam"]);
+    expect(syntax.updateArray(["Bob", "Sam"], "Sam", "Tom")).toEqual(["Bob", "Tom"]);
+});
+
+test("Test add a value to each element in array", () => {
+    expect(syntax.addToEach([2, 2, 3, 4, 5], 1)).toEqual([3, 3, 4, 5, 6]);
+    expect(syntax.addToEach([11, 15, 31, 35, 56], 5)).toEqual([16, 20, 36, 40, 61]);
+    expect(syntax.addToEach([100, 200, 3, 55], 21)).toEqual([121, 221, 24, 76]);
+});
+
+test("Test validate a 3d point", () => {
+    expect(syntax.validatePoint({ x: -10, y: 100, z: 200 })).toBe(true);
+    expect(syntax.validatePoint({ x: 2, y: 10, z: -2 })).toBe(true);
+    // not a valid point
+    expect(syntax.validatePoint({ x: 2, y: 10, z: null })).toBe(false);
+
+});
+
+test("Test incremental array numbers", () => {
+    expect(syntax.fillArray(10)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(syntax.fillArray(0)).toEqual([]);
+    expect(syntax.fillArray(3)).toEqual([0, 1, 2]);
+});
+
+test("The reduced numbers added up", () => {
+    expect(syntax.reduce(1)).toBe(1);
+    expect(syntax.reduce(10)).toBe(55);
+    expect(syntax.reduce(100)).toBe(5050);
 });

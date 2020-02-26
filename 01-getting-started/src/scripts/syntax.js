@@ -124,19 +124,81 @@ const syntax = {
         return array[array.length - 1];
     },
     /**
-       * @description adds to front of Array
-       * @name FIFO
-      * @param {number|string|boolean} item -- item to be update.
-      * @param {number[]|string[]|boolean[]} array -- array any type.
-      * @param {number} index -- index of element.
-      * @returns {number|string|boolean} first item in array.
+       * @description updates a value in the array
+       * @name updateArray
+      * @param {number[]|string[]|boolean[]} arr -- array to be updated.
+      * @param {number} oldValue -- value to find in array.
+      * @param {number|string|boolean} newValue -- value used to update oldValue.
+      * @return {number[]|string[]|boolean[]} -- updated array.
        */
-    updateArray: (item, array, index) => {
-        if (item !== undefined) {
-            array.push(item);
+    updateArray: (arr, oldValue, newValue) => {
+        let index = arr.findIndex(x => x == oldValue);
+        if (index >= 0) {
+            arr[index] = newValue;
         }
-        return array[array.length - 1];
-    }
+        return arr;
+    },
+    /**
+      * @description Add a value to each element in array
+      * @name addToEach
+     * @param {number[]} arr -- array to be updated.
+     * @param {number} num -- value to be added to each element.
+     * @return {number[]} -- updated array.
+      */
+    addToEach: (arr, num) => {
+        let i;
+        for (i = 0; i < arr.length; i++) {
+            arr[i] += num;
+        }
+        return arr;
+    },
+    /**
+      * @description validates a 3d point
+      * @name validatePoint
+     * @param {{x:number, y:number, z: number}} point -- point on a 3d plane.
+     * @return {boolean} -- true if all planes have a value.
+      */
+    validatePoint: (point) => {
+        let result;
+        for (let value in point) {
+            if (point[value] !== null) {
+                result = true;
+            } else {
+                result = false;
+            }
+        }
+        return result;
+    },
+    /**
+      * @description fills an Array with incremental values
+      * @name fillArray
+     * @param {number} size -- creates an array with these many elements.
+     * @return {number[]} -- array with incremental values.
+      */
+    fillArray: (size) => {
+        let arr = [];
+        let i = 0;
+        while (i < size) {
+            arr.push(i);
+            i++;
+        }
+        return arr;
+    },
+    /**
+      * @description adds all numbers from 0 to size
+      * @name reduce
+     * @param {number} size -- number of elements to add 
+     * @return {number} -- the sum of numbers from 0 to size.
+      */
+    reduce: (size) => {
+        let total = 0, i = 0;
+        do {
+            total += i;
+            i++;
+        } while (i <= size)
+        return total;;
+    },
+
 
 
 }
@@ -159,11 +221,11 @@ export default syntax;
 //          (X) o add to the end
 //          (X) o update values
 // •	loops
-//          o	for
-//          o	for/in
-//          o	while
-//          o	do while
-//          o	forEach(with array and function)
+//          (X) o for
+//          (X) o for/in
+//          (X) o while
+//          (X) o do while
+//          (X) o forEach(with array and function)
 // •	Objects / Dictionaries
 //          o	declare object
 //          o	lookup key to retrieve value
