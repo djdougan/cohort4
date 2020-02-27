@@ -117,29 +117,54 @@
                 <input id="idNumber" type="number"> is a <span id="idNumberSize">unknown</span> number?
                 <p id="idNumberSizexx"></p>
             </div>
-            <div id="mycalculator">
-                <h3>My Calculator</h3>
-                <div class="display">
-                    <input type="text" id="input-display" class="rounded" value="12.34*12=">
+            <div class="section">
+                <div class="calculator1"><h3>My Calculator</h3>
+                    <div class="control-group">
+                        <label for="number1">
+                            <input type="text" name="number1" id="number1">
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <label for="number2">
+                            <input type="text" name="number2" id="number2">
+                        </label>
+                    </div>
+                    <div class="control-group">
+                        <button data-sym="+">+</button>
+                        <button data-sym="-">-</button>
+                        <button data-sym="*">X</button>
+                        <button data-sym="/">/</button>
+                    </div>
+                    <div class="control-group">
+                        <label for="txtResults">
+                            <input type="text" name="txtResult" id="txtResult" disabled>
+                        </label>
+                    </div>
                 </div>
-                <div id="keypad-container" class="btn btn-grid">
-                    <button id="btn-7" class="btn rounded">7</button>
-                    <button id="btn-8" class="btn rounded">8</button>
-                    <button id="btn-9" class="btn rounded">9</button>
-                    <button id="btn-divide" class="btn rounded">/</button>
-                    <button id="btn-4" class="btn rounded">4</button>
-                    <button id="btn-5" class="btn rounded">5</button>
-                    <button id="btn-6" class="btn rounded">6</button>
-                    <button id="btn-multiply" class="btn rounded">X</button>
-                    <button id="btn-1" class="btn rounded">1</button>
-                    <button id="btn-2" class="btn rounded">2</button>
-                    <button id="btn-3" class="btn rounded">3</button>
-                    <button id="btn-subtract" class="btn rounded">-</button>
-                    <button id="btn-0" class="btn rounded">0</button>
-                    <button id="btn-decimal" class="btn rounded">.</button>
-                    <button id="btn-clear" class="btn rounded">C</button>
-                    <button id="btn-plus" class="btn rounded">+</button>
-                    <button id="btn-equals" class="btn full-width rounded">=</button>
+                <div id="calculator2">
+                    <h3>My Calculator</h3>
+                    <div class="display">
+                        <input type="text" id="input-display" class="rounded" value="">
+                    </div>
+                    <div id="keypad-container" class="btn btn-grid">
+                        <button id="btn-7" class="btn rounded" data-sym="7">7</button>
+                        <button id="btn-8" class="btn rounded" data-sym="8">8</button>
+                        <button id="btn-9" class="btn rounded" data-sym="9">9</button>
+                        <button id="btn-divide" class="btn rounded" data-sym="/">/</button>
+                        <button id="btn-4" class="btn rounded" data-sym="4">4</button>
+                        <button id="btn-5" class="btn rounded" data-sym="5">5</button>
+                        <button id="btn-6" class="btn rounded" data-sym="6">6</button>
+                        <button id="btn-multiply" class="btn rounded" data-sym="*">x</button>
+                        <button id="btn-1" class="btn rounded" data-sym="1">1</button>
+                        <button id="btn-2" class="btn rounded" data-sym="2">2</button>
+                        <button id="btn-3" class="btn rounded" data-sym="3">3</button>
+                        <button id="btn-subtract" class="btn rounded" data-sym="-">-</button>
+                        <button id="btn-0" class="btn rounded" data-sym="0">0</button>
+                        <button id="btn-decimal" class="btn rounded" data-sym=".">.</button>
+                        <button id="btn-clear" class="btn rounded" data-sym="C">C</button>
+                        <button id="btn-plus" class="btn rounded" data-sym="+">+</button>
+                    </div>
+                    <button id="btn-equals" class="btn full-width rounded" data-sym="=">=</button>
                 </div>
             </div>
         </div>
@@ -187,7 +212,7 @@
                 }
             }
         </script>
-
-    </body>
+        <script defer src="scripts/Calculator.js" />
+        </body>
 
 </html>
