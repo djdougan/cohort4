@@ -139,7 +139,7 @@ test("Test the createObject", () => {
     expect(syntax.createObject(101, 1010)).toEqual({ key: 101, value: 1010 });
 });
 
-test("Test keyValueLookUp", () => {
+test("Test: keyValueLookUp", () => {
     const employees = [
         { id: 1, name: "James" },
         { id: 2, name: "Lori" },
@@ -147,7 +147,6 @@ test("Test keyValueLookUp", () => {
         { id: 4, name: "Frank" },
         { id: 5, name: "Sara" },
         { id: 6, name: "Jackie" }];
-
     expect(syntax.keyValueLookUp(3, employees)).toEqual({ id: 3, name: "Tom" });
     expect(syntax.keyValueLookUp(6, employees)).toEqual({ id: 6, name: "Jackie" });
     expect(syntax.keyValueLookUp(2, employees)).toEqual({ id: 2, name: "Lori" });
