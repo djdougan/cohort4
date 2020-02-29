@@ -1,6 +1,6 @@
 <!-- 
 
-    Insporation drawn from: https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm#about
+    Inspiration drawn from: https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm#about
 
  -->
 
@@ -115,76 +115,72 @@
             <div class="w3-content w3-container w3-padding-64 w3-center" id="idSize">
                 Did you know that =>
                 <input id="idNumber" type="number"> is a <span id="idNumberSize">unknown</span> number?
-                <p id="idNumberSizexx"></p>
+                <p id="idNumberSize"></p>
             </div>
+            <!--Calculator-->
             <div class="section">
-                <div class="calculator1"><h3>My Calculator</h3>
-                    <div class="control-group">
-                        <label for="number1">
-                            <input type="text" name="number1" id="number1">
+                <div class="w3-container w3-border w3-margin-bottom w3-large w3-padding">
+                    <h2 class="w3-center">My Calculator</h2>
+                    <div class="w3-container">
+                        <label class="w3-quarter" for=" number1">Number 1:
                         </label>
+                        <input id="txtNumber1" class="w3-threequarter w3-right-align" type="text" name="number1"
+                            id="number1" value='12'>
                     </div>
-                    <div class="control-group">
-                        <label for="number2">
-                            <input type="text" name="number2" id="number2">
+                    <div class="w3-container ">
+                        <label class="w3-quarter" for="number2"> Number 2:
                         </label>
+                        <input id="txtNumber2" class="w3-threequarter w3-right-align" type="text" name="number2"
+                            value="3" id="number2">
                     </div>
-                    <div class="control-group">
-                        <button data-sym="+">+</button>
-                        <button data-sym="-">-</button>
-                        <button data-sym="*">X</button>
-                        <button data-sym="/">/</button>
+                    <div class="w3-container rounded">
+                        <div class="w3-quarter">&nbsp;</div>
+                        <div class="w3-threequarter">
+                            <label for="add" class="w3-quarter">
+                                <input class="operand" type="radio" name="operations" data-sym="+" checked /><span
+                                    class="sym">&#43;
+                                </span></label>
+                            <label for="subtract" class="w3-quarter">
+                                <input class="operand" type="radio" name="operations" data-sym="-" /><span
+                                    class="sym">&#8722;
+                                </span></label>
+                            <label for="multiply" class="w3-quarter">
+                                <input class="operand" type="radio" name="operations" data-sym="*" /><span
+                                    class="sym">&#215;
+                                </span></label>
+                            <label for="division" class="w3-quarter"><input class="operand" type="radio"
+                                    name="operations" data-sym="/" /><span class="sym">&#247;</span></label>
+                        </div>
                     </div>
-                    <div class="control-group">
-                        <label for="txtResults">
-                            <input type="text" name="txtResult" id="txtResult" disabled>
+                    <div id="results-panel" class="w3-container">
+                        <label class="w3-quarter" for="results">Results
                         </label>
+                        <div id="txtResults" class="w3-threequarter w3-right-align w3-border">
+                        </div>
                     </div>
-                </div>
-                <div id="calculator2">
-                    <h3>My Calculator</h3>
-                    <div class="display">
-                        <input type="text" id="input-display" class="rounded" value="">
+                    <div class="w3-container">
+                        <button id="btnCalculate" class="w3-btn w3-block w3-teal" data-current="+">Calculate
+                        </button>
                     </div>
-                    <div id="keypad-container" class="btn btn-grid">
-                        <button id="btn-7" class="btn rounded" data-sym="7">7</button>
-                        <button id="btn-8" class="btn rounded" data-sym="8">8</button>
-                        <button id="btn-9" class="btn rounded" data-sym="9">9</button>
-                        <button id="btn-divide" class="btn rounded" data-sym="/">/</button>
-                        <button id="btn-4" class="btn rounded" data-sym="4">4</button>
-                        <button id="btn-5" class="btn rounded" data-sym="5">5</button>
-                        <button id="btn-6" class="btn rounded" data-sym="6">6</button>
-                        <button id="btn-multiply" class="btn rounded" data-sym="*">x</button>
-                        <button id="btn-1" class="btn rounded" data-sym="1">1</button>
-                        <button id="btn-2" class="btn rounded" data-sym="2">2</button>
-                        <button id="btn-3" class="btn rounded" data-sym="3">3</button>
-                        <button id="btn-subtract" class="btn rounded" data-sym="-">-</button>
-                        <button id="btn-0" class="btn rounded" data-sym="0">0</button>
-                        <button id="btn-decimal" class="btn rounded" data-sym=".">.</button>
-                        <button id="btn-clear" class="btn rounded" data-sym="C">C</button>
-                        <button id="btn-plus" class="btn rounded" data-sym="+">+</button>
-                    </div>
-                    <button id="btn-equals" class="btn full-width rounded" data-sym="=">=</button>
                 </div>
             </div>
+            <!-- Footer -->
+            <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+                <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the
+                    top</a>
+                <div class="w3-xlarge w3-section">
+                    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                    <i class="fa fa-instagram w3-hover-opacity"></i>
+                    <i class="fa fa-snapchat w3-hover-opacity"></i>
+                    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                    <i class="fa fa-twitter w3-hover-opacity"></i>
+                    <i class="fa fa-linkedin w3-hover-opacity"></i>
+                </div>
+                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                        class="w3-hover-text-green">w3.css</a></p>
+            </footer>
+
         </div>
-        <!-- Footer -->
-        <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the
-                top</a>
-            <div class="w3-xlarge w3-section">
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                    class="w3-hover-text-green">w3.css</a></p>
-        </footer>
-
-
         <script type="module" src="./scripts/main.js"></script>
 
         <script>
@@ -214,5 +210,4 @@
         </script>
         <script defer src="scripts/Calculator.js" />
         </body>
-
 </html>

@@ -70,62 +70,24 @@ body, html {
     }
 }
 
-#calculator1 {
-    width: 500px;
-    height: 700px;
-    margin: 0 auto;
-    padding: 10px;
-    border: solid 2px black;
-}
-
-.full-width {
-    width: 100%;
-}
-
-.rounded {
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-}
-
-#calculator1 h3 {
-    text-align: center;
-}
-
-#input-display {
-    font-family: 'DS-Digital';
-    width: 100%;
-    height: 2em;
-    border: solid 2px black;
-    margin: 5px auto;
-    line-height: 2em;
-    text-align: right;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 36px;
-}
-
-#keypad-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-    grid-row-gap: 5px;
-    grid-column-gap: 5px;
-    padding-bottom: 5px;
-    ;
-}
-
-button.btn {
-    height: 100px;
+.sym {
+    display: inline-block;
+    width: 50px;
+    color: red;
+    margin-left: 15px;
     font-weight: bold;
-    background-color: #c4c0c0;
-    line-height: 2em;
-    font-size: 2em;
+    font-size: 1.2em;
 }
 
-#btn-equals {
-    /* position: relative;
-    overflow: hidden; */
+#results::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#results {
+    display: block;
+    height: 200px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
