@@ -16,7 +16,6 @@ var number1 = document.getElementById("txtNumber1");
 var number2 = document.getElementById("txtNumber2");
 var radio = document.getElementsByClassName("operand");
 var results = document.getElementById("txtResults");
-console.log(radio);
 
 btnCalc.addEventListener("click", (e) => {
     results.textContent = mathOperation(btnCalc.dataset.current, number1.value, number2.value).toString();
@@ -28,13 +27,11 @@ const buildRadio = (radio) => {
     for (var i = 0; i < radio.length; i++) {
         radio[i].addEventListener('click', function (e) {
             btnCalc.dataset.current = e.target.dataset.sym;
-            console.log(btnCalc.dataset.current);
         });
     }
 }
 const mathOperation = (operand, number1, number2) => {
     let result;
-    console.log(operand);
     switch (operand) {
         case "+":
             result = calculator.add(number1, number2);
@@ -52,7 +49,6 @@ const mathOperation = (operand, number1, number2) => {
             return 'error';
             break;
     };
-    console.log(result);
     return result;
 }
 
