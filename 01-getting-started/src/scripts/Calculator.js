@@ -14,6 +14,10 @@ const calculator = {
     add: (number1, number2) => {
         let result;
         try {
+            if (!Number.isNaN(number1) && !Number.isNaN(number2)) {
+                number1 = parseFloat(number1);
+                number2 = parseFloat(number2);
+            }
             if (Number.isInteger(number1) && Number.isInteger(number2)) {
                 result = number1 + number2;
             } else {
@@ -35,6 +39,10 @@ const calculator = {
     subtract: (number1, number2) => {
         let result;
         try {
+            if (!Number.isNaN(number1) && !Number.isNaN(number2)) {
+                number1 = parseFloat(number1);
+                number2 = parseFloat(number2);
+            }
             if (Number.isInteger(number1) && Number.isInteger(number2)) {
                 result = number1 - number2;
             } else {
@@ -55,6 +63,10 @@ const calculator = {
     multiply: (number1, number2) => {
         let result;
         try {
+            if (!Number.isNaN(number1) && !Number.isNaN(number2)) {
+                number1 = parseFloat(number1);
+                number2 = parseFloat(number2);
+            }
             if (Number.isInteger(number1) && Number.isInteger(number2)) {
                 result = number1 * number2;
             } else {
@@ -75,6 +87,10 @@ const calculator = {
     divide: (dividend, divisor) => {
         let quotient;
         try {
+            if (!Number.isNaN(dividend) && !Number.isNaN(divisor)) {
+                dividend = parseFloat(dividend);
+                divisor = parseFloat(divisor);
+            }
             if (divisor == 0) {
                 throw new Error("Divide by 0, the divisor cannot be 0.");
             }

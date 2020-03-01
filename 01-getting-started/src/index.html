@@ -119,48 +119,55 @@
             </div>
             <!--Calculator-->
             <div class="section">
-                <div class="w3-container w3-border w3-margin-bottom w3-large w3-padding">
-                    <h2 class="w3-center">My Calculator</h2>
-                    <div class="w3-container">
-                        <label class="w3-quarter" for=" number1">Number 1:
-                        </label>
-                        <input id="txtNumber1" class="w3-threequarter w3-right-align" type="text" name="number1"
-                            id="number1" value='12'>
-                    </div>
-                    <div class="w3-container ">
-                        <label class="w3-quarter" for="number2"> Number 2:
-                        </label>
-                        <input id="txtNumber2" class="w3-threequarter w3-right-align" type="text" name="number2"
-                            value="3" id="number2">
-                    </div>
-                    <div class="w3-container rounded">
-                        <div class="w3-quarter">&nbsp;</div>
-                        <div class="w3-threequarter">
-                            <label for="add" class="w3-quarter">
-                                <input class="operand" type="radio" name="operations" data-sym="+" checked /><span
-                                    class="sym">&#43;
-                                </span></label>
-                            <label for="subtract" class="w3-quarter">
-                                <input class="operand" type="radio" name="operations" data-sym="-" /><span
-                                    class="sym">&#8722;
-                                </span></label>
-                            <label for="multiply" class="w3-quarter">
-                                <input class="operand" type="radio" name="operations" data-sym="*" /><span
-                                    class="sym">&#215;
-                                </span></label>
-                            <label for="division" class="w3-quarter"><input class="operand" type="radio"
-                                    name="operations" data-sym="/" /><span class="sym">&#247;</span></label>
+                <div class="calculator">
+                    <div class="w3-container w3-border w3-margin-bottom w3-large w3-padding">
+                        <h2 class="w3-center">My Calculator</h2>
+                        <div class="w3-container">
+                            <label id="lblnumber1" class="w3-quarter control" for=" number1">Number 1:
+                            </label>
+                            <input id="txtNumber1" class="w3-threequarter w3-right-align control" type="text"
+                                name="number1" value="0" id="number1">
                         </div>
-                    </div>
-                    <div id="results-panel" class="w3-container">
-                        <label class="w3-quarter" for="results">Results
-                        </label>
-                        <div id="txtResults" class="w3-threequarter w3-right-align w3-border">
+                        <div class="w3-container  control-group">
+                            <label id="lblNumber2" class="w3-quarter control" for="number2"> Number 2:
+                            </label>
+                            <input id="txtNumber2" class="w3-threequarter w3-right-align control" type="text"
+                                name="number2" value="0" id="number2">
                         </div>
-                    </div>
-                    <div class="w3-container">
-                        <button id="btnCalculate" class="w3-btn w3-block w3-teal" data-current="+">Calculate
-                        </button>
+                        <div class="w3-container control-group">
+                            <div class="w3-quarter">&nbsp;</div>
+                            <div class="w3-threequarter control-group">
+                                <label for="rdoAdd" class="w3-quarter btn-radio">
+                                    <input id="rdoAdd" class="operand" type="radio" name="operations" data-sym="+"
+                                        checked /><span class="sym">&#43;
+                                    </span></label>
+                                <label for="rdoSubtract" class="w3-quarter btn-radio">
+                                    <input id="rdoSubtract" class="operand" type="radio" name="operations"
+                                        data-sym="-" /><span class="sym">&#8722;
+                                    </span></label>
+                                <label for="rdoMultiply" class="w3-quarter btn-radio">
+                                    <input id="rdoMultiply" class="operand" type="radio" name="operations"
+                                        data-sym="*" /><span class="sym">&#215;
+                                    </span></label>
+                                <label for="rdoDivision" class="w3-quarter btn-radio">
+                                    <input id="rdoDivision" class="operand" type="radio" name="operations"
+                                        data-sym="/" /><span class="sym">&#247;</span></label>
+                            </div>
+                        </div>
+                        <div id="results-panel" class="w3-container control-group">
+                            <label id="lblResults" class="w3-quarter" for="results">Results
+                            </label>
+                            <div id="txtResults" class="w3-threequarter w3-border control">
+                            </div>
+                        </div>
+                        <div class="w3-container control-group">
+                            <div class="w3-quarter w3-left-align">&nbsp;</div>
+                            <div class="w3-right-align w3-threequarter ">
+                                <button id="btnCalculate" class="w3-btn w3-block w3-teal control"
+                                    data-current="+">Calculate
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -70,6 +70,24 @@ body, html {
     }
 }
 
+.section {
+    background-color: #428af7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.calculator {
+    margin: auto auto;
+    width: 80%;
+    background-color: #f5eeee;
+    border: solid 5px #343;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
 .sym {
     display: inline-block;
     width: 50px;
@@ -79,15 +97,32 @@ body, html {
     font-size: 1.2em;
 }
 
-#results::after {
+#txtResults::after {
     content: "";
     display: block;
     clear: both;
 }
 
-#results {
+#txtResults {
     display: block;
-    height: 200px;
+    height: 5em;
+    min-height: 5em;
     margin-top: 2px;
     margin-bottom: 2px;
+    text-align: center;
+    line-height: 5em;
+    font-size: 1.2em;
+}
+
+.control {
+    margin: 2px 0;
+    padding-right: 5px;
+}
+
+.btn-radio {
+    padding: 2px 5px;
+}
+
+.btn-radio:hover {
+    background-color: #c2c0c0
 }

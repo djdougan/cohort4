@@ -23,6 +23,7 @@ btnCalc.addEventListener("click", (e) => {
 });
 
 
+
 const buildRadio = (radio) => {
     for (var i = 0; i < radio.length; i++) {
         radio[i].addEventListener('click', function (e) {
@@ -30,6 +31,7 @@ const buildRadio = (radio) => {
         });
     }
 }
+
 const mathOperation = (operand, number1, number2) => {
     let result;
     switch (operand) {
