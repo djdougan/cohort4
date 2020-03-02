@@ -1,25 +1,16 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body, h1, h2, h3, h4, h5, h6 {
     font-family: "Lato", sans-serif;
 }
 
-body,
-html {
+body, html {
     height: 100%;
     color: #777;
     line-height: 1.8;
 }
 
-
 /* Create a Parallax Effect */
 
-.bgimg-1,
-.bgimg-2 {
+.bgimg-1, .bgimg-2 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +20,6 @@ html {
 .info-box {
     width: 80%
 }
-
 
 /* First image (Logo. Full height) */
 
@@ -41,7 +31,6 @@ html {
     border-radius: 50%;
     opacity: 0.3;
 }
-
 
 /* Second image (Size) */
 
@@ -65,14 +54,91 @@ html {
     width: 50px;
 }
 
-
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (min-device-width: 1600px) {
-    .bgimg-1,
-    .bgimg-2,
-    .bgimg-3 {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
         min-height: 400px;
     }
+}
+
+div#canadian-taxes {
+    text-align: center;
+}
+
+.box {
+    border: 2px solid #444;
+    width: 900px;
+    margin: 10px auto 10px;
+    padding: 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 55% 25% 15%;
+}
+
+.row p {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+div#canadian-taxes .description {
+    text-align: left;
+}
+
+.line-input, .line-number {
+    justify-self: center;
+}
+
+.line-number {
+    text-align: center;
+}
+
+.line {
+    line-height: 2em;
+}
+
+span.line-number {
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 3em;
+    display: block;
+    margin: 0 auto;
+}
+
+.row {
+    position: relative;
+}
+
+/* .line-input#line38, .line-input#line40, .line-input#line42 {
+    padding-left: 20px;
+    color: teal;
+} */
+
+.line-input {
+    display: block;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1.2em;
+    border: none;
+    border-bottom: 1px solid #444;
+}
+
+input.line-input::before {
+    content: "=";
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 2em;
+    ;
+    font-size: 1.2em;
+    position: absolute;
+    left: 20px;
+    z-index: 99;
+    line-height: 2em;
+    font-weight: bold;
+    background-color: green;
+    color: red;
 }
