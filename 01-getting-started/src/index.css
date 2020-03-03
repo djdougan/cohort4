@@ -119,6 +119,7 @@ span.line-number {
 
 .line-input {
     display: block;
+    position: relative;
     text-align: left;
     padding-left: 20px;
     font-size: 1.2em;
@@ -126,13 +127,13 @@ span.line-number {
     border-bottom: 1px solid #444;
 }
 
-input.line-input::before {
+/* 
+.row input.line-input::before {
     content: "=";
     position: absolute;
     display: inline-block;
-    width: 50px;
-    height: 2em;
-    ;
+    width: 100px;
+    height: 100px;
     font-size: 1.2em;
     position: absolute;
     left: 20px;
@@ -141,4 +142,4 @@ input.line-input::before {
     font-weight: bold;
     background-color: green;
     color: red;
-}
+} */

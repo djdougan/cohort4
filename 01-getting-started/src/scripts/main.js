@@ -1,4 +1,7 @@
 import functions from './functions.js';
+import canadianTaxes from './canadian-tax';
+import syntax from "./syntax"
+
 
 // **********
 //
@@ -8,3 +11,4 @@ import functions from './functions.js';
 idNumber.addEventListener('change', (() => {
     idNumberSize.textContent = functions.size(idNumber.value);
 }));
+
