@@ -102,41 +102,33 @@
                 <!--https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html#federal-->
                 <h3>Canadian Taxes</h3>
                 <h4>Federal tax on taxable income manual calculation</h4>
-                <div class="container box">
-                    <div class="row">
-                        <p class="description">Enter your taxable income from line 26000 of your return</p>
-                        <input class="line-input" type="text" name="line36" id="line36" value="">
-                        <label class="line" for="line36"><span class="line-number">line 36</span></label>
-                    </div>
-                    <div class="row">
-                        <p class="description">Base amount</p>
-                        <input class="line-input" type="text" name="line37" id="line37" value="- 0">
-                        <label class="line" for="line37"><span class="line-number">line 37</span></label>
-                    </div>
-                    <div class="row">
-                        <p class="description">Line 36 minus line 37 (this amount cannot be negative)</p>
-                        <input class="line-input" type="text" name="line38" id="line38">
-                        <label class="line" for="line38"><span class="line-number">line 38</span></label>
-                    </div>
-                    <div class="row">
-                        <p class="description">Federal tax rate</p>
-                        <input class="line-input" type="text" name="line39" id="line39" value="x 15%">
-                        <span class="line" for="line39"><span class="line-number">line 39</span></span>
-                    </div>
-                    <div class="row">
-                        <p class="description">Multiply the amount on line 38 by the tax rate on line 39</p>
-                        <input class="line-input" type="text" name="line40" id="line40" value="=">
-                        <label class="line" for="line40"><span class="line-number">line 40</span></label>
-                    </div>
-                    <div class="row">
-                        <p class="description">Tax on the amount from line 37</p>
-                        <input class="line-input" type="text" name="line41" id="line41" value="+ 0">
-                        <label class="line" for="line41"><span class="line-number">line 41</span></label>
-                    </div>
-                    <div class="row">
-                        <p class="description">Add lines 40 and 41</p>
-                        <input class="line-input" type="text" name="line42" id="line42" value="=">
-                        <label class="line" for="line42"><span class="line-number">line 42</span></label>
+                <div class="container ">
+                    <div class="box">
+                        <div class="row">
+                            <label class="line" for="txtIncome">Enter you taxable income</label>
+                            <input class="txtinput" type="text" name="txtIncome" id="txtIncome" value="">
+                        </div>
+                        <div class="row">
+                            <label class="line" for="txtResult">Tax Calculation</label>
+                            <input class="txtinput" type="text" name="txtResult" id="txtResult" disabled>
+                        </div>
+                        <div class="row">
+                            <label class="line" for="txtOvertime">Overtime Income</label>
+                            <input class="txtinput" type="text" name="txtOvertime" id="txtOvertime">
+                        </div>
+                        <div class="row">
+                            <label class="line" for="txtOvertimeTax">Overtime Tax Calculation</label>
+                            <input class="txtinput" type="text" name="txtOvertimeTax" id="txtOvertimeTax" disabled>
+                        </div>
+                        <div class="row">
+                            <label class="line" for="txtDifference">Tax on overtime</label>
+                            <input class="txtinput" type="text" name="txtDifference" id="txtDifference" disabled>
+                        </div>
+                        <div class="row">
+                            <label class="line" for="txtTaxRate">Tax Rate on overtime</label>
+                            <input class="txtinput" type="text" name="txtTaxRate" id="txtTaxRate" disabled>
+                        </div>
+                        <button id="btnCalculate" type="submit">Calculate</button>
                     </div>
                 </div>
             </div>

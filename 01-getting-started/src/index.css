@@ -76,7 +76,12 @@ div#canadian-taxes {
 
 .row {
     display: grid;
-    grid-template-columns: 55% 25% 15%;
+    grid-template-columns: 55% 45%;
+}
+
+.row:last-child {
+    grid-column-start: 0;
+    grid-column-end: 3;
 }
 
 .row p {
@@ -85,61 +90,29 @@ div#canadian-taxes {
 }
 
 div#canadian-taxes .description {
-    text-align: left;
-}
-
-.line-input, .line-number {
-    justify-self: center;
-}
-
-.line-number {
-    text-align: center;
+    text-align: right;
 }
 
 .line {
     line-height: 2em;
+    justify-self: left
 }
 
-span.line-number {
-    font-weight: bold;
-    font-size: 1.2em;
-    line-height: 3em;
-    display: block;
-    margin: 0 auto;
-}
-
-.row {
-    position: relative;
-}
-
-/* .line-input#line38, .line-input#line40, .line-input#line42 {
-    padding-left: 20px;
-    color: teal;
-} */
-
-.line-input {
+.txtinput {
+    justify-self: center;
     display: block;
     position: relative;
-    text-align: left;
-    padding-left: 20px;
+    text-align: right;
+    padding-right: 10px;
     font-size: 1.2em;
     border: none;
     border-bottom: 1px solid #444;
 }
 
-/* 
-.row input.line-input::before {
-    content: "=";
-    position: absolute;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    font-size: 1.2em;
-    position: absolute;
-    left: 20px;
-    z-index: 99;
-    line-height: 2em;
-    font-weight: bold;
-    background-color: green;
-    color: red;
-} */
+#btnCalculate {
+    display: block;
+    min-width: 90%;
+    width: 90%;
+    margin: 10px auto;
+    background-color: #329770;
+}
