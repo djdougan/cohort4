@@ -1,6 +1,4 @@
-
-=======
-@font-face {
+=======@font-face {
     font-family: DS-Digital;
     src: url('./fonts/DS-Digital.ttf.eot'), url('./fonts/DS-Digital.ttf.woff') format('woff'), url('./fonts/DS-DIGI.TTF') format('truetype'), url('./fonts/DS-Digital.ttf.svg') format('svg');
     font-weight: normal;
@@ -72,6 +70,14 @@ body, html {
     }
 }
 
+.calculator {
+    width: 900px;
+    margin: 0 auto;
+    border: 1px solid #444;
+    font-weight: bold;
+    ;
+}
+
 div#canadian-taxes {
     text-align: center;
 }
@@ -121,11 +127,15 @@ div#canadian-taxes .description {
 #btnCalculate {
     display: block;
     min-width: 90%;
-    width: 90%;
+    width: 50%;
     margin: 10px auto;
-    background-color: #329770;
+    background-color: #009688;
+    color: #fff;
+    line-height: 2em;
+    font-weight: bold;
+}
+
 .section {
-    background-color: #428af7;
     padding-top: 10px;
     padding-bottom: 10px;
 }
