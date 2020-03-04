@@ -1,3 +1,5 @@
+
+=======
 @font-face {
     font-family: DS-Digital;
     src: url('./fonts/DS-Digital.ttf.eot'), url('./fonts/DS-Digital.ttf.woff') format('woff'), url('./fonts/DS-DIGI.TTF') format('truetype'), url('./fonts/DS-Digital.ttf.svg') format('svg');
@@ -70,6 +72,58 @@ body, html {
     }
 }
 
+div#canadian-taxes {
+    text-align: center;
+}
+
+.box {
+    border: 2px solid #444;
+    width: 900px;
+    margin: 10px auto 10px;
+    padding: 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 55% 45%;
+}
+
+.row:last-child {
+    grid-column-start: 0;
+    grid-column-end: 3;
+}
+
+.row p {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+div#canadian-taxes .description {
+    text-align: right;
+}
+
+.line {
+    line-height: 2em;
+    justify-self: left
+}
+
+.txtinput {
+    justify-self: center;
+    display: block;
+    position: relative;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-bottom: 1px solid #444;
+}
+
+#btnCalculate {
+    display: block;
+    min-width: 90%;
+    width: 90%;
+    margin: 10px auto;
+    background-color: #329770;
 .section {
     background-color: #428af7;
     padding-top: 10px;
