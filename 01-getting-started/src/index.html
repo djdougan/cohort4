@@ -98,8 +98,8 @@
 
         </div>
         <!--Calculator-->
-        <div class="section">
-            <div class="calculator">
+        <div class="container">
+            <div class="box">
                 <div class="w3-container w3-border w3-margin-bottom w3-large w3-padding">
                     <h2 class="w3-center">My Calculator</h2>
                     <div class="w3-container">
@@ -143,7 +143,8 @@
                     <div class="w3-container control-group">
                         <div class="w3-quarter w3-left-align">&nbsp;</div>
                         <div class="w3-right-align w3-threequarter ">
-                            <button id="btnCalculate" class="w3-btn w3-block w3-teal control" data-current="+">Calculate
+                            <button id="btnCalculate" class="w3-btn w3-block w3-teal control calculate-button"
+                                data-current="+">Calculate
                             </button>
                         </div>
                     </div>
@@ -181,7 +182,8 @@
                             <label class="line" for="txtTaxRate">Tax Rate on overtime</label>
                             <input class="txtinput" type="text" name="txtTaxRate" id="txtTaxRate" disabled>
                         </div>
-                        <button id="btnCalculate" type="submit">Calculate</button>
+                        <button id="btnCalculateTax" class="w3-btn w3-block w3-teal control calculate-button"
+                            type="submit">Calculate Tax</button>
                     </div>
                 </div>
             </div>

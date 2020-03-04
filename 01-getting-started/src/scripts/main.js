@@ -1,22 +1,20 @@
 import functions from './functions.js';
 import syntax from "./syntax.js"
 
-=======
 import calculator from './Calculator.js';
-
+import canadianTax from './canadian-tax.js';
 // **********
 //
 // Add the event listeners
-// 
+//
 const idNumber = document.getElementById("idNumber");
 const idNumberSize = document.getElementById("idNumberSize");
-=======
-const idNumberSize = document.getElementById("idNumberSizexx");
+const idNumberSizexx = document.getElementById("idNumberSizexx");
 idNumber.addEventListener('change', (() => {
     idNumberSize.textContent = functions.size(idNumber.value);
 }));
 
-const btnCalculate = document.getElementById("btnCalculate");
+const btnCalculateTax = document.getElementById("btnCalculateTax");
 const txtIncome = document.getElementById("txtIncome");
 const txtResults = document.getElementById("txtResult");
 const txtOvertime = document.getElementById("txtOvertime");
@@ -24,13 +22,13 @@ const txtOvertimeTax = document.getElementById("txtOvertimeTax");
 const txtDifference = document.getElementById("txtDifference");
 const txtTaxRate = document.getElementById("txtTaxRate");
 
-btnCalculate.addEventListener("click", function () {
+btnCalculateTax.addEventListener("click", function () {
 
     let income = parseFloat(txtIncome.value);
-    let tax = parseFloat(calculator.calculateTax(income));
+    let tax = parseFloat(canadianTax.calculateTax(income).toFixed(2));
     txtResults.value = "$" + tax.toFixed(2);
     let ot = parseFloat(txtIncome.value) + parseFloat(txtOvertime.value);
-    let overTimeTax = calculator.calculateTax(ot);
+    let overTimeTax = canadianTax.calculateTax(ot);
     txtOvertimeTax.value = "$" + overTimeTax;
     let diff = overTimeTax - tax;
     if (diff < 0) {
@@ -38,11 +36,10 @@ btnCalculate.addEventListener("click", function () {
         txtTaxRate.value = 0.00;
     } else {
         txtDifference.value = "$" + diff.toFixed(2);
-        txtTaxRate.value = (calculator.calculateTaxRate(ot, overTimeTax) * 100).toFixed(2) + "%";
+        txtTaxRate.value = (canadianTax.calculateTaxRate(ot, overTimeTax) * 100).toFixed(2) + "%";
     }
 
 })
-=======
 var btnCalc = document.getElementById("btnCalculate")
 var number1 = document.getElementById("txtNumber1");
 var number2 = document.getElementById("txtNumber2");

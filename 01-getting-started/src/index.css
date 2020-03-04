@@ -124,7 +124,7 @@ div#canadian-taxes .description {
     border-bottom: 1px solid #444;
 }
 
-#btnCalculate {
+.calculate-button {
     display: block;
     min-width: 90%;
     width: 50%;
