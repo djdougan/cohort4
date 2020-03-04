@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  *
  * Created at     : 2020-03-02 08:30:00
- * Last modified  : 2020-03-04 08:08:26
+ * Last modified  : 2020-03-04 10:31:41
  */
 import ct from './canadian-tax'
 
@@ -21,8 +21,15 @@ test("Test: calculateTax(rate, earnings) number", () => {
 test("Test: calculateTaxRate(income. tax)", () => {
     expect(ct.calculateTaxRate(100, 18.78)).toBe(0.18780000000000002);
     expect(ct.calculateTaxRate(10, 1.50)).toBe(0.15);
-    expect(ct.calculateTaxRate(1500, 305.78)).toBe(0.19718181818181818);
-    expect(ct.calculateTaxRate(2300, 469.78)).toBe(0.19718181818181818);
+    expect(ct.calculateTaxRate(1500, 305.78)).toBe(0.2038533333333333);
+    expect(ct.calculateTaxRate(2300, 469.78)).toBe(0.20425217391304346);
 });
+test("Test:calculateTax(earning) return number", () => {
+    expect(ct.calculateTax(1)).toBe(0.15);
+    expect(ct.calculateTax(2)).toBe(0.30);
+    expect(ct.calculateTax(50000)).toBe(7580.78);
+    expect(ct.calculateTax(100000)).toBe(29344.885000000002);
+    expect(ct.calculateTax(150000)).toBe(42344.884999999995);
+    expect(ct.calculateTax(250000)).toBe(72755.355);
 
-
+})
