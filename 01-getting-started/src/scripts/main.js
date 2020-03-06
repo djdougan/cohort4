@@ -1,12 +1,10 @@
 import functions from './functions.js';
-import syntax from "./syntax.js"
-
+// import syntax from "./syntax.js"
 import calculator from './Calculator.js';
 import canadianTax from './canadian-tax.js';
-// **********
-//
-// Add the event listeners
-//
+import workingWithArrays from './WorkingWithArrays.js'
+//Add the event listeners
+
 const idNumber = document.getElementById("idNumber");
 const idNumberSize = document.getElementById("idNumberSize");
 const idNumberSizexx = document.getElementById("idNumberSizexx");

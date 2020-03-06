@@ -71,7 +71,6 @@ body, html {
 }
 
 .calculator {
-    width: 900px;
     margin: 0 auto;
     border: 1px solid #444;
     font-weight: bold;
@@ -84,7 +83,6 @@ div#canadian-taxes {
 
 .box {
     border: 2px solid #444;
-    width: 900px;
     margin: 10px auto 10px;
     padding: 10px;
 }
@@ -126,8 +124,6 @@ div#canadian-taxes .description {
 
 .calculate-button {
     display: block;
-    min-width: 90%;
-    width: 50%;
     margin: 10px auto;
     background-color: #009688;
     color: #fff;
@@ -142,7 +138,6 @@ div#canadian-taxes .description {
 
 .calculator {
     margin: auto auto;
-    width: 80%;
     background-color: #f5eeee;
     border: solid 5px #343;
     border-radius: 5px;
