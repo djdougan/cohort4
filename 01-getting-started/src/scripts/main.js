@@ -2,6 +2,7 @@ import functions from './functions.js';
 import calculator from './Calculator.js';
 import canadianTax from './canadian-tax.js';
 import workingWithArrays from './WorkingWithArrays.js'
+import workingWithDictionaries from './workingWithDictionaries.js'
 //Add the event listeners
 
 const idNumber = document.getElementById("idNumber");
@@ -86,52 +87,68 @@ btnCalculateTax.addEventListener("click", function () {
  * Working with Arrays
  */
 const txtArrayNumber = document.querySelector("#txtArrayNumber");
-const btnAdd = document.querySelector("#btnAdd");
-const btnShow = document.querySelector("#btnShow");
-const btnTotal = document.querySelector("#btnTotal");
-const btnClear = document.querySelector("#btnClear");
-const txtMessageBoard = document.querySelector("#txtMessageBoard");
+const btnAdd1 = document.querySelector("#btnAdd1");
+const btnShow1 = document.querySelector("#btnShow1");
+const btnTotal1 = document.querySelector("#btnTotal1");
+const btnClear1 = document.querySelector("#btnClear1");
+const txtMessageBoard1 = document.querySelector("#txtMessageBoard1");
 let arrayWorker = new workingWithArrays();
 
-btnAdd.addEventListener("click", (e) => {
+btnAdd1.addEventListener("click", (e) => {
     let num = txtArrayNumber.value;
     // clear output for new data
-    clearMessageBoard();
-    printData(arrayWorker.add(num));
-    clearInput();
+    clearMessageBoard(txtMessageBoard1);
+    printData(txtMessageBoard1, arrayWorker.add(num));
+    clearInput(txtArrayNumber);
     setFocus(txtArrayNumber);
     e.preventDefault();
 });
-btnShow.addEventListener("click", (e) => {
+btnShow1.addEventListener("click", (e) => {
     // clear output for new data
-    clearMessageBoard();
-    printData(arrayWorker.show());
+    clearMessageBoard(txtArrayNumber);
+    printData(txtMessageBoard1, arrayWorker.show());
     e.preventDefault();
 });
-btnTotal.addEventListener("click", (e) => {
+btnTotal1.addEventListener("click", (e) => {
     // clear output for new data
-    clearMessageBoard();
+    clearMessageBoard(txtMessageBoard1);
 
-    printData(arrayWorker.total());
-    e.preventDefault();
-});
-
-btnClear.addEventListener("click", (e) => {
-    // clear output for new data
-    clearMessageBoard();
-    arrayWorker.clear();
+    printData(txtMessageBoard1, arrayWorker.total());
     e.preventDefault();
 });
 
-function clearMessageBoard() {
-    txtMessageBoard.textContent = "";
+btnClear1.addEventListener("click", (e) => {
+    // clear output for new data
+    clearMessageBoard(txtMessageBoard1);
+    printData(txtMessageBoard1, arrayWorker.clear());
+    e.preventDefault();
+});
+
+// Working with Dictionaries
+
+const txtProvince = document.querySelector("#txtProvince");
+const btnLookUp = document.querySelector("#btnLookUp");
+const txtMessageBoard2 = document.querySelector("#txtMessageBoard2");
+let dictionaryWorker = new workingWithDictionaries();
+
+btnLookUp.addEventListener("click", (e) => {
+    let province = txtProvince.value;
+    // clear output for new data
+    clearMessageBoard(txtMessageBoard2);
+    printData(txtMessageBoard2, dictionaryWorker.lookUp(province));
+    clearInput(txtProvince);
+    setFocus(txtProvince);
+    e.preventDefault();
+});
+function clearMessageBoard(ctrl) {
+    ctrl.textContent = "";
 }
-function printData(data) {
+function printData(ctrl, data) {
     console.log(data);
-    txtMessageBoard.textContent = data;
+    ctrl.textContent = data;
 }
-function clearInput() {
-    txtArrayNumber.value = "";
+function clearInput(ctrl) {
+    ctrl.value = "";
 }
 function setFocus(ctrl) {
     ctrl.focus();

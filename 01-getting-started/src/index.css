@@ -1,4 +1,4 @@
-=======@font-face {
+@font-face {
     font-family: DS-Digital;
     src: url('./fonts/DS-Digital.ttf.eot'), url('./fonts/DS-Digital.ttf.woff') format('woff'), url('./fonts/DS-DIGI.TTF') format('truetype'), url('./fonts/DS-Digital.ttf.svg') format('svg');
     font-weight: normal;
@@ -70,6 +70,8 @@ body, html {
     }
 }
 
+/* Calculator */
+
 .calculator {
     margin: 0 auto;
     border: 1px solid #444;
@@ -114,7 +116,7 @@ div#canadian-taxes .description {
 .txtInput {
     justify-self: center;
     display: block;
-    position: relative;
+    width: 100%;
     text-align: right;
     padding-right: 10px;
     font-size: 1.2em;
@@ -156,12 +158,6 @@ div#canadian-taxes .description {
     font-size: 1.2em;
 }
 
-#txtResults::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
 #txtResults {
     display: block;
     height: 5em;
@@ -188,13 +184,15 @@ div#canadian-taxes .description {
     font-weight: bolder;
 }
 
-#txtArrayNumber {
+.numberInput {
     width: 55%;
+    text-align: right;
+    padding-right: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#btnAdd, #btnShow, #btnClear, #btnTotal {
+.btn, .btn, .btn, .btn {
     width: 100px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -211,7 +209,7 @@ div#canadian-taxes .description {
     background-color: #c2c0c0
 }
 
-#txtMessageBoard {
+.messageBoard {
     font-size: 2em;
     font-weight: bold;
     padding: 10px;
