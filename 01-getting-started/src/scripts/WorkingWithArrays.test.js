@@ -36,4 +36,3 @@ test("myArrayList: clear() clears the array", () => {
     expect(list1.clear()).toEqual("The array is empty.");
 
 });
-
