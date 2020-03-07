@@ -1,27 +1,38 @@
 
-const WorkingWithArrays = {
 
-    "data": [],
-
-    add: (num) => {
-        if (!isNaN(parseInt(num))) {
-            this.data.push(num);
-            return "The number has been added to the array.";
-        } else {
-            return "not a valid number.";
-        }
-    },
-    show: () => {
-
-    },
-    total: () => {
-
-    },
-    clear: () => {
+class myArrayList {
+    constructor() {
         this.data = [];
-        return data;
-    }
-}
 
+    };
 
-export default WorkingWithArrays;
+    add(num) {
+        let result = "";
+        if (typeof num === 'string') {
+            num = parseFloat(num);
+        }
+        if (isNaN(num)) {
+            result = "Not a valid number.";
+        } else {
+            this.data.push(num);
+            result = "The number has been added to the array.";
+        }
+        return result;
+    };
+    show() {
+        return this.data.toString();
+    };
+    total() {
+        var result = 0;
+        this.data.forEach(x => {
+            result += x;
+        });
+        return result;
+    };
+    clear() {
+        this.data.length = 0;
+        return "The array is empty.";
+    };
+};
+
+export default myArrayList;

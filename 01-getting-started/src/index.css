@@ -111,7 +111,7 @@ div#canadian-taxes .description {
     justify-self: left
 }
 
-.txtinput {
+.txtInput {
     justify-self: center;
     display: block;
     position: relative;
@@ -178,10 +178,42 @@ div#canadian-taxes .description {
     padding-right: 5px;
 }
 
+#working-with-arrays {
+    border: solid 1px black;
+    height: 400px;
+    margin: 20px auto;
+}
+
+#working-with-arrays h2 {
+    font-weight: bolder;
+}
+
+#txtArrayNumber {
+    width: 55%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#btnAdd, #btnShow, #btnClear, #btnTotal {
+    width: 100px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
 .btn-radio {
     padding: 2px 5px;
 }
 
 .btn-radio:hover {
     background-color: #c2c0c0
+}
+
+#txtMessageBoard {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 10px;
+    ;
 }
