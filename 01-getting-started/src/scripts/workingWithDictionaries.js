@@ -50,7 +50,6 @@ class CanadianProvinces {
             } else {
                 result = "Province abbreviation should be 2 characters long.";
             }
-            console.log(abbr.length, result);
         }
         return result;
     };

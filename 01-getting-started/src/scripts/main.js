@@ -144,7 +144,6 @@ function clearMessageBoard(ctrl) {
     ctrl.textContent = "";
 }
 function printData(ctrl, data) {
-    console.log(data);
     ctrl.textContent = data;
 }
 function clearInput(ctrl) {
