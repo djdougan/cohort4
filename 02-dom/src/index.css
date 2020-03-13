@@ -3,23 +3,25 @@ body {
     font-size: 18px;
 }
 
-/* unvisited link */
-
-a:link, a:visited, a:hover, a:active {
-    text-decoration: none;
+header, main, footer, section {
+    width: 100%;
 }
 
-.container {
-    width: 960px;
-    margin: 0 auto;
+section {
+    min-height: 75vh;
+    padding: 50px;
 }
 
-.center-text {
-    text-align: center;
+section::after {
+    content: "";
+    clear: both;
+    display: block;
 }
 
-.center {
-    margin: 0 auto;
+footer {
+    min-height: 250px;
+    background-color: #363636;
+    color: #ddd;
 }
 
 h1 {
@@ -50,19 +52,71 @@ p {
     font-size: 1.2em;
 }
 
+section#basic-dom {
+    background-color: #3669d8;
+}
+
+section#basic-dom .container {
+    background-color: #3b5350;
+    color: #fff;
+}
+
+section#card-section {
+    background-color: #3b5350;
+    color: #fff;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center {
+    margin: 0 auto;
+}
+
 .btn {
     color: #fff;
     font-size: 1.3em;
-    ;
     background-color: #21618b;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    width: 150px;
+    width: 200px;
     margin: 5px;
     padding: 10px;
+}
+
+.btn-after, .btn-before {
+    position: absolute;
+    top: 0px;
+}
+
+.btn-before {
+    position: absolute;
+    left: 30%;
+}
+
+.btn-after {
+    right: 25%;
+}
+
+.btn.btn-delete {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
 }
 
 .btn:hover {
@@ -71,9 +125,12 @@ p {
     border: solid 2px #21618b;
 }
 
-.sticky-bottom {
-    position: absolute;
-    bottom: 10px;
+.hidden {
+    visibility: hidden;
+}
+
+.border-2 {
+    border: solid 2px;
 }
 
 div a img.menu-img {
@@ -100,7 +157,7 @@ span.evolve-text {
 
 /* navbar */
 
-ul#main-nav {
+.main-nav {
     background-color: #363636;
     padding-left: 20px;
     height: 2.5em;
@@ -124,13 +181,15 @@ ul#main-nav li:hover {
 
 /* Basic dom */
 
-#dom-container {
-    min-height: 600px;
-    position: relative;
+section.basic-dom {
+    background-color: #205fbd;
 }
 
-.dom-container p {
-    font-size: 1.3em;
+#dom-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    position: relative;
 }
 
 .dom-header {
@@ -142,7 +201,6 @@ ul#main-nav li:hover {
     letter-spacing: -5px;
     position: relative;
     padding: 5px;
-    border: solid 1px #000;
     background-color: #831b1b;
     display: inline-block;
     transform: skew(-15deg);
@@ -153,57 +211,124 @@ ul#main-nav li:hover {
 }
 
 .letter {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 2.5em;
     display: inline-block;
-    border: solid #fff 5px;
     padding: 7px;
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 3px #330000;
     margin-left: 2px;
     margin-right: 2px;
     color: #fff;
-    background-color: #831b1b;
+    background-color: #741818;
 }
 
-#dom-header #B {}
+.dom-header-text, .letter {
+    border: solid 5px #330000;
+}
 
-#a {}
+#B, #D, #O, #M {
+    color: #fff;
+}
 
-#s {}
-
-#i {}
-
-#c {}
-
-#D {}
-
-#O {}
-
-#M {}
+#a, #s, #i, #c {
+    padding: 0px 10px;
+    color: red;
+}
 
 .dom-body {
-    position: relative;
-    background-color: red;
-    height: 100%;
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
 }
 
-.dom-body::after {
-    content: "";
-    clear: both;
-    display: table;
+.dom-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    bottom: 10px;
 }
 
 ol.numbered-list {
-    position: absolute;
     display: inline-block;
     left: 35%;
-    top: 5px;
+    top: 20px;
     list-style-type: decimal;
     padding-left: 20px;
     width: 400px;
     font-size: 1.4em
 }
 
-.border-2 {
-    border: solid 2px;
+.lstItem {
+    position: relative;
+}
+
+.lstItem::after {
+    content: "\2718";
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    height: 100%;
+    cursor: pointer;
+    color: red;
+}
+
+.panel {
+    width: 50%;
+    float: left;
+}
+
+#card-section .container {
+    width: 100%
+}
+
+div.large-box {
+    width: 80%;
+    height: 500px;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    border: solid 1px #444;
+    margin: 10px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.panel .panel {
+    float: right;
+}
+
+/*  Card */
+
+#card-container {
+    padding: 10px;
+    min-height: 300px;
+    border: solid 1px #445;
+    background-color: #3a4;
+}
+
+.idCard {
+    position: relative;
+    width: 100%;
+    margin: 5px auto;
+    height: 150px;
+    border: solid 1px #445;
+    background-color: #470a19;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.idCard p {
+    /* center text on the bottom of the card */
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
