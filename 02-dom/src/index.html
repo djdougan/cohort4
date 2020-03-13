@@ -12,9 +12,9 @@
     </head>
 
     <body>
-        <div class="container">
-            <header>
-                <nav id="nav nav-bar dark">
+        <header>
+            <nav id="nav nav-bar dark">
+                <div class="container">
                     <div>
                         <a href="https://www.evolveu.ca/" target="_blank"><img class="menu-img"
                                 src="./images/evolve-u.png" alt="EvolveU">
@@ -23,42 +23,76 @@
                     </div>
                     <ul id="main-nav">
                         <li><a href="#">Home</a></li>
-                        <li><a href=""></a></li>
-                        <li><a href=""></a></li>
-                        <li><a href=""></a></li>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
                     </ul>
-                </nav>
-            </header>
-            <main>
-                <section id="basic-dom">
+            </nav>
+            </div>
+        </header>
+        <main>
+            <section id="basic-dom">
+                <div class="container">
                     <div id="dom-container" class="border-2 center">
                         <div class="dom-header border-2 center-text">
+
                             <h2 class="dom-header-text" class="center-text"><span class="letter" id="B">B</span><span
                                     class="letter" id="a">a</span><span class="letter" id="s">s</span><span
                                     class="letter" id="i">i</span><span class="letter" id="c">c</span>
                                 <span class="letter" id="D">D</span><span class="letter" id="O">O</span><span
                                     class="letter" id="M">M</span></h2>
-                        </div>
-                        <hr>
-                        <p class="center-text">This is a list of stuff</p>
-                        <div class="dom-body">
-                            <ol class="numbered-list">
-                                <li>Item 1</li>
-                                <li>Item 2</li>
-                                <li>Item 3</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="control-group sticky-bottom">
-                        <button id="btnShow" class="btn btn-md">Show</button><button id="btnAdd"
-                            class="btn btn-md btn-bottom">Add</button>
-                    </div>
-                </section>
-            </main>
-            <footer>
 
-            </footer>
-        </div>
+                        </div>
+                        <div class="dom-body">
+                            <p class="center-text">Click the Add Button to Add list items</p>
+                            <ol id="olList" class="numbered-list"></ol>
+                        </div>
+                        <div class="dom-footer">
+                            <input type="button" id="btnShow" class="btn btn-md" value="Hide">
+                            <input type="button" id="btnPrependTo" class="btn btn-md btn-bottom"
+                                value="Add front of List">
+                            <input type="button" id="btnAppendTo" class="btn btn-md btn-bottom" value="Add end of List">
+                            <input type="button" id="btnDelete" class="btn btn-md btn-bottom" value="Delete">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="card-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="row">
+                            <h1>Working with Cards</h1>
+                        </div>
+                        <div class="row">
+                            <div class="panel">
+                                <input id="btnCard" class="btn center-text" type="button" value="New Card">
+                                <div id="card-container"></div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="panel">
+                                <div class="large-box">
+                                    <h1>Right Side</h1>
+                                </div>
+                                <div class="large-box">
+                                    <h1>Right Side</h1>
+                                </div>
+                                <div class="large-box">
+                                    <h1>Right Side</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                Footer
+            </div>
+
+        </footer>
         <script type="module" src="./scripts/main.js"></script>
     </body>
 
