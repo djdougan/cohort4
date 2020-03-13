@@ -11,10 +11,7 @@ const cardContainer = document.querySelector("#card-container");
 
 
 const olList = document.querySelector("#olList");
-// domContainer.addEventListener("click", function (e) {
-//     console.log(e.target);
-//     e.preventDefault();
-// });
+
 
 btnPrependTo.addEventListener("click", function (e) {
     let pm = new PageManager();
@@ -33,7 +30,6 @@ btnAppendTo.addEventListener("click", function (e) {
 
     let element = pm.createListElement("Item " + count, "item" + count, "lstItem");
     pm.appendElement(element, olList);
-    console.log(element);
     e.preventDefault();
 
 })
