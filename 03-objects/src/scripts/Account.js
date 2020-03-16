@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-16 15:26:51
+ * Last modified  : 2020-03-16 15:49:06
  *
  * @name Account
  * Creates a stack like with array as it's container
@@ -22,6 +22,7 @@ class Account {
         this._accountName = accountName;
         this._balance = initialBalance;
     };
+
     /**
   * @description deposits amount to account
   * @name deposit
