@@ -5,10 +5,9 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-16 15:49:06
+ * Last modified  : 2020-03-17 16:19:09
  *
  * @name Account
- * Creates a stack like with array as it's container
  * @class
  */
 class Account {
@@ -19,8 +18,18 @@ class Account {
 * @param {number} initialBalance -- amount deposited when account was created.
 */
     constructor(accountName, initialBalance) {
-        this._accountName = accountName;
-        this._balance = initialBalance;
+        try {
+            if (this.isValidNumber(initialBalance)) {
+                this._accountName = accountName;
+                this._balance = initialBalance;
+            } else {
+
+                throw new Error(`The value ${initialBalance} is not a valid number.`)
+            }
+        } catch (err) {
+            throw err
+        }
+
     };
 
     /**
@@ -29,8 +38,17 @@ class Account {
   * @param {number} amount -- amount to be deposit
  */
     deposit(amount) {
-        if (amount > 0) {
-            this._balance += amount;
+        try {
+            if (this.isValidNumber(amount)) {
+                if (amount > 0) {
+                    this._balance += amount;
+                }
+            } else {
+
+                throw new Error(`The value ${amount} is not a valid number.`)
+            }
+        } catch (err) {
+            throw err;
         }
     };
     /**
@@ -38,9 +56,18 @@ class Account {
   * @name withdraw
   * @param {number} amount -- amount to withdraw from account.
  */
-    withdraw(amount) {
-        // over draft is allowed
-        this._balance -= amount;
+    withdrawal(amount) {
+        try {
+            if (this.isValidNumber(amount)) {
+                // over draft is allowed
+                this._balance -= amount;
+            } else {
+
+                throw new Error(`The value ${amount} is not a valid number.`)
+            }
+        } catch (err) {
+            throw err;
+        }
     };
     /**
   * @description gets account balance
@@ -51,6 +78,62 @@ class Account {
         return this._balance;
     };
 
+    isValidNumber(number) {
+        let result = true;
+        if (!isNaN(number)) {
+            result = true;
+        }
+        else {
+            result = false;
+        }
+        return result;
+
+    };
+
+
+};
+
+
+/**
+ * Copyright (c) 2020
+ *
+ * @summary Working with objects 
+ * @author Douglas J Dougan djdougan@gmail.com
+ * @summary Competency 100D exercise at https://www.evolveu.ca/
+ * Created at     : 2020-03-17 12:15:00
+ * Last modified  : 2020-03-17 12:01:49
+ *
+ * @name AccountController
+ * @class
+ */
+class AccountController {
+
+    constructor() {
+        this.accounts = [];
+    }
+    createAccount(account) {
+        if (account) {
+            this.accounts.push(account);
+        }
+    }
+    removeAccount(account) {
+
+    }
+    nameAccount() {
+
+    }
+
+    getAccountTotal(account) {
+
+    }
+    getHighestValuedAccount() {
+
+    }
+    getLowestValuedAccount() {
+
+    }
+
+
 }
 
-export default Account;
+export { Account, AccountController };
