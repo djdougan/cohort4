@@ -1,4 +1,4 @@
-import Account from "./Account.js";
+import {Account} from "./Account.js";
 
 const ddlAccountList = document.querySelector("#ddlAccounts");
 const txtInitialDeposit = document.querySelector("#txtInitialDeposit");
