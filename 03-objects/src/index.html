@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+    <body>
+        <section id="banking-app">
+            <div class="accountInterface ">
+                <h1>Banking Application</h1>
+                <div class="control-group">
+                    <label for="">Create Account</label>
+                    <select id="ddlAccounts">
+                        <option value="select">Select a Account</option>
+                        <option value="savings">Savings</option>
+                        <option value="checking">Checking</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="">Funds Deposited</label>
+                    <input type="text" name="txtInitialDeposit" id="txtInitialDeposit">
+                </div>
+                <div class="control-group">
+                    <input type="button" id="btnCreateAccount" value="Create Account">
+                </div>
+                <hr>
+                <div class="control-group">
+                    <label for="">Transactions</label>
+                    <input type="text" name="txtDepositAmount" id="txtDepositAmount">
+                </div>
+                <div class="control-group">
+                    <input type="button" id="btnDeposit" value="Deposit">
+                </div>
+                <div class="control-group">
+                    <input type="button" id="btnWithdrawal" value="Withdrawal">
+                </div>
+                <hr>
+                <div class="control-group">
+                    <label for="">Balance</label>
+                    <input type="text" name="txtBalance" id="txtBalance">
+                </div>
+            </div>
+        </section>
+
+
+        <script type="module" src="./scripts/index.js"></script>
+    </body>
+
+</html>

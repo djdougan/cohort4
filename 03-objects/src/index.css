@@ -1,0 +1,140 @@
+html, body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid #444;
+}
+
+.accountInterface {
+    border: 10px solid #fff;
+    border-radius: 20px;
+    display: block;
+    width: 960px;
+    min-height: 500px;
+    border: 2px solid #555;
+    margin: 12px auto;
+    background-color: #b00b1c;
+    color: #ffd400;
+}
+
+.accountInterface h1 {
+    font-size: 3em;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.accountInterface h1 {
+    text-align: center;
+    ;
+}
+
+.control-group {
+    margin: 10px 0;
+}
+
+select#ddlAccounts {
+    margin: 10px auto;
+    display: block;
+    width: 90%;
+    font-weight: bolder;
+    line-height: 2.5em;
+    height: 2.5em;
+    border: solid 5px #444;
+    border-radius: 20px;
+    font-size: 2em;
+    color: #444;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #ffd400;
+    /*Fallbackcolorifgradientsarenotsupported*/
+    background-image: url(./images/select-arrow.svg);
+    /*ForChromeandSafari*/
+    background-image: url(./images/select-arrow.svg);
+    /*ForoldFirefox(3.6to15)*/
+    background-image: url(./images/select-arrow.svg);
+    /*Forpre-releasesofInternetExplorer10*/
+    background-image: url(./images/select-arrow.svg);
+    /*ForoldOpera(11.1to12.0)*/
+    background-image: url(./images/select-arrow.svg);
+    /*Standardsyntax:;
+    mustbelast*/
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 90px 50px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+    overflow: hidden;
+    padding: 4px 10px 4px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+select#ddlAccounts {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+/* For IE10 */
+
+select#ddlAccounts::-ms-expand {
+    display: none;
+}
+
+.control-group label {
+    font-size: 2em;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.control-group input[type="text"], .control-group input[type="button"] {
+    display: block;
+    width: 90%;
+    margin: 5px auto 5px auto;
+    line-height: 2.5em;
+    font-size: 2em;
+    border: solid 5px #444;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: #fff;
+}
+
+.control-group input[type="text"] {
+    text-align: right;
+    padding-right: 10px;
+    width: 89%;
+}
+
+.control-group input[type="button"] {
+    text-align: center;
+    background-color: #ffd400;
+    font-weight: bold;
+}
+
+.divider {
+    line-height: 2px;
+    height: 2px;
+    padding: 1px;
+    margin: 0px;
+}
