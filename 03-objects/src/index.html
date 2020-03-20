@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
         <link rel="stylesheet" href="index.css">
     </head>
 
@@ -15,38 +16,48 @@
                 <div class="container rounded-20 border-5 grid-col-2 cf">
                     <!-- Left column -->
                     <div class="col">
-                        <h2>Account List</h2>
+                        <div class="header grid-col-2">
+                            <h2 id="account-list-header">Account List</h2>
+                            <div id="sorting">
+                                <a id="ascending"><i class="fas fa-sort-up" title="Sort Up"></i></a>
+                                <hr>
+                                <a id="descending"><i class="fas fa-sort-down" title="Sort Down"></i></a>
+                            </div>
+                      </div>
                         <div id="account-list" class="container border-5 rounded-10">
                             <div class="card">
-                                <h3>Savings</h3>
+                                <input type="text" name="account-Name" class="account-name border-bottom"
+                                    value="Savings">
                                 <div>
                                     <h3>Balance</h3>
                                     <p>$<span>1500.00</span></p>
                                 </div>
                             </div>
                             <div class="card active">
-                                <h3>Checking</h3>
+                                <input type="text" name="account-name" class="account-name border-bottom"
+                                    value="Checking">
                                 <div>
                                     <h3>Balance</h3>
                                     <p>$<span>1500.00</span></p>
                                 </div>
                             </div>
                             <div class="card">
-                                <h3>TFSA</h3>
+                                <input type="text" name="account-name" class="account-name border-bottom" value="TFSA">
                                 <div>
                                     <h3>Balance</h3>
                                     <p>$<span>20500.00</span></p>
                                 </div>
                             </div>
                             <div class="card">
-                                <h3>RESP</h3>
+                                <input type="text" name="account-name" class="account-name border-bottom" value="RESP">
                                 <div>
                                     <h3>Balance</h3>
                                     <p>$<span>34000.00</span></p>
                                 </div>
                             </div>
                             <div class="card">
-                                <h3>Truck Savings</h3>
+                                <input type="text" name="account-name" class="account-name border-bottom"
+                                    value="Truck Savings">
                                 <div>
                                     <h3>Balance</h3>
                                     <p>$<span>2000.00</span></p>
@@ -75,7 +86,8 @@
                         <h2>Transactions</h2>
                         <div id="transactions" class="container border-5 rounded-10">
                             <div class="control-group">
-                                <label for="account-transaction" class="control">Transaction Amount</label>
+                                <label for="account-transaction" class="control">Account Name:
+                                    <span>Checking</span></label>
                                 <input type="text" name="account-transaction" id="account-transaction"
                                     class="control border-5 rounded-10">
                             </div>
