@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-17 12:02:06
+ * Last modified  : 2020-03-19 20:21:30
  *
  */
 import { Account } from './Account'
@@ -13,7 +13,7 @@ import { Account } from './Account'
 
 test("Test: Account constructor()", () => {
     let checking = new Account('checkingAccount', 25.00);
-    expect(checking._accountName).toBe("checkingAccount");
+    expect(checking.accountName).toBe("checkingAccount");
     expect(checking.balance()).toBe(25.00);
 });
 
