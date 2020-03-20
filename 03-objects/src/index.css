@@ -1,140 +1,208 @@
 html, body {
     font-size: 16px;
-    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #444;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-hr {
-    width: 90%;
-    margin: 0 auto;
-    border: 2px solid #444;
-}
-
-.accountInterface {
-    border: 10px solid #fff;
-    border-radius: 20px;
-    display: block;
-    width: 960px;
-    min-height: 500px;
-    border: 2px solid #555;
-    margin: 12px auto;
-    background-color: #b00b1c;
-    color: #ffd400;
-}
-
-.accountInterface h1 {
-    font-size: 3em;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
-
-.accountInterface h1 {
-    text-align: center;
+    margin: 0;
     ;
 }
 
-.control-group {
-    margin: 10px 0;
+section {
+    margin: 0;
+    background-color: rgb(198, 242, 255);
+    height: 100vh;
+    padding: 10px;
 }
 
-select#ddlAccounts {
-    margin: 10px auto;
-    display: block;
-    width: 90%;
+h1 {
+    font-size: 3em;
+}
+
+section h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.7em;
     font-weight: bolder;
-    line-height: 2.5em;
-    height: 2.5em;
-    border: solid 5px #444;
-    border-radius: 20px;
-    font-size: 2em;
-    color: #444;
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -webkit-padding-end: 20px;
-    -moz-padding-end: 20px;
-    -webkit-padding-start: 2px;
-    -moz-padding-start: 2px;
-    background-color: #ffd400;
-    /*Fallbackcolorifgradientsarenotsupported*/
-    background-image: url(./images/select-arrow.svg);
-    /*ForChromeandSafari*/
-    background-image: url(./images/select-arrow.svg);
-    /*ForoldFirefox(3.6to15)*/
-    background-image: url(./images/select-arrow.svg);
-    /*Forpre-releasesofInternetExplorer10*/
-    background-image: url(./images/select-arrow.svg);
-    /*ForoldOpera(11.1to12.0)*/
-    background-image: url(./images/select-arrow.svg);
-    /*Standardsyntax:;
-    mustbelast*/
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: 90px 50px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
-    overflow: hidden;
-    padding: 4px 10px 4px 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    margin-bottom: 10px;
 }
 
-select#ddlAccounts {
-    /* for Firefox */
-    -moz-appearance: none;
-    /* for Chrome */
-    -webkit-appearance: none;
+h3 {
+    font-size: 2.3em;
+    font-weight: bolder;
+    margin-bottom: 10px;
 }
 
-/* For IE10 */
-
-select#ddlAccounts::-ms-expand {
-    display: none;
+#banking-app {
+    /* height: 100vh; */
+    background-color: #eee;
+    margin: 20px;
 }
 
-.control-group label {
-    font-size: 2em;
-    margin-left: 20px;
-    font-weight: bold;
+#banking-app>.container {
+    height: 900px;
+    contain: content;
 }
 
-.control-group input[type="text"], .control-group input[type="button"] {
+.col {
+    height: 880px;
+    margin-bottom: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.control {
+    width: 95%;
+    margin: 0 auto;
     display: block;
-    width: 90%;
-    margin: 5px auto 5px auto;
-    line-height: 2.5em;
+    line-height: 2em;
+    overflow: contain;
+}
+
+label.control {
+    font-weight: bold;
     font-size: 2em;
-    border: solid 5px #444;
+}
+
+input[type="text"].control {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.border-5 {
+    border: 5px solid #444;
+}
+
+.rounded-10 {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.rounded-20 {
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    background-color: #fff;
 }
 
-.control-group input[type="text"] {
-    text-align: right;
-    padding-right: 10px;
-    width: 89%;
+.grid-col-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px
+}
+
+#account-list {
+    position: relative;
+    height: 85%;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cf:after {
+    content: '';
+    /* 1 */
+    display: block;
+    /* 2 */
+    clear: both;
+}
+
+.control-group {
+    width: auto;
+    overflow: contain;
+    padding: 5px;
+    margin: 0 auto;
 }
 
 .control-group input[type="button"] {
-    text-align: center;
-    background-color: #ffd400;
+    width: 200px;
+    background-color: rgb(190, 190, 190);
+    border: solid 5px #444;
+    color: #444;
     font-weight: bold;
+    font-size: 2em;
+    margin-top: 5px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
 }
 
-.divider {
-    line-height: 2px;
-    height: 2px;
-    padding: 1px;
-    margin: 0px;
+.control-group input[type="button"]:active, .control-group input[type="button"]:hover {
+    background-color: #585858;
+    border: solid 5px #333;
+    color: #eee;
 }
+
+.control-group input[value="Create"] {
+    position: relative;
+    left: 75%;
+}
+
+.control-group input[value="Deposit"] {
+    position: relative;
+    left: 200px;
+}
+
+.control-group input[value="Withdrawal"] {
+    position: relative;
+    left: 300px;
+}
+
+.card {
+    display: block;
+    background-color: #c2f3fa;
+    border-radius: 10px;
+    width: 90%;
+    height: 130px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.card.active {
+    border: solid 5px #333;
+    background-color: #f8f8cd;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card div h3 {
+    display: inline-block;
+    position: relative;
+    margin-top: 10px;
+    /* width: 40%; */
+}
+
+.card div p {
+    display: inline-block;
+    width: 80%;
+    font-size: 2em;
+    left: 90%;
+    text-align: right;
+}
+
+/* .card div p span {
+    float: right;
+} */

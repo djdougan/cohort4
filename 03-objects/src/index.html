@@ -9,44 +9,86 @@
     </head>
 
     <body>
-        <section id="banking-app">
-            <div class="accountInterface ">
-                <h1>Banking Application</h1>
-                <div class="control-group">
-                    <label for="">Create Account</label>
-                    <select id="ddlAccounts">
-                        <option value="select">Select a Account</option>
-                        <option value="savings">Savings</option>
-                        <option value="checking">Checking</option>
-                    </select>
+        <section>
+            <h1>Banking Application</h1>
+            <div id="banking-app" class="rounded-20">
+                <div class="container rounded-20 border-5 grid-col-2 cf">
+                    <!-- Left column -->
+                    <div class="col">
+                        <h2>Account List</h2>
+                        <div id="account-list" class="container border-5 rounded-10">
+                            <div class="card">
+                                <h3>Savings</h3>
+                                <div>
+                                    <h3>Balance</h3>
+                                    <p>$<span>1500.00</span></p>
+                                </div>
+                            </div>
+                            <div class="card active">
+                                <h3>Checking</h3>
+                                <div>
+                                    <h3>Balance</h3>
+                                    <p>$<span>1500.00</span></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h3>TFSA</h3>
+                                <div>
+                                    <h3>Balance</h3>
+                                    <p>$<span>20500.00</span></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h3>RESP</h3>
+                                <div>
+                                    <h3>Balance</h3>
+                                    <p>$<span>34000.00</span></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <h3>Truck Savings</h3>
+                                <div>
+                                    <h3>Balance</h3>
+                                    <p>$<span>2000.00</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- right col -->
+                    <div class="col">
+                        <h2>Account Manager</h2>
+                        <div id="account-manager" class="container border-5 rounded-10">
+                            <div class="control-group">
+                                <label for="account-name" class="control">Account Name</label>
+                                <input type="text" name="account-name" id="account-name"
+                                    class="control border-5 rounded-10">
+                            </div>
+                            <div class="control-group">
+                                <label for="account-starting-balance" class="control">Balance</label>
+                                <input type="text" name="account-starting-balance" id="account-starting-balance"
+                                    class="control border-5 rounded-10">
+                            </div>
+                            <div class="control-group">
+                                <input type="button" value="Create">
+                            </div>
+                        </div>
+                        <h2>Transactions</h2>
+                        <div id="transactions" class="container border-5 rounded-10">
+                            <div class="control-group">
+                                <label for="account-transaction" class="control">Transaction Amount</label>
+                                <input type="text" name="account-transaction" id="account-transaction"
+                                    class="control border-5 rounded-10">
+                            </div>
+                            <div class="control-group grid-col-2">
+                                <div class="control-group">
+                                    <input type="button" value="Deposit">
+                                    <input type="button" value="Withdrawal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="control-group">
-                    <label for="">Funds Deposited</label>
-                    <input type="text" name="txtInitialDeposit" id="txtInitialDeposit">
-                </div>
-                <div class="control-group">
-                    <input type="button" id="btnCreateAccount" value="Create Account">
-                </div>
-                <hr>
-                <div class="control-group">
-                    <label for="">Transactions</label>
-                    <input type="text" name="txtDepositAmount" id="txtDepositAmount">
-                </div>
-                <div class="control-group">
-                    <input type="button" id="btnDeposit" value="Deposit">
-                </div>
-                <div class="control-group">
-                    <input type="button" id="btnWithdrawal" value="Withdrawal">
-                </div>
-                <hr>
-                <div class="control-group">
-                    <label for="">Balance</label>
-                    <input type="text" name="txtBalance" id="txtBalance">
-                </div>
-            </div>
         </section>
-
-
         <script type="module" src="./scripts/index.js"></script>
     </body>
 
