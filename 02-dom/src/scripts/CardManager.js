@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 110 exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-08 07:30:00
- * Last modified  : 2020-03-12 19:26:44
+ * Last modified  : 2020-03-22 14:57:05
  *
  * @name Card
  * Creates a Card with a 'insert Before', 'insert after' and 'delete' buttons

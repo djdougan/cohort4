@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-21 22:08:38
+ * Last modified  : 2020-03-22 13:36:29
  *
  * @name Account
  * @class
@@ -66,7 +66,6 @@ class Account {
     withdrawal(amount) {
         try {
             if (this.isValidNumber(amount)) {
-                // over draft is allowed
                 this.#balance -= amount;
             } else {
 
@@ -117,7 +116,7 @@ class Account {
     }
     /**
     * @description gets account balance
-    * @name accountNumber
+    * @name getAccountNumber
     * @return {string} -- return a account number.
     */
     get getAccountNumber() {
@@ -174,7 +173,7 @@ class AccountController {
             let account = new Account(name, initialBalance, uuid);
             if (account) {
                 this.#accounts.push(account);
-                let index = this.#accounts.indexOf(this.#accounts.find(x => x.getAccountName === account.getAccountName));
+                let index = this.#accounts.length - 1;
                 if (this.#accounts[index]) {
                     result = this.#accounts[index].getAccountDetails;
                 } else {
@@ -186,16 +185,54 @@ class AccountController {
         }
         return result;
     }
+
     /**
-    * @description creates a account object
-    * @name createAccount
+    * @description deposits funds in correct account
+    * @name deposit
+    * @param {number} amount -- amount to deposit.
+    * @param {string} uuid -- unique id of account.
+    * @return {{ accountName: string, balance:number, uuid:string}}  -- return a account object.
+    */
+    deposit(amount, uuid) {
+
+        let results = { "accountName": "", "balance": 0.0, "uuid": "" };
+        this.#accounts.forEach((acc, i) => {
+            if (acc.getAccountNumber === uuid) {
+                acc.deposit(amount);
+                results = acc.getAccountDetails;
+            }
+        });
+        return results;
+    }
+    /**
+* @description withdrawals funds from correct account
+* @name withdrawal
+* @param {number} amount -- amount to deposit.
+* @param {string} uuid -- unique id of account.
+* @return {{ accountName: string, balance:number, uuid:string}}  -- return a account object.
+*/
+    withdrawal(amount, uuid) {
+
+        let results = { "accountName": "", "balance": 0.0, "uuid": "" };
+        this.#accounts.forEach((acc, i) => {
+            if (acc.getAccountNumber === uuid) {
+                acc.withdrawal(amount);
+                results = acc.getAccountDetails;
+            }
+        });
+        return results;
+    }
+
+    /**
+    * @description removes Accounts
+    * @name removeAccount
     * @param {string} accountName -- name of account.
     * @return {{ accountName: string, balance:number, uuid:string}}  -- return a account object.
     */
-    removeAccount(accountName) {
+    removeAccount(uuid) {
         let results = { "accountName": "", "balance": 0.0, "uuid": "" };
         try {
-            let acc = this.#accounts.find(x => x.getAccountName === accountName);
+            let acc = this.#accounts.find(x => x.getAccountNumber === uuid);
             let index = this.#accounts.indexOf(acc);
             if (this.#accounts[index]) {
                 results = this.#accounts.splice(index, 1);
@@ -212,14 +249,14 @@ class AccountController {
     /**
     * @description renames a Account
     * @name nameAccount
-    * @param {string} prevAccountName -- name of account.
+    * @param {string} uuid -- uuid of account.
     * @param {string} newAccountName -- new name of account.
     * @return {{ accountName: string, balance:number, uuid:string}}  -- return a account object.
     */
-    nameAccount(prevAccountName, newAccountName) {
+    nameAccount(uuid, newAccountName) {
         let result;
         try {
-            let index = this.#accounts.indexOf(this.#accounts.find(x => x.getAccountName === prevAccountName));
+            let index = this.#accounts.indexOf(this.#accounts.find(x => x.getAccountNumber === uuid));
             if (this.#accounts[index]) {
                 this.#accounts[index].setAccountName = newAccountName;
                 result = this.#accounts[index].getAccountDetails;
@@ -288,7 +325,19 @@ class AccountController {
         return result;
     }
 
-    get
+    /**
+    * @description get all accounts
+    * @name getAllAccounts
+    * @return {{ accountName: string, balance:number, uuid:string}[]}  -- array of accounts
+    */
+    getAllAccounts() {
+        let results = [];
+        for (let account of this.#accounts) {
+            results.push(account.getAccountDetails)
+        }
+        return results;
+    }
+
 
 
 }

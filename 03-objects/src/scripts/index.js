@@ -11,53 +11,70 @@ const btnCreateAccount = document.querySelector("#btnCreateAccount");
 const txtAccountTransaction = document.querySelector("#txtAccountTransaction");
 const btnDeposit = document.querySelector("#btnDeposit");
 const btnWithdrawal = document.querySelector("#btnWithdrawal");
-
+const btnAscending = document.querySelector("#btnAscending");
+const btnDescending = document.querySelector("#btnDescending");
 
 const AC = new AccountController();
+let activeAccount = "";
 
 btnCreateAccount.addEventListener("click", (e) => {
+    // debugger;
     let accountName = txtAccountName.value;
     let balance = txtStartingBalance.value;
     let account = AC.createAccount(accountName, balance, MiscScripts.createUUID());
     let card = new Card(account);
-    accountList.appendChild(card.buildCard());
+    let div = card.buildCard();
+    div.querySelector(".btnClose").addEventListener("click", closeAccount);
+    accountList.prepend(div);
+    setActiveAccount(div);
+
 })
 
 accountList.addEventListener("click", cardClick, false)
+
 function cardClick(e) {
     let target = e.target;
-    if (target.tagName === "P" || target.tagName === "SPAN" ||
-        target.tagName === "H3" || target.tagName === "INPUT") {
-        target = target.parentElement;
-        if (target.tagName === "P") {
-            target = target.parentElement;
-        }
-    }
-    let collection = Array.from(target.parentElement.children);
-    collection.forEach(card => {
-        card.classList.remove("active");
-    });
-    target.classList.add("active");
-    spnAccountName.textContent = target.querySelector("input").value;
+    setActiveAccount(target);
     return target;
 };
+function closeAccount(e) {
+    let card = e.target.parentElement.parentElement;
+    e.preventDefault();
+    e.stopPropagation();
+    if (confirm('Are you sure you want to close this Account?')) {
+        AC.removeAccount(card.dataset.uuid)
+        let container = card.parentElement;
+        container.removeChild(card);
+    } else {
+        // Do nothing!
+    }
+    console.log(AC.getAllAccounts())
+};
+
+
 accountList.addEventListener('keypress', function (e) {
     if (e.keyCode === 13) {
-        console.log(` The ${e.key}`);
+        activeAccount = e.target.parentElement.dataset.uuid;
     }
 }, false);
 
 btnDeposit.addEventListener("click", e => {
     let activeAccount = getActiveAccount();
-    console.log(activeAccount);
-
+    let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
+    let span = card.querySelector("p span");
+    let account = AC.deposit(parseInt(txtAccountTransaction.value), card.dataset.uuid);
+    span.textContent = account.balance.toString();
 });
 
 
 btnWithdrawal.addEventListener("click", e => {
 
     let activeAccount = getActiveAccount();
-    console.log(activeAccount);
+    let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
+    let span = card.querySelector("p span");
+    let account = AC.withdrawal(parseInt(txtAccountTransaction.value), card.dataset.uuid);
+    console.log('index', account, account.balance);
+    span.textContent = account.balance.toString();
 });
 
 
@@ -65,10 +82,26 @@ btnWithdrawal.addEventListener("click", e => {
 function getActiveAccount() {
     let acitveCard = document.querySelector(".active");
     let activeAccount = acitveCard.querySelector("input").value;
-    let account = AC.accounts.find(x => x.accountName == activeAccount);
+    let account = AC.getAllAccounts().find(x => x.accountName === activeAccount);
     return account;
 }
 
+function setActiveAccount(target) {
+    if (target.tagName === "P" || target.tagName === "SPAN" || target.tagName === "I" ||
+        target.tagName === "H3" || target.tagName === "INPUT") {
+        target = target.parentElement;
+        if (target.tagName === "P") {
+            target = target.parentElement;
+        }
+    }
+    console.log(target);
+    let collection = Array.from(target.parentElement.children);
+    collection.forEach(card => {
+        card.classList.remove("active");
+    });
+    target.classList.add("active");
+    spnAccountName.textContent = target.querySelector("input").value;
+}
 
 
 
