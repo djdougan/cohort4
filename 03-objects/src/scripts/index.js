@@ -3,6 +3,7 @@ import Card from "./Card.js";
 import MiscScripts from "./misc-scripts.js";
 
 
+
 const accountList = document.querySelector("#accountList");
 const txtAccountName = document.querySelector("#txtAccountName");
 const spnAccountName = document.querySelector("#spnAccountName")

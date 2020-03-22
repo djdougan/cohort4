@@ -18,6 +18,7 @@ test("Test: Account constructor()", () => {
     let checking = new Account('checkingAccount', 25.00, uuid);
     expect(checking.getAccountName).toBe("checkingAccount");
     expect(checking.getBalance).toBe(25.00);
+
 });
 
 test("Test: Account balance()", () => {
