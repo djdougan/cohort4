@@ -35,10 +35,8 @@ class Card {
         btnClose.appendChild(i);
         card.appendChild(btnClose);
         return card;
-
     }
 
 
 }
-
 export default Card;
