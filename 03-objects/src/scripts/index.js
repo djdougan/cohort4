@@ -1,41 +1,74 @@
-import { Account } from "./Account.js";
+import { Account, AccountController } from "./Account.js";
+import Card from "./Card.js";
+import MiscScripts from "./misc-scripts.js";
 
-const ddlAccountList = document.querySelector("#ddlAccounts");
-const txtInitialDeposit = document.querySelector("#txtInitialDeposit");
+
+const accountList = document.querySelector("#accountList");
+const txtAccountName = document.querySelector("#txtAccountName");
+const spnAccountName = document.querySelector("#spnAccountName")
+const txtStartingBalance = document.querySelector("#txtStartingBalance");
 const btnCreateAccount = document.querySelector("#btnCreateAccount");
-const txtDepositAmount = document.querySelector("#txtDepositAmount");
+const txtAccountTransaction = document.querySelector("#txtAccountTransaction");
 const btnDeposit = document.querySelector("#btnDeposit");
 const btnWithdrawal = document.querySelector("#btnWithdrawal");
-const txtBalance = document.querySelector("#txtBalance");
 
 
+const AC = new AccountController();
 
-let bankAccount;
-btnCreateAccount.addEventListener("click", () => {
-    let accountName = ddlAccountList.textContent;
-    let initialBalance = parseInt(txtInitialDeposit.value);
-    bankAccount = new Account(accountName, initialBalance);
-    updateInterface();
+btnCreateAccount.addEventListener("click", (e) => {
+    let accountName = txtAccountName.value;
+    let balance = txtStartingBalance.value;
+    let account = AC.createAccount(accountName, balance, MiscScripts.createUUID());
+    let card = new Card(account);
+    accountList.appendChild(card.buildCard());
+})
+
+accountList.addEventListener("click", cardClick, false)
+function cardClick(e) {
+    let target = e.target;
+    if (target.tagName === "P" || target.tagName === "SPAN" ||
+        target.tagName === "H3" || target.tagName === "INPUT") {
+        target = target.parentElement;
+        if (target.tagName === "P") {
+            target = target.parentElement;
+        }
+    }
+    let collection = Array.from(target.parentElement.children);
+    collection.forEach(card => {
+        card.classList.remove("active");
+    });
+    target.classList.add("active");
+    spnAccountName.textContent = target.querySelector("input").value;
+    return target;
+};
+accountList.addEventListener('keypress', function (e) {
+    if (e.keyCode === 13) {
+        console.log(` The ${e.key}`);
+    }
+}, false);
+
+btnDeposit.addEventListener("click", e => {
+    let activeAccount = getActiveAccount();
+    console.log(activeAccount);
 
 });
 
 
-btnDeposit.addEventListener("click", () => {
-    let amount = parseInt(txtDepositAmount.value);
-    bankAccount.deposit(amount);
-    updateInterface();
+btnWithdrawal.addEventListener("click", e => {
+
+    let activeAccount = getActiveAccount();
+    console.log(activeAccount);
 });
 
 
-btnWithdrawal.addEventListener("click", () => {
-    let amount = parseInt(txtDepositAmount.value);
-    bankAccount.withdrawal(amount);
-    updateInterface();
-});
 
-function updateInterface() {
-    txtBalance.value = bankAccount.balance();
+function getActiveAccount() {
+    let acitveCard = document.querySelector(".active");
+    let activeAccount = acitveCard.querySelector("input").value;
+    let account = AC.accounts.find(x => x.accountName == activeAccount);
+    return account;
 }
+
 
 
 

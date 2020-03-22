@@ -53,7 +53,7 @@ const syntax = {
      * @description Checks to see if person is a certain age or older.
      * @name ageCheck
     * @param {number} testAge -- age to test against.
-    * @param {{name:string, age:number>} Person -- person object to test against.
+    * @param {{name:string, age:number}} Person -- person object to test against.
     * @returns {boolean} true if the person is over testAge, false if .
      */
     ageCheck: (testAge, personObject) => {

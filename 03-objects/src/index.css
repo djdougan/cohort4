@@ -109,6 +109,7 @@ a#descending {
 
 .container {
     padding: 20px;
+    position: relative;
 }
 
 .control {
@@ -146,7 +147,7 @@ input[type="text"].control {
     width: 100%;
     font-weight: bolder;
     margin-bottom: 10px;
-    background-color: #c6f2ff;
+    background-color: transparent;
 }
 
 .rounded-10 {
@@ -171,7 +172,7 @@ input[type="text"].control {
     grid-gap: 10px
 }
 
-#account-list {
+#accountList {
     position: relative;
     height: 85%;
     overflow: scroll;
@@ -188,13 +189,25 @@ input[type="text"].control {
 }
 
 .control-group {
+    position: relative;
     width: auto;
     overflow: contain;
     padding: 5px;
     margin: 0 auto;
+    min-height: 100px;
 }
 
-.control-group input[type="button"] {
+#account-manager {
+    height: 350px
+}
+
+#transactions {
+    height: 250px;
+}
+
+.container input[type="button"] {
+    position: absolute;
+    bottom: 10px;
     width: 200px;
     background-color: rgb(190, 190, 190);
     border: solid 5px #444;
@@ -214,28 +227,26 @@ input[type="text"].control {
     -o-transition: all .5s;
 }
 
-.control-group input[type="button"]:active, .control-group input[type="button"]:hover {
+.container input[type="button"]:active, .container input[type="button"]:hover {
     background-color: #585858;
     border: solid 5px #333;
     color: #eee;
 }
 
-.control-group input[value="Create"] {
-    position: relative;
-    left: 75%;
+.container input#btnAccountTransaction {
+    right: 10px;
 }
 
-.control-group input[value="Deposit"] {
-    position: relative;
-    left: 200px;
+.container input[value="Deposit"] {
+    left: 10px;
 }
 
-.control-group input[value="Withdrawal"] {
-    position: relative;
-    left: 300px;
+.container input[value="Withdrawal"] {
+    right: 10px;
 }
 
 .card {
+    position: relative;
     display: block;
     background-color: #c2f3fa;
     border-radius: 10px;
@@ -255,21 +266,21 @@ input[type="text"].control {
     background-color: #f8f8cd;
 }
 
-.card h3 {
-    margin-top: 0;
-}
-
-.card div h3 {
-    display: inline-block;
-    position: relative;
-    margin-top: 10px;
-    /* width: 40%; */
-}
-
-.card div p {
-    display: inline-block;
-    width: 80%;
+.card h3, .card p {
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    position: absolute;
+    display: inline;
     font-size: 2em;
-    left: 90%;
-    text-align: right;
+    bottom: 15px;
+    color: red;
+}
+
+.card h3 {
+    left: 10px;
+}
+
+.card p {
+    right: 20px;
 }

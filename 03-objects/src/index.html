@@ -23,46 +23,8 @@
                                 <hr>
                                 <a id="descending"><i class="fas fa-sort-down" title="Sort Down"></i></a>
                             </div>
-                      </div>
-                        <div id="account-list" class="container border-5 rounded-10">
-                            <div class="card">
-                                <input type="text" name="account-Name" class="account-name border-bottom"
-                                    value="Savings">
-                                <div>
-                                    <h3>Balance</h3>
-                                    <p>$<span>1500.00</span></p>
-                                </div>
-                            </div>
-                            <div class="card active">
-                                <input type="text" name="account-name" class="account-name border-bottom"
-                                    value="Checking">
-                                <div>
-                                    <h3>Balance</h3>
-                                    <p>$<span>1500.00</span></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <input type="text" name="account-name" class="account-name border-bottom" value="TFSA">
-                                <div>
-                                    <h3>Balance</h3>
-                                    <p>$<span>20500.00</span></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <input type="text" name="account-name" class="account-name border-bottom" value="RESP">
-                                <div>
-                                    <h3>Balance</h3>
-                                    <p>$<span>34000.00</span></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <input type="text" name="account-name" class="account-name border-bottom"
-                                    value="Truck Savings">
-                                <div>
-                                    <h3>Balance</h3>
-                                    <p>$<span>2000.00</span></p>
-                                </div>
-                            </div>
+                        </div>
+                        <div id="accountList" class="container border-5 rounded-10">
                         </div>
                     </div>
                     <!-- right col -->
@@ -71,35 +33,30 @@
                         <div id="account-manager" class="container border-5 rounded-10">
                             <div class="control-group">
                                 <label for="account-name" class="control">Account Name</label>
-                                <input type="text" name="account-name" id="account-name"
+                                <input type="text" name="account-name" id="txtAccountName"
                                     class="control border-5 rounded-10">
                             </div>
                             <div class="control-group">
                                 <label for="account-starting-balance" class="control">Balance</label>
-                                <input type="text" name="account-starting-balance" id="account-starting-balance"
+                                <input type="text" name="account-starting-balance" id="txtStartingBalance"
                                     class="control border-5 rounded-10">
                             </div>
-                            <div class="control-group">
-                                <input type="button" value="Create">
-                            </div>
+                            <input id="btnCreateAccount" type="button" value="Create">
                         </div>
                         <h2>Transactions</h2>
                         <div id="transactions" class="container border-5 rounded-10">
                             <div class="control-group">
                                 <label for="account-transaction" class="control">Account Name:
-                                    <span>Checking</span></label>
-                                <input type="text" name="account-transaction" id="account-transaction"
+                                    <span id="spnAccountName"></span></label>
+                                <input type="text" name="account-transaction" id="txtAccountTransaction"
                                     class="control border-5 rounded-10">
                             </div>
-                            <div class="control-group grid-col-2">
-                                <div class="control-group">
-                                    <input type="button" value="Deposit">
-                                    <input type="button" value="Withdrawal">
-                                </div>
-                            </div>
+                            <input id="btnDeposit" type="button" value="Deposit">
+                            <input id="btnWithdrawal" type="button" value="Withdrawal">
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
         <script type="module" src="./scripts/index.js"></script>
     </body>
