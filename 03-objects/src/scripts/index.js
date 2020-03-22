@@ -60,7 +60,6 @@ accountList.addEventListener('keypress', function (e) {
 
 btnDeposit.addEventListener("click", e => {
     let activeAccount = getActiveAccount();
-    console.log(activeAccount);
     let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
     let span = card.querySelector("p span");
     let account = AC.deposit(parseInt(txtAccountTransaction.value), card.dataset.uuid);
@@ -74,7 +73,6 @@ btnWithdrawal.addEventListener("click", e => {
     let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
     let span = card.querySelector("p span");
     let account = AC.withdrawal(parseInt(txtAccountTransaction.value), card.dataset.uuid);
-    console.log('index', account, account.balance);
     span.textContent = account.balance.toString();
 });
 

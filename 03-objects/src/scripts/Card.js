@@ -32,7 +32,8 @@ class Card {
         let i = document.createElement("i");
         btnClose.title = "Close account";
         btnClose.className = "btnClose";
-        i.className = "far fa-window-close";
+        btnClose.textContent = "X";
+        // i.className = "far fa-window-close";
         btnClose.appendChild(i);
         card.appendChild(btnClose);
         return card;
