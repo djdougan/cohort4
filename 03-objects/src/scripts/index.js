@@ -37,6 +37,7 @@ function cardClick(e) {
     setActiveAccount(target);
     return target;
 };
+
 function closeAccount(e) {
     let card = e.target.parentElement.parentElement;
     e.preventDefault();
@@ -60,6 +61,7 @@ accountList.addEventListener('keypress', function (e) {
 
 btnDeposit.addEventListener("click", e => {
     let activeAccount = getActiveAccount();
+    console.log(activeAccount);
     let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
     let span = card.querySelector("p span");
     let account = AC.deposit(parseInt(txtAccountTransaction.value), card.dataset.uuid);
@@ -80,8 +82,8 @@ btnWithdrawal.addEventListener("click", e => {
 
 
 function getActiveAccount() {
-    let acitveCard = document.querySelector(".active");
-    let activeAccount = acitveCard.querySelector("input").value;
+    let activeCard = document.querySelector(".active");
+    let activeAccount = activeCard.querySelector("input").value;
     let account = AC.getAllAccounts().find(x => x.accountName === activeAccount);
     return account;
 }
