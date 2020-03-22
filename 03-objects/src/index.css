@@ -264,6 +264,8 @@ input[type="text"].control {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
 
 .card.active {
