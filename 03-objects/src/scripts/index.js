@@ -39,7 +39,9 @@ function cardClick(e) {
 };
 
 function closeAccount(e) {
-    let card = e.target.parentElement.parentElement;
+
+    let card = e.target.parentElement;
+    console.log(card);
     e.preventDefault();
     e.stopPropagation();
     if (confirm('Are you sure you want to close this Account?')) {
@@ -86,7 +88,7 @@ function getActiveAccount() {
 }
 
 function setActiveAccount(target) {
-    if (target.tagName === "P" || target.tagName === "SPAN" || target.tagName === "I" ||
+    if (target.tagName === "P" || target.tagName === "SPAN" || target.tagName === "BUTTON" ||
         target.tagName === "H3" || target.tagName === "INPUT") {
         target = target.parentElement;
         if (target.tagName === "P") {
