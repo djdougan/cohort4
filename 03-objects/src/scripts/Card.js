@@ -2,48 +2,41 @@
 
 
 class Card {
-    #account
-    #card = document.createElement('div');
-    #input = document.createElement("input");
-    #h3 = document.createElement('h3');
-    #p = document.createElement('p');
-    #span = document.createElement('span');
-    #btnClose = document.createElement("a");
 
     constructor(account) {
-        this.#account = account;
+        this.account = account;
 
     };
 
     buildCard() {
-        this.#card.className = "card";
-        this.#card.dataset.uuid = this.#account.uuid;
-        this.#input.setAttribute("type", "text");
-        this.#input.setAttribute("name", 'account-name');
-        this.#input.className = "account-name border-bottom";
-        this.#input.value = this.#account.accountName;
-        this.#card.appendChild(this.#input);
-        this.#h3.textContent = "Balance";
-        this.#card.appendChild(this.#h3);
-        this.#p.appendChild(document.createTextNode('$'))
+        let card = document.createElement('div');
+        let input = document.createElement("input");
+        let h3 = document.createElement('h3');
+        let p = document.createElement('p');
+        let span = document.createElement('span');
+        let btnClose = document.createElement("a");
+        card.className = "card";
+        card.dataset.uuid = this.account.uuid;
+        input.setAttribute("type", "text");
+        input.setAttribute("name", 'account-name');
+        input.className = "account-name border-bottom";
+        input.value = this.account.accountName;
+        card.appendChild(input);
+        h3.textContent = "Balance";
+        card.appendChild(h3);
+        p.appendChild(document.createTextNode('$'))
 
-        this.#p.appendChild(this.#span);
-        this.#span.textContent = this.#account.balance;
-        this.#card.appendChild(this.#p);
+        p.appendChild(span);
+        span.textContent = this.account.balance;
+        card.appendChild(p);
         let i = document.createElement("i");
-        this.#btnClose.title = "Close account";
+        btnClose.title = "Close account";
         i.className = "btnClose far fa-window-close";
-        this.#btnClose.appendChild(i);
-        this.#card.appendChild(this.#btnClose);
-        return this.#card;
+        btnClose.appendChild(i);
+        card.appendChild(btnClose);
+        return card;
 
     }
-    // updateCard(account) {
-    //     this.#input.value = account.accountName;
-    //     this.#span.textContent = account.balance;
-    //     return this.#card;
-    // }
-
 
 
 }

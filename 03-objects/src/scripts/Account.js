@@ -5,17 +5,13 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-22 13:36:29
+ * Last modified  : 2020-03-22 15:32:19
  *
  * @name Account
  * @class
  */
 class Account {
 
-    //  Private instance fields 
-    #accountName = "";
-    #balance = 0.00;
-    #uuid = "";
 
     /**
 * @description 
@@ -26,9 +22,9 @@ class Account {
     constructor(accName, initialBalance, uuid) {
         try {
             if (this.isValidNumber(initialBalance)) {
-                this.#accountName = accName;
-                this.#balance = initialBalance;
-                this.#uuid = uuid;
+                this.accountName = accName;
+                this.balance = initialBalance;
+                this.uuid = uuid;
 
             } else {
 
@@ -48,7 +44,7 @@ class Account {
         try {
             if (this.isValidNumber(amount)) {
                 if (amount > 0) {
-                    this.#balance += amount;
+                    this.balance += amount;
                 }
             } else {
 
@@ -66,7 +62,7 @@ class Account {
     withdrawal(amount) {
         try {
             if (this.isValidNumber(amount)) {
-                this.#balance -= amount;
+                this.balance -= amount;
             } else {
 
                 throw new Error(`The value ${amount} is not a valid number.`)
@@ -81,7 +77,7 @@ class Account {
     * @return {number} -- return a account balance.
     */
     get getBalance() {
-        return this.#balance;
+        return this.balance;
     };
 
     /**
@@ -90,7 +86,7 @@ class Account {
     * @return {string} -- return a account name.
     */
     get getAccountName() {
-        return this.#accountName;
+        return this.accountName;
     }
 
     /**
@@ -100,9 +96,9 @@ class Account {
     */
     get getAccountDetails() {
         var result = {
-            "accountName": this.#accountName,
-            "balance": this.#balance,
-            "uuid": this.#uuid
+            "accountName": this.accountName,
+            "balance": this.balance,
+            "uuid": this.uuid
         };
         return result;
     }
@@ -112,7 +108,7 @@ class Account {
     * @return {string} -- return a account name.
     */
     set setAccountName(value) {
-        this.#accountName = value;
+        this.accountName = value;
     }
     /**
     * @description gets account balance
@@ -120,7 +116,7 @@ class Account {
     * @return {string} -- return a account number.
     */
     get getAccountNumber() {
-        return this.#uuid;
+        return this.uuid;
     }
 
     isValidNumber(number) {
@@ -151,12 +147,12 @@ class Account {
  * @class
  */
 class AccountController {
-    #accounts = [];
     /**
     * @description AccountController constructor
     * @name constructor
     */
     constructor() {
+        this.accounts = [];
     }
 
     /**
@@ -172,10 +168,10 @@ class AccountController {
         try {
             let account = new Account(name, initialBalance, uuid);
             if (account) {
-                this.#accounts.push(account);
-                let index = this.#accounts.length - 1;
-                if (this.#accounts[index]) {
-                    result = this.#accounts[index].getAccountDetails;
+                this.accounts.push(account);
+                let index = this.accounts.length - 1;
+                if (this.accounts[index]) {
+                    result = this.accounts[index].getAccountDetails;
                 } else {
                     throw "account not created";
                 }
@@ -194,9 +190,8 @@ class AccountController {
     * @return {{ accountName: string, balance:number, uuid:string}}  -- return a account object.
     */
     deposit(amount, uuid) {
-
         let results = { "accountName": "", "balance": 0.0, "uuid": "" };
-        this.#accounts.forEach((acc, i) => {
+        this.accounts.forEach((acc, i) => {
             if (acc.getAccountNumber === uuid) {
                 acc.deposit(amount);
                 results = acc.getAccountDetails;
@@ -214,7 +209,7 @@ class AccountController {
     withdrawal(amount, uuid) {
 
         let results = { "accountName": "", "balance": 0.0, "uuid": "" };
-        this.#accounts.forEach((acc, i) => {
+        this.accounts.forEach((acc, i) => {
             if (acc.getAccountNumber === uuid) {
                 acc.withdrawal(amount);
                 results = acc.getAccountDetails;
@@ -232,10 +227,10 @@ class AccountController {
     removeAccount(uuid) {
         let results = { "accountName": "", "balance": 0.0, "uuid": "" };
         try {
-            let acc = this.#accounts.find(x => x.getAccountNumber === uuid);
-            let index = this.#accounts.indexOf(acc);
-            if (this.#accounts[index]) {
-                results = this.#accounts.splice(index, 1);
+            let acc = this.accounts.find(x => x.getAccountNumber === uuid);
+            let index = this.accounts.indexOf(acc);
+            if (this.accounts[index]) {
+                results = this.accounts.splice(index, 1);
             } else {
                 throw new Error("account not found");
             }
@@ -256,10 +251,10 @@ class AccountController {
     nameAccount(uuid, newAccountName) {
         let result;
         try {
-            let index = this.#accounts.indexOf(this.#accounts.find(x => x.getAccountNumber === uuid));
-            if (this.#accounts[index]) {
-                this.#accounts[index].setAccountName = newAccountName;
-                result = this.#accounts[index].getAccountDetails;
+            let index = this.accounts.indexOf(this.accounts.find(x => x.getAccountNumber === uuid));
+            if (this.accounts[index]) {
+                this.accounts[index].setAccountName = newAccountName;
+                result = this.accounts[index].getAccountDetails;
             } else {
                 throw new Error("account not found");
             }
@@ -276,7 +271,7 @@ class AccountController {
     * @return {number}  -- returns the number of accounts owned by client.
     */
     get getAccountTotal() {
-        let result = this.#accounts.length;
+        let result = this.accounts.length;
         return result;
     }
 
@@ -288,11 +283,11 @@ class AccountController {
     getHighestValuedAccount() {
         let result;
         try {
-            if (this.#accounts) {
-                this.#accounts.sort(function (a, b) {
+            if (this.accounts) {
+                this.accounts.sort(function (a, b) {
                     return b.getBalance - a.getBalance;
                 });
-                result = this.#accounts[0].getAccountDetails;
+                result = this.accounts[0].getAccountDetails;
             } else {
                 throw new Error(`accounts not found`)
             }
@@ -311,11 +306,11 @@ class AccountController {
 
         let result;
         try {
-            if (this.#accounts) {
-                this.#accounts.sort(function (a, b) {
+            if (this.accounts) {
+                this.accounts.sort(function (a, b) {
                     return a.getBalance - b.getBalance;
                 });
-                result = this.#accounts[0].getAccountDetails;
+                result = this.accounts[0].getAccountDetails;
             } else {
                 throw new Error(`accounts not found`)
             }
@@ -332,7 +327,7 @@ class AccountController {
     */
     getAllAccounts() {
         let results = [];
-        for (let account of this.#accounts) {
+        for (let account of this.accounts) {
             results.push(account.getAccountDetails)
         }
         return results;
