@@ -5,48 +5,59 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
         <link rel="stylesheet" href="index.css">
     </head>
 
     <body>
-        <section id="banking-app">
-            <div class="accountInterface ">
-                <h1>Banking Application</h1>
-                <div class="control-group">
-                    <label for="">Create Account</label>
-                    <select id="ddlAccounts">
-                        <option value="select">Select a Account</option>
-                        <option value="savings">Savings</option>
-                        <option value="checking">Checking</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label for="">Funds Deposited</label>
-                    <input type="text" name="txtInitialDeposit" id="txtInitialDeposit">
-                </div>
-                <div class="control-group">
-                    <input type="button" id="btnCreateAccount" value="Create Account">
-                </div>
-                <hr>
-                <div class="control-group">
-                    <label for="">Transactions</label>
-                    <input type="text" name="txtDepositAmount" id="txtDepositAmount">
-                </div>
-                <div class="control-group">
-                    <input type="button" id="btnDeposit" value="Deposit">
-                </div>
-                <div class="control-group">
-                    <input type="button" id="btnWithdrawal" value="Withdrawal">
-                </div>
-                <hr>
-                <div class="control-group">
-                    <label for="">Balance</label>
-                    <input type="text" name="txtBalance" id="txtBalance">
+        <section>
+            <h1>Banking Application</h1>
+            <div id="banking-app" class="rounded-20">
+                <div class="container rounded-20 border-5 grid-col-2 cf">
+                    <!-- Left column -->
+                    <div class="col">
+                        <div class="header grid-col-2">
+                            <h2 id="account-list-header">Account List</h2>
+                            <!-- <div id="sorting">
+                                <i id="btnAscending"><i class="fas fa-sort-up" title="Sort Up"></i></a>
+                                <hr>
+                                <a id="btnDescending"><i class="fas fa-sort-down" title="Sort Down"></i></a>
+                            </div> -->
+                        </div>
+                        <div id="accountList" class="container border-5 rounded-10">
+                        </div>
+                    </div>
+                    <!-- right col -->
+                    <div class="col">
+                        <h2>Account Manager</h2>
+                        <div id="account-manager" class="container border-5 rounded-10">
+                            <div class="control-group">
+                                <label for="account-name" class="control">Account Name</label>
+                                <input type="text" name="account-name" id="txtAccountName"
+                                    class="control border-5 rounded-10">
+                            </div>
+                            <div class="control-group">
+                                <label for="account-starting-balance" class="control">Balance</label>
+                                <input type="text" name="account-starting-balance" id="txtStartingBalance"
+                                    class="control border-5 rounded-10">
+                            </div>
+                            <input id="btnCreateAccount" type="button" value="Create">
+                        </div>
+                        <h2>Transactions</h2>
+                        <div id="transactions" class="container border-5 rounded-10">
+                            <div class="control-group">
+                                <label for="account-transaction" class="control">Account Name:
+                                    <span id="spnAccountName"></span></label>
+                                <input type="text" name="account-transaction" id="txtAccountTransaction"
+                                    class="control border-5 rounded-10">
+                            </div>
+                            <input id="btnDeposit" type="button" value="Deposit">
+                            <input id="btnWithdrawal" type="button" value="Withdrawal">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-
         <script type="module" src="./scripts/index.js"></script>
     </body>
 
