@@ -49,7 +49,6 @@ function closeAccount(e) {
     } else {
         // Do nothing!
     }
-    console.log(AC.getAllAccounts())
 };
 
 
@@ -96,7 +95,6 @@ function setActiveAccount(target) {
             target = target.parentElement;
         }
     }
-    console.log(target);
     let collection = Array.from(target.parentElement.children);
     collection.forEach(card => {
         card.classList.remove("active");
