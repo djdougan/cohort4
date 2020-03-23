@@ -18,7 +18,6 @@ const AC = new AccountController();
 let activeAccount = "";
 
 btnCreateAccount.addEventListener("click", (e) => {
-    // debugger;
     let accountName = txtAccountName.value;
     let balance = parseInt(txtStartingBalance.value);
     let account = AC.createAccount(accountName, balance, MiscScripts.createUUID());
@@ -60,7 +59,6 @@ accountList.addEventListener('keypress', function (e) {
 }, false);
 
 btnDeposit.addEventListener("click", e => {
-    debugger;
     let activeAccount = getActiveAccount();
     let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
     let span = card.querySelector("p span");
