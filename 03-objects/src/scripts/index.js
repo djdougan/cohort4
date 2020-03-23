@@ -21,7 +21,7 @@ let activeAccount = "";
 btnCreateAccount.addEventListener("click", (e) => {
     // debugger;
     let accountName = txtAccountName.value;
-    let balance = txtStartingBalance.value;
+    let balance = parseInt(txtStartingBalance.value);
     let account = AC.createAccount(accountName, balance, MiscScripts.createUUID());
     let card = new Card(account);
     let div = card.buildCard();
@@ -42,7 +42,6 @@ function cardClick(e) {
 function closeAccount(e) {
 
     let card = e.target.parentElement;
-    console.log(card);
     e.preventDefault();
     e.stopPropagation();
     if (confirm('Are you sure you want to close this Account?')) {
