@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-22 15:32:19
+ * Last modified  : 2020-03-22 18:06:32
  *
  * @name Account
  * @class
