@@ -61,7 +61,6 @@ accountList.addEventListener('keypress', function (e) {
 }, false);
 
 btnDeposit.addEventListener("click", e => {
-    debugger;
     let activeAccount = getActiveAccount();
     let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
     let span = card.querySelector("p span");
