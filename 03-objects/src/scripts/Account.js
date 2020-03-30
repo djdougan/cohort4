@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-22 18:06:32
+ * Last modified  : 2020-03-27 11:24:38
  *
  * @name Account
  * @class
@@ -14,6 +14,7 @@ class Account {
 
 
     /**
+     * jsDoc
 * @description 
 * @name constructor
 * @param {string} accName -- name of the account.
@@ -96,9 +97,9 @@ class Account {
     */
     get getAccountDetails() {
         var result = {
-            "accountName": this.accountName,
-            "balance": this.balance,
-            "uuid": this.uuid
+            accountName: this.accountName,
+            balance: this.balance,
+            uuid: this.uuid
         };
         return result;
     }

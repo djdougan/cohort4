@@ -1,6 +1,7 @@
 import { Account, AccountController } from "./Account.js";
 import Card from "./Card.js";
 import MiscScripts from "./misc-scripts.js";
+// import functions from "./fetch.js";
 
 
 const accountList = document.querySelector("#accountList");
@@ -60,7 +61,7 @@ accountList.addEventListener('keypress', function (e) {
 }, false);
 
 btnDeposit.addEventListener("click", e => {
-    debugger;
+    // debugger;
     let activeAccount = getActiveAccount();
     let card = document.querySelector(`div[data-uuid='${activeAccount.uuid}']`);
     let span = card.querySelector("p span");
@@ -104,4 +105,6 @@ function setActiveAccount(target) {
 }
 
 
-
+// let data = functions.url;
+// functions.workWithData();
+// functions.getUsers();
