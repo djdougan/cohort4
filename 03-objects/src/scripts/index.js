@@ -1,6 +1,7 @@
 import { Account, AccountController } from "./Account.js";
 import Card from "./Card.js";
 import MiscScripts from "./misc-scripts.js";
+import evolve_fetch from './fetch';
 // import functions from "./fetch.js";
 
 
@@ -101,8 +102,17 @@ function setActiveAccount(target) {
     target.classList.add("active");
     spnAccountName.textContent = target.querySelector("input").value;
 }
+const me =
+{
+    name: "Douglas",
+    surname: "Dougan",
+    gender: "Male",
+    region: "Alberta"
+};
 
-
-// let data = functions.url;
-// functions.workWithData();
-// functions.getUsers();
+evolve_fetch.postData('../data/people.json', me)
+    .then((data) => {
+        console.log(data); // JSON data parsed by `response.json()` call
+    }).catch(e => {
+        console.log(e);
+    });

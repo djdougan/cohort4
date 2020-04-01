@@ -218,7 +218,6 @@ input[type="text"].control {
 
 .container input[type="button"] {
     position: absolute;
-    bottom: 10px;
     width: 200px;
     background-color: rgb(190, 190, 190);
     border: solid 5px #444;
@@ -295,4 +294,103 @@ input[type="text"].control {
 
 .card p {
     right: 20px;
+}
+
+#btnDeposit, #btnWithdrawal, #btnCreateAccount {
+    bottom: 10px;
+}
+
+/* City form */
+
+#citiesApplication .container .col>h2 {
+    text-align: center;
+    color: #444;
+}
+
+#citySection {
+    color: #fff;
+}
+
+#cityList {
+    background-color: #1F4980;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: stretch;
+    height: 750px;
+    overflow-y: scroll;
+}
+
+#cityList .city {
+    flex-basis: 45%;
+    position: relative;
+    border: 1px solid #fff;
+    margin: 20px;
+    background-color: #E1C59F;
+    color: #444;
+    padding-top: 30px;
+    height: 200px;
+}
+
+.city .cityName {
+    background-color: #4CBBD6;
+    padding: 10px;
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+    box-shadow: 5px 10px 8px #968c8c;
+}
+
+.cityInfoRow {
+    padding-top: 20px
+}
+
+.cityInfoRow h3, .cityInfoRow p {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cityInfoRow h3 {
+    width: 200px;
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+.cityInfoRow p {
+    font-size: 1.2em;
+}
+
+#controls {
+    background-color: #1F4980;
+    height: 800px;
+}
+
+#controls .container:nth-child(2) div, #controls .container:nth-child(2) div:nth-child(2) {
+    display: grid;
+    padding: 10px;
+    width: 100%;
+}
+
+#controls .container:nth-child(2) div {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#controls .container:nth-child(2) div:nth-child(2) {
+    grid-template-columns: 1fr 1fr;
+    font-size: .7em;
+}
+
+#controls .container:nth-child(2) input[type="button"] {
+    position: relative;
+    bottom: none;
+    justify-self: center;
+    align-self: center;
 }
