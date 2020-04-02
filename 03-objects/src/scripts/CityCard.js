@@ -63,7 +63,9 @@ class CityCard {
         this.divCityInfoRow3.appendChild(this.h3cityInfoLabel3);
         this.divCityInfoRow3.appendChild(this.cityLongInfo3);
         this.closetBtn.className = "closeBtn"
-        this.closetBtn.textContent = "✘    ";//\u2717";
+
+        this.closetBtn.textContent = "✘";//\u2717";
+
 
         this.divCity.addEventListener('click', (e) => {
             this.bindTextBoxes(txtName, txtLatitude, txtLongitude, txtPopulation);
