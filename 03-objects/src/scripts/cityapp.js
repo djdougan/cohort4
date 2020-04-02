@@ -19,8 +19,8 @@ const btnMostSouthern = document.querySelector('#btnMostSouthern');
 
 const community = new Community();
 
-cityList.addEventListener('click', e => {
-});
+// cityList.addEventListener('click', e => {
+// });
 
 btnAdd.addEventListener('click', e => {
     let city = new City(txtCityName.value, txtLatitude.value, txtLongitude.value, txtPopulation.value)
