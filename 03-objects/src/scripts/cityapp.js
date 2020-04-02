@@ -98,8 +98,8 @@ btnPopulation.addEventListener("click", e => {
     h2.appendChild(document.createTextNode("Total population"));
     const p = document.createElement('p');
     div.appendChild(p);
-    // p.appendChild(document.createTextNode(new Intl.NumberFormat('en-us', { maximumSignificantDigits: 3 }).format(population)));
-    p.appendChild(document.createTextNode(population.toString()));
+    p.appendChild(document.createTextNode(new Intl.NumberFormat('en-us', { maximumSignificantDigits: 3 }).format(population)));
+    // p.appendChild(document.createTextNode(population.toString()));
     const button = document.createElement("button");
     button.textContent = "OK";
     div.appendChild(button);
