@@ -1,0 +1,64 @@
+{
+    "people": [
+        {
+            "name": "Anabela",
+            "surname": "Butnariu",
+            "gender": "female",
+            "region": "Romania"
+        },
+        {
+            "name": "Silvian",
+            "surname": "Florianu",
+            "gender": "male",
+            "region": "Romania"
+        },
+        {
+            "name": "Ica De la",
+            "surname": "Marina",
+            "gender": "female",
+            "region": "Romania"
+        },
+        {
+            "name": "Vlastimil",
+            "surname": "Kuba",
+            "gender": "male",
+            "region": "Slovakia"
+        },
+        {
+            "name": "Ľudovít",
+            "surname": "Polák",
+            "gender": "male",
+            "region": "Slovakia"
+        },
+        {
+            "name": "Basarab",
+            "surname": "Cucu",
+            "gender": "male",
+            "region": "Romania"
+        },
+        {
+            "name": "Sita",
+            "surname": "Shahi",
+            "gender": "female",
+            "region": "Nepal"
+        },
+        {
+            "name": "Zemfira",
+            "surname": "Əbdülzadə",
+            "gender": "female",
+            "region": "Azerbaijan"
+        },
+        {
+            "name": "Sylwester",
+            "surname": "Kubiak",
+            "gender": "male",
+            "region": "Poland"
+        },
+        {
+            "name": "Kathy",
+            "surname": "Bates",
+            "gender": "female",
+            "region": "United States"
+        }
+    ]
+}

@@ -4,7 +4,10 @@ html, body {
     color: #444;
     padding: 0;
     margin: 0;
-    ;
+}
+
+body {
+    display: relative;
 }
 
 section {
@@ -218,7 +221,6 @@ input[type="text"].control {
 
 .container input[type="button"] {
     position: absolute;
-    bottom: 10px;
     width: 200px;
     background-color: rgb(190, 190, 190);
     border: solid 5px #444;
@@ -296,3 +298,185 @@ input[type="text"].control {
 .card p {
     right: 20px;
 }
+
+#btnDeposit, #btnWithdrawal, #btnCreateAccount {
+    bottom: 10px;
+}
+
+/* City form */
+
+#citiesApplication .container .col>h2 {
+    text-align: center;
+    /* color: #444; */
+}
+
+#citySection {
+    color: #fff;
+}
+
+#cityList {
+    background-color: #1F4980;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: stretch;
+    height: 750px;
+    overflow-y: scroll;
+}
+
+.city {
+    flex-basis: 45%;
+    position: relative;
+    border: 1px solid #fff;
+    margin: 20px;
+    background-color: #E1C59F;
+    color: #444;
+    padding-top: 30px;
+    height: 200px;
+}
+
+.city.selected {
+    border: 1px solid rgb(53, 52, 52);
+    background-color: #f7bf70;
+    color: #444;
+}
+
+.city .cityName {
+    position: relative;
+    background-color: #4CBBD6;
+    padding: 10px;
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+    box-shadow: 5px 10px 8px #968c8c;
+}
+
+.city .closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+}
+
+.cityInfoRow {
+    padding-top: 20px
+}
+
+.cityInfoRow h3, .cityInfoRow p {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cityInfoRow h3 {
+    width: 200px;
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+.cityInfoRow p {
+    font-size: 1.2em;
+}
+
+#controls {
+    background-color: #1F4980;
+    height: 800px;
+}
+
+#controls .container:nth-child(2) div, #controls .container:nth-child(2) div:nth-child(2) {
+    display: grid;
+    padding: 10px;
+    width: 100%;
+}
+
+#controls .container:nth-child(2) div {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#controls .container:nth-child(2) div:nth-child(2) {
+    grid-template-columns: 1fr 1fr;
+    font-size: .7em;
+}
+
+#controls .container:nth-child(2) input[type="button"] {
+    position: relative;
+    bottom: none;
+    justify-self: center;
+    align-self: center;
+}
+
+.red {
+    background-color: #AE5858;
+    ;
+}
+
+div#overlay {
+    position: fixed;
+    display: block;
+    min-height: 100vh;
+    min-width: 100vw;
+    top: 0;
+    background-color: rgba(25, 25, 29, .9);
+    z-index: 99;
+}
+
+div#overlay h2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+div#overlay h3 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+div#overlay p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2em;
+    ;
+}
+
+div#overlay button {
+    position: absolute;
+    font-size: 1.4em;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    background-color: #4CBBD6;
+    color: #444;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+/* 
+div#overlay .city {
+    position: fixed;
+} */

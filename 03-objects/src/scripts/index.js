@@ -1,6 +1,8 @@
 import { Account, AccountController } from "./Account.js";
 import Card from "./Card.js";
 import MiscScripts from "./misc-scripts.js";
+import evolve_fetch from './fetch';
+// import functions from "./fetch.js";
 
 
 
@@ -19,7 +21,6 @@ const AC = new AccountController();
 let activeAccount = "";
 
 btnCreateAccount.addEventListener("click", (e) => {
-    // debugger;
     let accountName = txtAccountName.value;
     let balance = parseInt(txtStartingBalance.value);
     let account = AC.createAccount(accountName, balance, MiscScripts.createUUID());
@@ -102,6 +103,17 @@ function setActiveAccount(target) {
     target.classList.add("active");
     spnAccountName.textContent = target.querySelector("input").value;
 }
+const me =
+{
+    name: "Douglas",
+    surname: "Dougan",
+    gender: "Male",
+    region: "Alberta"
+};
 
-
-
+evolve_fetch.postData('../data/people.json', me)
+    .then((data) => {
+        console.log(data); // JSON data parsed by `response.json()` call
+    }).catch(e => {
+        console.log(e);
+    });
