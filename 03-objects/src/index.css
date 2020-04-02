@@ -4,7 +4,10 @@ html, body {
     color: #444;
     padding: 0;
     margin: 0;
-    ;
+}
+
+body {
+    display: relative;
 }
 
 section {
@@ -304,7 +307,7 @@ input[type="text"].control {
 
 #citiesApplication .container .col>h2 {
     text-align: center;
-    color: #444;
+    /* color: #444; */
 }
 
 #citySection {
@@ -323,7 +326,7 @@ input[type="text"].control {
     overflow-y: scroll;
 }
 
-#cityList .city {
+.city {
     flex-basis: 45%;
     position: relative;
     border: 1px solid #fff;
@@ -334,7 +337,14 @@ input[type="text"].control {
     height: 200px;
 }
 
+.city.selected {
+    border: 1px solid rgb(53, 52, 52);
+    background-color: #f7bf70;
+    color: #444;
+}
+
 .city .cityName {
+    position: relative;
     background-color: #4CBBD6;
     padding: 10px;
     position: absolute;
@@ -346,6 +356,15 @@ input[type="text"].control {
     -ms-border-radius: 10px 10px 0 0;
     -o-border-radius: 10px 10px 0 0;
     box-shadow: 5px 10px 8px #968c8c;
+}
+
+.city .closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
 }
 
 .cityInfoRow {
@@ -394,3 +413,70 @@ input[type="text"].control {
     justify-self: center;
     align-self: center;
 }
+
+.red {
+    background-color: #AE5858;
+    ;
+}
+
+div#overlay {
+    position: fixed;
+    display: block;
+    min-height: 100vh;
+    min-width: 100vw;
+    top: 0;
+    background-color: rgba(25, 25, 29, .9);
+    z-index: 99;
+}
+
+div#overlay h2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+div#overlay h3 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+div#overlay p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2em;
+    ;
+}
+
+div#overlay button {
+    position: absolute;
+    font-size: 1.4em;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    background-color: #4CBBD6;
+    color: #444;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+/* 
+div#overlay .city {
+    position: fixed;
+} */

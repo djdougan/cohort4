@@ -63,7 +63,7 @@ class Community {
     createCity(name, latitude, longitude, population) {
         let city = new City(name, latitude, longitude, population);
         this.communities.push(city);
-        return this.communities;
+        return city;
     }
 
     deleteCity(name) {

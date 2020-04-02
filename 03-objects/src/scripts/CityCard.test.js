@@ -10,4 +10,4 @@ describe('contains test for cityCard.BuildCard', () => {
         expect(div).toBeTruthy();
 
     });
-});
+}); 
