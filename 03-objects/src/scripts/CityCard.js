@@ -89,6 +89,33 @@ class CityCard {
         let cityList = parent.parentElement;
         cityList.removeChild(parent);
     }
+    createOverlay(message) {
+
+        const div = document.createElement('div');
+        div.id = 'overlay';
+        const h2 = document.createElement("h2");
+        div.appendChild(h2);
+        h2.appendChild(document.createTextNode(message));
+        const h3 = document.createElement("h3");
+        div.appendChild(h3);
+        h3.appendChild(document.createTextNode(this.name));
+        // latitude
+        const p1 = document.createElement('p');
+        div.appendChild(p1);
+        p1.appendChild(document.createTextNode(`Latitude: ${this.latitude}`));
+        //
+        const p2 = document.createElement('p');
+        div.appendChild(p2);
+        p2.appendChild(document.createTextNode(`Longitude: ${this.latitude}`));
+        //
+        const button = document.createElement("button");
+        button.textContent = "OK";
+        div.appendChild(button);
+        document.body.appendChild(div);
+        button.addEventListener('click', e => {
+            document.body.removeChild(e.target.parentElement)
+        });
+    }
 
     bindTextBoxes(txtName, txtLatitude, txtLongitude, txtPopulation) {
         let parent = this.divCity.parentNode;
