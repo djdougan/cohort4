@@ -4,17 +4,23 @@ describe('Contains test for city constructor and show', () => {
 
     test("Test: Show output should be \"name, latitude, longitude, population\"", () => {
         const calgary = new City("Calgary", 51.049999, -114.066666, 1239220);
-        expect(calgary.show()).toBe("Calgary, 51.049999, -114.066666, 1239220");
+        expect(calgary.show()).toEqual({
+            "name": "Calgary", "latitude": 51.049999, "longitude": -114.066666, "population": 1239220
+        });
     });
 
     test("Test: Show output should be \"name, latitude, longitude, population\"", () => {
         const edmonton = new City("Edmonton", 53.631611, -113.323975, 932546);
-        expect(edmonton.show()).toBe("Edmonton, 53.631611, -113.323975, 932546");
+        expect(edmonton.show()).toEqual({
+            "name": "Edmonton", "latitude": 53.631611, "longitude": -113.323975, "population": 932546
+        });
     });
 
     test("Test: Show output should be \"name, latitude, longitude, population\"", () => {
         const london = new City("Edmonton", 51.509865, -0.118092, 8908081);
-        expect(london.show()).toBe("Edmonton, 51.509865, -0.118092, 8908081");
+        expect(london.show()).toEqual({
+            "name": "Edmonton", "latitude": 51.509865, "longitude": -0.118092, "population": 8908081
+        });
     });
 
 });
@@ -38,9 +44,18 @@ describe('Contains test for moveIn', () => {
     });
 
     test("Test: moveIn() should add to current population", () => {
+        const london = new City("London", 51.509865, -0.118092, 8908081);
+        expect(london.movedIn("8765")).toBe(8916846);
+    });
+
+    test("Test: moveIn() should add to current population", () => {
         // test strings pa
-        const tokyo = new City("Tokyo", 35.652832, 139.839478, 13929286);
-        expect(tokyo.movedIn('abc')).toBe(13929286);
+        try {
+            const tokyo = new City("Tokyo", 35.652832, 139.839478, 13929286);
+            tokyo.movedIn('abc');
+        } catch (e) {
+            expect(e).toEqual(Error('The value abc is not a valid number.'));
+        }
     });
 
 });
@@ -66,8 +81,12 @@ describe('Contains test for moveOut', () => {
 
     test("Test: movOut should subtract to current population", () => {
         // test strings pa
-        const tokyo = new City("Tokyo", 35.652832, 139.839478, 13929286);
-        expect(tokyo.movedOut('abc')).toBe(13929286);
+        try {
+            const tokyo = new City("Tokyo", 35.652832, 139.839478, 13929286);
+            let pop = tokyo.movedOut('www');
+        } catch (e) {
+            expect(e).toEqual(Error('The value www is not a valid number.'))
+        }
     });
 
 });

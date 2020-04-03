@@ -5,10 +5,14 @@ import MiscScripts from "./misc-scripts";
 
 let uuid = MiscScripts.createUUID();
 
-test("Test: Build Card", () => {
-    let account = new Account("Checking", 500, uuid)
-    let card = new Card(account);
-    let div = card.buildCard();
-    expect(div).toBeTruthy();
+describe('Contains Test for Build Card', () => {
+
+    test("Test: Build Card", () => {
+        let account = new Account("Checking", 500, uuid)
+        let card = new Card(account);
+        let div = card.buildCard();
+        expect(div).toBeTruthy();
+
+    });
 
 });

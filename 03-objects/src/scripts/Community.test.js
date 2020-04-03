@@ -5,17 +5,18 @@ describe('contains test Community.createCity(city)', () => {
     const community = new Community();
     test("Test: Community.createCity('Calgary', 51.049999, -114.066666, 1239220)", () => {
         expect(community.createCity("Calgary", 51.049999, -114.066666, 1239220))
-            .toContainEqual({
-                name: "Calgary",
-                latitude: 51.049999,
-                longitude: -114.066666,
-                population: 1239220
+            .toMatchObject({
+                "name": "Calgary",
+                "latitude": 51.049999,
+                "longitude": -114.066666,
+                "population": 1239220
             }
             ) // .toContain
     });
+
     test("Test: Community.createCity('Edmonton', 53.631611, -113.323975, 932546)", () => {
         expect(community.createCity("Edmonton", 53.631611, -113.323975, 932546))
-            .toContainEqual({
+            .toMatchObject({
                 name: "Edmonton",
                 latitude: 53.631611,
                 longitude: -113.323975,

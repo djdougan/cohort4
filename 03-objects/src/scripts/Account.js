@@ -5,7 +5,7 @@
  * @author Douglas J Dougan djdougan@gmail.com
  * @summary Competency 100D exercise at https://www.evolveu.ca/
  * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-03-27 11:24:38
+ * Last modified  : 2020-04-02 16:17:34
  *
  * @name Account
  * @class
@@ -49,7 +49,7 @@ class Account {
                 }
             } else {
 
-                throw new Error(`The value ${amount} is not a valid number.`)
+                throw Error(`The value ${amount} is not a valid number.`)
             }
         } catch (err) {
             throw err;
