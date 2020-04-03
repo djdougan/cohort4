@@ -1,6 +1,25 @@
+/**
+ * Copyright (c) 2020
+ *
+ * @summary Working with objects
+ * @author Douglas J Dougan djdougan@gmail.com
+ * @summary Competency 100D exercise at https://www.evolveu.ca/
+ * Created at     : 2020-03-31 ‏‎20:17:55 
+ * Last modified  : 2020-04-02, ‏‎12:27:04 
+ *
+ * @name CityCard
+ * @class
+ */
 
 
 class CityCard {
+    /**
+     * jsDoc
+    * @description
+    * @name constructor
+    * @param {object} city -- city object.
+    */
+
     constructor(city) {
         this.name = city.name;
         this.population = city.population;
@@ -24,7 +43,16 @@ class CityCard {
         this.closetBtn = document.createElement('button');
     };
 
-    buildCard(txtName, txtLatitude, txtLongitude, txtPopulation) {
+    /**
+    * @description builds a card element with city properties
+    * @name buildCard
+    * @param {string} txtNameId -- textBox CityName to Bind to
+    * @param {string} txtLatitudeId -- textBox txtLatitude to Bind to
+    * @param {string} txtLongitudeId -- textBox txtLongitude to Bind to
+    * @param {string} txtPopulationId -- textBox txtPopulation to Bind to
+    * @return {HTMLDivElement} -- returns a Card HTMLDivElement
+    */
+    buildCard(txtNameId, txtLatitudeId, txtLongitudeId, txtPopulationId) {
         // header
         this.divCity.className = "city rounded-10";
         this.divCity.dataset.city = this.name;
@@ -66,14 +94,6 @@ class CityCard {
 
         this.closetBtn.textContent = "✘";//\u2717";
 
-
-        this.divCity.addEventListener('click', (e) => {
-            this.bindTextBoxes(txtName, txtLatitude, txtLongitude, txtPopulation);
-
-        });
-
-        this.closetBtn.addEventListener('click', this.closeCard);
-
         // put it together
         this.divCity.appendChild(this.closetBtn);
         this.divCity.appendChild(this.h2CityName);
@@ -83,32 +103,64 @@ class CityCard {
 
         return this.divCity;
     }
-    closeCard(event) {
 
-        let parent = event.target.parentElement;
-        let cityList = parent.parentElement;
-        cityList.removeChild(parent);
-    }
+    /**
+    * @description creates a overlay with information on Most North/South city from Greenwich, England and the Equator.
+    * @name createOverlay
+    * @param {string} title -- "Most Northern", "Most Southern", "Most Eastern", "Most Western".
+    * 
+    */
+    // createOverlay(title) {
 
-    bindTextBoxes(txtName, txtLatitude, txtLongitude, txtPopulation) {
-        let parent = this.divCity.parentNode;
+    //     const div = document.createElement('div');
+    //     div.id = 'overlay';
+    //     const h2 = document.createElement("h2");
+    //     div.appendChild(h2);
+    //     h2.appendChild(document.createTextNode(title));
+    //     const h3 = document.createElement("h3");
+    //     div.appendChild(h3);
+    //     h3.appendChild(document.createTextNode(this.name));
+    //     // latitude
+    //     const p1 = document.createElement('p');
+    //     div.appendChild(p1);
+    //     p1.appendChild(document.createTextNode(`Latitude: ${this.latitude}`));
+    //     //
+    //     const p2 = document.createElement('p');
+    //     div.appendChild(p2);
+    //     p2.appendChild(document.createTextNode(`Longitude: ${this.latitude}`));
+    //     //
+    //     const button = document.createElement("button");
+    //     button.textContent = "OK";
+    //     div.appendChild(button);
+    //     document.body.appendChild(div);
+    //     button.addEventListener('click', e => {
+    //         document.body.removeChild(e.target.parentElement)
+    //     });
+    // }
 
-        let cities = Array.from(parent.children);
-        console.log(cities);
-        cities.forEach((city) => {
-            city.classList.remove('selected');
-        });
-        this.divCity.classList.add('selected');
-        // set values of 
-        txtName.value = this.name;
-        txtLatitude.value = this.latitude;
-        txtLongitude.value = this.longitude;
-        txtPopulation.value = this.population;
-    }
+    // /**
+    // * @description binds data to textBoxes outside of Card
+    // * @name bindTextBoxes
+    // * @param {string} txtNameId -- Name of City textBox
+    // * @param {string} txtLatitudeId -- Name of Latitude textBox
+    // * @param {string} txtLongitudeId -- Name of Longitude textBox
+    // * @param {string} txtPopulationId -- Name of Population textBox
+    // */
+    // bindTextBoxes(txtNameId, txtLatitudeId, txtLongitudeId, txtPopulationId) {
+    //     let parent = this.divCity.parentNode;
+
+    //     let cities = Array.from(parent.children);
+    //     cities.forEach((city) => {
+    //         city.classList.remove('selected');
+    //     });
+    //     this.divCity.classList.add('selected');
+    //     // set values of 
+    //     document.getElementById(txtNameId).value = this.name;
+    //     document.getElementById(txtLatitudeId).value = this.latitude;
+    //     document.getElementById(txtLongitudeId).value = this.longitude;
+    //     document.getElementById(txtPopulationId).value = this.population;
+    // }
 }
-
-
-
 
 
 export default CityCard;

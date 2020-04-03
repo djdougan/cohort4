@@ -414,11 +414,6 @@ input[type="text"].control {
     align-self: center;
 }
 
-.red {
-    background-color: #AE5858;
-    ;
-}
-
 div#overlay {
     position: fixed;
     display: block;
@@ -431,32 +426,46 @@ div#overlay {
 
 div#overlay h2 {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-70%, -50%);
     color: #fff;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-70%, -50%);
+    -moz-transform: translate(-70%, -50%);
+    -ms-transform: translate(-70%, -50%);
+    -o-transform: translate(-70%, -50%);
 }
 
 div#overlay h3 {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-70%, -50%);
     color: #fff;
+    -webkit-transform: translate(-70%, -50%);
+    -moz-transform: translate(-70%, -50%);
+    -ms-transform: translate(-70%, -50%);
+    -o-transform: translate(-70%, -50%);
 }
 
 div#overlay p {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     color: #fff;
     font-size: 2em;
-    ;
+    transform: translate(-70%, -50%);
+    -webkit-transform: translate(-70%, -50%);
+    -moz-transform: translate(-70%, -50%);
+    -ms-transform: translate(-70%, -50%);
+    -o-transform: translate(-70%, -50%);
+}
+
+div#overlay p:first-of-type {
+    top: 41%;
+}
+
+div#overlay p:last-of-type {
+    top: 47%;
 }
 
 div#overlay button {
@@ -464,7 +473,6 @@ div#overlay button {
     font-size: 1.4em;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 20px;
     width: 200px;
     height: 100px;
@@ -474,9 +482,27 @@ div#overlay button {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+    transform: translate(-70%, -50%);
+    -webkit-transform: translate(-70%, -50%);
+    -moz-transform: translate(-70%, -50%);
+    -ms-transform: translate(-70%, -50%);
+    -o-transform: translate(-70%, -50%);
 }
 
-/* 
-div#overlay .city {
-    position: fixed;
-} */
+::-webkit-input-placeholder {
+    /* Edge */
+    color: rgba(119, 119, 119, 0.31);
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(119, 119, 119, 0.31);
+}
+
+::placeholder {
+    color: rgba(119, 119, 119, 0.31);
+}
+
+.red {
+    background-color: #AE5858;
+}
