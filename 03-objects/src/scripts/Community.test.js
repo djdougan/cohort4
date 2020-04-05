@@ -1,230 +1,252 @@
-import { City, Community } from "./City";
+import Community from "./Community";
+import City from "./City";
 
 
-describe('contains test Community.createCity(city)', () => {
-    const community = new Community();
-    test("Test: Community.createCity('Calgary', 51.049999, -114.066666, 1239220)", () => {
-        expect(community.createCity("Calgary", 51.049999, -114.066666, 1239220))
-            .toMatchObject({
-                "name": "Calgary",
-                "latitude": 51.049999,
-                "longitude": -114.066666,
-                "population": 1239220
+describe('Contains tests for Community.createCity()', () => {
+
+    test("Test: Should be 14 after population 10 + 4", () => {
+        const comm = new Community();
+        let A = comm.createCity("A", 5, -2, 10);
+        expect(A.show()).toEqual(
+            {
+                name: "A",
+                latitude: 5,
+                longitude: -2,
+                population: 10
             }
-            ) // .toContain
-    });
-
-    test("Test: Community.createCity('Edmonton', 53.631611, -113.323975, 932546)", () => {
-        expect(community.createCity("Edmonton", 53.631611, -113.323975, 932546))
-            .toMatchObject({
-                name: "Edmonton",
-                latitude: 53.631611,
-                longitude: -113.323975,
-                population: 932546
+        );
+        let B = comm.createCity("B", 2, 5, 4)
+        expect(B.show()).toEqual(
+            {
+                name: "B",
+                latitude: 2,
+                longitude: 5,
+                population: 4
             }
-            ) // .toContain
-    }); // test
-});
+        );
+        expect(comm.getPopulation()).toBe(14);
 
-describe("contains test Community.getPopulation()", () => {
-
-    const community = new Community();
-
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Calgary", 51.049999, -114.066666, 1239220)
-        expect(community.getPopulation()).toEqual(1239220);
-    });
-
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Edmonton", 53.631611, -113.323975, 932546);
-        expect(community.getPopulation()).toBe(2171766);
-    });
-
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Red Deer", 52.268112, -113.811241, 100418);
-        expect(community.getPopulation()).toBe(2272184);
-    });
-
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Airdrie", 51.292641, -114.008858, 61581);
-        expect(community.getPopulation()).toBe(2333765);
-    });
-
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Carstairs", 51.565750, -114.105080, 4077);
-        expect(community.getPopulation()).toBe(2337842);
     });
 
 
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Acadia", 51.602552, -112.517493, 493);
-        expect(community.getPopulation()).toBe(2338335);
+    test("Test: Should be 14 after population strings 10 + 4", () => {
+        const comm = new Community();
+        let A = comm.createCity("A", 5, -2, "10");
+        expect(A.show()).toEqual(
+            {
+                name: "A",
+                latitude: 5,
+                longitude: -2,
+                population: 10
+            }
+        );
+        let B = comm.createCity("B", 2, 5, "4")
+        expect(B.show()).toEqual(
+            {
+                name: "B",
+                latitude: 2,
+                longitude: 5,
+                population: 4
+            }
+        );
+        expect(comm.getPopulation()).toBe(14);
+
+
     });
 
+    test("Test: Should throw a error if non numeric population", () => {
+        const comm = new Community();
+        expect(() => {
+            let B = comm.createCity("B", 2, 5, "OO") // oh's         
+        }).toThrow();
 
-    test("Test: Community.getPopulation()", () => {
-        community.createCity("Bottrel", 51.4012150618, -114.468764792, 5);
-        expect(community.getPopulation()).toBe(2338340);
+
     });
 
-}); // describe
+    test("Test: Should throw error if latitude is less than -90", () => {
+        let com = new Community();
+        expect(() => {
+            com.createCity("A", -91, 1, 1);
+        }).toThrow();
+    }); // Test: Should throw error if latitude is less than -180
+    test("Test: Should throw error if latitude is greater than 90", () => {
+        let com = new Community();
+        expect(() => {
+            com.createCity("A", 91, 1, 1);
+        }).toThrow();
+    }); // Test: Should throw error if latitude is greater than 180
 
+    test("Test: Should throw error if longitude is less than -180", () => {
+        let com = new Community();
+        expect(() => {
+            com.createCity("A", 1, -181, 1);
+        }).toThrow();
+    }); // Test: Should throw error if longitude is less than -90
+
+    test("Test: Should throw error if longitude is greater than 180", () => {
+        let com = new Community();
+        expect(() => {
+            com.createCity("A", 1, 181, 1);
+        }).toThrow();
+    }); // Test: Should throw error if longitude is greater than 90
+}); // Contains tests for Community.createCity()
 
 
 describe("contains test Community.deleteCity(city)", () => {
 
-    const community = new Community();
+    test("Test: Should delete city and return city if exist", () => {
+        const com = new Community();
+        let A = com.createCity("A", 1, 1, 1);
+        let B = com.createCity("B", 2, 2, 2);
+        // population should be 3
+        expect(com.getPopulation()).toBe(3);
 
-    community.createCity("Calgary", 51.049999, -114.066666, 1239220);
-    community.createCity("Edmonton", 53.631611, -113.323975, 932546);
-    community.createCity("Red Deer", 52.268112, -113.811241, 100418);
-    community.createCity("Airdrie", 51.292641, -114.008858, 61581);
-    community.createCity("Carstairs", 51.565750, -114.105080, 4077);
-    community.createCity("Acadia", 51.602552, -112.517493, 493);
-    community.createCity("Bottrel", 51.4012150618, -114.468764792, 5);
-
-    test("Test: Community.deleteCity('Carstairs')", () => {
-        expect(community.deleteCity('Carstairs')).not.toContainEqual({
-            name: "Carstairs",
-            latitude: 51.565750,
-            longitude: -114.008858,
-            population: 4077
+        expect(com.deleteCity(A.name)).toEqual({
+            name: 'A',
+            latitude: 1,
+            longitude: 1,
+            population: 1
         });
-    });
-
-    test("Test: Community.deleteCity('Red Deer')", () => {
-        expect(community.deleteCity('Red Deer')).not.toContainEqual({
-            name: "Red Deer",
-            latitude: 52.268112,
-            longitude: -113.811241,
-            population: 100418
+        expect(com.getPopulation()).toBe(2);
+        expect(com.deleteCity(B.name)).toEqual({
+            name: 'B',
+            latitude: 2,
+            longitude: 2,
+            population: 2
         });
-    });
+        // there should be 0 population
+        expect(com.getPopulation()).toBe(0);
 
-    test("Test: Community.deleteCity('Calgary')", () => {
-        expect(community.deleteCity('Calgary')).not.toContainEqual({
-            name: "Calgary",
-            latitude: 51.049999,
-            longitude: -114.066666,
-            population: 1239220
-        });
-    });
-
-    test("Test: Community.deleteCity('Edmonton')", () => {
-        expect(community.deleteCity('Edmonton')).not.toContainEqual({
-            name: "Edmonton",
-            latitude: 53.631611,
-            longitude: -113.323975,
-            population: 932546
-        });
-    });
-
-    test("Test: Community.deleteCity('Airdrie')", () => {
-        expect(community.deleteCity('Airdrie')).not.toContainEqual({
-            name: "Airdrie",
-            latitude: 51.292641,
-            longitude: -114.008858,
-            population: 61581
-        });
-    });
+    }); //Test: Should delete city and return city if exist
 
 
-    test("Test: Community.deleteCity('Bottrel')", () => {
-        expect(community.deleteCity('Bottrel')).not.toContainEqual({
-            name: "Bottrel",
-            latitude: 51.4012150618,
-            longitude: -114.468764792,
-            population: 5
-        });
-    });
+    test("Test: Should throw exception if city does not exist", () => {
+        const com = new Community();
 
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", 2, 2, 2);
+        com.createCity("C", 3, 3, 3);
+        // delete city C and check if 
+        expect(
+            com.deleteCity('C')
+        ).not.toContain(
+            {
+                name: 'C',
+                latitude: "3",
+                longitude: '3',
+                population: "3"
+            }
+        );
 
-    test("Test: Community.deleteCity('Acadia')", () => {
-        expect(community.deleteCity('Acadia')).not.toContainEqual({
-            name: "Acadia",
-            latitude: 51.602552,
-            longitude: -112.517493,
-            population: 493
-        });
-    });
+        expect(() => {
+            com.deleteCity('C')
+        }).toThrow();
+    }); //Test: Should throw exception if city does not exist
 
 });
 
-describe("contains test Community.whichSphere(city)", () => {
+describe("contains test Community.whichSphereNS(city)", () => {
 
-    const community = new Community();
+    test("Test: Should be Northern or Southern", () => {
+        const com = new Community();
+        com.createCity("A", 1, 1, 1);
+        expect(com.whichSphereNS('A')).toEqual("Northern Hemisphere");
+        com.createCity("B", -2, -2, 2);
+        expect(com.whichSphereNS('B')).toBe("Southern Hemisphere");
+    });// Test: Should be Northern or Southern
 
-    community.createCity("Calgary", 51.049999, -114.066666, 1239220);
-    community.createCity("Buenos Aires", -34.603722, -58.381592, 15057000);
-    community.createCity("Tokyo", 35.652832, 139.839478, 13929286);
-    community.createCity("Sydney", -33.865143, 151.209900, 5312163);
-    community.createCity("Mexico City", 19.432608, -99.133209, 21672000);
-    community.createCity("Mumbai", 19.076090, 72.877426, 20185000);
-    community.createCity("Perm", 58.000000, 56.316666, 1067000);
+    test("Test: Should throw error if city doesn't exist", () => {
+        const com = new Community();
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", -2, -2, 2);
+        expect(() => {
+            com.whichSphereNS('C')
+        }).toThrow();
+    });// Test: Should throw error if city doesn't exist
+
+    test("Test: Should throw error if number passed as name", () => {
+        const com = new Community();
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", -2, -2, 2);
+        expect(() => {
+            com.whichSphereNS(1)
+        }).toThrow();
+    }); // Test: Should throw error if number passed as name
+
+}); // contains test Community.whichSphereNS(city)
+
+describe("contains test Community.whichSphereEW(city)", () => {
 
 
-    test("Test: Community.whichSphere('Calgary')", () => {
-        expect(community.whichSphere('Calgary')).toBe("Northern Hemisphere");
-    });
+    test("Test: Should be Eastern or Western", () => {
+        const com = new Community();
+        com.createCity("A", 1, 1, 1);
+        expect(com.whichSphereEW('A')).toEqual("Eastern Hemisphere");
+        com.createCity("B", -2, -2, 2);
+        expect(com.whichSphereEW('B')).toBe("Western Hemisphere");
+    });// Test: Should be Eastern or Western
 
-    test("Test: Community.whichSphere('Buenos Aires')", () => {
-        expect(community.whichSphere('Buenos Aires')).toBe("Southern Hemisphere");
-    });
+    test("Test: Should throw error if city doesn't exist", () => {
+        const com = new Community();
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", -2, -2, 2);
+        expect(() => {
+            com.whichSphereEW('C')
+        }).toThrow();
+    });// Test: Should throw error if city doesn't exist
 
-    test("Test: Community.whichSphere('Perm')", () => {
-        expect(community.whichSphere('Perm')).toBe("Northern Hemisphere");
-    });
-
-    test("Test: Community.whichSphere('Mumbai')", () => {
-        expect(community.whichSphere('Mumbai')).toBe("Northern Hemisphere");
-    });
-
-    test("Test: Community.whichSphere('Mexico City')", () => {
-        expect(community.whichSphere('Mexico City')).toBe("Northern Hemisphere");
-    });
-
-    test("Test: Community.whichSphere('Tokyo')", () => {
-        expect(community.whichSphere('Tokyo')).toBe("Northern Hemisphere");
-    });
+    test("Test: Should throw error if number passed as name", () => {
+        const com = new Community();
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", -2, -2, 2);
+        expect(() => {
+            com.whichSphereEW(1)
+        }).toThrow();
+    }); // Test: Should throw error if number passed as name
 
 });
 
 
-describe("contains test Community.getMostNorthern()", () => {
+describe("Contains test Community.getMostNorthern()", () => {
 
 
-    test('Test: Community.getMostNorthern() ', () => {
+    test('Test: Should return city with largest latitude value', () => {
+        const com = new Community();
+
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", 2, 2, 2);
+        com.createCity("C", -1, -1, -1);
+        expect(com.getMostNorthern()).toEqual({ name: "B", latitude: 2, longitude: 2, population: 2 });
+    }); Test: Should return city with largest latitude value
+
+}); //Contains test Community.getMostNorthern()
+
+describe("Contains test Community.getMostSouthern()", () => {
+
+
+    test('Test: Should return city with smallest latitude value', () => {
+        const com = new Community();
+
+        com.createCity("A", 1, 1, 1);
+        com.createCity("B", 2, 2, 2);
+        com.createCity("C", -1, -1, -1);
+        expect(com.getMostSouthern()).toEqual({ name: "C", latitude: -1, longitude: -1, population: -1 });
+    }); //Test: Should return city with smallest latitude value
+
+}); //Contains test Community.getMostSouthern()
+
+
+describe("Contains tests for getPopulation", () => {
+
+    test("Test: should be 3", () => {
         const community = new Community();
 
-        community.createCity("Calgary", 51.049999, -114.066666, 1239220);
-        community.createCity("Buenos Aires", -34.603722, -58.381592, 15057000);
-        community.createCity("Tokyo", 35.652832, 139.839478, 13929286);
-        community.createCity("Sydney", -33.865143, 151.209900, 5312163);
-        community.createCity("Mexico City", 19.432608, -99.133209, 21672000);
-        community.createCity("Mumbai", 19.076090, 72.877426, 20185000);
-        community.createCity("Perm", 58.000000, 56.316666, 1067000);
+        let A = community.createCity("A", 1, 1, 1)
+        expect(community.getPopulation()).toEqual(1);
+        let B = community.createCity("B", 2, 2, 2);
+        expect(community.getPopulation()).toBe(3);
 
-        expect(community.getMostNorthern()).toEqual({ name: "Perm", latitude: 58.000000, longitude: 56.316666, population: 1067000 });
-
-    });
+    }); // Test: should be 3
 
 
-});
-
-describe("contains test Community.getMostSouthern()", () => {
-
-    const community = new Community();
-
-    community.createCity("Calgary", 51.049999, -114.066666, 1239220);
-    community.createCity("Buenos Aires", -34.603722, -58.381592, 15057000);
-    community.createCity("Tokyo", 35.652832, 139.839478, 13929286);
-    community.createCity("Sydney", -33.865143, 151.209900, 5312163);
-    community.createCity("Mexico City", 19.432608, -99.133209, 21672000);
-    community.createCity("Mumbai", 19.076090, 72.877426, 20185000);
-    community.createCity("Perm", 58.000000, 56.316666, 1067000);
-
-    expect(community.getMostSouthern()).toEqual({
-        name: "Buenos Aires", latitude: -34.603722, longitude: -58.381592, population: 15057000
-    });
-
-});
+}); //describe: Contains tests for getPopulation
