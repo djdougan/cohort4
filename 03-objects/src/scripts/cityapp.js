@@ -1,6 +1,7 @@
-import { City, Community } from './City.js';
-
+import City from './City.js';
+import Community from './Community.js';
 import CityCard from './CityCard.js';
+import CityFetch from "./CityFetch.js";
 
 
 const cityList = document.querySelector('#cityList');
@@ -16,113 +17,91 @@ const btnPopulation = document.querySelector('#btnPopulation');
 const btnLoadSeedData = document.querySelector('#btnLoadSeedData');
 const btnMostNorthern = document.querySelector('#btnMostNorthern');
 const btnMostSouthern = document.querySelector('#btnMostSouthern');
-
 const community = new Community();
 
-// cityList.addEventListener('click', e => {
-// });
+const url = 'http://localhost:5000/';
 
-btnAdd.addEventListener('click', e => {
-    let city = new City(txtCityName.value, txtLatitude.value, txtLongitude.value, txtPopulation.value)
-    if (txtCityName.value !== "") {
-        makeCard(city.name, city.latitude, city.longitude, city.population);
+const com = new Community();
+let nextKey = 0;
+
+window.addEventListener("load", async() => {
+    let data = await CityFetch.all(url);
+    if (data.status === 200) {
+        console.log(data.length);
+        for (let i = 0; i < data.length; i++) {
+            let city = com.createCity(data[i].key, data[i].name, data[i].latitude, data[i].longitude, data[i].population);
+            console.log(city);
+            let card = new CityCard();
+            let NS = com.whichSphereNS(city.key);
+            let EW = com.whichSphereEW(city.key);
+            cityList.appendChild(
+                card.buildCard(city.key, city.name, city.latitude, city.longitude,
+                    city.population, city.howBig(), NS.charAt(0), EW.charAt(0)));
+            card.closetBtn.addEventListener('click', function(e) { deleteCard(e.target); });
+        }
     }
-    clearTextBoxes();
+    console.log("DOMContentLoaded")
+});
+
+cityList.addEventListener('click', e => {
+    console.log("cityList.click")
+    let card = e.target;
+    if (cityList.children.length !== 0) {
+        while (!card.classList.contains('city')) {
+            card = card.parentElement;
+        }
+        if (e.target.classList.contains('btnClose')) {
+            //delete the card and remove from collection and server
+
+        }
+    }
+});
+
+//
+btnAdd.addEventListener('click', async e => {
+    let city =
+        com.createCity(null,
+            txtCityName.value,
+            txtLatitude.value,
+            txtLongitude.value,
+            txtPopulation.value);
+    let card = new CityCard();
+    cityList.appendChild(
+        card.buildCard(city.key, city.name, city.latitude, city.longitude, city.population)
+    );
+    CityFetch.add(url, city);
+    CityFetch.save(url);
+    console.log("btnAdd");
+
 });
 
 btnMostNorthern.addEventListener('click', e => {
-    let city = community.getMostNorthern();
-    let overlay = new CityCard(city);
-    createOverlay("Most Southern", city);
+
+    console.log("btnMostNorthern");
 });
 
 btnMostSouthern.addEventListener('click', e => {
-    let city = community.getMostSouthern();
-    let overlay = new CityCard(city);
-    createOverlay("Most Southern", city);
+
+    console.log("btnMostSouthern");
 });
 
-btnLoadSeedData.addEventListener("click", (e) => {
-    fetch("./data/seedData.json")
-        .then(response => response.json())
-        .then(json => {
-            let cities = json["cities"];
 
-            cities.forEach(city => {
-                makeCard(city.name, city.latitude, city.longitude, city.population);
-            });
-        });
-})
+btnPopulation.addEventListener("click", async() => {
+    // debugger;
+    let data = await postData(url + 'all');
+    console.log(data);
+    console.log("btnPopulation");
 
-
-btnPopulation.addEventListener("click", e => {
-    let population = community.getPopulation();
-    const div = document.createElement('div');
-    div.id = 'overlay';
-    const h2 = document.createElement("h2");
-    div.appendChild(h2);
-    h2.appendChild(document.createTextNode("Total population"));
-    const p = document.createElement('p');
-    div.appendChild(p);
-    p.appendChild(document.createTextNode(new Intl.NumberFormat('en-us', {
-        style: 'decimal',
-        "notation": "standard",
-    }).format(population)));
-    const button = document.createElement("button");
-    button.textContent = "OK";
-    div.appendChild(button);
-    document.body.appendChild(div);
-    button.addEventListener('click', e => {
-        document.body.removeChild(e.target.parentElement)
-    });
 });
 
-function makeCard(cityName, latitude, longitude, population) {
-    if (cityName !== "") {
-        const city = community.createCity(cityName, latitude, longitude, population);
-        const cityCard = new CityCard(city);
-        const card = cityCard.buildCard(txtCityName.id, txtLatitude.id, txtLongitude.id, txtPopulation.id)
-        cityList.appendChild(card);
-        card.querySelector('.closeBtn').addEventListener('click', e => {
-            community.deleteCity(city.name);
-            e.target.parentElement.parentElement.removeChild(e.target.parentElement)
-        });
-        card.addEventListener("click", e => {
-            txtCityName.value = city.name;
-            txtLatitude.value = city.latitude;
-            txtLongitude.value = city.longitude;
-            txtPopulation.value = city.population;
+function deleteCard(card) {
+    card = card.parentElement;
+    let key = parseInt(card.dataset.key);
+    com.deleteCity(key);
+    CityFetch.delete(url, { key: key });
+    CityFetch.save(url);
+    cityList.removeChild(card);
 
-        })
-    }
-
-}
-
-function createOverlay(title, city) {
-    const div = document.createElement('div');
-    div.id = 'overlay';
-    const h2 = document.createElement("h2");
-    div.appendChild(h2);
-    h2.appendChild(document.createTextNode(title));
-    const h3 = document.createElement("h3");
-    div.appendChild(h3);
-    h3.appendChild(document.createTextNode(city.name));
-    // latitude
-    const p1 = document.createElement('p');
-    div.appendChild(p1);
-    p1.appendChild(document.createTextNode(`Latitude: ${city.latitude}`));
-    //
-    const p2 = document.createElement('p');
-    div.appendChild(p2);
-    p2.appendChild(document.createTextNode(`Longitude: ${city.latitude}`));
-    //
-    const button = document.createElement("button");
-    button.textContent = "OK";
-    div.appendChild(button);
-    document.body.appendChild(div);
-    button.addEventListener('click', e => {
-        document.body.removeChild(e.target.parentElement)
-    });
 }
 
 function clearTextBoxes() {
@@ -132,3 +111,9 @@ function clearTextBoxes() {
     txtLongitude.value = "";
     txtCityName.focus();
 }
+
+// async function fetchAll(url) {
+//     let response = await fetch(url + "load");
+//     let data = await response.json();
+//     return data;
+// }

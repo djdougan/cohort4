@@ -30,7 +30,7 @@ btnCreateAccount.addEventListener("click", (e) => {
     accountList.prepend(div);
     setActiveAccount(div);
 
-})
+});
 
 accountList.addEventListener("click", cardClick, false)
 
@@ -55,7 +55,7 @@ function closeAccount(e) {
 };
 
 
-accountList.addEventListener('keypress', function (e) {
+accountList.addEventListener('keypress', function(e) {
     if (e.keyCode === 13) {
         activeAccount = e.target.parentElement.dataset.uuid;
     }
@@ -103,8 +103,7 @@ function setActiveAccount(target) {
     target.classList.add("active");
     spnAccountName.textContent = target.querySelector("input").value;
 }
-const me =
-{
+const me = {
     name: "Douglas",
     surname: "Dougan",
     gender: "Male",
