@@ -254,6 +254,8 @@
         text-align: center;
         /* color: #444; */
     }
+    /*  City and community */
+    
     #citySection {
         color: #fff;
     }
@@ -306,7 +308,7 @@
     }
     .btnClose {
         position: absolute;
-        top: -10px;
+        top: 5px;
         right: 10px;
         border: solid 2px #555;
         width: 25px;
@@ -348,6 +350,14 @@
         font-size: 1.2em;
         left: 150px;
     }
+    .city div button {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        font-size: 1em;
+        width: 30px;
+        background: transparent;
+    }
     .cityInfoRow h3 {
         width: 200px;
         margin-left: 10px;
@@ -355,6 +365,11 @@
     }
     .cityInfoRow p {
         font-size: 1.2em;
+    }
+    .city.active {
+        border: solid 5px #333;
+        flex-basis: 44%;
+        background-color: #f8f8cd;
     }
     #controls {
         background-color: #1F4980;
@@ -368,70 +383,96 @@
     #controls .container div {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    /* #controls .container:nth-child(2) div:nth-child(2) {
-        grid-template-columns: 1fr 1fr;
-        font-size: .7em;
-    } */
-    
     #controls .container:nth-child(2) input[type="button"] {
         position: relative;
         bottom: none;
         justify-self: center;
         align-self: center;
     }
+    .city .adjustPopulation {
+        position: absolute;
+        background-color: #E1C59F;
+        border: 2px solid #333;
+        top: -10px;
+        right: 10px;
+        width: 200px;
+        height: 160px;
+        z-index: 99;
+        text-align: center;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .hidden {
+        visibility: hidden;
+    }
+    .city .adjustPopulation h3 {}
+    .city .adjustPopulation input[type='text'] {
+        position: absolute;
+        top: 80px;
+        left: 10%;
+        right: 10%;
+        width: 80%;
+        line-height: 1.3em;
+        font-size: 1.3em;
+        text-align: right;
+        padding-right: 5px;
+        ;
+    }
+    .city .adjustPopulation button {
+        position: absolute;
+        top: 120px;
+        left: 10px;
+        background-color: #6196ec;
+        width: 45%;
+    }
+    .city .adjustPopulation button+button {
+        left: 50%;
+    }
+    /* .city .adjustPopulation .populationModifier{
+
+    } */
+    /*  */
+    
     div#overlay {
-        position: fixed;
+        position: absolute;
+        top: 0;
         display: block;
         min-height: 100vh;
         min-width: 100vw;
-        top: 0;
+        height: 1000px;
         background-color: rgba(25, 25, 29, .9);
+        overflow: auto;
         z-index: 99;
     }
+    div#overlay div {
+        text-align: center;
+        padding: 20px;
+        margin: 200px auto;
+        width: 800px;
+        border: solid 10px #fff;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        overflow: hidden;
+    }
     div#overlay h2 {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-70%, -50%);
+        display: block;
         color: #fff;
-        -webkit-transform: translate(-70%, -50%);
-        -moz-transform: translate(-70%, -50%);
-        -ms-transform: translate(-70%, -50%);
-        -o-transform: translate(-70%, -50%);
     }
     div#overlay h3 {
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        transform: translate(-70%, -50%);
         color: #fff;
-        -webkit-transform: translate(-70%, -50%);
-        -moz-transform: translate(-70%, -50%);
-        -ms-transform: translate(-70%, -50%);
-        -o-transform: translate(-70%, -50%);
     }
     div#overlay p {
-        position: absolute;
-        left: 50%;
         color: #fff;
         font-size: 2em;
-        transform: translate(-70%, -50%);
-        -webkit-transform: translate(-70%, -50%);
-        -moz-transform: translate(-70%, -50%);
-        -ms-transform: translate(-70%, -50%);
-        -o-transform: translate(-70%, -50%);
-    }
-    div#overlay p:first-of-type {
-        top: 41%;
-    }
-    div#overlay p:last-of-type {
-        top: 47%;
     }
     div#overlay button {
-        position: absolute;
         font-size: 1.4em;
-        top: 60%;
-        left: 50%;
         border-radius: 20px;
         width: 200px;
         height: 100px;
@@ -441,11 +482,6 @@
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
-        transform: translate(-70%, -50%);
-        -webkit-transform: translate(-70%, -50%);
-        -moz-transform: translate(-70%, -50%);
-        -ms-transform: translate(-70%, -50%);
-        -o-transform: translate(-70%, -50%);
     }
      ::-webkit-input-placeholder {
         /* Edge */

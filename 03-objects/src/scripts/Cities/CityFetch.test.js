@@ -1,6 +1,6 @@
 import CityFetch from './CityFetch';
 import City from './City';
-import Community from "./Community";
+import Community from "../Community";
 
 global.fetch = require('node-fetch');
 

@@ -34,14 +34,17 @@ class Community {
      */
     createCity(key, name, latitude, longitude, population) {
         // get largest
-        if (key == null) {
-            key = Math.max.apply(null, this.communities.map(c => c.key));
-            key = key + 1;
-        }
-        console.log("createCity: key", key);
-
         let city; // city object to be returned
         try {
+
+            if (key === null) {
+                if (this.communities.length >= 1) {
+                    var maxKey = this.communities.reduce((a, b) => a.key > b.key ? a : b).key;
+                    key = maxKey + 1;
+                } else {
+                    key = 1;
+                }
+            }
             // check if latitude is a number
             if (!isNaN(key)) {
                 // latitude is a string
@@ -67,11 +70,10 @@ class Community {
 
             // check if population is a number
             population = isValidNumber(population, "population", 0, Number.MAX_VALUE);
-
             city = new City(key, name, latitude, longitude, population);
             this.communities.push(city);
-
         } catch (err) {
+            console.log(err.message);
             throw err;
         }
 
@@ -82,7 +84,7 @@ class Community {
     /**
      * @description deletes a city
      * @name deleteCity
-     * @param {key} key -- key of the city.
+     * @param {number} key -- key of the city.
      * @returns {City} city that was removed
      */
     deleteCity(key) {
@@ -179,7 +181,7 @@ class Community {
     /**
      * @description get the most northern city
      * @name getMostNorthern
-     * @returns {{}} most northern city object
+     * @returns {{City}} most northern city object
      */
     getMostNorthern() {
         let highestLatitude = Math.max.apply(Math, this.communities.map(function(city) { return city.latitude; }));
@@ -189,7 +191,7 @@ class Community {
     /**
      * @description get most southern city based on latitude
      * @name getMostSouthern
-     * @returns {{}} most southern city object
+     * @returns {{City}} most southern city object
      */
     getMostSouthern() {
 

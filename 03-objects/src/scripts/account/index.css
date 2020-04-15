@@ -1,0 +1,499 @@
+    html, body {
+        font-size: 16px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #444;
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        display: relative;
+    }
+    section {
+        margin: 0;
+        background-color: #c6f2ff;
+        height: 100vh;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 3em;
+    }
+    section h1 {
+        text-align: center;
+    }
+    h2 {
+        font-size: 2.7em;
+        font-weight: bolder;
+        margin-bottom: 10px;
+    }
+    h3 {
+        font-size: 2.3em;
+        font-weight: bolder;
+        margin-bottom: 10px;
+    }
+    #banking-app {
+        /* height: 100vh; */
+        background-color: #eee;
+        margin: 20px;
+    }
+    #banking-app>.container {
+        height: 900px;
+        contain: content;
+    }
+    .col {
+        height: 880px;
+        margin-bottom: 20px;
+    }
+    #account-list-header {
+        display: inline-block;
+        width: 90%;
+    }
+    #sorting {
+        position: relative;
+        top: 20px;
+        justify-self: right;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        display: inline-block;
+        width: 20px;
+        height: 50px;
+        border: solid 4px #444;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        margin-right: 30px;
+    }
+    #sorting hr {
+        position: relative;
+        top: -15px;
+        border: solid 2px #444;
+        margin: 0;
+        padding: 0;
+    }
+    .fas {
+        font-size: 2.5em;
+    }
+    a#btnAscending, a#btnDescending {
+        position: relative;
+        left: -2px;
+    }
+    a#btnAscending {
+        top: 0;
+    }
+    a#btnDescending {
+        bottom: 0;
+        top: -30px;
+    }
+    .fa-sort-up, .fa-sort-down {
+        position: relative;
+        height: 16px;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        padding: 20px;
+        position: relative;
+    }
+    .control {
+        width: 95%;
+        margin: 0 auto;
+        display: block;
+        line-height: 2em;
+        overflow: contain;
+    }
+    label.control {
+        font-weight: bold;
+        font-size: 2em;
+    }
+    input[type="text"].control {
+        font-weight: bold;
+        font-size: 2em;
+        text-align: right;
+        padding-right: 20px;
+    }
+    .border-5 {
+        border: 5px solid #444;
+    }
+    .border-bottom {
+        border: none;
+        border-bottom: solid 1px #444;
+    }
+    .account-name {
+        color: #444;
+        font-size: 2.3em;
+        width: 100%;
+        font-weight: bolder;
+        margin-bottom: 10px;
+        background-color: transparent;
+    }
+    .rounded-10 {
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .rounded-20 {
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+    .grid-col-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px
+    }
+    #accountList {
+        position: relative;
+        height: 85%;
+        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .cf:after {
+        content: '';
+        /* 1 */
+        display: block;
+        /* 2 */
+        clear: both;
+    }
+    .control-group {
+        position: relative;
+        width: auto;
+        overflow: contain;
+        padding: 5px;
+        margin: 0 auto;
+        min-height: 100px;
+    }
+    #account-manager {
+        height: 350px
+    }
+    #transactions {
+        height: 250px;
+    }
+    .container input[type="button"] {
+        position: absolute;
+        min-width: 200px;
+        background-color: rgb(190, 190, 190);
+        border: solid 5px #444;
+        color: #444;
+        font-weight: bold;
+        font-size: 2em;
+        margin-top: 5px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        transition: all .5s;
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        -ms-transition: all .5s;
+        -o-transition: all .5s;
+    }
+    .container input[type="button"]:active, .container input[type="button"]:hover {
+        background-color: #585858;
+        border: solid 5px #333;
+        color: #eee;
+    }
+    .container input#btnAccountTransaction {
+        right: 10px;
+    }
+    .container input[value="Deposit"] {
+        left: 10px;
+    }
+    .container input[value="Withdrawal"] {
+        right: 10px;
+    }
+    .card {
+        position: relative;
+        display: block;
+        background-color: #c2f3fa;
+        border-radius: 10px;
+        width: 90%;
+        height: 130px;
+        padding: 20px;
+        border: 1px solid black;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+    .card.active {
+        border: solid 5px #333;
+        background-color: #f8f8cd;
+    }
+    .card h3, .card p {
+        margin: 0;
+        padding: 0;
+        font-weight: bolder;
+        position: absolute;
+        display: inline;
+        font-size: 2em;
+        bottom: 15px;
+        color: red;
+    }
+    .card h3 {
+        left: 10px;
+    }
+    .card p {
+        right: 20px;
+    }
+    #btnDeposit, #btnWithdrawal, #btnCreateAccount {
+        bottom: 10px;
+    }
+    /* City form */
+    
+    #citiesApplication .container .col>h2 {
+        text-align: center;
+        /* color: #444; */
+    }
+    /*  City and community */
+    
+    #citySection {
+        color: #fff;
+    }
+    #cityList {
+        padding-top: 35px;
+        ;
+        background-color: #1F4980;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        align-content: stretch;
+        height: 750px;
+        overflow-y: scroll;
+    }
+    .city {
+        flex-basis: 45%;
+        position: relative;
+        border: 1px solid #fff;
+        margin: 20px;
+        background-color: #E1C59F;
+        color: #444;
+        padding-top: 30px;
+        height: 200px;
+    }
+    .city:hover {
+        border: solid #000 3px;
+        flex-basis: 44.5%;
+    }
+    .city.selected {
+        border: 1px solid rgb(53, 52, 52);
+        background-color: #f7bf70;
+        color: #444;
+    }
+    .city h2 {
+        background-color: #4CBBD6;
+        font-size: 2rem;
+        padding: 10px;
+        position: absolute;
+        top: -60px;
+        left: 20px;
+        width: 50%;
+        border-radius: 10px 10px 0 0;
+        -webkit-border-radius: 10px 10px 0 0;
+        -moz-border-radius: 10px 10px 0 0;
+        -ms-border-radius: 10px 10px 0 0;
+        -o-border-radius: 10px 10px 0 0;
+        box-shadow: 5px 10px 8px #968c8c;
+    }
+    .btnClose {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        border: solid 2px #555;
+        width: 25px;
+        padding: 2px;
+        line-height: 1.2em;
+        cursor: pointer;
+        color: #555;
+        background-color: transparent;
+        font-size: 1.2em;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        z-index: 10;
+    }
+    .city .btnClose:hover {
+        color: #000;
+        border-color: #000;
+    }
+    div.city :first-child {
+        margin-top: 20px;
+    }
+    .city div {
+        position: relative;
+        height: 40px
+    }
+    .city div h3, .city div p {
+        position: absolute;
+        left: 15px;
+        display: inline-block;
+    }
+    .city div h3 {
+        font-size: 1.4em;
+        padding-left: 10px;
+    }
+    .city div p {
+        padding-left: 40px;
+        font-size: 1.2em;
+        left: 150px;
+    }
+    .city div button {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        font-size: 1em;
+        width: 30px;
+        background: transparent;
+    }
+    .cityInfoRow h3 {
+        width: 200px;
+        margin-left: 10px;
+        font-size: 1.5em;
+    }
+    .cityInfoRow p {
+        font-size: 1.2em;
+    }
+    .city.active {
+        border: solid 5px #333;
+        flex-basis: 44%;
+        background-color: #f8f8cd;
+    }
+    #controls {
+        background-color: #1F4980;
+        height: 800px;
+    }
+    #controls .container:nth-child(2) div, #controls .container:nth-child(2) div:nth-child(2) {
+        display: grid;
+        padding: 10px;
+        width: 100%;
+    }
+    #controls .container div {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #controls .container:nth-child(2) input[type="button"] {
+        position: relative;
+        bottom: none;
+        justify-self: center;
+        align-self: center;
+    }
+    .city .adjustPopulation {
+        position: absolute;
+        background-color: #E1C59F;
+        border: 2px solid #333;
+        top: -10px;
+        right: 10px;
+        width: 200px;
+        height: 160px;
+        z-index: 99;
+        text-align: center;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .hidden {
+        visibility: hidden;
+    }
+    .city .adjustPopulation h3 {}
+    .city .adjustPopulation input[type='text'] {
+        position: absolute;
+        top: 80px;
+        left: 10%;
+        right: 10%;
+        width: 80%;
+        line-height: 1.3em;
+        font-size: 1.3em;
+        text-align: right;
+        padding-right: 5px;
+        ;
+    }
+    .city .adjustPopulation button {
+        position: absolute;
+        top: 120px;
+        left: 10px;
+        background-color: #6196ec;
+        width: 45%;
+    }
+    .city .adjustPopulation button+button {
+        left: 50%;
+    }
+    /* .city .adjustPopulation .populationModifier{
+
+    } */
+    /*  */
+    
+    div#overlay {
+        position: absolute;
+        top: 0;
+        display: block;
+        min-height: 100vh;
+        min-width: 100vw;
+        height: 1000px;
+        background-color: rgba(25, 25, 29, .9);
+        overflow: auto;
+        z-index: 99;
+    }
+    div#overlay div {
+        text-align: center;
+        padding: 20px;
+        margin: 200px auto;
+        width: 800px;
+        border: solid 10px #fff;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        overflow: hidden;
+    }
+    div#overlay h2 {
+        display: block;
+        color: #fff;
+    }
+    div#overlay h3 {
+        color: #fff;
+    }
+    div#overlay p {
+        color: #fff;
+        font-size: 2em;
+    }
+    div#overlay button {
+        font-size: 1.4em;
+        border-radius: 20px;
+        width: 200px;
+        height: 100px;
+        background-color: #4CBBD6;
+        color: #444;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+     ::-webkit-input-placeholder {
+        /* Edge */
+        color: rgba(119, 119, 119, 0.31);
+    }
+     :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: rgba(119, 119, 119, 0.31);
+    }
+     ::placeholder {
+        color: rgba(119, 119, 119, 0.31);
+    }
+    .red {
+        background-color: #AE5858;
+    }

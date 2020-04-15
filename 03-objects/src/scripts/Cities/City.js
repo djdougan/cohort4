@@ -105,8 +105,6 @@ class City {
      *       -  'Town' – a town has a population of 1, 000 to 20,000,
      *       -  'Village' – larger than a hamlet but smaller than a town,
      *       -  'Hamlet' – population 1 - 100
-     * 
-     * 
      */
     howBig() {
         let result = '';

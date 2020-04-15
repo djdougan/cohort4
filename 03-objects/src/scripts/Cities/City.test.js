@@ -1,4 +1,4 @@
-import Community from './Community';
+import Community from '../Community';
 import City from './City';
 
 

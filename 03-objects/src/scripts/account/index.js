@@ -14,8 +14,8 @@ const btnCreateAccount = document.querySelector("#btnCreateAccount");
 const txtAccountTransaction = document.querySelector("#txtAccountTransaction");
 const btnDeposit = document.querySelector("#btnDeposit");
 const btnWithdrawal = document.querySelector("#btnWithdrawal");
-const btnAscending = document.querySelector("#btnAscending");
-const btnDescending = document.querySelector("#btnDescending");
+// const btnAscending = document.querySelector("#btnAscending");
+// const btnDescending = document.querySelector("#btnDescending");
 
 const AC = new AccountController();
 let activeAccount = "";
@@ -26,6 +26,7 @@ btnCreateAccount.addEventListener("click", (e) => {
     let account = AC.createAccount(accountName, balance, MiscScripts.createUUID());
     let card = new Card(account);
     let div = card.buildCard();
+    div.querySelector(".btnClose").addEventListener("click", closeAccount);
     div.querySelector(".btnClose").addEventListener("click", closeAccount);
     accountList.prepend(div);
     setActiveAccount(div);
