@@ -14,8 +14,8 @@ const btnCreateAccount = document.querySelector("#btnCreateAccount");
 const txtAccountTransaction = document.querySelector("#txtAccountTransaction");
 const btnDeposit = document.querySelector("#btnDeposit");
 const btnWithdrawal = document.querySelector("#btnWithdrawal");
-const btnAscending = document.querySelector("#btnAscending");
-const btnDescending = document.querySelector("#btnDescending");
+// const btnAscending = document.querySelector("#btnAscending");
+// const btnDescending = document.querySelector("#btnDescending");
 
 const AC = new AccountController();
 let activeAccount = "";
@@ -27,10 +27,11 @@ btnCreateAccount.addEventListener("click", (e) => {
     let card = new Card(account);
     let div = card.buildCard();
     div.querySelector(".btnClose").addEventListener("click", closeAccount);
+    div.querySelector(".btnClose").addEventListener("click", closeAccount);
     accountList.prepend(div);
     setActiveAccount(div);
 
-})
+});
 
 accountList.addEventListener("click", cardClick, false)
 
@@ -55,7 +56,7 @@ function closeAccount(e) {
 };
 
 
-accountList.addEventListener('keypress', function (e) {
+accountList.addEventListener('keypress', function(e) {
     if (e.keyCode === 13) {
         activeAccount = e.target.parentElement.dataset.uuid;
     }
@@ -103,8 +104,7 @@ function setActiveAccount(target) {
     target.classList.add("active");
     spnAccountName.textContent = target.querySelector("input").value;
 }
-const me =
-{
+const me = {
     name: "Douglas",
     surname: "Dougan",
     gender: "Male",

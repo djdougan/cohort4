@@ -1,76 +1,86 @@
 {
-    "cities": [
-        {
-            "name": "Buenos Aires",
-            "population": 2890000,
-            "latitude": -34.6037,
-            "longitude": -58.3816
-        },
-        {
-            "name": "Dawson Creek",
-            "population": 12978,
-            "latitude": 55.7596,
-            "longitude": -120.2377
-        },
-        {
-            "name": "Calgary",
-            "population": 1285711,
-            "latitude": 51.0447,
-            "longitude": -114.0719
-        },
-        {
-            "name": "Moscow",
-            "population": 12538000,
-            "latitude": 55.7558,
-            "longitude": 37.6173
-        },
-        {
-            "name": "Stockholm",
-            "population": 974073,
-            "latitude": 59.3293,
-            "longitude": 18.0686
-        },
-        {
-            "name": "Brisbane",
-            "population": 2372000,
-            "latitude": -27.4698,
-            "longitude": 153.0251
-        },
-        {
-            "name": "Rio de Janeiro",
-            "population": 6320000,
-            "latitude": -22.9068,
-            "longitude": -43.1729
-        },
-        {
-            "name": "Tokyo",
-            "population": 13900000,
-            "latitude": 35.6762,
-            "longitude": 139.6503
-        },
-        {
-            "name": "London",
-            "population": 8900000,
-            "latitude": 51.5074,
-            "longitude": -0.1278
-        },
-        {
-            "name": "Cape Town",
-            "population": 4524000,
-            "latitude": -33.918861,
-            "longitude": 18.423300
-        },
-        {
-            "name": "Mumbai",
-            "population": 24500000,
-            "latitude": 19.228825,
-            "longitude": 72.854118
-        },
-        {
-            "name": "Norilsk",
-            "population": 177506,
-            "latitude": 69.3535,
-            "longitude": 88.2027
-        }
-    ]
+    "1": {
+        "key": 1,
+        "name": "Buenos Aires",
+        "population": 2890000,
+        "lat": -34.6037,
+        "long": -58.3816
+    },
+    "2": {
+        "key": 2,
+        "name": "Dawson Creek",
+        "population": 12978,
+        "lat": 55.7596,
+        "long": -120.2377
+    },
+    "3": {
+        "key": 3,
+        "name": "Calgary",
+        "population": 1285711,
+        "lat": 51.0447,
+        "long": -114.0719
+    },
+    "4": {
+        "key": 4,
+        "name": "Moscow",
+        "population": 12538000,
+        "lat": 55.7558,
+        "long": 37.6173
+    },
+    "5": {
+        "key": 5,
+        "name": "Stockholm",
+        "population": 974073,
+        "lat": 59.3293,
+        "long": 18.0686
+    },
+    "6": {
+        "key": 6,
+        "name": "Brisbane",
+        "population": 2372000,
+        "lat": -27.4698,
+        "long": 153.0251
+    },
+    "7": {
+        "key": 7,
+        "name": "Rio de Janeiro",
+        "population": 6320000,
+        "lat": -22.9068,
+        "long": -43.1729
+    },
+    "8": {
+        "key": 8,
+        "name": "Tokyo",
+        "population": 13900000,
+        "lat": 35.6762,
+        "long": 139.6503
+    },
+    "9": {
+        "key": 9,
+        "name": "London",
+        "population": 8900000,
+        "lat": 51.5074,
+        "long": -0.1278
+    },
+    "10": {
+        "key": 10,
+        "name": "Cape Town",
+        "population": 4524000,
+        "lat": -33.918861,
+        "long": 18.423300
+    },
+    "11": {
+        "key": 11,
+        "name": "Mumbai",
+        "population": 24500000,
+        "lat": 19.228825,
+        "long": 72.854118
+    },
+    "12": {
+        "key": 12,
+        "name": "Norilsk",
+        "population": 177506,
+        "lat": 69.3535,
+        "long": 88.2027
+    }
 }

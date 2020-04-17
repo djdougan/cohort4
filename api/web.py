@@ -118,7 +118,7 @@ def load():
 
 
 @app.route("/save", methods = ['GET'])
-def save():
+def save():	
 	global data
 	with open('data.json', 'w') as outfile:
 		json.dump(data, outfile)

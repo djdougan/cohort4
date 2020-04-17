@@ -1,6 +1,3 @@
-
-
-
 class Card {
 
     constructor(account) {
@@ -9,12 +6,12 @@ class Card {
     };
 
     buildCard() {
-        let card = document.createElement('div');
+        let card = document.createElement('div'); // Card container
         let input = document.createElement("input");
         let h3 = document.createElement('h3');
         let p = document.createElement('p');
         let span = document.createElement('span');
-        let btnClose = document.createElement("a");
+        let btnClose = document.createElement("a"); // close button
         card.className = "card";
         card.dataset.uuid = this.account.uuid;
         input.setAttribute("type", "text");
