@@ -126,15 +126,8 @@ class Card {
         this.divCity.appendChild(this.divCityInfoRow3);
         this.divCity.appendChild(this.divCityInfoRow4);
         return this.divCity;
-    };
+    }
 
-    updateCardData(key, name, latitude, longitude, population, nsHem, ewHem) {
-        let card = document.querySelector(`[data-key="${key}"]`);
-        card.querySelector('#txtCityLatitudeInfo').textContent = latitude.toString() + '\u00B0' + nsHem; // 12.345°N or -45.546°S
-        card.querySelector('#txtCityLongitudeInfo').textContent = longitude.toString() + '\u00B0' + ewHem; // 34.567°E or -12.345°W
-        card.querySelector('#txtCityPopulationInfo1').textContent = population.toString();
-        card.querySelector('#txtH2CityName').textContent = name;
-    };
 
     addFunctions(openPopUp, increasePop, decreasePop, closeCard, cardClick) {
         if (this.btnPopulation)

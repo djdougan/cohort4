@@ -68,7 +68,7 @@ btnUpdate.addEventListener('click', async(e) => {
 //
 btnAdd.addEventListener('click', async(e) => {
     if (isEmptyTextBox()) {
-        debugger;
+        // debugger;
         let data;
         let city = com.createCity(null,
             txtCityName.value,
@@ -140,7 +140,6 @@ async function deleteCard(event) {
 };
 
 function cardClick(event) {
-    btnAdd.disabled = true;
     let card = event.target;
     removeAllActiveClass();
     while (!card.classList.contains('city')) {
@@ -151,7 +150,6 @@ function cardClick(event) {
         let index = com.communities.findIndex(c => c.key === parseInt(card.dataset.key));
         fillTextBoxes(com.communities[index]);
     }
-    activeCard = card;
     btnNew.disabled = true;
     btnAdd.disabled = true;
     btnUpdate.disabled = false;
