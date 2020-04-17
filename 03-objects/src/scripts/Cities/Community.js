@@ -83,10 +83,44 @@ class Community {
 
     /**
      * @description deletes a city
-     * @name deleteCity
+     * @name getCity
      * @param {number} key -- key of the city.
      * @returns {City} city that was removed
      */
+    getCity(key) {
+            let city;
+            try {
+
+                // if cityName is null or a number is passed throw error
+                if (typeof(key) === "number") {
+                    if (!isNaN(key)) {
+
+
+                        let index = this.communities.findIndex(x => x.key === key);
+                        city = this.communities[index];
+                        // throw error if city.name does not match cityName
+                        if (city.key !== key) {
+                            throw new Error(`City with ${key} was not removed`);
+                        }
+                    } else {
+                        throw new Error(`${key} is a string.`);
+                    }
+
+                } else if (!key) {
+                    throw new Error("key is null");
+                }
+
+            } catch (err) {
+                throw err;
+            }
+            return city;
+        }
+        /**
+         * @description deletes a city
+         * @name deleteCity
+         * @param {number} key -- key of the city.
+         * @returns {City} city that was removed
+         */
     deleteCity(key) {
         let city;
         try {

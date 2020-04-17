@@ -200,6 +200,10 @@
         border: solid 5px #333;
         color: #eee;
     }
+    .container input[type="button"]:disabled {
+        color: #777;
+        background-color: darkgrey;
+    }
     .container input#btnAccountTransaction {
         right: 10px;
     }

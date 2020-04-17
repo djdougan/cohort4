@@ -1,7 +1,7 @@
 import City from './City.js';
 import Community from './Community.js';
-import CityCard from './CityCard.js';
-import CityFetch from "../CityFetch.js";
+import Card from './Card.js';
+import fetchApi from "./fetchApi.js";
 import Overlay from './overlay.js';
 
 const cityList = document.querySelector('#cityList');
@@ -12,25 +12,23 @@ const txtLongitude = document.querySelector('#txtLongitude');
 const cityKey = document.querySelector("#cityKey");
 
 // buttons
-
+const btnNew = document.querySelector('#btnNew');
 const btnAdd = document.querySelector('#btnAdd');
 const btnPopulation = document.querySelector('#btnPopulation');
 const btnUpdate = document.querySelector('#btnUpdate');
-const btnTemp = document.querySelector('#btnTemp');
 const btnMostNorthern = document.querySelector('#btnMostNorthern');
 const btnMostSouthern = document.querySelector('#btnMostSouthern');
 
 const url = 'http://localhost:5000/';
 
 const com = new Community();
-var activeCard = new CityCard();
 
 window.addEventListener("load", async(e) => {
-    let data = await CityFetch.all(url);
+    let data = await fetchApi.all(url);
     if (data.status === 200) {
         for (let i = 0; i < data.length; i++) {
             let city = com.createCity(data[i].key, data[i].name, data[i].latitude, data[i].longitude, data[i].population);
-            let card = new CityCard();
+            let card = new Card();
             let NS = com.whichSphereNS(city.key);
             let EW = com.whichSphereEW(city.key);
             cityList.appendChild(
@@ -41,13 +39,28 @@ window.addEventListener("load", async(e) => {
     }
     e.preventDefault();
 });
+btnNew.addEventListener('click', async(e) => {
+    clearTextBoxes();
+    btnAdd.disabled = false;
+    btnUpdate.disabled = true;
+    btnPopulation.disabled = true;
+    btnMostNorthern.disabled = true;
+    btnMostSouthern.disabled = true;
+});
 
 btnUpdate.addEventListener('click', async(e) => {
     let city = getTextBoxes();
-    let data = await CityFetch.update(url, city);
+    let data = await fetchApi.update(url, city);
+
     if (data.status === 200) {
-        data = await CityFetch.save(url);
-        activeCard.updateCard(city.key, city.name, city.latitude, city.longitude, city.population);
+        data = await fetchApi.save(url);
+        let card = document.getElementById(city.name + '_' + city.key);
+        console.log("btnUpdate:", card);
+        card.querySelector('.cityName').textContent = name;
+        card.querySelector('.latInfo').textContent = city.latitude.toString() + '\u00B0' + com.whichSphereNS(city.key) === "Northern Hemisphere" ? "N" : "S"; // 12.345°N or -45.546°S
+        card.querySelector('.longInfo').textContent = city.longitude.toString() + '\u00B0' + com.whichSphereEW(city.key) === "Southern Hemisphere" ? "E" : "W"; // 34.567°E or -12.345°W
+        card.querySelector('.popInfo').textContent = city.population.toString();
+
     }
 
 });
@@ -55,6 +68,7 @@ btnUpdate.addEventListener('click', async(e) => {
 //
 btnAdd.addEventListener('click', async(e) => {
     if (isEmptyTextBox()) {
+        debugger;
         let data;
         let city = com.createCity(null,
             txtCityName.value,
@@ -63,13 +77,18 @@ btnAdd.addEventListener('click', async(e) => {
             txtPopulation.value);
         let EW = com.whichSphereEW(city.key);
         let NS = com.whichSphereEW(city.key);
-        let card = new CityCard();
+        let card = new Card();
         cityList.appendChild(
             card.buildCard(city.key, city.name, city.latitude, city.longitude, city.population, city.howBig(), EW.charAt(0), NS.charAt(0))
         );
-        data = await CityFetch.add(url, city);
-        data = await CityFetch.save(url);
+        data = await fetchApi.add(url, city);
+        data = await fetchApi.save(url);
     }
+    btnAdd.disabled = false;
+    btnUpdate.disabled = true;
+    btnPopulation.disabled = false;
+    btnMostNorthern.disabled = false;
+    btnMostSouthern.disabled = false;
     e.preventDefault();
 });
 
@@ -97,10 +116,10 @@ btnMostSouthern.addEventListener('click', async(e) => {
 
 
 btnPopulation.addEventListener("click", async(e) => {
-    let data = await CityFetch.all(url);
+    let data = await fetchApi.all(url);
     let population = com.getPopulation();
     let overLay = new Overlay(document.body);
-    overLay.buildOverlay("Total Community Population", "All Cities", 0, 0, population);
+    overLay.buildOverlay("Total <C></C>ommunity Population", "All Cities", 0, 0, population);
 
     e.preventDefault();
 });
@@ -111,16 +130,17 @@ async function deleteCard(event) {
     const card = event.target.parentElement;
     const parent = card.parentElement;
     const key = parseInt(card.dataset.key);
-    let data = await CityFetch.delete(url, { key: key });
+    let data = await fetchApi.delete(url, { key: key });
     if (data.status === 200) {
         com.deleteCity(key);
         parent.removeChild(card);
-        data = await CityFetch.save(url);
+        data = await fetchApi.save(url);
     }
 
-}
+};
 
 function cardClick(event) {
+    btnAdd.disabled = true;
     let card = event.target;
     removeAllActiveClass();
     while (!card.classList.contains('city')) {
@@ -132,20 +152,25 @@ function cardClick(event) {
         fillTextBoxes(com.communities[index]);
     }
     activeCard = card;
-    console.log(activeCard);
-}
+    btnNew.disabled = true;
+    btnAdd.disabled = true;
+    btnUpdate.disabled = false;
+    btnPopulation.disabled = true;
+    btnMostNorthern.disabled = true;
+    btnMostSouthern.disabled = true;
+};
 
 function openPopUp(event) {
     const parent = event.target.parentElement.parentElement;
     const ctrl = parent.querySelector(".adjustPopulation");
     ctrl.classList.remove('hidden');
-}
+};
 
 function closePopUp(event) {
     const parent = event.target.parentElement.parentElement;
     const ctrl = parent.querySelector(".adjustPopulation");
     ctrl.classList.add('hidden');
-}
+};
 
 async function increasePop(event) {
     const parent = event.target.parentElement.parentElement;
@@ -155,14 +180,13 @@ async function increasePop(event) {
     let city = com.communities[index];
     if (ctrl.value !== "") {
         city.movedIn(parseInt(ctrl.value));
-        let data = await CityFetch.update(url, JSON.parse(city.show()));
+        let data = await fetchApi.update(url, JSON.parse(city.show()));
         if (data.status === 200) {
-            data = await CityFetch.save(url);
+            data = await fetchApi.save(url);
         }
     }
     closePopUp(event);
-}
-
+};
 async function decreasePop(event) {
     const parent = event.target.parentElement.parentElement;
     const ctrl = parent.querySelector(".adjustPopulation input[type='text']");
@@ -171,22 +195,22 @@ async function decreasePop(event) {
     let city = com.communities[index];
     if (ctrl.value !== "") {
         city.movedOut(parseInt(ctrl.value));
-        let data = await CityFetch.update(url, JSON.parse(city.show()));
+        let data = await fetchApi.update(url, JSON.parse(city.show()));
         if (data.status === 200) {
-            data = await CityFetch.save(url);
+            data = await fetchApi.save(url);
         }
     }
     closePopUp(event);
-}
-
+};
 
 function clearTextBoxes() {
+    cityKey.value = "";
     txtCityName.value = "";
     txtPopulation.value = "";
     txtLatitude.value = "";
     txtLongitude.value = "";
     txtCityName.focus();
-}
+};
 
 function fillTextBoxes(city) {
     cityKey.value = city.key;
@@ -194,7 +218,7 @@ function fillTextBoxes(city) {
     txtPopulation.value = city.population;
     txtLatitude.value = city.latitude;
     txtLongitude.value = city.longitude;
-}
+};
 
 function getTextBoxes() {
     let key = parseInt(cityKey.value);
@@ -204,7 +228,7 @@ function getTextBoxes() {
     let longitude = parseInt(txtLongitude.value);
     const city = new City(key, name, latitude, longitude, population);
     return city;
-}
+};
 
 function isEmptyTextBox() {
     let result = true;
@@ -214,7 +238,7 @@ function isEmptyTextBox() {
         result = false;
     }
     return result;
-}
+};
 
 function removeAllActiveClass() {
     let cardArray = Array.from(document.getElementById("cityList").children);

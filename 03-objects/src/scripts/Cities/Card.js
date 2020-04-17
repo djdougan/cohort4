@@ -7,11 +7,11 @@
  * Created at     : 2020-03-31 ‏‎20:17:55 
  * Last modified  : 2020-04-02, ‏‎12:27:04 
  *
- * @class CityCard
+ * @class Card
  */
 
 
-class CityCard {
+class Card {
     /**
      * jsDoc
      * @description
@@ -58,6 +58,7 @@ class CityCard {
     buildCard(key, name, latitude, longitude, population, cityType, nsHem, ewHem) {
         // header
         this.divCity.className = "city rounded-10";
+        this.divCity.id = name + '_' + key;
         this.hiddenCityKey.setAttribute('type', 'hidden');
         this.hiddenCityKey.id = "key_" + key;
         this.hiddenCityKey.name = 'cityKey';
@@ -66,10 +67,12 @@ class CityCard {
         this.divCity.dataset.city = name;
         this.divCity.dataset.key = key;
         this.txtH2CityName.textContent = name;
+        this.txtH2CityName.classList.add('cityName');
 
         // population
         this.h3cityInfoLabel1.textContent = 'Population:';
         this.txtCityPopulationInfo1.textContent = population.toString();
+        this.txtCityPopulationInfo1.classList.add('popInfo');
         this.btnPopulation.textContent = '\u21C5';
         this.btnPopulation.className = 'btnModify';
         this.btnPopulation.title = "Adjust Population";
@@ -95,12 +98,14 @@ class CityCard {
         // latitude
         this.h3cityInfoLabel2.textContent = 'Latitude:';
         this.txtCityLatitudeInfo.textContent = latitude.toString() + '\u00B0' + nsHem; // 12.345°N or -45.546°S
+        this.txtCityLatitudeInfo.classList.add('latInfo')
         this.divCityInfoRow2.appendChild(this.h3cityInfoLabel2);
         this.divCityInfoRow2.appendChild(this.txtCityLatitudeInfo);
 
         // longitude
         this.h3cityInfoLabel3.textContent = 'Longitude:';
         this.txtCityLongitudeInfo.textContent = longitude.toString() + '\u00B0' + ewHem; // 34.567°E or -12.345°W
+        this.txtCityLongitudeInfo.classList.add('longInfo');
         this.divCityInfoRow3.appendChild(this.h3cityInfoLabel3);
         this.divCityInfoRow3.appendChild(this.txtCityLongitudeInfo);
         this.closetBtn.className = "btnClose";
@@ -108,6 +113,7 @@ class CityCard {
         // city Type Info
         this.h3cityInfoLabel4.textContent = "Type:";
         this.txtCityType.textContent = cityType;
+        this.txtCityType.classList.add("typeInfo");
         this.divCityInfoRow4.appendChild(this.h3cityInfoLabel4);
         this.divCityInfoRow4.appendChild(this.txtCityType);
         // put it together
@@ -120,40 +126,31 @@ class CityCard {
         this.divCity.appendChild(this.divCityInfoRow3);
         this.divCity.appendChild(this.divCityInfoRow4);
         return this.divCity;
-    }
+    };
 
+    updateCardData(key, name, latitude, longitude, population, nsHem, ewHem) {
+        let card = document.querySelector(`[data-key="${key}"]`);
+        card.querySelector('#txtCityLatitudeInfo').textContent = latitude.toString() + '\u00B0' + nsHem; // 12.345°N or -45.546°S
+        card.querySelector('#txtCityLongitudeInfo').textContent = longitude.toString() + '\u00B0' + ewHem; // 34.567°E or -12.345°W
+        card.querySelector('#txtCityPopulationInfo1').textContent = population.toString();
+        card.querySelector('#txtH2CityName').textContent = name;
+    };
 
     addFunctions(openPopUp, increasePop, decreasePop, closeCard, cardClick) {
-            if (this.btnPopulation)
-                this.btnPopulation.addEventListener('click', openPopUp);
-            if (this.btnIncrease)
-                this.btnIncrease.addEventListener('click', increasePop);
-            if (this.btnIncrease)
-                this.btnDecrease.addEventListener('click', decreasePop);
-            if (this.closetBtn)
-                this.closetBtn.addEventListener('click', closeCard);
-            if (this.divCity)
-                this.divCity.addEventListener("click", cardClick);
-        }
-        /**
-         * @description update a card elements with city properties
-         * @name updateCard
-         * @param {string} name -- name of city
-         * @param {number} latitude -- latitude of city
-         * @param {number} longitude -- longitude of city
-         * @param {number} population -- population of city
-         * @param {string} nsHem -- "N" for Northern and "S" for Southern
-         * @param {string} ewHem -- "W" for Western and "E" for Eastern
-         */
-    updateCard(name, latitude, longitude, population, nsHem, ewHem) {
-        //'\u00B0'
-        this.txtH2CityName.textContent = name;
-        this.txtCityLatitudeInfo.textContent = latitude.toString() + '\u00B0' + nsHem; // 12.345°N or -45.546°S
-        this.txtCityLongitudeInfo.textContent = longitude.toString() + '\u00B0' + ewHem; // 34.567°E or -12.345°W
-        this.txtCityPopulationInfo1.textContent = population.toString();
+        if (this.btnPopulation)
+            this.btnPopulation.addEventListener('click', openPopUp);
+        if (this.btnIncrease)
+            this.btnIncrease.addEventListener('click', increasePop);
+        if (this.btnIncrease)
+            this.btnDecrease.addEventListener('click', decreasePop);
+        if (this.closetBtn)
+            this.closetBtn.addEventListener('click', closeCard);
+        if (this.divCity)
+            this.divCity.addEventListener("click", cardClick);
     }
+
 
 }
 
 
-export default CityCard;
+export default Card;

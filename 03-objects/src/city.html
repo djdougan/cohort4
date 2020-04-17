@@ -10,7 +10,7 @@
     <link rel="manifest" type="text/html" href="../../icon/site.webmanifest">
     <title>City App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./scripts/Cities/index.css">
 </head>
 
 <body>
@@ -47,11 +47,13 @@
                             </div>
                         </div>
                         <div class="container">
-                            <div><input type="button" id="btnAdd" value="Add" />
-                                <input type="button" id="btnUpdate" value="Update" />
-                                <input type="button" id="btnPopulation" value="Population" />
+                            <div>
+                            <input type="button" id="btnNew" value="New" />
+                            <input type="button" id="btnAdd" value="Add" />
+                            <input type="button" id="btnUpdate" value="Update" />
                             </div>
                             <div>
+                                <input type="button" id="btnPopulation" value="Population" />
                                 <input type="button" id="btnMostNorthern" value="Most Northern" />
                                 <input type="button" id="btnMostSouthern" value="Most Southern" />
                             </div>
@@ -63,7 +65,8 @@
     </section>
 
 
-    <script type="module" src="./scripts/cityapp.js"></script>
+    <script type="module" src="./scripts/Cities/index.js"></script>
+    <script type="module" src="./scripts/Cities/functions.js"></script>
 </body>
 
 </html>
