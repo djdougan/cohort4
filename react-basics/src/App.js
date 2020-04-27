@@ -38,8 +38,10 @@ function App() {
   }
 
   return (
+    
     <div className="App">
       <header className="App-header">
+        <h1> I am in control of this application and my name is doug </h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.

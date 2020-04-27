@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+import css from '../App.css';
+
+
+class Community extends Component{
+    constructor(props) {
+        super();
+    }
+
+    render(){
+        return ( 
+            <div className="box">
+            <a
+            className={this.props.class}
+            href={this.props.href}
+            target={this.props.target}
+            rel="noopener noreferrer"
+            >
+                  <svg className="icon" id="community" width={this.props.width} height={this.props.height} data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 998.65 1008.19"><g><path id="structure" d="M99.42,519.18h47.69V637.89h71.46V57.76l332.92,111V67.18h47.79v4.19c0,36.47.05,72.95-.08,109.42,0,3.12,1,4.3,3.8,5.19,13.51,4.32,27,8.84,40.41,13.28.94.31,1.89.54,3.3.93v-133h47.76v4.44q0,70.46-.07,140.9c0,3.06.91,4.23,3.78,5.17,21.55,7,43,14.29,64.54,21.47.94.31,1.87.66,3.07,1.09v88.23h261.33V1066H28.47V638.27h71Zm333.48,119v380.41H551.45c.06-1.42.17-2.63.17-3.85,0-22.36,0-44.72.07-67.08,0-2.86-.82-4-3.66-4.83-44.44-13.16-73.34-57.88-66.93-103.34A95.35,95.35,0,0,1,596.86,759.5c47.87,10.78,80.81,58.47,72.62,106.58-6.59,38.78-29.67,64.1-66.74,76.75-2.51.86-3.54,1.69-3.53,4.51.13,22.61.07,45.21.08,67.82,0,1.09.13,2.17.21,3.31H718.25v-4.7q0-367.42.08-734.84c0-3.42-.88-4.9-4.26-6q-210-69.78-419.87-139.77c-9.18-3.06-18.37-6.07-27.78-9.18V638.13ZM837.32,852H932.1V781H837.32ZM932,614V543.06H837.37V614ZM837.32,733.06h94.79V662.19H837.32Zm.1,166.8v71h94.71v-71Zm-.07-404.95H932V424.06H837.35Zm-571,285.51h71v-47h-71Zm0,95.19h71v-47h-71Zm0,48.13v47h70.94v-47ZM123.48,780.44h71V733.5h-71Zm71,48.22H123.57v47H194.5Zm-71,142.16h71V923.89h-71Z" transform="translate(-28.47 -57.76)"/><path id="floor1" d="M670.41,638.41v46.87h-190V638.41Z" transform="translate(-28.47 -57.76)"/><path id="floor2" d="M670.41,543.15v46.93H314V543.15Z" transform="translate(-28.47 -57.76)"/><path id="floor3" d="M551.9,495.66v-47.3H670.47v47.3Z" transform="translate(-28.47 -57.76)"/><path id="floor4" d="M313.89,494.86V448H503.83v46.88Z" transform="translate(-28.47 -57.76)"/><path id="floor5" d="M314,352.67H670.33v47.06H314Z" transform="translate(-28.47 -57.76)"/><path id="floor6" d="M456.27,257.51v47.06H314V257.51Z" transform="translate(-28.47 -57.76)"/></g></svg>
+            <p className="icon-paragraph">{this.props.name}</p>
+            </a>
+            </div>
+        );
+    }
+}
+export default Community;

@@ -1,0 +1,190 @@
+.App {
+    text-align: center;
+}
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+.grid-container {
+    margin: 0 auto;
+    width: 960px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+.icon {
+    width: 100px;
+    height: 100px;
+}
+#messageBox {
+    height: 2em;
+    line-height: 2em;
+    font-size: 1.5em;
+}
+
+/* 
+.svg-link .icon {
+    fill: #fff;
+} */
+
+
+/* 
+.svg-link.icon:hover {
+    fill: #777;
+    stroke: #fff;
+    stroke-width: 6px;
+}
+.svg-link {
+    text-decoration: none;
+}
+.box {
+    padding: 5px
+}
+.box:hover {
+    border: 1px solid #000;
+    background-color: #2f798d;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.box:hover .svg-link #mapleLeaf {
+    fill: #000;
+    stroke: #881400;
+    stroke-width: 20px;
+}
+.box:hover .svg-link #community {
+    fill: #000;
+}
+#ticTacToe #grid {
+    stroke: #fff;
+    fill: #fff;
+}
+#ticTacToe #X1, #ticTacToe #X2, #ticTacToe #X3, #ticTacToe #C1, #ticTacToe #C2, #ticTacToe #C3, #ticTacToe #Winner {
+    stroke: none;
+    fill: none;
+} */
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-clock-spin infinite 20s linear;
+        -webkit-animation: App-logo-clock-spin infinite 20s linear;
+    }
+    .counter {
+        animation: App-logo-counter-spin infinite 10s linear;
+        -webkit-animation: App-logo-counter-spin infinite 10s linear;
+    }
+    .clockwise {
+        animation: App-logo-clock-spin infinite 10s linear;
+        -webkit-animation: App-logo-clock-spin infinite 10s linear;
+    }
+    /* #piggyBank {
+        animation: App-logo-counter-spin infinite 10s linear;
+        -webkit-animation: App-logo-counter-spin infinite 10s linear;
+    } */
+    /* #community {
+        animation: App-logo-clock-spin infinite 10s linear;
+        -webkit-animation: App-logo-clock-spin infinite 10s linear;
+    } */
+    /* #crazyHorse {
+        animation: App-logo-counter-spin infinite 10s linear;
+        -webkit-animation: App-logo-counter-spin infinite 10s linear;
+    }
+    #mapleLeaf {
+        animation: App-logo-clock-spin infinite 10s linear;
+        -webkit-animation: App-logo-clock-spin infinite 10s linear;
+    }
+    #community:hover #floor1, #community:hover #floor3, #community:hover #floor5 {
+        animation: Flicker-lights infinite 10s linear;
+        -webkit-animation: Flicker-lights infinite 10s linear;
+    }
+    #community:hover #floor2, #community:hover #floor4, #community:hover #floor6 {
+        animation: Flicker-lights infinite 15s ease-in-out;
+        -webkit-animation: Flicker-lights infinite 15s ease-in-out;
+    }
+    #ticTacToe #X1 {
+        animation: Play-Game infinite 20s 1s linear;
+        -webkit-animation: Play-Game infinite 20s 1s linear;
+    }
+    #ticTacToe #C1 {
+        animation: Play-Game infinite 18s 2s linear;
+        -webkit-animation: Play-Game infinite 18s 2s linear;
+    }
+    #ticTacToe #X2 {
+        animation: Play-Game infinite 6s 10s linear;
+        -webkit-animation: Play-Game infinite 16s 4s linear;
+    }
+    #ticTacToe #C2 {
+        animation: Play-Game infinite 8s 8s linear;
+        -webkit-animation: Play-Game infinite 8s 8s linear;
+    }
+    #ticTacToe #X3 {
+        animation: Play-Game infinite 10s 6s linear;
+        -webkit-animation: Play-Game infinite 10s 6s linear;
+    }
+    #ticTacToe #C3 {
+        animation: Play-Game infinite 12s 4s linear;
+        -webkit-animation: Play-Game infinite 12s 4s linear;
+    }
+    #ticTacToe #Winner {
+        animation: Play-Game infinite 14s 2s linear;
+        -webkit-animation: Play-Game infinite 14s 2s linear;
+    } */
+}
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.App-link {
+    color: #61dafb;
+}
+@keyframes App-logo-clock-spin {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+@keyframes App-logo-counter-spin {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+        -o-transform: rotate(-360deg);
+    }
+}
+@keyframes Play-Game {
+    10% {
+        fill: white;
+    }
+    90% {
+        fill: transparent;
+    }
+}
+@keyframes Tick-Tac-Toe {}
