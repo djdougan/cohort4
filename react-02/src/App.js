@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
+// import ReactDOM from 'react-dom';
+import Game from './components/Game/Game';
 import logo from './logo.svg';
 import bull from './images/tribalbull.svg';
  import horse from './images/angry-horse.svg';
-  import flames from './images/calgaryflameshorse.svg';
 import leaf from './images/maple-leaf.svg';
 import git from './images/Git-logo.svg';
 import './App.css';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
 class App extends Component {
 
@@ -16,18 +15,20 @@ class App extends Component {
     super();
             this.state = {
           message: "",
+          selected: null
         };
 }
-  handleClick = message => e => {
-    this.setState({message : message});
+  handleClick = (message, comp) => e => {
+    this.setState({message : message, selected: comp})
 };
   render(){
   return (
     <div className="App">
       <div className='grid-container'>
-        <div onClick={this.handleClick("bull was clicked")}>
+        <div onClick={this.handleClick("bull was clicked", <Game/>)}>
           <img src={bull}  className="icon counter" alt="logo" />
           <p> Bull</p>
+          
         </div>
         <div onClick={this.handleClick("Horse was clicked")}>
           <img src={horse} className="icon clockwise" alt="logo" />
@@ -45,6 +46,7 @@ class App extends Component {
       <div id="messageBox">
           {this.state.message}
       </div>
+      <div>{this.state.selected}</div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
