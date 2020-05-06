@@ -53,8 +53,8 @@ class Game extends Component{
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li key={move} className="move-listI-item">
+          <button className="btn-move" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });

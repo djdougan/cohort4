@@ -3,9 +3,11 @@
     content: "";
     display: table;
 }
+
 .status {
     margin-bottom: 10px;
 }
+
 .square {
     background: #fff;
     border: 1px solid #999;
@@ -20,23 +22,44 @@
     text-align: center;
     width: 90px;
 }
+
 .square:focus {
     outline: none;
 }
+
 .kbd-navigation .square:focus {
     background: #ddd;
 }
+
 .game {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     width: 600px;
 }
+
 .game-board {
     margin: 10px auto;
     width: 300px
 }
+
 .game-info {
     margin-left: 20px;
     width: 300px;
+}
+
+.move-list-item {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-move {
+    font-size: 1em;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
