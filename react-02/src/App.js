@@ -47,7 +47,8 @@ class App extends Component {
       </div>
       </header>
       <main>{this.state.selected}
-         </main>
+        </main>
+        <footer></footer>
         </div>
   );
   }

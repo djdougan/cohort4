@@ -1,11 +1,11 @@
 
-import {Account, AccountController} from '../BLL/Account/Account.js';
+import {Account, AccountController} from '../../../BLL/Account/Account.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fireEvent, render, screen, act } from '@testing-library/react';
 
 
-import App from '../App'
+import App from '../../../App'
 
 describe('Account Test', () => {
     test("testing Account and AccountController", () => {

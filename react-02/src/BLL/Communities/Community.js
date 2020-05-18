@@ -73,7 +73,6 @@ class Community {
             city = new City(key, name, latitude, longitude, population);
             this.communities.push(city);
         } catch (err) {
-            console.log(err.message);
             throw err;
         }
 

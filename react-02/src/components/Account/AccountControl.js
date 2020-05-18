@@ -39,14 +39,16 @@ class AccountControl extends Component{
                     <div className="ctrl-group">
                         <label htmlFor="AccountName">Account Name: </label>
                         <input 
+                            title="Account Name"
                             type="text"
                             name="accountName"
                             value={this.state.accountName} 
                             onChange={this.handleNameChange}/>
                     </div>
                     <div className="ctrl-group">
-                        <label htmlFor="balance">Account Balance: </label>
+                        <label htmlFor="balance">Account Balance:</label>
                         <input 
+                            title="Initial Balance"
                             type="text"
                             name="balance"
                             value={this.state.balance}
