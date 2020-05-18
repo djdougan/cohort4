@@ -1,0 +1,65 @@
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 90px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 90px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+}
+
+.game-board {
+    margin: 10px auto;
+    width: 600px
+}
+
+.game-info {
+    margin-left: 20px;
+    width: 300px;
+}
+
+.move-list-item {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-move {
+    font-size: 1em;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
