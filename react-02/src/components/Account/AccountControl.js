@@ -22,7 +22,6 @@ class AccountControl extends Component{
     handleBalanceChange=(e)=>{
         this.setState({balance: e.target.value});
 
-        
     }
 
     componentDidUpdate() {

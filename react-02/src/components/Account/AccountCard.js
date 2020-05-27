@@ -50,8 +50,8 @@ class AccountCard extends Component{
                 <div className="top-right"><button onClick={ () => this.props.handleDelete(this.props.account.key)}>Delete</button></div>
            </div>
            <div className="ctrl-group">
-                <div> <label className="ctrl-header" htmlFor="amountChanged">Deposit/Withdrawal amount</label>              
-                    <input id="amountChanged" name="amountChanged" title='amount' type="text" value={this.state.amount} onChange={this.handleChange}/>
+                <div> <label className="ctrl-header" htmlFor="amountChanged">Deposit/Withdrawal amount         
+                    <input id="amountChanged" name="amountChanged" title='amount' type="text" value={this.state.amount} onChange={this.handleChange}/></label>     
                 </div>
                 <div>               
                     <button onClick={this.handleDeposit}>Deposit</button>

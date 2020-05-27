@@ -13,12 +13,11 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-# dependencies
-/node_modules
+# dpendencies
+node_modules
 jspm_packages/
 /.pnp
-.pnp.js
-
+.pnp.j
 # testing
 /coverage
 

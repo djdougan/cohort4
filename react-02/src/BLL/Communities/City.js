@@ -20,7 +20,7 @@ class City {
      * @param {number} longitude -- the angle east or west from the Prime Meridian, ranging from 0° at the Prime Meridian to +180° eastward and −180° westward.
      * @param {number} population -- The latest known population
      */
-    constructor(key, name, latitude, longitude, population) {
+    constructor(name, latitude, longitude, population, key ) {
         this.key = key;
         this.name = name;
         this.latitude = latitude;
