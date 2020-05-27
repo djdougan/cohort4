@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import CityCard from "./CityCard";
-import CommunityList from "./CommunityList";
-import City from "../../BLL/Communities/City";
-import Community from "../../BLL/Communities/Community";
-import fetch from "../../BLL/Communities/fetchApi";
 
 class CityControl extends Component {
   constructor() {

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import CityCard from "./CityCard";
 import CommunityList from "./CommunityList";
 import CityControl from "./CityControl";
-import City from "../../BLL/Communities/City";
+import Benchmark from "./Benchmark";
 import Community from "../../BLL/Communities/Community.js";
 import fetchApi from "../../BLL/Communities/fetchApi";
 
@@ -12,6 +11,9 @@ class CommunityApp extends Component {
     this.state = {
       communities: {},
       isLoaded: false,
+      northern: {},
+      southern: {},
+      population: 0,
     };
     this.url = "http://127.0.0.1:5000/";
     this.comm = new Community();
@@ -54,7 +56,7 @@ class CommunityApp extends Component {
     console.log(data);
     if (data.status === 200) {
       for (let i = 0; i < data.length; i++) {
-        let city = this.comm.createCity(
+        this.comm.createCity(
           data[i].name,
           data[i].latitude,
           data[i].longitude,
@@ -65,12 +67,15 @@ class CommunityApp extends Component {
       this.setState({
         isLoaded: true,
         communities: data,
+        northern: this.comm.getMostNorthern(),
+        southern: this.comm.getMostSouthern(),
+        population: this.comm.getPopulation(),
       });
     }
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, communities } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -78,12 +83,18 @@ class CommunityApp extends Component {
     } else {
       return (
         <div>
+          <h1>Cities and Communities</h1>
           <CityControl
             handleInput={this.onCreate}
             // onChange={this.handleChange}
           />
+          <Benchmark
+            northern={this.state.northern}
+            southern={this.state.southern}
+            population={this.state.population}
+          />
           <CommunityList
-            cities={this.state.communities}
+            cities={communities}
             onDelete={this.onDeleteHandler}
             onIncrease={this.onIncreaseHandler}
             onDecrease={this.onDecreaseHandler}

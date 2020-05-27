@@ -13,12 +13,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      message: "",
+      // message: "",
       selected: <Home />,
     };
   }
   handleClick = (message, comp) => (e) => {
-    this.setState({ message: message, selected: comp });
+    this.setState({ selected: comp });
   };
   render() {
     return (
@@ -59,7 +59,7 @@ class App extends Component {
             </div>
           </div>{" "}
           {/**End grid container */}
-          <div id="messageBox">{this.state.message}</div>
+          {/* <div id="messageBox">{this.state.message}</div> */}
         </header>
         <main>{this.state.selected}</main>
         <footer></footer>

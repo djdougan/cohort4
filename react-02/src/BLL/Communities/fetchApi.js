@@ -1,8 +1,3 @@
-import Community from "./Community.js";
-import City from "./City.js";
-
-// const com = new Community();
-
 const fetchApi = {
   /* GET: /all */
   all: async (url) => {

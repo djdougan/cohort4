@@ -6,6 +6,7 @@ import CityCard from "./CityCard";
 
 class CommunityList extends Component {
   render() {
+    console.log(this.props.cities);
     const cityList = this.props.cities.map((city, i) => {
       return (
         <CityCard
