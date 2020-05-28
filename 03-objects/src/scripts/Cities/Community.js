@@ -39,7 +39,7 @@ class Community {
 
             if (key === null) {
                 if (this.communities.length >= 1) {
-                    var maxKey = this.communities.reduce((a, b) => a.key > b.key ? a : b).key;
+                    let maxKey = this.communities.reduce((a, b) => a.key > b.key ? a : b).key;
                     key = maxKey + 1;
                 } else {
                     key = 1;

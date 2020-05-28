@@ -18,6 +18,16 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "src/**/*.js",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!src/index.js",
+      "!src/tempPolyfills.js"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -32,5 +42,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^7.5.6",
+    "node-fetch": "^2.6.0",
+    "pretty": "^2.0.0"
   }
 }
