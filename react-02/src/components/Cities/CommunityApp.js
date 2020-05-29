@@ -9,8 +9,8 @@ class CommunityApp extends Component {
   constructor() {
     super();
     this.state = {
-      communities: {},
       isLoaded: false,
+      communities: {},
       northern: {},
       southern: {},
       population: 0,
@@ -24,6 +24,11 @@ class CommunityApp extends Component {
     this.comm.deleteCity(key);
     this.setState({ communities: this.comm.communities });
     await fetchApi.delete(this.url, { key: key });
+    this.setState({
+      northern: this.comm.getMostNorthern() ? this.comm.getMostNorthern() : {},
+      southern: this.comm.getMostSouthern() ? this.comm.getMostSouthern() : {},
+      population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+    });
   };
   onIncreaseHandler = async (key, amount) => {
     console.log("CommunityApp.onIncreaseHandler", key, amount);
@@ -31,6 +36,11 @@ class CommunityApp extends Component {
     city.movedIn(amount);
     this.setState({ communities: this.comm.communities });
     await fetchApi.update(this.url, city);
+    this.setState({
+      northern: this.comm.getMostNorthern() ? this.comm.getMostNorthern() : {},
+      southern: this.comm.getMostSouthern() ? this.comm.getMostSouthern() : {},
+      population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+    });
   };
   onDecreaseHandler = async (key, amount) => {
     console.log("CommunityApp.onDecreaseHandler", key, amount);
@@ -38,6 +48,11 @@ class CommunityApp extends Component {
     city.movedOut(amount);
     this.setState({ communities: this.comm.communities });
     await fetchApi.update(this.url, city);
+    this.setState({
+      northern: this.comm.getMostNorthern() ? this.comm.getMostNorthern() : {},
+      southern: this.comm.getMostSouthern() ? this.comm.getMostSouthern() : {},
+      population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+    });
   };
 
   onCreate = async (city) => {
@@ -67,9 +82,13 @@ class CommunityApp extends Component {
       this.setState({
         isLoaded: true,
         communities: data,
-        northern: this.comm.getMostNorthern(),
-        southern: this.comm.getMostSouthern(),
-        population: this.comm.getPopulation(),
+        northern: this.comm.getMostNorthern()
+          ? this.comm.getMostNorthern()
+          : {},
+        southern: this.comm.getMostSouthern()
+          ? this.comm.getMostSouthern()
+          : {},
+        population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
       });
     }
   }
