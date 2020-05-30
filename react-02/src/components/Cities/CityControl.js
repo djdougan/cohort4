@@ -77,6 +77,7 @@ class CityControl extends Component {
             </h3>
           )}
         </div>
+
         <form action="#">
           <div className="city-ctrl">
             <div className="group-ctrl">

@@ -1,0 +1,72 @@
+{
+    "1": {
+        "key": 1,
+        "name": "Gyumri",
+        "latitude": 40.7929026,
+        "longitude": 43.8464971,
+        "population": 648118
+    },
+    "2": {
+        "key": 2,
+        "name": "Banho e Carvalhosa",
+        "latitude": 41.2371977,
+        "longitude": -8.1638851,
+        "population": 120013
+    },
+    "3": {
+        "key": 3,
+        "name": "Torrevieja",
+        "latitude": 38.0294026,
+        "longitude": -0.6867939,
+        "population": 82725
+    },
+    "4": {
+        "key": 4,
+        "name": "Vypolzovo",
+        "latitude": 57.8702991,
+        "longitude": 33.6950887,
+        "population": 583303
+    },
+    "5": {
+        "key": 5,
+        "name": "Keta",
+        "latitude": 5.9031249,
+        "longitude": 0.9868468,
+        "population": 265554
+    },
+    "6": {
+        "key": 6,
+        "name": "Fenshui",
+        "latitude": 42.611806,
+        "longitude": -71.3329476,
+        "population": 836193
+    },
+    "7": {
+        "key": 7,
+        "name": "Fairview",
+        "latitude": 56.06675,
+        "longitude": -118.38606,
+        "population": 312883
+    },
+    "8": {
+        "key": 8,
+        "name": "Boston",
+        "latitude": 35.9015016,
+        "longitude": -81.138279,
+        "population": 84220
+    },
+    "9": {
+        "key": 9,
+        "name": "Nong Kung Si",
+        "latitude": 16.7136708,
+        "longitude": 103.3125299,
+        "population": 847041
+    },
+    "10": {
+        "key": 10,
+        "name": "Quangang",
+        "latitude": 25.119815,
+        "longitude": 118.916309,
+        "population": 198248
+    }
+}
