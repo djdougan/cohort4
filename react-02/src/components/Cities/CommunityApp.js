@@ -117,8 +117,8 @@ class CommunityApp extends Component {
         <div>
           <h1>Cities and Communities</h1>
           {this.state.loadLocalData && (
-            <button onClick={this.loadData}>
-              Load local data on to server
+            <button className="btn" onClick={this.loadData}>
+              Load fake data on to server
             </button>
           )}
           <CityControl
