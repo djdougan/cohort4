@@ -14,6 +14,7 @@ class CommunityApp extends Component {
       northern: {},
       southern: {},
       population: 0,
+      loadLocalData: true,
     };
     this.url = "http://127.0.0.1:5000/";
     this.comm = new Community();
@@ -89,10 +90,22 @@ class CommunityApp extends Component {
           ? this.comm.getMostSouthern()
           : {},
         population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+        loadLocalData: this.comm.communities.length > 5 ? false : true,
       });
     }
   }
-
+  loadData = async (e) => {
+    // read our JSON
+    let response = await fetch("cities.json");
+    let cities = await response.json();
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    for (let key in cities) {
+      if (cities.hasOwnProperty(key)) {
+        this.onCreate(cities[key]);
+      }
+    }
+    this.setState({ loadLocalData: false });
+  };
   render() {
     const { error, isLoaded, communities } = this.state;
     if (error) {
@@ -103,6 +116,11 @@ class CommunityApp extends Component {
       return (
         <div>
           <h1>Cities and Communities</h1>
+          {this.state.loadLocalData && (
+            <button className="btn" onClick={this.loadData}>
+              Load fake data on to server
+            </button>
+          )}
           <CityControl
             handleInput={this.onCreate}
             // onChange={this.handleChange}
