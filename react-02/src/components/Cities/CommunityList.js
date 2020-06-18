@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import "./community.css";
+import "../../css/community.css";
 import CityCard from "./CityCard";
 
 // Child component its only purpose is to render
 
 class CommunityList extends Component {
   render() {
-    console.log(this.props.cities);
     const cityList = this.props.cities.map((city, i) => {
       return (
         <CityCard

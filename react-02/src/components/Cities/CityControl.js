@@ -47,8 +47,8 @@ class CityControl extends Component {
       this.state.latitude >= -90 &&
       this.state.longitude <= 180 &&
       this.state.latitude >= -180 &&
-      this.state.latitude != "" &&
-      this.state.longitude != ""
+      this.state.latitude !== "" &&
+      this.state.longitude !== ""
     ) {
       this.setState({ errorMessage: "" });
       const city = {

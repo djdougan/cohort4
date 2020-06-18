@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./community.css";
+import "../../css/community.css";
 
 // Child component its only purpose is to render
 
@@ -13,7 +13,7 @@ class CityCard extends Component {
   }
 
   onDelete = (e) => {
-    this.props.handleDelete(this.props.city.key);
+    this.props.handleDelete(this.props.account.key);
     e.preventDefault();
   };
   onIncrease = (e) => {

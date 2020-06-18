@@ -20,7 +20,7 @@ class AccountApp extends Component {
     this.createAccount = this.createAccount.bind(this);
   }
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     if (this.accountCtrl.accounts.length >= 1) {
       let highest = this.accountCtrl.getHighestValuedAccount();
       let lowest = this.accountCtrl.getLowestValuedAccount();

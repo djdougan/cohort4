@@ -1,10 +1,9 @@
-import React,{ Component } from "react";
-import './game.css';
-import Square from './Square';
+import React, { Component } from "react";
+import "../../css/game.css";
+import Square from "./Square";
 
-
-class Board extends Component{
-    renderSquare(i) {
+class Board extends Component {
+  renderSquare(i) {
     return (
       <Square
         value={this.props.squares[i]}

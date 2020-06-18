@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import Game from "./components/Game/Game";
 import AccountApp from "./components/Account/AccountApp";
 import CommunityApp from "./components/Cities/CommunityApp";
-import logo from "./logo.svg";
-import tictactoe from "./images/tictactoe.svg";
-import bank from "./images/piggy-bank.svg";
-import git from "./images/Git-logo.svg";
-import city from "./images/city-symbol.svg";
+import DoublyLinkedList from "./components/DoublyLinkedList/DoublyLinkedListApp";
 import "./App.css";
 import Home from "./components/Home/Home";
 class App extends Component {
@@ -25,41 +21,50 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className="grid-container">
-            <div onClick={this.handleClick("Home", <Home />)}>
-              <img src={logo} className="icon counter" alt="Home" />
+            <div>
+              <div
+                class="home-icon svg-link-icon counter-clockwise"
+                onClick={this.handleClick("Home", <Home />)}></div>
               <p>Home</p>
             </div>
-            <div onClick={this.handleClick("Tic Tac Toe", <Game />)}>
-              <img
-                src={tictactoe}
-                className="icon clockwise"
-                alt="Tic Tac Toe"
-              />
+            <div>
+              <div
+                class="game-icon svg-link-icon clockwise"
+                onClick={this.handleClick("Tic Tac Toe", <Game />)}></div>
               <p>Tic Tac Toe</p>
             </div>
-            <div onClick={this.handleClick("Accounts", <AccountApp />)}>
-              <img src={bank} className="icon counter" alt="Accounts" />
+            <div>
+              <div
+                class="bank-icon svg-link-icon clockwise"
+                onClick={this.handleClick("Accounts", <AccountApp />)}></div>
               <p>Accounts</p>
             </div>
-            <div
-              onClick={this.handleClick(
-                "CommunityApp was click",
-                <CommunityApp />
-              )}>
-              <img
-                src={city}
-                className="icon clockwise"
-                alt="Community Application"
-              />
+            <div>
+              <div
+                class="city-icon svg-link-icon counter-clockwise"
+                onClick={this.handleClick(
+                  "CommunityApp was click",
+                  <CommunityApp />
+                )}></div>
               <p>Communities</p>
             </div>
-            <div onClick={this.handleClick("Git was clicked")}>
-              <img src={git} className="icon clockwise" alt="Git Hub" />
+            <div>
+              <div
+                class="doubleLinkedList-icon svg-link-icon clockwise"
+                onClick={this.handleClick(
+                  "Doubly Linked List was clicked",
+                  <DoublyLinkedList />
+                )}></div>
+              <p> Doubly Linked List</p>
+            </div>
+            <div>
+              <div
+                class="github-icon svg-link-icon counter-clockwise"
+                onClick={this.handleClick("Git was clicked")}></div>
               <p> Git</p>
             </div>
-          </div>{" "}
+          </div>
           {/**End grid container */}
-          {/* <div id="messageBox">{this.state.message}</div> */}
         </header>
         <main>{this.state.selected}</main>
         <footer></footer>

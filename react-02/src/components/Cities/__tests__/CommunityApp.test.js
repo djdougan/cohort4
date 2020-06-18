@@ -18,7 +18,7 @@ describe("CommunityApp", () => {
     // container = null;
   });
 
-  it("render properly", () => {
+  test("render properly", () => {
     act(() => {
       render(<CommunityApp />, container);
     });

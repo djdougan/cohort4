@@ -1,19 +1,19 @@
-import React,{ Component } from "react";
-import './game.css';
-import Board from './Board';
-import {calculateWinner} from './utils.js'
+import React, { Component } from "react";
+import "../../css/game.css";
+import Board from "./Board";
+import { calculateWinner } from "./utils.js";
 
-class Game extends Component{
-   constructor(props) {
+class Game extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       history: [
         {
-          squares: Array(9).fill(null)
-        }
+          squares: Array(9).fill(null),
+        },
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
     };
   }
 
@@ -28,18 +28,18 @@ class Game extends Component{
     this.setState({
       history: history.concat([
         {
-          squares: squares
-        }
+          squares: squares,
+        },
       ]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !this.state.xIsNext,
     });
   }
 
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0
+      xIsNext: step % 2 === 0,
     });
   }
 
@@ -49,12 +49,12 @@ class Game extends Component{
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+      const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move} className="move-listI-item">
-          <button className="btn-move" onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="btn-move" onClick={() => this.jumpTo(move)}>
+            {desc}
+          </button>
         </li>
       );
     });
@@ -71,7 +71,7 @@ class Game extends Component{
         <div className="game-board">
           <Board
             squares={current.squares}
-            onClick={i => this.handleClick(i)}
+            onClick={(i) => this.handleClick(i)}
           />
         </div>
         <div className="game-info">

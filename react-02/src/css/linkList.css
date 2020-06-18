@@ -1,0 +1,115 @@
+.node-form {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.input-box {
+  margin: 3px auto;
+  display: grid;
+  max-width: 300px;
+  grid-template-columns: 30% 70%;
+  border: 0.025em #fdfdff solid;
+  line-height: 2em;
+  font-size: 1em;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  margin-bottom: 2px;
+}
+.input-box label {
+  text-transform: capitalize;
+  justify-self: center;
+}
+.input-box input {
+  margin-left: 5px;
+  text-align: right;
+  padding: 2px 5px;
+}
+.submit-btn {
+  margin: 3px auto;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  line-height: 2em;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.node-nav {
+  max-width: 960px;
+  line-height: 3em;
+  font-size: 1.3em;
+  margin: 0 auto;
+  border: solid 1px #fdfdff;
+  background-color: #393d3f;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 1fr;
+}
+
+.submit-btn,
+.node-nav .delete,
+.node-nav .prev,
+.node-nav .next {
+  background-color: #c6c5b9;
+  color: #393d3f;
+  font-size: 1.3em;
+  line-height: 2em;
+  border: #393d3f 3px solid;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.node-nav .delete {
+  padding: 5px 20px;
+  margin: 10px auto;
+}
+.node-nav button:disabled,
+.node-nav button:disabled {
+  background-color: #393d3f;
+  color: #fdfdff;
+}
+.node-nav p {
+  margin: 5px auto;
+}
+.list {
+  width: 960px;
+  margin: 0 auto;
+}
+.node,
+.current {
+  border: solid 1px #fdfdff;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 1fr;
+}
+.node div {
+  line-height: 2em;
+  font-size: 1.2em;
+  border: solid 1px #fdfdff;
+  color: #fdfdff;
+  background-color: #393d3f;
+}
+.node div:first-child {
+  background-color: #62929e;
+}
+.node div:last-child {
+  background-color: #546a7b;
+}
+
+.current div {
+  line-height: 2em;
+  font-size: 1.2em;
+  border: solid 1px #fdfdff;
+  color: #fdfdff;
+}
+.current div:first-child,
+.current div:last-child {
+  background-color: #c6c5b9;
+  color: #393d3f;
+}

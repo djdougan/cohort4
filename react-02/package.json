@@ -46,6 +46,7 @@
   "devDependencies": {
     "@testing-library/dom": "^7.5.6",
     "node-fetch": "^2.6.0",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "styled-components": "^5.1.1"
   }
 }
