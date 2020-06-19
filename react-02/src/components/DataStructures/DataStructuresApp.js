@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Queue from "../../BLL/Data-Structures/Queue";
 import Stack from "../../BLL/Data-Structures/Stack";
 
+import { AppContext } from "../../components/AppContext";
 import DataList from "./DataList";
 import DataControls from "./DataControls";
 import "../../css/red/data-structures.css";
@@ -10,6 +11,7 @@ const stack = new Stack();
 const url = "./People.json";
 
 const DataStructuresApp = () => {
+  const context = React.useContext(AppContext);
   const [queueList, setQueueList] = useState([]);
   const [stackList, setStackList] = useState([]);
 
