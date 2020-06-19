@@ -11,42 +11,62 @@ import NodeListComp from "../DoublyLinkedList/NodeListComp";
 
 const DoubleLinkedListApp = (props) => {
   const context = useContext(AppContext);
-  const [current, setCurrent] = useState("");
+  // const [current, setCurrent] = useState("");
 
-  useEffect(() => {
-    addNode("A", "1");
-    addNode("B", "3");
-    addNode("C", "2");
-    addNode("D", "4");
-  }, []);
-
+  useEffect(() => {}, []);
   const addNode = (subject, amount) => {
     let node = context.dLinkedList.insert(subject, amount);
-    setCurrent(node);
+    context.handleStateChange([
+      {
+        state: "current",
+        newState: node,
+      },
+    ]);
+    // setCurrent(node);
   };
   const prevNode = () => {
+    let current = context.dLinkedList.current;
     let node = context.dLinkedList.prev(current);
-    setCurrent(node);
+    context.handleStateChange([
+      {
+        state: "current",
+        newState: node,
+      },
+    ]);
   };
   const nextNode = () => {
+    let current = context.dLinkedList.current;
     let node = context.dLinkedList.next(current);
-    setCurrent(node);
+    context.handleStateChange([
+      {
+        state: "current",
+        newState: node,
+      },
+    ]);
   };
 
   const deleteNode = () => {
     var r = window.confirm(
       "Are you sure you want to delete node(" +
-        current.subject +
+        context.dLinkedList.current.subject +
         ", " +
-        current.amount +
+        context.dLinkedList.current.amount +
         ")"
     );
     if (r === true) {
+      let current = context.dLinkedList.current;
       let node = context.dLinkedList.delete(current);
-      setCurrent(node);
+      context.handleStateChange([
+        {
+          state: "current",
+          newState: node,
+        },
+      ]);
     }
   };
-
+  const setCurrent = (current) => {
+    context.dLinkedList.current = current;
+  };
   return (
     <div>
       <h1>{props.title}</h1>
@@ -55,7 +75,7 @@ const DoubleLinkedListApp = (props) => {
       </h3>
       <CreateNodeComp onCreate={addNode} node={setCurrent} />
       <NodeNavComp
-        node={current}
+        node={context.dLinkedList.current}
         prevNode={prevNode}
         nextNode={nextNode}
         deleteNode={deleteNode}

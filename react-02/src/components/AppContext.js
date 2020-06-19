@@ -29,6 +29,7 @@ export class ContextProvider extends Component {
       <AppContext.Provider
         value={{
           dLinkedList: this.dLinkedList,
+          handleStateChange: this.handleStateChange,
         }}>
         <App />
       </AppContext.Provider>

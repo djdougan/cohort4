@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { ContextProvider, AppContext } from "./components/appContext.js";
+import { ContextProvider, AppContext } from "./components/AppContext.js";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
