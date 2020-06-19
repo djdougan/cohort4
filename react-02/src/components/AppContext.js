@@ -17,6 +17,7 @@ export class ContextProvider extends Component {
       [e.target.name]: e.target.value,
     });
   };
+
   handleStateChange = (state) => {
     for (let i = 0; i < state.length; i++) {
       this.setState({
