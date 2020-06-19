@@ -9,10 +9,10 @@ class Queue extends Collection {
       args.forEach((el) => {
         if (Array.isArray(el)) {
           el.forEach((sub) => {
-            this.collection.push(sub);
+            this.collection.unshift(sub);
           });
         } else {
-          this.collection.push(el);
+          this.collection.unshift(el);
         }
       });
     }

@@ -3,6 +3,7 @@ import Game from "./components/Game/Game";
 import AccountApp from "./components/Account/AccountApp";
 import CommunityApp from "./components/Cities/CommunityApp";
 import DoublyLinkedList from "./components/DoublyLinkedList/DoublyLinkedListApp";
+import DataStructuresApp from "./components/DataStructures/DataStructuresApp";
 import "./App.css";
 import Home from "./components/Home/Home";
 class App extends Component {
@@ -23,25 +24,25 @@ class App extends Component {
           <div className="grid-container">
             <div>
               <div
-                class="home-icon svg-link-icon counter-clockwise"
+                className="home-icon svg-link-icon counter-clockwise"
                 onClick={this.handleClick("Home", <Home />)}></div>
               <p>Home</p>
             </div>
             <div>
               <div
-                class="game-icon svg-link-icon clockwise"
+                className="game-icon svg-link-icon clockwise"
                 onClick={this.handleClick("Tic Tac Toe", <Game />)}></div>
               <p>Tic Tac Toe</p>
             </div>
             <div>
               <div
-                class="bank-icon svg-link-icon clockwise"
+                className="bank-icon svg-link-icon clockwise"
                 onClick={this.handleClick("Accounts", <AccountApp />)}></div>
               <p>Accounts</p>
             </div>
             <div>
               <div
-                class="city-icon svg-link-icon counter-clockwise"
+                className="city-icon svg-link-icon"
                 onClick={this.handleClick(
                   "CommunityApp was click",
                   <CommunityApp />
@@ -50,7 +51,7 @@ class App extends Component {
             </div>
             <div>
               <div
-                class="doubleLinkedList-icon svg-link-icon clockwise"
+                className="doubleLinkedList-icon svg-link-icon"
                 onClick={this.handleClick(
                   "Doubly Linked List was clicked",
                   <DoublyLinkedList />
@@ -59,7 +60,16 @@ class App extends Component {
             </div>
             <div>
               <div
-                class="github-icon svg-link-icon counter-clockwise"
+                className="queue-stack-icon svg-link-icon"
+                onClick={this.handleClick(
+                  "Queues and Stacks was clicked",
+                  <DataStructuresApp />
+                )}></div>
+              <p> Queues and Stacks</p>
+            </div>
+            <div>
+              <div
+                className="github-icon svg-link-icon counter-clockwise"
                 onClick={this.handleClick("Git was clicked")}></div>
               <p> Git</p>
             </div>

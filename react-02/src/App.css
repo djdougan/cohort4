@@ -21,14 +21,19 @@ body {
 }
 
 .svg-link-icon {
+  margin: 0 auto;
   background-color: red;
   width: 100px;
   height: 100px;
 }
 .home-icon {
-  width: 100%;
+  transform: scale(2);
   -webkit-mask: url(../../react-02/src/images/logo.svg) no-repeat center;
   mask: url(../../react-02/src/images/logo.svg) no-repeat center;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
 }
 .game-icon {
   -webkit-mask: url(../../react-02/src/images/tic-tac-toe.svg) no-repeat center;
@@ -43,8 +48,18 @@ body {
   mask: url(../../react-02/src/images/city-symbol.svg) no-repeat center;
 }
 .doubleLinkedList-icon {
+  transform: scale(1.5);
   -webkit-mask: url(../../react-02/src/images/linked-list.svg) no-repeat center;
   mask: url(../../react-02/src/images/linked-list.svg) no-repeat center;
+}
+.queue-stack-icon {
+  transform: scale(1.7);
+  -webkit-mask: url(../../react-02/src/images/queue-stack.svg) no-repeat center;
+  mask: url(../../react-02/src/images/queue-stack.svg) no-repeat center;
+  -webkit-transform: scale(1.7);
+  -moz-transform: scale(1.7);
+  -ms-transform: scale(1.7);
+  -o-transform: scale(1.7);
 }
 .github-icon {
   -webkit-mask: url(../../react-02/src/images/git-logo.svg) no-repeat center;
@@ -119,10 +134,6 @@ body {
   .clockwise {
     animation: App-logo-clock-spin infinite 10s linear;
     -webkit-animation: App-logo-clock-spin infinite 10s linear;
-  }
-  .svg-icon {
-    fill: #fff;
-    stroke: #fff;
   }
 }
 

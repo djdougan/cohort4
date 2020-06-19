@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM, { unmountComponentAtNode } from "react-dom";
-import QueueApp from "../DataStructures";
+import QueueApp from "../DataStructuresApp";
 import { act } from "react-dom/test-utils";
 import { screen } from "@testing-library/dom";
 import { cleanup, render, fireEvent } from "@testing-library/react";
@@ -30,5 +30,8 @@ describe("Tests QueueApp", () => {
   test("Renders Properly", () => {
     const { getByTestId, rerender } = render(<QueueApp />);
     expect(getByTestId("app-header").textContent).toBe("Queue Application");
+  });
+  describe("Subscription Tests", () => {
+    test.todo("... a name");
   });
 });

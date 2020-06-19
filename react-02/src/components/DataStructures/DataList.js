@@ -1,14 +1,15 @@
 import React from "react";
 import ListItem from "./ListItem";
+import "../../css/red/data-structures.css";
 
-const DataList = ({ ListItems }) => {
-  if (!ListItems) {
+const DataList = ({ data }) => {
+  if (!data) {
     return null;
   }
-  const peopleList = this.props.people.map((person, i) => {
-    return <ListItem key={person.id} person={person} />;
+  const dList = data.map((d, i) => {
+    return <ListItem key={i} person={d} />;
   });
 
-  return <div>{peopleList}</div>;
+  return <div className="list">{dList}</div>;
 };
 export { DataList as default };

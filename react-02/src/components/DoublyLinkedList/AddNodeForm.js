@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../css/linkList.css";
+import "../../css/red/linkList.css";
 const AddNodeForm = (props) => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");

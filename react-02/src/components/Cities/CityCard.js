@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../css/community.css";
+import "../../css/red/community.css";
 
 // Child component its only purpose is to render
 

@@ -17,7 +17,7 @@ class Home extends Component {
       <div>
         <div>{this.state.selected}</div>
         <div>
-          <div class="App-logo clockwise" alt="logo"></div>
+          <div className="App-logo clockwise" alt="logo"></div>
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
