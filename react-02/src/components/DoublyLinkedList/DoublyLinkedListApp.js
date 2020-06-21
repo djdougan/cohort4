@@ -13,7 +13,7 @@ const DoubleLinkedListApp = (props) => {
   const context = useContext(AppContext);
   // const [current, setCurrent] = useState("");
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
   const addNode = (subject, amount) => {
     let node = context.dLinkedList.insert(subject, amount);
     context.handleStateChange([

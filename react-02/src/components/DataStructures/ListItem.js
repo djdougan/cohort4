@@ -2,12 +2,14 @@ import React from "react";
 import "../../css/red/data-structures.css";
 
 const ListItem = ({ person }) => {
+  console.log(person);
   return (
     <div>
-      <h3>ID: {person.id} </h3>
-      <p>
+      <h3>
+        Name
         {person.firstName}, {person.lastName}
-      </p>
+      </h3>
+      <p>Priority: {person.priority ? person.priority : undefined} </p>
     </div>
   );
 };

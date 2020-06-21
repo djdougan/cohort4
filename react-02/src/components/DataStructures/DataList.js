@@ -3,6 +3,7 @@ import ListItem from "./ListItem";
 import "../../css/red/data-structures.css";
 
 const DataList = ({ data }) => {
+  console.log(data);
   if (!data) {
     return null;
   }

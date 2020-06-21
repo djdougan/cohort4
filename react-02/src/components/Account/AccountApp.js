@@ -1,33 +1,34 @@
-//
-
-import React, { Component } from "react";
+import { AppContext } from "../../components/AppContext";
+import React, { Component, useContext } from "react";
 
 import AccountList from "./AccountList";
 import AccountControl from "./AccountControl";
-import { AccountController } from "../../BLL/Account/Account.js";
+// import { AccountController } from "../../BLL/Account/Account.js";
 
 class AccountApp extends Component {
   constructor() {
     super();
-    this.state = {
-      accountList: [],
-      total: 0,
-      highestAccount: { accountName: "", balance: 0, key: null },
-      lowestAccount: { accountName: "", balance: 0, key: null },
-      newAccount: { accountName: "", balance: 0, key: null },
-    };
-    this.accountCtrl = new AccountController();
+
+    // context = {
+    //   accountList: [],
+    //   total: 0,
+    //   highestAccount: { accountName: "", balance: 0, key: null },
+    //   lowestAccount: { accountName: "", balance: 0, key: null },
+    //   newAccount: { accountName: "", balance: 0, key: null },
+    // };
+    // this.accountCtrl = new AccountController();
     this.createAccount = this.createAccount.bind(this);
   }
 
+  static contextType = AppContext;
   componentWillMount() {
-    if (this.accountCtrl.accounts.length >= 1) {
-      let highest = this.accountCtrl.getHighestValuedAccount();
-      let lowest = this.accountCtrl.getLowestValuedAccount();
+    if (this.context.accountCtrl.accounts.length >= 1) {
+      let highest = this.context.accountCtrl.getHighestValuedAccount();
+      let lowest = this.context.accountCtrl.getLowestValuedAccount();
 
-      this.setState({
-        accountList: this.accountCtrl.accounts,
-        total: this.accountCtrl.getAccountTotal,
+      this.context.handleStateChange({
+        accountList: this.context.accountCtrl.accounts,
+        total: this.context.accountCtrl.getAccountTotal,
         highestAccount: {
           accountName: highest.accountName,
           balance: highest.balance,
@@ -42,17 +43,18 @@ class AccountApp extends Component {
     }
   }
   createAccount = (e) => {
-    this.accountCtrl.createAccount(
-      this.state.newAccount.accountName,
-      this.state.newAccount.balance
+    this.context.accountCtrl.createAccount(
+      this.context.newAccount.accountName,
+      this.context.newAccount.balance
     );
-    this.setState({
-      accountList: this.accountCtrl.accounts,
-    });
-    console.log(this.state.accountList, this.accountCtrl.accounts);
+    this.context.handleStateChange({ accountList: this.context.accounts });
+    // this.setState({
+    //   accountList: this.accountCtrl.accounts,
+    // });
   };
+
   // handleChange=(e)=> {
-  //     const { newAccount } = { ...this.state };
+  //     const { newAccount } = { ...context };
   //     console.log(newAccount)
   //     const account = newAccount;
   //     const { name, value } = e.target;
@@ -67,9 +69,10 @@ class AccountApp extends Component {
 
   handleDelete = (key) => {
     this.accountCtrl.removeAccount(key);
-    this.setState({
-      AccountList: this.accountCtrl.accounts,
-    });
+    this.context.handleStateChange({ accountList: this.context.accounts });
+    // this.setState({
+    //   AccountList: this.accountCtrl.accounts,
+    // });
   };
 
   render() {
@@ -80,27 +83,27 @@ class AccountApp extends Component {
           <AccountControl
             onCreate={this.createAccount}
             onChange={this.handleChange}
-            newAccount={this.state.newAccount}
+            newAccount={this.context.newAccount}
           />
         </div>
         <div>
           <h2>
-            Accounts total: <span>{this.state.total}</span>
+            Accounts total: <span>{this.context.total}</span>
           </h2>
           <h2>
             Largest account:{" "}
-            <span>{this.state.highestAccount.accountName}</span>
-            <span>{this.state.highestAccount.balance}</span>
+            <span>{this.context.highestAccount.accountName}</span>
+            <span>{this.context.highestAccount.balance}</span>
           </h2>
           <h2>
             Smallest account:{" "}
-            <span>{this.state.lowestAccount.accountName}</span>
-            <span>{this.state.lowestAccount.balance}</span>
+            <span>{this.context.lowestAccount.accountName}</span>
+            <span>{this.context.lowestAccount.balance}</span>
           </h2>
         </div>
         <div>
           <AccountList
-            accountList={this.state.accountList}
+            accountList={this.context.accountList}
             handleDelete={this.handleDelete}
           />
         </div>

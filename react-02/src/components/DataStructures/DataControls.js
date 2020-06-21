@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { AppContext } from "../../components/AppContext";
+import React, { useState, useEffect, useContext } from "react";
 import "../../css/red/data-structures.css";
 
 const DataControls = (props) => {
+  const context = useContext(AppContext);
   const [fakeData, setfakeData] = useState({});
-  const [person, setPerson] = useState({ id: 0, firstName: "", lastName: "" });
+  const [person, setPerson] = useState({
+    priority: 1,
+    firstName: "",
+    lastName: "",
+  });
 
   useEffect(() => {
     // console.log(props.url);
@@ -32,14 +38,29 @@ const DataControls = (props) => {
   const addData = (e) => {
     props.addData(person);
   };
+
   const removeData = (e) => {
     props.removeData();
   };
+
   return (
     <div>
       <h1>Data Controls</h1>
       <div>
         <button onClick={() => AddRandomData()}>Add Random Data</button>
+      </div>
+      <div>
+        <label htmlFor="priority">
+          Priority:
+          <input
+            type="number"
+            min="1"
+            max="5"
+            name="priority"
+            value={person.priority}
+            onChange={(e) => setPerson({ ...person, priority: e.target.value })}
+          />
+        </label>
       </div>
       <div>
         <label htmlFor="first-name">
@@ -65,8 +86,8 @@ const DataControls = (props) => {
           />
         </label>
       </div>
-      <button onClick={(e) => addData()}>Put</button>
-      <button onClick={(e) => removeData()}>Take Out</button>
+      <button onClick={(e) => addData(e)}>Put</button>
+      <button onClick={(e) => removeData(e)}>Take Out</button>
     </div>
   );
 };

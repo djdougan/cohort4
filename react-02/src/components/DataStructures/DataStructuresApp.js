@@ -1,35 +1,40 @@
-import React, { useState, useEffect } from "react";
-import Queue from "../../BLL/Data-Structures/Queue";
-import Stack from "../../BLL/Data-Structures/Stack";
-
 import { AppContext } from "../../components/AppContext";
+import React, { useState, useEffect } from "react";
+
 import DataList from "./DataList";
 import DataControls from "./DataControls";
 import "../../css/red/data-structures.css";
-const queue = new Queue();
-const stack = new Stack();
 const url = "./People.json";
 
 const DataStructuresApp = () => {
   const context = React.useContext(AppContext);
-  const [queueList, setQueueList] = useState([]);
-  const [stackList, setStackList] = useState([]);
 
-  const addData = (id, first, last) => {
-    const data = { id: id, firstName: first, lastName: last };
-    queue.enqueue(data);
-    stack.push(data);
-    setQueueList({ queueList: queue });
-    setStackList({ stackList: stack });
+  const addData = (person) => {
+    console.log(person);
+    const data = { ...person };
+    console.log("data", data);
+    context.queue.enqueue(data);
+    context.stack.push(data);
+    setState("stack", context.stack);
+    setState("queue", context.queue);
   };
   const removeData = () => {
-    queue.dequeue();
-    stack.pop();
-    setQueueList({ queueList: queue });
-    setStackList({ stackList: stack });
+    context.queue.dequeue();
+    context.stack.pop();
+    setState("stack", context.stack);
+    setState("queue", context.queue);
   };
   const addFakeData = (person) => {
-    addData(person.id, person.firstName, person.lastName);
+    addData(person);
+  };
+
+  const setState = (state, newState) => {
+    context.handleStateChange([
+      {
+        state: state,
+        newState: newState,
+      },
+    ]);
   };
 
   return (
@@ -42,8 +47,8 @@ const DataStructuresApp = () => {
         removeData={removeData}
       />
       <div className="list-grid">
-        <DataList data={queue.collection} />
-        <DataList data={stack.collection} />
+        <DataList data={context.queue.collection} />
+        <DataList data={context.stack.collection} />
       </div>
     </div>
   );
