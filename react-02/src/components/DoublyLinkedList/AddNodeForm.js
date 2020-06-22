@@ -6,8 +6,8 @@ const AddNodeForm = (props) => {
 
   const createNode = (e) => {
     e.preventDefault();
-    props.onCreate(subject, amount);
     if (subject && amount) {
+      props.onCreate(subject, amount);
       setSubject("");
       setAmount("");
     }
@@ -20,7 +20,7 @@ const AddNodeForm = (props) => {
           <label htmlFor="subject">Subject</label>
           <input
             name="subject"
-            value={props.subject}
+            value={subject}
             onChange={(e) => {
               setSubject(e.target.value);
             }}
