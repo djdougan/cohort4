@@ -2,21 +2,38 @@ import React, { Component } from "react";
 import App from "../App";
 
 import DoublyLinkedList from "../BLL/Data-Structures/DoublyLinkedList.js";
+import Queue from "../BLL/Data-Structures/Queue";
+import Stack from "../BLL/Data-Structures/Stack";
 import { AccountController } from "../BLL/Account/Account.js";
+import Community from "../BLL/Communities/Community.js";
 
 export const AppContext = React.createContext();
 
 export class ContextProvider extends Component {
   dLinkedList = new DoublyLinkedList();
+  queue = new Queue();
+  stack = new Stack();
   accountCtrl = new AccountController();
+  community = new Community();
 
   state = {
+    // doublylinkedlist
     current: null,
+    // queue and stack
+    queue: [],
+    stack: [],
+    // accounts
     accounts: [],
     total: 0,
     highestAccount: { accountName: "", balance: 0, key: null },
     lowestAccount: { accountName: "", balance: 0, key: null },
     newAccount: { accountName: "", balance: 0, key: null },
+    // cities and community
+    communities: {},
+    northern: {},
+    southern: {},
+    population: 0,
+    loadLocalData: true,
   };
 
   handleChange = (e) => {
@@ -25,13 +42,14 @@ export class ContextProvider extends Component {
     });
   };
 
-  handleStateChange = (state) => {
-    for (let i = 0; i <= state.length; i++) {
+  handleStateChange = (states) => {
+    for (let i = 0; i < states.length; i++) {
       this.setState({
-        [state[i].state]: state[i].newState,
+        [states[i].state]: states[i].newState,
       });
     }
   };
+
   handleAccountState = (accounts) => {
     console.log(accounts);
     this.setState({ accounts: accounts });
@@ -48,13 +66,16 @@ export class ContextProvider extends Component {
     return (
       <AppContext.Provider
         value={{
-          dLinkedList: this.dLinkedList,
+          state: this.state,
           accountCtrl: this.accountCtrl,
+          community: this.community,
+          dLinkedList: this.dLinkedList,
+          queue: this.queue,
+          stack: this.stack,
           handleStateChange: this.handleStateChange,
           handleAccountState: this.handleAccountState,
           handleHighestAccountState: this.handleHighestAccountState,
           handleLowestAccountState: this.handleLowestAccountState,
-          state: this.state,
         }}>
         <App />
       </AppContext.Provider>

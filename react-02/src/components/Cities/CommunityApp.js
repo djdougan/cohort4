@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CommunityList from "./CommunityList";
 import CityControl from "./CityControl";
 import Benchmark from "./Benchmark";
-import Community from "../../BLL/Communities/Community.js";
+// import Community from "../../BLL/Communities/Community.js";
 import fetchApi from "../../BLL/Communities/fetchApi";
 
 class CommunityApp extends Component {
@@ -10,60 +10,78 @@ class CommunityApp extends Component {
     super();
     this.state = {
       isLoaded: false,
-      communities: {},
-      northern: {},
-      southern: {},
-      population: 0,
-      loadLocalData: true,
+      // communities: {},
+      // northern: {},
+      // southern: {},
+      // population: 0,
+      // loadLocalData: true,
     };
     this.url = "http://127.0.0.1:5000/";
-    this.comm = new Community();
+    // this.comm = new Community();
   }
 
   onDeleteHandler = async (key) => {
     console.log(key);
-    this.comm.deleteCity(key);
-    this.setState({ communities: this.comm.communities });
+    this.context.community.deleteCity(key);
+    this.setState({ communities: this.context.community.communities });
     await fetchApi.delete(this.url, { key: key });
     this.setState({
-      northern: this.comm.getMostNorthern() ? this.comm.getMostNorthern() : {},
-      southern: this.comm.getMostSouthern() ? this.comm.getMostSouthern() : {},
-      population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+      northern: this.context.community.getMostNorthern()
+        ? this.context.community.getMostNorthern()
+        : {},
+      southern: this.context.community.getMostSouthern()
+        ? this.context.community.getMostSouthern()
+        : {},
+      population: this.context.community.getPopulation()
+        ? this.context.community.getPopulation()
+        : 0,
     });
   };
   onIncreaseHandler = async (key, amount) => {
     console.log("CommunityApp.onIncreaseHandler", key, amount);
-    const city = this.comm.getCity(key);
+    const city = this.context.community.getCity(key);
     city.movedIn(amount);
-    this.setState({ communities: this.comm.communities });
+    this.setState({ communities: this.context.community.communities });
     await fetchApi.update(this.url, city);
     this.setState({
-      northern: this.comm.getMostNorthern() ? this.comm.getMostNorthern() : {},
-      southern: this.comm.getMostSouthern() ? this.comm.getMostSouthern() : {},
-      population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+      northern: this.context.community.getMostNorthern()
+        ? this.context.community.getMostNorthern()
+        : {},
+      southern: this.context.community.getMostSouthern()
+        ? this.context.community.getMostSouthern()
+        : {},
+      population: this.context.community.getPopulation()
+        ? this.context.community.getPopulation()
+        : 0,
     });
   };
   onDecreaseHandler = async (key, amount) => {
     console.log("CommunityApp.onDecreaseHandler", key, amount);
-    const city = this.comm.getCity(key);
+    const city = this.context.community.getCity(key);
     city.movedOut(amount);
-    this.setState({ communities: this.comm.communities });
+    this.setState({ communities: this.context.community.communities });
     await fetchApi.update(this.url, city);
     this.setState({
-      northern: this.comm.getMostNorthern() ? this.comm.getMostNorthern() : {},
-      southern: this.comm.getMostSouthern() ? this.comm.getMostSouthern() : {},
-      population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
+      northern: this.context.community.getMostNorthern()
+        ? this.context.community.getMostNorthern()
+        : {},
+      southern: this.context.community.getMostSouthern()
+        ? this.context.community.getMostSouthern()
+        : {},
+      population: this.context.community.getPopulation()
+        ? this.context.community.getPopulation()
+        : 0,
     });
   };
 
   onCreate = async (city) => {
-    city = this.comm.createCity(
+    city = this.context.community.createCity(
       city.name,
       city.latitude,
       city.longitude,
       city.population
     );
-    this.setState({ communities: this.comm.communities });
+    this.setState({ communities: this.context.community.communities });
     await fetchApi.add(this.url, city);
   };
 
@@ -72,7 +90,7 @@ class CommunityApp extends Component {
     console.log(data);
     if (data.status === 200) {
       for (let i = 0; i < data.length; i++) {
-        this.comm.createCity(
+        this.context.community.createCity(
           data[i].name,
           data[i].latitude,
           data[i].longitude,
@@ -83,14 +101,17 @@ class CommunityApp extends Component {
       this.setState({
         isLoaded: true,
         communities: data,
-        northern: this.comm.getMostNorthern()
-          ? this.comm.getMostNorthern()
+        northern: this.context.community.getMostNorthern()
+          ? this.context.community.getMostNorthern()
           : {},
-        southern: this.comm.getMostSouthern()
-          ? this.comm.getMostSouthern()
+        southern: this.context.community.getMostSouthern()
+          ? this.context.community.getMostSouthern()
           : {},
-        population: this.comm.getPopulation() ? this.comm.getPopulation() : 0,
-        loadLocalData: this.comm.communities.length > 5 ? false : true,
+        population: this.context.community.getPopulation()
+          ? this.context.community.getPopulation()
+          : 0,
+        loadLocalData:
+          this.context.community.communities.length > 5 ? false : true,
       });
     }
   }
