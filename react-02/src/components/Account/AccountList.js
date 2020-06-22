@@ -8,7 +8,7 @@ class AccountList extends Component {
     this.handleDelete = this.props.handleDelete.bind(this);
   }
   render() {
-    const accounts = this.props.accountList.map((account, i) => {
+    const accounts = this.props.accounts.map((account, i) => {
       return (
         <AccountCard
           key={account.key}

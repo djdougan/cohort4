@@ -1,5 +1,10 @@
 import { AppContext } from "../../components/AppContext";
+<<<<<<< HEAD
 import React, { Component, useContext } from "react";
+=======
+
+import React, { Component } from "react";
+>>>>>>> a27a3730a14baf9cc729a3aecc4fc64a60118714
 
 import AccountList from "./AccountList";
 import AccountControl from "./AccountControl";
@@ -8,6 +13,7 @@ import AccountControl from "./AccountControl";
 class AccountApp extends Component {
   constructor() {
     super();
+<<<<<<< HEAD
 
     // context = {
     //   accountList: [],
@@ -73,6 +79,34 @@ class AccountApp extends Component {
     // this.setState({
     //   AccountList: this.accountCtrl.accounts,
     // });
+=======
+    this.createAccount = this.createAccount.bind(this);
+  }
+  static contextType = AppContext;
+  createAccount = (e) => {
+    this.context.accountCtrl.createAccount(
+      this.context.state.newAccount.accountName,
+      this.context.state.newAccount.balance
+    );
+    this.context.handleAccountState(this.context.accountCtrl.accounts);
+    this.context.handleHighestAccountState(
+      this.context.accountCtrl.getHighestValuedAccount()
+    );
+    this.context.handleLowestAccountState(
+      this.context.accountCtrl.getLowestValuedAccount()
+    );
+  };
+
+  handleDelete = (key) => {
+    this.context.accountCtrl.removeAccount(key);
+    this.context.handleAccountState(this.context.accountCtrl.accounts);
+    this.context.handleHighestAccountState(
+      this.context.accountCtrl.getHighestValuedAccount()
+    );
+    this.context.handleLowestAccountState(
+      this.context.accountCtrl.getLowestValuedAccount()
+    );
+>>>>>>> a27a3730a14baf9cc729a3aecc4fc64a60118714
   };
 
   render() {
@@ -83,11 +117,16 @@ class AccountApp extends Component {
           <AccountControl
             onCreate={this.createAccount}
             onChange={this.handleChange}
+<<<<<<< HEAD
             newAccount={this.context.newAccount}
+=======
+            newAccount={this.context.state.newAccount}
+>>>>>>> a27a3730a14baf9cc729a3aecc4fc64a60118714
           />
         </div>
         <div>
           <h2>
+<<<<<<< HEAD
             Accounts total: <span>{this.context.total}</span>
           </h2>
           <h2>
@@ -99,11 +138,28 @@ class AccountApp extends Component {
             Smallest account:{" "}
             <span>{this.context.lowestAccount.accountName}</span>
             <span>{this.context.lowestAccount.balance}</span>
+=======
+            Accounts total: <span>{this.context.state.total}</span>
+          </h2>
+          <h2>
+            Largest account:
+            <span>{this.context.state.highestAccount.accountName}</span>
+            <span>{this.context.state.highestAccount.balance}</span>
+          </h2>
+          <h2>
+            Smallest account:
+            <span>{this.context.state.lowestAccount.accountName}</span>
+            <span>{this.context.state.lowestAccount.balance}</span>
+>>>>>>> a27a3730a14baf9cc729a3aecc4fc64a60118714
           </h2>
         </div>
         <div>
           <AccountList
+<<<<<<< HEAD
             accountList={this.context.accountList}
+=======
+            accounts={this.context.state.accounts}
+>>>>>>> a27a3730a14baf9cc729a3aecc4fc64a60118714
             handleDelete={this.handleDelete}
           />
         </div>
@@ -111,4 +167,5 @@ class AccountApp extends Component {
     );
   }
 }
+
 export default AccountApp;
