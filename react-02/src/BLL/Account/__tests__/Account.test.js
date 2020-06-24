@@ -8,34 +8,20 @@
  * Last modified  : 2020-03-31 20:00:45
  *
  */
-import { Account } from "../Account.js";
+import { Account, AccountController } from "../Account.js";
 
 test("Test: Account constructor()", () => {
-  let checking = new Account("acc1", 5.0, 1);
-  expect(checking.getAccountName).toBe("acc1");
-  expect(checking.getBalance).toBe(5.0);
-  checking.deposit(1.0);
-  expect(checking.getBalance).toBe(6.0);
-
-  checking.withdrawal(2.0);
-  expect(checking.getBalance).toBe(4.0);
-  let amount = "abc";
-  expect(() => {
-    //code block that should throw error
-    let checking = new Account("checkingAccount", 25.0, 1);
-    checking.deposit(amount);
-  }).toThrow(`The value ${amount} is not a valid number.`);
-  expect(() => {
-    //code block that should throw error
-    let checking = new Account("checkingAccount", 25.0, 1);
-    checking.withdrawal(amount);
-  }).toThrow(`The value ${amount} is not a valid number.`);
-});
-
-test("Test: Account constructor() with non numbers values", () => {
-  let amount = "abc";
-  expect(() => {
-    //code block that should throw error
-    let checking = new Account("checkingAccount", amount, 1);
-  }).toThrow(`The value ${amount} is not a valid number.`);
+  const accountCtrl = new AccountController();
+  accountCtrl.createAccount("acc1", 5.0, 1);
+  expect(accountCtrl.getAccount(1).accountName).toBe("acc1");
+  expect(accountCtrl.getAccount(1).getBalance).toBe(5);
+  let acc1 = accountCtrl.getAccount(1);
+  acc1.deposit(10);
+  expect(accountCtrl.getAccountTotal()).toBe(15);
+  accountCtrl.createAccount("acc2", 10.0, 2);
+  expect(accountCtrl.getAccount(2).accountName).toBe("acc2");
+  let acc2 = accountCtrl.getAccount(2);
+  expect(acc2.getBalance).toBe(10);
+  acc2.deposit(10);
+  expect(accountCtrl.getAccountTotal()).toBe(35);
 });

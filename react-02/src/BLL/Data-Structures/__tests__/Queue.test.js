@@ -12,7 +12,7 @@ test("Test Queue Functions", () => {
   queue.enqueue([5, 6, 7]);
   expect(queue.size()).toBe(7);
   queue.enqueue([8, 9, 10]);
-  expect(queue.peek()).toBe(1);
+  expect(queue.peek()).toBe(10);
   expect(queue.size()).toBe(10);
   queue.enqueue(["A", "B", "C"]);
   queue.enqueue(["D", "E"], ["F"]);

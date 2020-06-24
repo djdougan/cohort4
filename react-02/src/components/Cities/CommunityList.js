@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../../css/red/community.css";
 import CityCard from "./CityCard";
+import "../../App.css";
 
 // Child component its only purpose is to render
 

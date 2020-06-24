@@ -24,7 +24,6 @@ describe("Name of the group", () => {
     act(() => {
       render(<DoubleLinkedListApp title="Doubly Linked List" />, container);
     });
-    console.log(container.textContent);
     expect(container.textContent).toContain("Doubly Linked List");
   });
 });

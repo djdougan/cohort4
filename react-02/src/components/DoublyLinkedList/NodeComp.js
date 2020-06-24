@@ -1,17 +1,31 @@
-import React from "react";
+import { AppContext } from "../AppContext";
+import React, { useContext } from "react";
+import "../../App.css";
+
 const NodeComp = (props) => {
   const { prev, next } = props.node.current;
-
+  const context = useContext(AppContext);
   return (
-    <div className={props.className}>
+    <div
+      className="data-item grid grid-3"
+      style={{
+        background: context.theme[context.state.theme].background2,
+      }}>
       {prev ? (
-        <div>
-          <p>prev</p>
-          {prev.subject}
+        <div
+          className="prev"
+          style={{
+            background: context.theme[context.state.theme].background1,
+          }}>
+          <p>prev {prev.subject}</p>
         </div>
       ) : (
-        <div>
-          <p>prev</p>null
+        <div
+          className="prev"
+          style={{
+            background: context.theme[context.state.theme].background1,
+          }}>
+          <p>null</p>
         </div>
       )}
       <div>
@@ -20,12 +34,20 @@ const NodeComp = (props) => {
         </h3>
       </div>
       {next ? (
-        <div>
-          <p>next</p> {next.subject}
+        <div
+          className="next"
+          style={{
+            background: context.theme[context.state.theme].background1,
+          }}>
+          <p>next {next.subject}</p>
         </div>
       ) : (
-        <div>
-          <p>next</p>null
+        <div
+          className="next"
+          style={{
+            background: context.theme[context.state.theme].background1,
+          }}>
+          <p>null</p>
         </div>
       )}
     </div>

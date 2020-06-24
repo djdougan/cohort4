@@ -1,39 +1,59 @@
-import React, { useState, useEffect } from "react";
-import Queue from "../../BLL/Data-Structures/Queue";
-import Stack from "../../BLL/Data-Structures/Stack";
-
 import { AppContext } from "../../components/AppContext";
+import React from "react";
+
 import DataList from "./DataList";
 import DataControls from "./DataControls";
-import "../../css/red/data-structures.css";
-const queue = new Queue();
-const stack = new Stack();
+import "../../App.css";
+
 const url = "./People.json";
 
 const DataStructuresApp = () => {
   const context = React.useContext(AppContext);
-  const [queueList, setQueueList] = useState([]);
-  const [stackList, setStackList] = useState([]);
 
-  const addData = (id, first, last) => {
-    const data = { id: id, firstName: first, lastName: last };
-    queue.enqueue(data);
-    stack.push(data);
-    setQueueList({ queueList: queue });
-    setStackList({ stackList: stack });
+  const addData = (person) => {
+    const data = { ...person };
+    context.queue.enqueue(data);
+    context.stack.push(data);
+    context.handleStateChange([
+      {
+        state: "stack",
+        newState: context.stack,
+      },
+    ]);
+    context.handleStateChange([
+      {
+        state: "queue",
+        newState: context.queue,
+      },
+    ]);
   };
   const removeData = () => {
-    queue.dequeue();
-    stack.pop();
-    setQueueList({ queueList: queue });
-    setStackList({ stackList: stack });
+    context.queue.dequeue();
+    context.stack.pop();
+    context.handleStateChange([
+      {
+        state: "stack",
+        newState: context.stack,
+      },
+    ]);
+    context.handleStateChange([
+      {
+        state: "queue",
+        newState: context.queue,
+      },
+    ]);
   };
   const addFakeData = (person) => {
-    addData(person.id, person.firstName, person.lastName);
+    addData(person);
   };
 
   return (
-    <div>
+    <div
+      className="container"
+      style={{
+        color: context.theme[context.state.theme].color1,
+        background: context.theme[context.state.theme].background1,
+      }}>
       <h1 data-testid="app-header">Queue Application</h1>
       <DataControls
         addFakeData={addFakeData}
@@ -42,8 +62,8 @@ const DataStructuresApp = () => {
         removeData={removeData}
       />
       <div className="list-grid">
-        <DataList data={queue.collection} />
-        <DataList data={stack.collection} />
+        <DataList title="Queue" data={context.queue.collection} />
+        <DataList title="Stack" data={context.stack.collection} />
       </div>
     </div>
   );

@@ -1,58 +1,68 @@
+import { AppContext } from "../../components/AppContext";
 import React, { Component } from "react";
-import "../../css/red/game.css";
 import Board from "./Board";
 import { calculateWinner } from "./utils.js";
+import "../../App.css";
 
 class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: [
-        {
-          squares: Array(9).fill(null),
-        },
-      ],
-      stepNumber: 0,
-      xIsNext: true,
-    };
-  }
+  static contextType = AppContext;
 
   handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const history = this.context.state.history.slice(
+      0,
+      this.context.state.stepNumber + 1
+    );
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? "X" : "O";
-    this.setState({
-      history: history.concat([
-        {
-          squares: squares,
-        },
-      ]),
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
-    });
+
+    squares[i] = this.context.state.xIsNext ? "X" : "O";
+
+    this.context.handleStateChange([
+      {
+        state: "history",
+        newState: history.concat([
+          {
+            squares: squares,
+          },
+        ]),
+      },
+      {
+        state: "stepNumber",
+        newState: history.length,
+      },
+      {
+        state: "xIsNext",
+        newState: !this.context.state.xIsNext,
+      },
+    ]);
   }
 
   jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0,
-    });
+    this.context.handleStateChange([
+      {
+        state: "stepNumber",
+        newState: step,
+      },
+      {
+        state: "xIsNext",
+        newState: step % 2 === 0,
+      },
+    ]);
   }
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const history = this.context.state.history;
+    const current = history[this.context.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move} className="move-listI-item">
-          <button className="btn-move" onClick={() => this.jumpTo(move)}>
+          <button className="btn" onClick={() => this.jumpTo(move)}>
             {desc}
           </button>
         </li>
@@ -63,11 +73,16 @@ class Game extends Component {
     if (winner) {
       status = "Winner: " + winner;
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      status = "Next player: " + (this.context.state.xIsNext ? "X" : "O");
     }
 
     return (
-      <div className="game">
+      <div
+        className="container grid grid-2"
+        style={{
+          color: this.context.theme[this.context.state.theme].color1,
+          background: this.context.theme[this.context.state.theme].background1,
+        }}>
         <div className="game-board">
           <Board
             squares={current.squares}

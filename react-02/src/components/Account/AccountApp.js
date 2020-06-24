@@ -1,10 +1,9 @@
 import { AppContext } from "../../components/AppContext";
-
 import React, { Component } from "react";
-
 import AccountList from "./AccountList";
 import AccountControl from "./AccountControl";
-// import { AccountController } from "../../BLL/Account/Account.js";
+
+import "../../App.css";
 
 class AccountApp extends Component {
   constructor() {
@@ -17,29 +16,51 @@ class AccountApp extends Component {
       this.context.state.newAccount.accountName,
       this.context.state.newAccount.balance
     );
-    this.context.handleAccountState(this.context.accountCtrl.accounts);
-    this.context.handleHighestAccountState(
-      this.context.accountCtrl.getHighestValuedAccount()
-    );
-    this.context.handleLowestAccountState(
-      this.context.accountCtrl.getLowestValuedAccount()
-    );
+
+    this.context.handleStateChange([
+      { state: "accounts", newState: this.context.accountCtrl.accounts },
+      {
+        state: "highestAccount",
+        newState: this.context.accountCtrl.getHighestValuedAccount(),
+      },
+      {
+        state: "lowestAccount",
+        newState: this.context.accountCtrl.getLowestValuedAccount(),
+      },
+      {
+        state: "total",
+        newState: this.context.accountCtrl.getAccountTotal(),
+      },
+    ]);
   };
 
   handleDelete = (key) => {
     this.context.accountCtrl.removeAccount(key);
-    this.context.handleAccountState(this.context.accountCtrl.accounts);
-    this.context.handleHighestAccountState(
-      this.context.accountCtrl.getHighestValuedAccount()
-    );
-    this.context.handleLowestAccountState(
-      this.context.accountCtrl.getLowestValuedAccount()
-    );
+    this.context.handleStateChange([
+      { state: "accounts", newState: this.context.accountCtrl.accounts },
+      {
+        state: "highestAccount",
+        newState: this.context.accountCtrl.getHighestValuedAccount(),
+      },
+      {
+        state: "lowestAccount",
+        newState: this.context.accountCtrl.getLowestValuedAccount(),
+      },
+      {
+        state: "total",
+        newState: this.context.accountCtrl.getAccountTotal(),
+      },
+    ]);
   };
 
   render() {
     return (
-      <div className="account-app">
+      <div
+        className="container"
+        style={{
+          color: this.context.theme[this.context.state.theme].color1,
+          background: this.context.theme[this.context.state.theme].background1,
+        }}>
         <h2>Accounts</h2>
         <div>
           <AccountControl
@@ -48,20 +69,42 @@ class AccountApp extends Component {
             newAccount={this.context.state.newAccount}
           />
         </div>
-        <div>
-          <h2>
-            Accounts total: <span>{this.context.state.total}</span>
-          </h2>
-          <h2>
-            Largest account:
-            <span>{this.context.state.highestAccount.accountName}</span>
-            <span>{this.context.state.highestAccount.balance}</span>
-          </h2>
-          <h2>
-            Smallest account:
-            <span>{this.context.state.lowestAccount.accountName}</span>
-            <span>{this.context.state.lowestAccount.balance}</span>
-          </h2>
+        <div className="data-item">
+          <div>
+            <h2
+              style={{
+                color: this.context.theme[this.context.state.theme].h,
+              }}>
+              Accounts total:
+            </h2>
+            <p>
+              <span>{this.context.state.total}</span>
+            </p>
+          </div>
+          <div>
+            <h2
+              style={{
+                color: this.context.theme[this.context.state.theme].h,
+              }}>
+              Largest account:
+            </h2>
+            <p>
+              <span>{this.context.state.highestAccount.accountName}</span>
+              <span>{this.context.state.highestAccount.balance}</span>
+            </p>
+          </div>
+          <div>
+            <h2
+              style={{
+                color: this.context.theme[this.context.state.theme].h,
+              }}>
+              Smallest account:
+            </h2>
+            <p>
+              <span>{this.context.state.lowestAccount.accountName}</span>
+              <span>{this.context.state.lowestAccount.balance}</span>
+            </p>
+          </div>
         </div>
         <div>
           <AccountList

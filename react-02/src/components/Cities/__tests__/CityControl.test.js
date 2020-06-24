@@ -26,12 +26,7 @@ describe("CityControl", () => {
     container.remove();
   });
 
-  const mockHandleChange = jest.fn((e) => {
-    console.log(e);
-  });
-  const mockOnCreate = jest.fn((e) => {
-    console.log(e);
-  });
+  const mockOnCreate = jest.fn((e) => {});
 
   test("should create cities", () => {
     const fakeCity = {
