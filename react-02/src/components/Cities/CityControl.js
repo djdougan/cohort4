@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import "../../App.css";
 class CityControl extends Component {
   constructor() {
     super();
@@ -26,15 +27,6 @@ class CityControl extends Component {
   };
 
   handleChange = (event) => {
-    // if (event.target.name === "latitude") {
-    //   console.log("latitude");
-    // } else if (event.target.name === "longitude") {
-    //   console.log("longitude");
-    // } else if (event.target.name === "name") {
-    //   console.log("name");
-    // } else {
-    //   console.log("pop");
-    // }
     const {
       target: { name, value },
     } = event;
@@ -80,57 +72,49 @@ class CityControl extends Component {
 
         <form action="#">
           <div className="city-ctrl">
-            <div className="group-ctrl">
-              <label htmlFor="name">
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  className="city-input"
-                  value={this.state.name}
-                  placeholder="name"
-                  onChange={this.handleChange}
-                />
-              </label>
+            <div className="input-box">
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                name="name"
+                className="city-input"
+                value={this.state.name}
+                placeholder="name"
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="group-ctrl">
-              <label htmlFor="latitude">
-                Latitude:
-                <input
-                  type="text"
-                  name="latitude"
-                  className="city-input"
-                  placeholder="latitude"
-                  value={this.state.latitude}
-                  onChange={this.handleChange}
-                />
-              </label>
+            <div className="input-box">
+              <label htmlFor="latitude">Latitude:</label>
+              <input
+                type="text"
+                name="latitude"
+                className="city-input"
+                placeholder="latitude"
+                value={this.state.latitude}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="group-ctrl">
-              <label htmlFor="longitude">
-                Longitude:
-                <input
-                  type="text"
-                  name="longitude"
-                  className="city-input"
-                  placeholder="longitude"
-                  value={this.state.longitude}
-                  onChange={this.handleChange}
-                />
-              </label>
+            <div className="input-box">
+              <label htmlFor="longitude">Longitude:</label>
+              <input
+                type="text"
+                name="longitude"
+                className="city-input"
+                placeholder="longitude"
+                value={this.state.longitude}
+                onChange={this.handleChange}
+              />
             </div>
-            <div className="group-ctrl">
-              <label htmlFor="population">
-                Population:
-                <input
-                  type="text"
-                  name="population"
-                  className="city-input"
-                  placeholder="population"
-                  value={this.state.population}
-                  onChange={this.handleChange}
-                />
-              </label>
+            <div className="input-box">
+              <label htmlFor="population">Population:</label>
+              <input
+                type="number"
+                name="population"
+                className="city-input"
+                placeholder="population"
+                value={this.state.population}
+                onChange={this.handleChange}
+              />
             </div>
           </div>
           <div className="group-ctrl">

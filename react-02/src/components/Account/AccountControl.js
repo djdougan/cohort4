@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
+import "../../App.css";
 
 class AccountControl extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class AccountControl extends Component {
         <div>
           <h2>Create Account</h2>
           <hr />
-          <div className="ctrl-group">
+          <div className="input-box">
             <label htmlFor="AccountName">Account Name: </label>
             <input
               title="Account Name"
@@ -38,7 +38,7 @@ class AccountControl extends Component {
               onChange={this.handleNameChange}
             />
           </div>
-          <div className="ctrl-group">
+          <div className="input-box">
             <label htmlFor="balance">Account Balance:</label>
             <input
               title="Initial Balance"
@@ -48,8 +48,13 @@ class AccountControl extends Component {
               onChange={this.handleBalanceChange}
             />
           </div>
-          <div className="ctrl-group">
-            <input type="submit" value="Create" onClick={this.props.onCreate} />
+          <div>
+            <input
+              className="btn"
+              type="submit"
+              value="Create"
+              onClick={this.props.onCreate}
+            />
           </div>
         </div>
       </div>

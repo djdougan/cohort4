@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../AppContext";
 import ListItem from "./ListItem";
-import "../../css/red/data-structures.css";
+import "../../App.css";
 
-const DataList = ({ data }) => {
-  console.log(data);
+const DataList = ({ data, title }) => {
+  const context = useContext(AppContext);
   if (!data) {
     return null;
   }
@@ -11,6 +12,16 @@ const DataList = ({ data }) => {
     return <ListItem key={i} person={d} />;
   });
 
-  return <div className="list">{dList}</div>;
+  return (
+    <div className="list">
+      <h2
+        style={{
+          color: context.theme[context.state.theme].h,
+        }}>
+        {title}
+      </h2>
+      <div>{dList}</div>
+    </div>
+  );
 };
 export { DataList as default };

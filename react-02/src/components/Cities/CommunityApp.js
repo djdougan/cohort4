@@ -1,9 +1,10 @@
+import { AppContext } from "../AppContext";
 import React, { Component } from "react";
 import CommunityList from "./CommunityList";
 import CityControl from "./CityControl";
 import Benchmark from "./Benchmark";
-// import Community from "../../BLL/Communities/Community.js";
 import fetchApi from "../../BLL/Communities/fetchApi";
+import "../../App.css";
 
 class CommunityApp extends Component {
   constructor() {
@@ -19,9 +20,9 @@ class CommunityApp extends Component {
     this.url = "http://127.0.0.1:5000/";
     // this.comm = new Community();
   }
+  static contextType = AppContext;
 
   onDeleteHandler = async (key) => {
-    console.log(key);
     this.context.community.deleteCity(key);
     this.setState({ communities: this.context.community.communities });
     await fetchApi.delete(this.url, { key: key });
@@ -38,7 +39,6 @@ class CommunityApp extends Component {
     });
   };
   onIncreaseHandler = async (key, amount) => {
-    console.log("CommunityApp.onIncreaseHandler", key, amount);
     const city = this.context.community.getCity(key);
     city.movedIn(amount);
     this.setState({ communities: this.context.community.communities });
@@ -56,7 +56,6 @@ class CommunityApp extends Component {
     });
   };
   onDecreaseHandler = async (key, amount) => {
-    console.log("CommunityApp.onDecreaseHandler", key, amount);
     const city = this.context.community.getCity(key);
     city.movedOut(amount);
     this.setState({ communities: this.context.community.communities });
@@ -87,7 +86,6 @@ class CommunityApp extends Component {
 
   async componentDidMount() {
     let data = await fetchApi.all(this.url);
-    console.log(data);
     if (data.status === 200) {
       for (let i = 0; i < data.length; i++) {
         this.context.community.createCity(
@@ -135,7 +133,13 @@ class CommunityApp extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
+        <div
+          className="container"
+          style={{
+            color: this.context.theme[this.context.state.theme].color1,
+            background: this.context.theme[this.context.state.theme]
+              .background1,
+          }}>
           <h1>Cities and Communities</h1>
           {this.state.loadLocalData && (
             <button className="btn" onClick={this.loadData}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../css/red/linkList.css";
+import "../../App.css";
 const AddNodeForm = (props) => {
   const [subject, setSubject] = useState("");
   const [amount, setAmount] = useState("");
@@ -38,7 +38,7 @@ const AddNodeForm = (props) => {
             placeholder="Amount"
           />
         </div>
-        <button className="submit-btn" onClick={createNode}>
+        <button className="btn" onClick={createNode}>
           add Node
         </button>
       </form>

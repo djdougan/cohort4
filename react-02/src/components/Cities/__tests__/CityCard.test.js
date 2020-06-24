@@ -31,18 +31,14 @@ describe("CityCard", () => {
 
     const mockIncrease = jest.fn((e) => {
       fakeCity.population += modify;
-
-      console.log(e);
     });
 
     const mockDecrease = jest.fn((e) => {
       fakeCity.population -= modify;
-      console.log(modify);
     });
     //
     const mockChange = jest.fn((e) => {
       modify = parseInt(e.target.value);
-      console.log(modify);
     });
 
     act(() => {

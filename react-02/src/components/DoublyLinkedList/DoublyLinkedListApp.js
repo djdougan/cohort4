@@ -1,19 +1,13 @@
 import { AppContext } from "../../components/AppContext";
 import React, { useContext } from "react";
-import CreateNodeComp from "./AddNodeForm";
+import AddNodeComp from "./AddNodeForm";
 import NodeNavComp from "./NodeNavComp";
 import NodeListComp from "../DoublyLinkedList/NodeListComp";
-// import NodeComp from "../DoublyLinkedList/NodeComp";
-// import DoublyLinkedList from "../../BLL/Data-Structures/DoublyLinkedList";
-// import Node from "../../BLL/Data-Structures/Node";
-
-// const context.dLinkedList = new DoublyLinkedList();
+import "../../App.css";
 
 const DoubleLinkedListApp = (props) => {
   const context = useContext(AppContext);
-  // const [current, setCurrent] = useState("");
 
-  // useEffect(() => {}, []);
   const addNode = (subject, amount) => {
     let node = context.dLinkedList.insert(subject, amount);
     context.handleStateChange([
@@ -22,7 +16,6 @@ const DoubleLinkedListApp = (props) => {
         newState: node,
       },
     ]);
-    // setCurrent(node);
   };
   const prevNode = () => {
     let current = context.dLinkedList.current;
@@ -68,12 +61,20 @@ const DoubleLinkedListApp = (props) => {
     context.dLinkedList.current = current;
   };
   return (
-    <div>
-      <h1>{props.title}</h1>
-      <h3>
+    <div
+      className="container"
+      style={{
+        color: context.theme[context.state.theme].color1,
+        background: context.theme[context.state.theme].background1,
+      }}>
+      <h1
+        style={{
+          color: context.theme[context.state.theme].headerTag,
+        }}>
         Total: {context.dLinkedList.total() ? context.dLinkedList.total() : 0}
-      </h3>
-      <CreateNodeComp onCreate={addNode} node={setCurrent} />
+        {props.title}
+      </h1>
+      <AddNodeComp onCreate={addNode} node={setCurrent} />
       <NodeNavComp
         node={context.dLinkedList.current}
         prevNode={prevNode}

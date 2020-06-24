@@ -1,8 +1,8 @@
 import React from "react";
 import NodeComp from "./NodeComp";
+import "../../App.css";
 
 const NodeListComp = ({ nodes }) => {
-  // console.log(nodes);
   let counter = 0;
   if (!nodes) {
     return null;
