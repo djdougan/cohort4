@@ -1,5 +1,5 @@
 import { AppContext } from "../../components/AppContext";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "../../App.css";
 
 const ListItem = ({ person, styleProp }) => {
@@ -27,7 +27,7 @@ const ListItem = ({ person, styleProp }) => {
       <div>
         <h3
           style={{
-            color: context.theme[context.state.theme].h,
+            color: context.theme[context.state.theme].h1,
           }}>
           Name:
         </h3>
@@ -38,7 +38,7 @@ const ListItem = ({ person, styleProp }) => {
       <div>
         <h3
           style={{
-            color: context.theme[context.state.theme].h,
+            color: context.theme[context.state.theme].h1,
           }}>
           Priority:
         </h3>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
+import { AppContext } from "../AppContext";
 import "../../App.css";
+
 class CityControl extends Component {
   constructor() {
     super();
@@ -15,6 +16,7 @@ class CityControl extends Component {
     this.handleChange = this.handleChange.bind(this);
     // this.onCreate = this.onCreate.bind(this);
   }
+  static contextType = AppContext;
   onClear = (e) => {
     this.setState({
       key: null,
@@ -60,7 +62,7 @@ class CityControl extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container">
         <div>
           {this.state.errorMessage && (
             <h3 style={{ color: "red" }} className="error">

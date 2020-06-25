@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-
-import "../../App.css";
 import { AppContext } from "../AppContext";
+import "../../App.css";
 
 class AccountCard extends Component {
   constructor(props) {
@@ -15,7 +14,6 @@ class AccountCard extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   static contextType = AppContext;
-
   handleDeposit = (e) => {
     this.props.account.balance += parseInt(this.state.amount);
     this.setState({ balance: this.state.amount });
@@ -41,7 +39,7 @@ class AccountCard extends Component {
           <div>
             <h3
               style={{
-                color: this.context.theme[this.context.state.theme].h,
+                color: this.context.theme[this.context.state.theme].h1,
               }}>
               Account key:
             </h3>
@@ -52,7 +50,7 @@ class AccountCard extends Component {
           <div>
             <h3
               style={{
-                color: this.context.theme[this.context.state.theme].h,
+                color: this.context.theme[this.context.state.theme].h1,
               }}>
               Account Name:
             </h3>
@@ -63,7 +61,7 @@ class AccountCard extends Component {
           <div>
             <h3
               style={{
-                color: this.context.theme[this.context.state.theme].h,
+                color: this.context.theme[this.context.state.theme].h1,
               }}>
               Account Balance:
             </h3>
@@ -82,7 +80,7 @@ class AccountCard extends Component {
         <div>
           <div className="input-box">
             <label className="ctrl-header" htmlFor="amountChanged">
-              Deposit/Withdrawal amount
+              Transaction
             </label>
             <input
               id="amountChanged"

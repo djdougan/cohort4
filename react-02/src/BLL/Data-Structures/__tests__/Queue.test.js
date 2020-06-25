@@ -17,11 +17,9 @@ test("Test Queue Functions", () => {
   queue.enqueue(["A", "B", "C"]);
   queue.enqueue(["D", "E"], ["F"]);
   expect(queue.size()).toBe(16);
-  expect(queue.dequeue()).toBe(1);
-  expect(queue.dequeue()).toBe(2);
-  expect(queue.peek()).toBe(3);
-  expect(queue.dequeue()).toBe(3);
-  expect(queue.peek()).toBe(4);
+  expect(queue.dequeue()).toBe("F");
+  expect(queue.dequeue()).toBe("E");
+  expect(queue.peek()).toBe("D");
   queue.clear();
   expect(queue.size()).toBe(0);
   expect(queue.isEmpty()).toBeTruthy();

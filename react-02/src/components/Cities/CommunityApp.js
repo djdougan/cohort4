@@ -9,68 +9,90 @@ import "../../App.css";
 class CommunityApp extends Component {
   constructor() {
     super();
-    this.state = {
-      isLoaded: false,
-      // communities: {},
-      // northern: {},
-      // southern: {},
-      // population: 0,
-      // loadLocalData: true,
-    };
     this.url = "http://127.0.0.1:5000/";
-    // this.comm = new Community();
   }
   static contextType = AppContext;
 
   onDeleteHandler = async (key) => {
     this.context.community.deleteCity(key);
-    this.setState({ communities: this.context.community.communities });
     await fetchApi.delete(this.url, { key: key });
-    this.setState({
-      northern: this.context.community.getMostNorthern()
-        ? this.context.community.getMostNorthern()
-        : {},
-      southern: this.context.community.getMostSouthern()
-        ? this.context.community.getMostSouthern()
-        : {},
-      population: this.context.community.getPopulation()
-        ? this.context.community.getPopulation()
-        : 0,
-    });
+    this.context.handleStateChange([
+      { state: "communities", newState: this.context.community.communities },
+      {
+        state: "northern",
+        newState: this.context.community.getMostNorthern()
+          ? this.context.community.getMostNorthern()
+          : {},
+      },
+      {
+        state: "southern",
+        newState: this.context.community.getMostSouthern()
+          ? this.context.community.getMostSouthern()
+          : {},
+      },
+      {
+        state: "population",
+        newState: this.context.community.getPopulation()
+          ? this.context.community.getPopulation()
+          : 0,
+      },
+    ]);
   };
   onIncreaseHandler = async (key, amount) => {
     const city = this.context.community.getCity(key);
     city.movedIn(amount);
-    this.setState({ communities: this.context.community.communities });
+
     await fetchApi.update(this.url, city);
-    this.setState({
-      northern: this.context.community.getMostNorthern()
-        ? this.context.community.getMostNorthern()
-        : {},
-      southern: this.context.community.getMostSouthern()
-        ? this.context.community.getMostSouthern()
-        : {},
-      population: this.context.community.getPopulation()
-        ? this.context.community.getPopulation()
-        : 0,
-    });
+    this.context.handleStateChange([
+      { state: "communities", newState: this.context.community.communities },
+      {
+        state: "northern",
+        newState: this.context.community.getMostNorthern()
+          ? this.context.community.getMostNorthern()
+          : {},
+      },
+      {
+        state: "southern",
+        newState: this.context.community.getMostSouthern()
+          ? this.context.community.getMostSouthern()
+          : {},
+      },
+      {
+        state: "population",
+        newState: this.context.community.getPopulation()
+          ? this.context.community.getPopulation()
+          : 0,
+      },
+    ]);
   };
+
   onDecreaseHandler = async (key, amount) => {
+    console.log("CommunityApp.onDecreaseHandler", key, amount);
     const city = this.context.community.getCity(key);
     city.movedOut(amount);
-    this.setState({ communities: this.context.community.communities });
     await fetchApi.update(this.url, city);
-    this.setState({
-      northern: this.context.community.getMostNorthern()
-        ? this.context.community.getMostNorthern()
-        : {},
-      southern: this.context.community.getMostSouthern()
-        ? this.context.community.getMostSouthern()
-        : {},
-      population: this.context.community.getPopulation()
-        ? this.context.community.getPopulation()
-        : 0,
-    });
+
+    this.context.handleStateChange([
+      { state: "communities", newState: this.context.community.communities },
+      {
+        state: "northern",
+        newState: this.context.community.getMostNorthern()
+          ? this.context.community.getMostNorthern()
+          : {},
+      },
+      {
+        state: "southern",
+        newState: this.context.community.getMostSouthern()
+          ? this.context.community.getMostSouthern()
+          : {},
+      },
+      {
+        state: "population",
+        newState: this.context.community.getPopulation()
+          ? this.context.community.getPopulation()
+          : 0,
+      },
+    ]);
   };
 
   onCreate = async (city) => {
@@ -80,8 +102,29 @@ class CommunityApp extends Component {
       city.longitude,
       city.population
     );
-    this.setState({ communities: this.context.community.communities });
+    console.log(city);
     await fetchApi.add(this.url, city);
+    this.context.handleStateChange([
+      { state: "communities", newState: this.context.community.communities },
+      {
+        state: "northern",
+        newState: this.context.community.getMostNorthern()
+          ? this.context.community.getMostNorthern()
+          : {},
+      },
+      {
+        state: "southern",
+        newState: this.context.community.getMostSouthern()
+          ? this.context.community.getMostSouthern()
+          : {},
+      },
+      {
+        state: "population",
+        newState: this.context.community.getPopulation()
+          ? this.context.community.getPopulation()
+          : 0,
+      },
+    ]);
   };
 
   async componentDidMount() {
@@ -96,21 +139,34 @@ class CommunityApp extends Component {
           data[i].key
         );
       }
-      this.setState({
-        isLoaded: true,
-        communities: data,
-        northern: this.context.community.getMostNorthern()
-          ? this.context.community.getMostNorthern()
-          : {},
-        southern: this.context.community.getMostSouthern()
-          ? this.context.community.getMostSouthern()
-          : {},
-        population: this.context.community.getPopulation()
-          ? this.context.community.getPopulation()
-          : 0,
-        loadLocalData:
-          this.context.community.communities.length > 5 ? false : true,
-      });
+      this.context.handleStateChange([
+        {
+          state: "isLoaded",
+          newState: true,
+        },
+        {
+          state: "communities",
+          newState: data,
+        },
+        {
+          state: "northern",
+          newState: this.context.community.getMostNorthern()
+            ? this.context.community.getMostNorthern()
+            : {},
+        },
+        {
+          state: "southern",
+          newState: this.context.community.getMostSouthern()
+            ? this.context.community.getMostSouthern()
+            : {},
+        },
+        {
+          state: "population",
+          newState: this.context.community.getPopulation()
+            ? this.context.community.getPopulation()
+            : 0,
+        },
+      ]);
     }
   }
   loadData = async (e) => {
@@ -123,13 +179,11 @@ class CommunityApp extends Component {
         this.onCreate(cities[key]);
       }
     }
-    this.setState({ loadLocalData: false });
   };
   render() {
-    const { error, isLoaded, communities } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+    if (this.context.state.error) {
+      return <div>Error: {this.context.state.error.message}</div>;
+    } else if (!this.context.state.isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
@@ -141,7 +195,7 @@ class CommunityApp extends Component {
               .background1,
           }}>
           <h1>Cities and Communities</h1>
-          {this.state.loadLocalData && (
+          {this.context.state.loadLocalData && (
             <button className="btn" onClick={this.loadData}>
               Load fake data on to server
             </button>
@@ -151,12 +205,12 @@ class CommunityApp extends Component {
             // onChange={this.handleChange}
           />
           <Benchmark
-            northern={this.state.northern}
-            southern={this.state.southern}
-            population={this.state.population}
+            northern={this.context.state.northern}
+            southern={this.context.state.southern}
+            population={this.context.state.population}
           />
           <CommunityList
-            cities={communities}
+            cities={this.context.state.communities}
             onDelete={this.onDeleteHandler}
             onIncrease={this.onIncreaseHandler}
             onDecrease={this.onDecreaseHandler}

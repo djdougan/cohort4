@@ -15,7 +15,7 @@ class Benchmark extends Component {
         <div className="benchmark-group">
           <h3
             style={{
-              color: this.context.theme[this.context.state.theme].h,
+              color: this.context.theme[this.context.state.theme].h1,
             }}>
             Most Northern:
           </h3>
@@ -24,7 +24,7 @@ class Benchmark extends Component {
         <div className="benchmark-group">
           <h3
             style={{
-              color: this.context.theme[this.context.state.theme].h,
+              color: this.context.theme[this.context.state.theme].h1,
             }}>
             Most Southern:
           </h3>
@@ -33,7 +33,7 @@ class Benchmark extends Component {
         <div className="benchmark-group">
           <h3
             style={{
-              color: this.context.theme[this.context.state.theme].h,
+              color: this.context.theme[this.context.state.theme].h1,
             }}>
             Total Population:
           </h3>

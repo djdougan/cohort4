@@ -28,10 +28,12 @@ a:active {
 .main {
   text-align: center;
   text-align: center;
+  width: 960px;
+  margin: 0 auto;
 }
 .App-header,
 .container {
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
   padding: 10px;
   text-align: center;
@@ -301,10 +303,13 @@ footer {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.data-item div p,
+.data-item div h3,
 .data-item div h2,
-.data-item div h3 {
+.data-item div p,
+.data-item div p span {
   display: inline-block;
+  margin-right: 10px;
+  margin: 2px;
 }
 .data-item .prev,
 .data-item .next {
@@ -320,10 +325,6 @@ footer {
   justify-self: end;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-.data-item div h2,
-.data-item div h3 {
-  margin-right: 10px;
 }
 .data-item div p {
   font-weight: bold;
@@ -418,7 +419,7 @@ footer {
   -o-border-radius: 4px;
 }
 .node-form {
-  max-width: 960px;
+  width: 100%;
   margin: 0 auto;
 }
 .input-box {
@@ -470,7 +471,7 @@ input[type="text"]:disabled {
 }
 
 .node-nav {
-  max-width: 960px;
+  width: 100%;
   line-height: 3em;
   font-size: 1.3em;
   margin: 0 auto;

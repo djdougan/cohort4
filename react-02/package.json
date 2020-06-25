@@ -15,7 +15,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test  --runInBand",
+    "testnorib": "react-scripts test",
+    "cov": "react-scripts test --coverage --watchAll --runInBand",
+    "covnorib": "react-scripts test --coverage --watchAll",
+    "showcov": "start ./coverage/lcov-report/index.html",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -44,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.10.1",
     "@testing-library/dom": "^7.5.6",
     "node-fetch": "^2.6.0",
     "pretty": "^2.0.0",

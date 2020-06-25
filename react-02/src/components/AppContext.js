@@ -17,7 +17,7 @@ export class ContextProvider extends Component {
   community = new Community();
 
   state = {
-    // doublylinkedlist
+    // doubly linked list
     current: null,
     // queue and stack
     queue: [],
@@ -25,15 +25,16 @@ export class ContextProvider extends Component {
     // accounts
     accounts: [],
     total: 0,
-    highestAccount: { accountName: "", balance: 0, key: null },
-    lowestAccount: { accountName: "", balance: 0, key: null },
-    newAccount: { accountName: "", balance: 0, key: null },
+    highestAccount: { accountName: "", balance: 0, key: "" },
+    lowestAccount: { accountName: "", balance: 0, key: "" },
+    newAccount: { accountName: "", balance: 0, key: "" },
     // cities and community
-    communities: {},
+    communities: [],
     northern: {},
     southern: {},
     population: 0,
     loadLocalData: true,
+    isLoaded: false,
     // tic-tac-toe
     history: [
       {
@@ -53,7 +54,8 @@ export class ContextProvider extends Component {
       icon: "#EDDDD4",
       color1: "#EDDDD4",
       color2: "#283D3B",
-      h: "#EDDDD4",
+      h1: "#EDDDD4",
+      h2: "#EDDDD4",
       background1: "#c44536",
       background2: "#772E25",
     },
@@ -70,7 +72,8 @@ export class ContextProvider extends Component {
       icon: "#F4F1DE",
       color1: "#F4F1DE",
       color2: "#F4D35E",
-      h: "#EE964B",
+      h1: "#EE964B",
+      h2: "#EE964B",
       background1: "#F95738",
       background2: "#0D3B66",
     },
@@ -78,7 +81,8 @@ export class ContextProvider extends Component {
       icon: "#ffff00",
       color1: "#ffff00",
       color2: "#3ff23f",
-      h: "#3ff23f",
+      h1: "#3ff23f",
+      h2: "#3ff23f",
       background1: "#000000",
       background2: "#000000",
     },

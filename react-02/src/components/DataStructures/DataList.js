@@ -16,7 +16,7 @@ const DataList = ({ data, title }) => {
     <div className="list">
       <h2
         style={{
-          color: context.theme[context.state.theme].h,
+          color: context.theme[context.state.theme].h1,
         }}>
         {title}
       </h2>
