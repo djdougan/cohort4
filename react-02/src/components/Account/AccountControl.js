@@ -42,7 +42,7 @@ class AccountControl extends Component {
             <label htmlFor="balance">Account Balance:</label>
             <input
               title="Initial Balance"
-              type="text"
+              type="number"
               name="balance"
               value={this.state.balance}
               onChange={this.handleBalanceChange}
