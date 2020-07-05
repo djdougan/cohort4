@@ -128,8 +128,8 @@ footer {
   -o-transform: scale(1.7);
 }
 .github-icon {
-  -webkit-mask: url(../../react-02/src/images/git-logo.svg) no-repeat center;
-  mask: url(../../react-02/src/images/git-logo.svg) no-repeat center;
+  -webkit-mask: url(../../react-02/src/images/Git-logo.svg) no-repeat center;
+  mask: url(../../react-02/src/images/Git-logo.svg) no-repeat center;
 }
 
 .icon {
