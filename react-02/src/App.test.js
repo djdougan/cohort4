@@ -5,7 +5,7 @@ import Game from "./components/Game/Game";
 import Cities from "./components/Cities/CommunityApp";
 import Accounts from "./components/Account/AccountApp";
 import DataStructuresApp from "./components/DataStructures/DataStructuresApp";
-import DoublyLinkedList from "./components/DoublyLinkedList/DoublyLinkedListApp";
+import DoublyLinkedList from "a";
 import Theme from "./components/Theme/Theme";
 import { ContextProvider, AppContext } from "./components/AppContext";
 

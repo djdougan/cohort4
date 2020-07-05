@@ -74,6 +74,7 @@ footer {
 
 /* App Icons and logos */
 .App-logo {
+  min-height: 40vmin;
   height: 60vmin;
   pointer-events: none;
   width: 600px;

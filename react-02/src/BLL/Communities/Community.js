@@ -68,7 +68,7 @@ class Community {
       longitude = isValidNumber(longitude, "longitude", -180, 180);
 
       // check if population is a number
-      population = isValidNumber(population, "population", 0, Number.MAX_VALUE);
+      population = isValidNumber(population, "population", 0, 100000000);
       city = new City(name, latitude, longitude, population, key);
       this.communities.push(city);
     } catch (err) {
