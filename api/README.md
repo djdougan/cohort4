@@ -21,13 +21,13 @@ If you do not have at least version python 3, install the suggested version of p
 Once python is installed, check to see if pipenv is installed on your computer. To do this enter:
 
 ```sh
-pipenv ?
+ python ?
 ```
 
 If you get a "command not found" type message enter the following command to install pipenv:
 
 ```sh
-pip install --user pipenv
+
 ```
 
 Read the messages from the install very carefully. It may tell you to add pipenv to the path. If you do get that message, lookup on the internet on how to add a folder to a path for your operating system.
@@ -42,7 +42,8 @@ If you get a "command not found" type message it did not work and you must start
 
 pipenv is used to manage our python environments.
 
-Now that python and pipenv are installed on your computer, you are ready to set up the environment for the utility. You need to: 
+Now that python and pipenv are installed on your computer, you are ready to set up the environment for the utility. You need to:
+
 - git pull from the "reference project" to install this utility onto your computer
 - in console mode, change directory to reference/src/api
 
@@ -55,14 +56,13 @@ cd ~/code/reference/src/api         ==> linux / mac
 pipenv install
 ```
 
-Every time you start the API server you must be in the correct directory and start the python environment. The following command puts you into the correct python environment. We will spend more time explaining this later. 
+Every time you start the API server you must be in the correct directory and start the python environment. The following command puts you into the correct python environment. We will spend more time explaining this later.
 
 ```sh
 pipenv shell
 ```
 
 Now that the project and all its dependencies are installed and we are in the correct python environment, let's test to see how well the code works. Of course there is a test framework for python.
-
 
 Run the tests as follows but only run the first line:
 
@@ -77,15 +77,14 @@ pipenv shell # only do this once per session
 python web.py
 ```
 
-Your test / play API server is now running on your computer. This is simulating a server on the internet. 
+Your test / play API server is now running on your computer. This is simulating a server on the internet.
 
 In your browser address enter the following:
-- http://localhost:5000
-you should see a welcome screen.
 
+- http://localhost:5000
+  you should see a welcome screen.
 
 Start your JavaScript server (live-server) and start developing your fetch application.
-
 
 To work with and test fetch you may need to change a few files in your project. Compare the files:
 

@@ -15,7 +15,7 @@ class Stack extends Collection {
             this.collection.push(sub);
           });
         } else {
-          this.collection.push(el);
+          this.collection.unshift(el);
         }
       });
     }

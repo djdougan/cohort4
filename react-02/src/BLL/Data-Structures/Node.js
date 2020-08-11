@@ -2,6 +2,7 @@ class Node {
   constructor(subject, amount) {
     this.subject = subject;
     this.amount = amount;
+    // this.name = name
     this.next = null;
     this.prev = null;
   }
