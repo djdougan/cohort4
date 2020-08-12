@@ -1,217 +1,241 @@
 @font-face {
-    font-family: DS-Digital;
-    src: url('./fonts/DS-Digital.ttf.eot'), url('./fonts/DS-Digital.ttf.woff') format('woff'), url('./fonts/DS-DIGI.TTF') format('truetype'), url('./fonts/DS-Digital.ttf.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: DS-Digital;
+  src: url("./fonts/DS-Digital.ttf.eot"),
+    url("./fonts/DS-Digital.ttf.woff") format("woff"),
+    url("./fonts/DS-DIGI.TTF") format("truetype"),
+    url("./fonts/DS-Digital.ttf.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
-body, h1, h2, h3, h4, h5, h6 {
-    font-family: "Lato", sans-serif;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
 }
 
-body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
+body,
+html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
 }
 
 /* Create a Parallax Effect */
 
-.bgimg-1, .bgimg-2 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg-1,
+.bgimg-2 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .info-box {
-    width: 80%
+  width: 80%;
 }
 
 /* First image (Logo. Full height) */
 
 .bgimg-1 {
-    /* background-image: url('https://www.w3schools.com/w3images/parallax1.jpg'); */
-    background-image: url('./images/background.jpg');
-    /* background-image: url('https://claudescafedavao.com/wp-content/uploads/2018/08/Right-Software-Development-Methodology.png'); */
-    min-height: 100%;
-    border-radius: 50%;
-    opacity: 0.3;
+  /* background-image: url('https://www.w3schools.com/w3images/parallax1.jpg'); */
+  background-image: url("./images/background.jpg");
+  /* background-image: url('https://claudescafedavao.com/wp-content/uploads/2018/08/Right-Software-Development-Methodology.png'); */
+  min-height: 100%;
+  border-radius: 50%;
+  opacity: 0.3;
 }
 
 /* Second image (Size) */
 
 .bgimg-2 {
-    /* background-image: url("https://www.w3schools.com/w3images/parallax2.jpg"); */
-    background-image: url("https://cdn.pixabay.com/photo/2016/11/19/15/32/code-1839877_960_720.jpg");
-    min-height: 400px;
-    opacity: 0.5;
+  /* background-image: url("https://www.w3schools.com/w3images/parallax2.jpg"); */
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/19/15/32/code-1839877_960_720.jpg");
+  min-height: 400px;
+  opacity: 0.5;
 }
 
 .w3-wide {
-    letter-spacing: 10px;
+  letter-spacing: 10px;
 }
 
 .w3-hover-opacity {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #idNumber {
-    border: 0;
-    width: 50px;
+  border: 0;
+  width: 50px;
 }
 
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (min-device-width: 1600px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-        min-height: 400px;
-    }
+  .bgimg-1,
+  .bgimg-2,
+  .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 /* Calculator */
 
 .calculator {
-    margin: 0 auto;
-    border: 1px solid #444;
-    font-weight: bold;
-    ;
+  margin: 0 auto;
+  border: 1px solid #444;
+  font-weight: bold;
 }
 
 div#canadian-taxes {
-    text-align: center;
+  text-align: center;
 }
 
 .box {
-    border: 2px solid #444;
-    margin: 10px auto 10px;
-    padding: 10px;
+  border: 2px solid #444;
+  margin: 10px auto 10px;
+  padding: 10px;
 }
 
 .row {
-    display: grid;
-    grid-template-columns: 55% 45%;
+  display: grid;
+  grid-template-columns: 55% 45%;
 }
 
 .row:last-child {
-    grid-column-start: 0;
-    grid-column-end: 3;
+  grid-column-start: 0;
+  grid-column-end: 3;
 }
 
 .row p {
-    display: inline-block;
-    margin-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 div#canadian-taxes .description {
-    text-align: right;
+  text-align: right;
 }
 
 .line {
-    line-height: 2em;
-    justify-self: left
+  line-height: 2em;
+  justify-self: left;
 }
 
 .txtInput {
-    justify-self: center;
-    display: block;
-    width: 100%;
-    text-align: right;
-    padding-right: 10px;
-    font-size: 1.2em;
-    border: none;
-    border-bottom: 1px solid #444;
+  justify-self: center;
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 1px solid #444;
 }
 
 .calculate-button {
-    display: block;
-    margin: 10px auto;
-    background-color: #009688;
-    color: #fff;
-    line-height: 2em;
-    font-weight: bold;
+  display: block;
+  margin: 10px auto;
+  background-color: #009688;
+  color: #fff;
+  line-height: 2em;
+  font-weight: bold;
 }
 
 .section {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .calculator {
-    margin: auto auto;
-    background-color: #f5eeee;
-    border: solid 5px #343;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+  margin: auto auto;
+  background-color: #f5eeee;
+  border: solid 5px #343;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .sym {
-    display: inline-block;
-    width: 50px;
-    color: red;
-    margin-left: 15px;
-    font-weight: bold;
-    font-size: 1.2em;
+  display: inline-block;
+  width: 50px;
+  color: red;
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 #txtResults {
-    display: block;
-    height: 5em;
-    min-height: 5em;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    text-align: center;
-    line-height: 5em;
-    font-size: 1.2em;
+  display: block;
+  height: 5em;
+  min-height: 5em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  line-height: 5em;
+  font-size: 1.2em;
 }
 
 .control {
-    margin: 2px 0;
-    padding-right: 5px;
+  margin: 2px 0;
+  padding-right: 5px;
 }
 
 #working-with-arrays {
-    border: solid 1px black;
-    height: 400px;
-    margin: 20px auto;
+  border: solid 1px black;
+  height: 400px;
+  margin: 20px auto;
 }
 
 #working-with-arrays h2 {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .numberInput {
-    width: 55%;
-    text-align: right;
-    padding-right: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  width: 55%;
+  text-align: right;
+  padding-right: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.btn, .btn, .btn, .btn {
-    width: 100px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+.btn,
+.btn,
+.btn,
+.btn {
+  width: 100px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .btn-radio {
-    padding: 2px 5px;
+  padding: 2px 5px;
 }
 
 .btn-radio:hover {
-    background-color: #c2c0c0
+  background-color: #c2c0c0;
 }
 
 .messageBoard {
-    font-size: 2em;
-    font-weight: bold;
-    padding: 10px;
-    ;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 10px;
 }

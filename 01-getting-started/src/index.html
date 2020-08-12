@@ -9,8 +9,10 @@
 
     <head>
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" type="image/png" href="./images/favicon.ico">
         <link rel="stylesheet" type="text/css" href="./index.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -153,22 +155,21 @@
         </div>
         <div class="w3-content w3-container w3-padding-64 info-box" id="myTaxCalculator">
             <div id="canadian-taxes">
-                <!--https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html#federal-->
                 <h3>Canadian Taxes</h3>
                 <h4>Federal tax on taxable income calculation</h4>
                 <div class="container ">
                     <div class="box">
                         <div class="row">
                             <label class="line" for="txtIncome">Enter you taxable income</label>
-                            <input class="txtInput" type="text" name="txtIncome" id="txtIncome" value="">
+                            <input class="txtInput" type="number" name="txtIncome" id="txtIncome" value="">
                         </div>
                         <div class="row">
-                            <label class="line" for="txtResult">Tax Calculation</label>
-                            <input class="txtInput" type="text" name="txtResult" id="txtResult" disabled>
+                            <label class="line" for="txtTaxResult">Tax Calculation</label>
+                            <input class="txtInput" type="text" name="txtTaxResult" id="txtTaxResult" value="" disabled>
                         </div>
                         <div class="row">
                             <label class="line" for="txtOvertime">Overtime Income</label>
-                            <input class="txtInput" type="text" name="txtOvertime" id="txtOvertime">
+                            <input class="txtInput" type="number" name="txtOvertime" id="txtOvertime">
                         </div>
                         <div class="row">
                             <label class="line" for="txtOvertimeTax">Overtime Tax Calculation</label>
@@ -182,8 +183,7 @@
                             <label class="line" for="txtTaxRate">Tax Rate on overtime</label>
                             <input class="txtInput" type="text" name="txtTaxRate" id="txtTaxRate" disabled>
                         </div>
-                        <button id="btnCalculateTax" class="w3-btn w3-block w3-teal control calculate-button"
-                            type="submit">Calculate Tax</button>
+                        <button id="btnCalculateTax" class="w3-btn w3-block w3-teal control calculate-button">Calculate Tax</button> 
                     </div>
                 </div>
             </div>
