@@ -1,9 +1,3 @@
-<!-- 
-
-    Inspiration drawn from: https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm#about
-
- -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" type="image/png" href="./images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="./index.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" type="text/css" href="./css/reset.css">
+        <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="./css/index.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,900;1,300;1,500&display=swap"
+            rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -23,273 +19,273 @@
     </head>
 
     <body>
+        <header>
+            <nav class="top-nav">
+                <ul>
+                    <li>
+                        <a href="#home">home</a>
 
-        <!-- Navbar (sit on top) -->
-        <div class="w3-top">
-            <div class="w3-bar" id="myNavbar">
-                <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
-                    href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <a href="#home" class="w3-bar-item w3-button">HOME</a>
-                <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-                <a href="#idSize" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> SIZE</a>
-                <a href="https://www.evolveu.ca" class="w3-bar-item w3-button w3-hide-small" target="_blank"><i
-                        class="fa fa-envelope"></i> CONTACT</a>
-                <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-                    <i class="fa fa-search"></i>
-                </a>
+                    </li>
+                    <li>
+                        <a href="#about"><i class="fa fa-user"></i> About</a>
+                    </li>
+                    <li>
+                        <a href="http://ddougan.com/contact" target="_blank"><i class="fa fa-envelope"></i>
+                            Contact</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/djdougan/cohort4" target="_blank"><i class="fa fa-github"></i>
+                            Github</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="fsd">
+                <h1 class="center-text">WELCOME TO Full Stack Development</h1>
             </div>
-
-            <!-- Navbar on small screens -->
-            <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-                <a href="#idSize" class="w3-bar-item w3-button" onclick="toggleFunction()">SIZE</a>
-                <a href="https://www.evolveu.ca" class="w3-bar-item w3-button" onclick="toggleFunction()"
-                    target="_blank">CONTACT</a>
-                <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+            <div class="header-img">
+                <picture>
+                    <source media="(max-width: 799px)" srcset="./images/full-stack-header-mobile.svg">
+                    <source media="(min-width: 800px)" srcset="./images/full-stack-header.svg">
+                    <img src="./images/full-stack-header.svg" alt="full stack image">
+                </picture>
             </div>
-        </div>
+        </header>
+        <main>
+            <section id="section-1">
+                <div class="content" id="about">
+                    <h2 class="center-text">ABOUT THE TOOLS & PRACTICES</h2>
+                    <p>
+                        Here, we describe at a high level the basic tools of the trade and best practices in using the
+                        tools. We
+                        are a little nervous about using the term “Best Practices”. There are many great tools and
+                        practices out
+                        there and “Best Practices” is a matter of
+                        opinion and are constantly changing. If you understand these tools and these practices, you are
+                        in a
+                        great position to continue your learning and finding better practices and better tools. You are
+                        just
+                        beginning a journey of learning that
+                        will last as long as your professional development career.
+                    </p>
 
-        <!-- -------------- First Parallax Image with Logo Text ----------- -->
+                    <ol>
+                        <li><b>Editor -</b> Where we spend all our time building. We suggest one of the two: <a
+                                href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> or <a
+                                href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>.
 
-        <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-            <div class="w3-display-middle" style="white-space:nowrap;">
-                <div class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
-                    WELCOME TO <br> Full Stack Development
+                        </li>
+                        <li><b>Source Code Management -</b> According to <a href="https://en.wikipedia.org/wiki/Git"
+                                target="_blank">Wikipedia</a> git is a distributed version-control system for tracking
+                            changes
+                            in source code during software development. It is designed for coordinating work among
+                            programmers,
+                            and it can also be used to track changes in any set of files. Its goals include speed, data
+                            integrity,
+                            and support for distributed, non-linear workflows.
+                            <p>There is a tool <a href="https://git-scm.com/" target="_blank">git</a> and a development
+                                platform called <a href="https://github.com" target="_blank">GitHub</a>. We will be
+                                using these
+                                extensively throughout the program.</p>
+                        </li>
+                        <li><b>Code Organization -</b> How do we organize a project? How do we structure our files?
+                        </li>
+                        <li><b>Modular Design</b> How do we structure our code such that it is easy to read, update,
+                            test, and
+                            maintain?
+                        </li>
+                        <li><b>Developer Tools for Test Driven Development -</b> <a href="https://jestjs.io">Jest</a> is
+                            a
+                            delightful JavaScript Testing Framework with a focus on simplicity.</li>
+                    </ol>
+                </div>
+            </section>
+            <section id="section-2">
+                <article>
+                    <!--Calculator-->
+                    <h2 class="center-text">My Calculator</h2>
+                    <div class="container" id="myCalculator">
+                        <div>
+                            <div class="container">
+                                <div class="control-group">
+                                    <label class="control" for="lblNumber1">Number 1:
+                                        <input id="txtNumber1" class="control" type="text" name="number1" value="0"
+                                            id="number1" />
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label id="lblNumber2" class="control" for="number2"> Number 2:
+                                        <input id="txtNumber2" class="control" type="text" name="number2" value="0"
+                                            id="number2" />
+                                    </label>
+                                </div>
+                                <div class="control-group grid-4">
+                                    <label for="rdoAdd" class="btn-radio">
+                                        <input id="rdoAdd" class="operand" type="radio" name="operations" data-sym="+"
+                                            checked /><span class="sym">&#43;
+                                        </span></label>
+                                    <label for="rdoSubtract" class="btn-radio">
+                                        <input id="rdoSubtract" class="operand" type="radio" name="operations"
+                                            data-sym="-" /><span class="sym">&#8722;
+                                        </span></label>
+                                    <label for="rdoMultiply" class="btn-radio">
+                                        <input id="rdoMultiply" class="operand" type="radio" name="operations"
+                                            data-sym="*" /><span class="sym">&#215;
+                                        </span></label>
+                                    <label for="rdoDivision" class="btn-radio">
+                                        <input id="rdoDivision" class="operand" type="radio" name="operations"
+                                            data-sym="/" /><span class="sym">/</span></label>
+                                </div>
+                                <div id="results-panel" class="control-group">
+                                    <label id="lblResults" for="results">Results
+                                    </label>
+                                    <div id="txtResults" class="border control messageBoard">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <button id="btnCalculate" class="btn" data-current="+">Calculate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="container" id="myTaxCalculator">
+                        <h2 class="center-text">Canadian Taxes</h2>
+                        <h4 class="center-text">Federal Tax On Taxable Income Calculation</h4>
+                        <div id="canadian-taxes" class="container">
+                            <div class="control-group">
+                                <label class="control" for="txtIncome">Enter Your Taxable Income
+                                    <input class="control" type="number" name="txtIncome" id="txtIncome"></label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control" for="txtTaxRatio">Tax Rate On Regular Time
+                                    <input class="control" type="text" name="txtTaxRatio" id="txtTaxRatio"
+                                        disabled></label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control" for="txtTaxResult">Tax Calculation
+                                    <input class="control" type="text" name="txtTaxResult" id="txtTaxResult"
+                                        disabled></label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control" for="txtOvertime">Overtime Income
+                                    <input class="control" type="number" name="txtOvertime" id="txtOvertime"></label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control" for="txtOvertimeTax">Tax With Overtime
+                                    <input class="control" type="text" name="txtOvertimeTax" id="txtOvertimeTax"
+                                        disabled></label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control" for="txtDifference">Tax On Overtime
+                                    <input class="control" type="text" name="txtDifference" id="txtDifference"
+                                        disabled></label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control" for="txtTaxRate">Avg. Tax Rate On Overtime
+                                    <input class="control" type="text" name="txtTaxRate" id="txtTaxRate"
+                                        disabled></label>
+                            </div>
+                            <div class="control-group">
+                                <button id="btnCalculateTax" class="btn">Calculate
+                                    Tax</button></div>
+
+                        </div>
+                    </div>
+                    </div>
+
+                </article>
+            </section>
+            <section id="section-3">
+                <article>
+                    <!-- Working with Arrays -->
+                    <h2 class="center-text">Working with Arrays</h2>
+                    <div class="container" id="working-with-arrays">
+                        <div class="container">
+                            <div class="control-group">
+                                <label class="control" for="txtOvertimeTax">Enter a number to add to arry
+                                    <input class="control" type="text" id="txtArrayNumber" placeholder="">
+                                </label>
+                            </div>
+                            <div class="control-group grid-4">
+                                <input class="btn" id="btnAdd1" type="button" value="Add">
+                                <input class="btn" id="btnShow1" type="button" value="Show">
+                                <input class="btn" id="btnTotal1" type="button" value="Total">
+                                <input class="btn" id="btnClear1" type="button" value="Clear">
+                            </div>
+                            <div class="messageBoard" id="txtMessageBoard1">
+                            </div>
+                        </div>
+                </article>
+                <article>
+                    <h2 class="center-text">Working with Dictionaries</h2>
+                    <!-- Working with Dictionaries -->
+
+                    <div class="container" id="working-with-dictionaries">
+                        <div class="container">
+                            <div class=" control-group">
+                                <input class="control" type="text" id="txtProvince"
+                                    placeholder="enter any province abbreviation 'AB', 'BC'">
+                            </div>
+                            <div class="control-group">
+                                <input class="btn" id="btnLookUp" type="button" value="Look Up province">
+                            </div>
+                            <div class="messageBoard" id="txtMessageBoard2">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+            </section>
+        </main>
+        <footer>
+            <div class="grid-2">
+                <div>
+                    <h3>Contact Douglas Dougan</h3>
+                    <ul>
+                        <li> <a href="https://www.linkedin.com/in/djdougan/" target="_blank"
+                                title="Douglas's LinkedIn Account">
+                                <i class="fa fa-linkedin hover-opacity"></i>linkedIn</a></li>
+                        <li> <a href="https://github.com/djdougan/cohort4" target="_blank"
+                                title="Douglas's GitHub Account">
+                                <i class="fa fa-facebook-official hover-opacity"></i>GitHub</a>
+                        </li>
+                        <li> <a href="https://www.facebook.com/ddougan.CIS" target="_blank"
+                                title="Douglas's Facebook Account">
+                                <i class="fa fa-facebook-official hover-opacity"></i>facebook</a>
+                        </li>
+                        <li> <a href="" target="_blank" title="">
+                                <i class="fa fa-twitter hover-opacity"></i>twitter</a> </li>
+                        <li> <a href="https://ddougan.com/" target="_blank" title="ddougan.com Web Site">
+                                <i class="fa fa-globe hover-opacity"></i>ddougan.com</a> </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact InceptionU(EvolveU)</h3>
+                    <ul>
+                        <li> <a href="https://www.linkedin.com/company/inceptionu/" target="_blank"
+                                title="InceptionU LinkedIn Account">
+                                <i class="fa fa-linkedin hover-opacity"></i>linkedIn</a></li>
+                        <li> <a href="https://www.facebook.com/inceptionu/" target="_blank"
+                                title="InceptionU Facebook account">
+                                <i class="fa fa-facebook-official hover-opacity"></i>facebook</a>
+                        </li>
+                        <li> <a href="https://twitter.com/_InceptionU" target="_blank"
+                                title="InceptionU Twitter account">
+                                <i class="fa fa-twitter hover-opacity"></i>twitter</a> </li>
+                        <li> <a href="https://www.inceptionu.com/" target="_blank" title="InceptionU Web Site">
+                                <i class="fa fa-globe hover-opacity"></i>inceptionu.com</a> </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <!-- Container (About The Tools) -->
-
-        <div class="w3-content w3-container w3-padding-64 info-box" id="about">
-            <h3 class="w3-center">ABOUT THE TOOLS & PRACTICES</h3>
-            <p>
-                Here, we describe at a high level the basic tools of the trade and best practices in using the tools. We
-                are a little nervous about using the term “Best Practices”. There are many great tools and practices out
-                there and “Best Practices” is a matter of
-                opinion and are constantly changing. If you understand these tools and these practices, you are in a
-                great position to continue your learning and finding better practices and better tools. You are just
-                beginning a journey of learning that
-                will last as long as your professional development career.
-            </p>
-
-            <ol>
-                <li><b>Editor -</b> Where we spend all our time building. We suggest one of the two: <a
-                        href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> or <a
-                        href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>.
-
-                </li>
-                <li><b>Source Code Management -</b> According to <a href="https://en.wikipedia.org/wiki/Git"
-                        target="_blank">Wikipedia</a> git is a distributed version-control system for tracking changes
-                    in source code during software development. It is designed
-                    for coordinating work among programmers, and it can also be used to track changes in any set of
-                    files. Its goals include speed, data integrity, and support for distributed, non-linear workflows.
-                    <p>There is a tool <a href="https://git-scm.com/" target="_blank">git</a> and a development platform
-                        called <a href="https://github.com" target="_blank">GitHub</a>. We will be using these
-                        extensively throughout the program.</p>
-                </li>
-                <li><b>Code Organization -</b> How do we organize a project? How do we structure our files? </li>
-                <li><b>Modular Design</b> How do we structure our code such that it is easy to read, update, test, and
-                    maintain?
-                </li>
-                <li><b>Developer Tools for Test Driven Development -</b> <a href="https://jestjs.io">Jest</a> is a
-                    delightful JavaScript Testing Framework with a focus on simplicity.</li>
-            </ol>
-
-        </div>
-        <!--Calculator-->
-        <div class="w3-content w3-container w3-padding-64 info-box" id="myCalculator" </div>
-            <div class="box">
-                <div class="w3-container w3-border w3-margin-bottom w3-large w3-padding">
-                    <h2 class="w3-center">My Calculator</h2>
-                    <div class="w3-container">
-                        <label class="w3-quarter control" for="lblNumber1">Number 1:
-                        </label>
-                        <input id="txtNumber1" class="w3-threequarter w3-right-align control" type="text" name="number1"
-                            value="0" id="number1">
-                    </div>
-                    <div class="w3-container  control-group">
-                        <label id="lblNumber2" class="w3-quarter control" for="number2"> Number 2:
-                        </label>
-                        <input id="txtNumber2" class="w3-threequarter w3-right-align control" type="text" name="number2"
-                            value="0" id="number2">
-                    </div>
-                    <div class="w3-container control-group">
-                        <div class="w3-quarter">&nbsp;</div>
-                        <div class="w3-threequarter control-group">
-                            <label for="rdoAdd" class="w3-quarter btn-radio">
-                                <input id="rdoAdd" class="operand" type="radio" name="operations" data-sym="+"
-                                    checked /><span class="sym">&#43;
-                                </span></label>
-                            <label for="rdoSubtract" class="w3-quarter btn-radio">
-                                <input id="rdoSubtract" class="operand" type="radio" name="operations"
-                                    data-sym="-" /><span class="sym">&#8722;
-                                </span></label>
-                            <label for="rdoMultiply" class="w3-quarter btn-radio">
-                                <input id="rdoMultiply" class="operand" type="radio" name="operations"
-                                    data-sym="*" /><span class="sym">&#215;
-                                </span></label>
-                            <label for="rdoDivision" class="w3-quarter btn-radio">
-                                <input id="rdoDivision" class="operand" type="radio" name="operations"
-                                    data-sym="/" /><span class="sym">&#247;</span></label>
-                        </div>
-                    </div>
-                    <div id="results-panel" class="w3-container control-group">
-                        <label id="lblResults" class="w3-quarter" for="results">Results
-                        </label>
-                        <div id="txtResults" class="w3-threequarter w3-border control">
-                        </div>
-                    </div>
-                    <div class="w3-container control-group">
-                        <div class="w3-quarter w3-left-align">&nbsp;</div>
-                        <div class="w3-right-align w3-threequarter ">
-                            <button id="btnCalculate" class="w3-btn w3-block w3-teal control calculate-button"
-                                data-current="+">Calculate
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-content w3-container w3-padding-64 info-box" id="myTaxCalculator">
-            <div id="canadian-taxes">
-                <h3>Canadian Taxes</h3>
-                <h4>Federal tax on taxable income calculation</h4>
-                <div class="container ">
-                    <div class="box">
-                        <div class="row">
-                            <label class="line" for="txtIncome">Enter you taxable income</label>
-                            <input class="txtInput" type="number" name="txtIncome" id="txtIncome" value="">
-                        </div>
-                        <div class="row">
-                            <label class="line" for="txtTaxResult">Tax Calculation</label>
-                            <input class="txtInput" type="text" name="txtTaxResult" id="txtTaxResult" value="" disabled>
-                        </div>
-                        <div class="row">
-                            <label class="line" for="txtOvertime">Overtime Income</label>
-                            <input class="txtInput" type="number" name="txtOvertime" id="txtOvertime">
-                        </div>
-                        <div class="row">
-                            <label class="line" for="txtOvertimeTax">Overtime Tax Calculation</label>
-                            <input class="txtInput" type="text" name="txtOvertimeTax" id="txtOvertimeTax" disabled>
-                        </div>
-                        <div class="row">
-                            <label class="line" for="txtDifference">Tax on overtime</label>
-                            <input class="txtInput" type="text" name="txtDifference" id="txtDifference" disabled>
-                        </div>
-                        <div class="row">
-                            <label class="line" for="txtTaxRate">Tax Rate on overtime</label>
-                            <input class="txtInput" type="text" name="txtTaxRate" id="txtTaxRate" disabled>
-                        </div>
-                        <button id="btnCalculateTax" class="w3-btn w3-block w3-teal control calculate-button">Calculate Tax</button> 
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Working with Arrays -->
-        <div class="w3-content w3-container w3-padding-64 info-box" id="working-with-arrays">
-            <h2>Working with Arrays</h2>
-            <div>
-                <input class="numberInput" type="text" id="txtArrayNumber">
-            </div>
-            <div id="btn-array-group">
-                <input class="w3-btn w3-one w3-teal control calculate-button btn" id="btnAdd1" type="button"
-                    value="Add">
-                <input class="w3-btn w3-one w3-teal control calculate-button btn" id="btnShow1" type="button"
-                    value="Show">
-                <input class="w3-btn w3-one w3-teal control calculate-button btn" id="btnTotal1" type="button"
-                    value="Total">
-                <input class="w3-btn w3-one w3-teal control calculate-button btn" id="btnClear1" type="button"
-                    value="Clear">
-            </div>
-            <div class="messageBoard" id="txtMessageBoard1">
-
-            </div>
-        </div><!-- Working with Dictionaries -->
-        <div class="w3-content w3-container w3-padding-64 info-box" id="working-with-arrays">
-            <h2>Working with Dictionaries</h2>
-            <div>
-                <input class="numberInput" type="text" id="txtProvince">
-            </div>
-            <div id="btn-array-group">
-                <input class="w3-btn w3-one w3-teal control calculate-button btn" id="btnLookUp" type="button"
-                    value="Look Up">
-            </div>
-            <div class="messageBoard" id="txtMessageBoard2">
-
-            </div>
-        </div>
-        <!-- ---------- Second Parallax Image with Size------------------ -->
-
-        <div class="bgimg-2 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">SIZE</span>
-            </div>
-        </div>
-
-        <div class="w3-content w3-container w3-padding-64 w3-center" id="idSize">
-            Did you know that =>
-            <input id="idNumber" type="number"> is a <span id="idNumberSize">unknown</span> number?
-            <p id="idNumberSizexx"></p>
-        </div>
-
-        <!-- Footer -->
-        <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the
-                top</a>
-            <div class="w3-xlarge w3-section">
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                    class="w3-hover-text-green">w3.css</a></p>
         </footer>
-
-        <!-- Navbar on small screens -->
-        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-            <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-            <a href="#idSize" class="w3-bar-item w3-button" onclick="toggleFunction()">SIZE</a>
-            <a href="https://www.evolveu.ca" class="w3-bar-item w3-button" onclick="toggleFunction()"
-                target="_blank">CONTACT</a>
-            <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-        </div>
-        </div>
-
+        <div class="sticky-bottom-right">
+            <a href="#home" class="back-to-top"><i class="fa fa-arrow-up margin-right"></i>To the
+                top</a></div>
         <script type="module" src="./scripts/main.js"></script>
-
-        <script>
-            // Change style of navbar on scroll
-            window.onscroll = function () {
-                myFunction()
-            };
-
-            function myFunction() {
-                var navbar = document.getElementById("myNavbar");
-                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                    navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-                } else {
-                    navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-                }
-            }
-
-            // Used to toggle the menu on small screens when clicking on the menu button
-            function toggleFunction() {
-                var x = document.getElementById("navDemo");
-                if (x.className.indexOf("w3-show") == -1) {
-                    x.className += " w3-show";
-                } else {
-                    x.className = x.className.replace(" w3-show", "");
-                }
-            }
-        </script>
-
     </body>
 
 </html>

@@ -5,12 +5,12 @@ import workingWithArrays from "./WorkingWithArrays.js";
 import workingWithDictionaries from "./workingWithDictionaries.js";
 //Add the event listeners
 
-const idNumber = document.getElementById("idNumber");
-const idNumberSize = document.getElementById("idNumberSize");
-const idNumberSizexx = document.getElementById("idNumberSizexx");
-idNumber.addEventListener("change", () => {
-  idNumberSize.textContent = functions.size(idNumber.value);
-});
+// const idNumber = document.getElementById("idNumber");
+// const idNumberSize = document.getElementById("idNumberSize");
+// const idNumberSizexx = document.getElementById("idNumberSizexx");
+// idNumber.addEventListener("change", () => {
+//   idNumberSize.textContent = functions.size(idNumber.value);
+// });
 
 // Calculator
 var btnCalc = document.getElementById("btnCalculate");
@@ -63,6 +63,7 @@ buildRadio(radio);
 //  Tax Calculator
 const btnCalculateTax = document.getElementById("btnCalculateTax");
 const txtIncome = document.getElementById("txtIncome");
+const txtTaxRatio = document.getElementById("txtTaxRatio");
 const txtTaxResult = document.getElementById("txtTaxResult");
 const txtOvertime = document.getElementById("txtOvertime");
 const txtOvertimeTax = document.getElementById("txtOvertimeTax");
@@ -70,19 +71,29 @@ const txtDifference = document.getElementById("txtDifference");
 const txtTaxRate = document.getElementById("txtTaxRate");
 
 btnCalculateTax.addEventListener("click", (e) => {
-  let income = parseFloat(txtIncome.value);
-  let tax = parseFloat(canadianTax.calculateTax(income));
+  if (!!txtIncome.value) {
+    let income = parseFloat(txtIncome.value);
+    let tax = parseFloat(canadianTax.calculateTax(income));
 
-  txtTaxResult.value = formatter.format(tax);
+    txtTaxRatio.value = canadianTax.calculateTaxRate(income, tax);
+    txtTaxResult.value = formatter.format(tax);
 
-  let ot = parseFloat(txtOvertime.value);
-  let totalTax = canadianTax.calculateTax(income + ot);
-  let overTimeTax = canadianTax.calculateOvertimeTax(income, ot);
-  txtOvertimeTax.value = formatter.format(overTimeTax + tax);
-  console.log(tax, overTimeTax, totalTax);
+    if (!!txtOvertime.value) {
+      let ot = parseFloat(txtOvertime.value);
 
-  txtDifference.value = formatter.format(overTimeTax);
-  txtTaxRate.value = (overTimeTax / ot) * 100;
+      let totalTax = canadianTax.calculateTax(income + ot);
+      let overTimeTax = canadianTax.calculateOvertimeTax(income, ot);
+      txtOvertimeTax.value = formatter.format(overTimeTax + tax);
+      console.log(tax, overTimeTax, totalTax);
+
+      txtDifference.value = formatter.format(overTimeTax);
+      if (txtOvertime.value > 0) {
+        txtTaxRate.value = (overTimeTax / ot).toPrecision(3);
+      } else {
+        txtTaxRate.value = 0;
+      }
+    }
+  }
 });
 /**
  * Working with Arrays
