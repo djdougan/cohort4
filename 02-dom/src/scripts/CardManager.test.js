@@ -1,5 +1,4 @@
 import Card from "./CardManager";
-import 
 
 test("Test: Build Card", () => {
   let card = new Card();
@@ -47,6 +46,5 @@ test("Does The Delete work", () => {
   // get delete and fire the click event
   let  deleteButtons = testContainer.querySelectorAll(".btn-delete");
   deleteButtons[0].click();
-
-  expect(testContainer.children.length).toBe(0)
+  expect(testContainer.children.length).toBe(0);
 });

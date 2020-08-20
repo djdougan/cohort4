@@ -63,10 +63,11 @@ class CardManager {
   }
 
   delete(event) {
-    parent = event.target.parentElement;
+    let parent = event.target.parentElement;
     let container = parent.parentElement;
     container.removeChild(parent);
-    return false;
+    
+    return true;
   }
 
   createButton(textContent, className, callback) {
