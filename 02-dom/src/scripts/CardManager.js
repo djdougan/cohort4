@@ -7,34 +7,35 @@
  * Created at     : 2020-03-08 07:30:00
  * Last modified  : 2020-03-22 14:57:05
  *
- * @name Card
+ * @name CardManager
  * Creates a Card with a 'insert Before', 'insert after' and 'delete' buttons
  * @class
  */
-class Card {
-  /**
-   * @description constructor takes a node "body"
-   */
-  constructor(total) {
-    this.count = total;
+class CardManager {
+  constructor(parent) {
+    this.parent = parent;
   }
 
-  /**
-   * @description Builds and returns a Card.
-   * @name buildCard
-   * @returns {HTMLDivElement} html div container with 3 buttons and a time stamp
-   */
   buildCard() {
-    this.count;
-    let divClassName = "idCard";
+    let highest = 0;
+    const cards = Array.from(document.querySelectorAll(".card p"));
+    if (cards.length > 0) {
+      highest = Math.max.apply(
+        Math,
+        cards.map(function (o) {
+          return parseInt(o.getAttribute("data-id"));
+        })
+      );
+    }
+    highest++;
+    let divClassName = "card";
     let div = document.createElement("div");
     div.className = divClassName;
 
-    let d = new Date();
     let p = document.createElement("p");
-    p.appendChild(
-      document.createTextNode(d.toLocaleTimeString() + " " + this.count)
-    );
+    p.id = "p-" + highest;
+    p.setAttribute("data-id", highest);
+    p.appendChild(document.createTextNode(highest));
     div.appendChild(
       this.createButton("Insert Before", "btn btn-before", this.insertBefore)
     );
@@ -46,56 +47,28 @@ class Card {
     return div;
   }
 
-  /**
-   * @description Insert a element before
-   * @name InsertBefore
-   * @param {event} event -- Event
-   */
   insertBefore(event) {
     let parentNode = event.target.parentElement;
-    let card = new Card(total);
-    let d = new Date();
-    let p = document.createElement("p");
-    p.appendChild(document.createTextNode(d.toLocaleTimeString()));
+    let card = new CardManager();
     parentNode.parentNode.insertBefore(card.buildCard(), parentNode);
   }
 
-  /**
-   * @description Insert a element After
-   * @name InsertAfter
-   * @param {event} event -- Event
-   */
   insertAfter(event) {
     let parentNode = event.target.parentElement;
-    let card = new Card(total);
-    let d = new Date();
-    let p = document.createElement("p");
-    p.appendChild(document.createTextNode(d.toLocaleTimeString()));
+    let card = new CardManager();
     parentNode.parentNode.insertBefore(
-      card.buildCard(p),
+      card.buildCard(),
       parentNode.nextSibling
     );
   }
 
-  /**
-   * @description deletes Card "parent of button"
-   * @name delete
-   * @param {string} event -- Event
-   */
   delete(event) {
-    let parent = event.target.parentElement;
+    parent = event.target.parentElement;
     let container = parent.parentElement;
     container.removeChild(parent);
-    return "success";
+    return false;
   }
 
-  /**
-   * @description creates a button
-   * @name createButton
-   * @param {string} textContent -- text on the button
-   * @param {string} className -- the name(s) of the class
-   * @param {function} callback -- callback function to be passed to event listener
-   */
   createButton(textContent, className, callback) {
     let btn = document.createElement("button");
     btn.textContent = textContent;
@@ -105,4 +78,4 @@ class Card {
   }
 }
 
-export default Card;
+export default CardManager;

@@ -1,7 +1,6 @@
 import PageManager from "./PageManager.js";
 import CardManager from "./CardManager.js";
 
-let card = new CardManager();
 const btnPrependTo = document.querySelector("#btnPrependTo");
 const btnAppendTo = document.querySelector("#btnAppendTo");
 const btnShow = document.querySelector("#btnShow");
@@ -11,7 +10,7 @@ const cardContainer = document.querySelector("#card-container");
 // let total = 0;
 
 const olList = document.querySelector("#olList");
-
+const cm = new CardManager(cardContainer);
 btnPrependTo.addEventListener("click", function (e) {
   let pm = new PageManager();
   let count = olList.children.length + 1;
@@ -49,10 +48,11 @@ btnShow.addEventListener("click", function (e) {
   }
   e.preventDefault();
 });
+
 btnDelete.addEventListener("click", function (e) {
   let pm = new PageManager();
   let li = pm.getLastListItem(olList);
-  pm.deleteListElement(olList, li.dataset.uuid);
+  pm.deleteListElement(olList);
   e.preventDefault();
 });
 
@@ -61,7 +61,8 @@ olList.addEventListener("click", function (e) {
   e.preventDefault();
 });
 
+// Cards
 btnCard.addEventListener("click", (e) => {
-  cardContainer.appendChild(card.buildCard(total));
+  cardContainer.appendChild(cm.buildCard());
   e.preventDefault();
 });
