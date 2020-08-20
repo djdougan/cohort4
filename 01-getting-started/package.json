@@ -7,8 +7,7 @@
         "test": "jest",
         "testcov": "jest --coverage",
         "test1": "jest src/01-getting-started",
-        "test1cov": "jest src/01-getting-started --coverage",
-        "testfile": "jest src/01-getting-started/scripts/lfsplay.test.js"
+        "test1cov": "jest src/01-getting-started --coverage"
     },
     "keywords": [],
     "author": "",
@@ -18,9 +17,7 @@
         "@babel/preset-env": "^7.0.0",
         "jest": "^24.9.0",
         "node-fetch": "^2.6.0",
-        "whatwg-fetch": "^3.0.0"
-    },
-    "dependencies": {
+        "whatwg-fetch": "^3.0.0",
         "@types/jest": "^25.1.3"
     }
 }
