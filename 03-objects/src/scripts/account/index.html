@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" />
+    <title>Banking Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <div>
+      <ul class="nav">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="./index.html">Accounts</a></li>
+        <li><a href="../city/city.html">City</a></li>
+
+      </ul>
+
+    </div>
+    <section>
+      <h1>Banking Application</h1>
+      <div id="message" class="hidden">
+      </div>
+      <div id="banking-app" class="rounded-20">
+        <div class="container rounded-20 border-5 grid-col-2 cf">
+          <!-- Left column -->
+          <div class="col">
+            <div class="header grid-col-2">
+              <h2 id="account-list-header">Account List</h2>
+            </div>
+            <div id="accountList" class="container border-5 rounded-10"></div>
+          </div>
+          <!-- right col -->
+          <div class="col">
+            <h2>Account Manager</h2>
+            <div id="account-manager" class="container border-5 rounded-10">
+              <div class="control-group">
+                <label for="account-name" class="control">Account Name</label>
+                <input type="text" name="account-name" id="txtAccountName" class="control border-5 rounded-10" />
+              </div>
+              <div class="control-group">
+                <label for="account-starting-balance" class="control">Balance</label>
+                <input type="number" name="account-starting-balance" id="txtStartingBalance"
+                  class="control border-5 rounded-10" step="0.01" />
+              </div>
+              <input id="btnCreateAccount" type="button" value="Create" />
+            </div>
+            <h2>Transactions</h2>
+            <div id="transactions" class="container border-5 rounded-10">
+              <div class="control-group">
+                <label for="accountDropDownList" class="control">
+                  Account Name: <select class="select-css" id="accountDropDownList"></select></label>
+                <input type="number" name="account-transaction" id="txtAccountTransaction"
+                  class="control border-5 rounded-10" step="0.01" />
+              </div>
+              <input id="btnDeposit" type="button" value="Deposit" />
+              <input id="btnWithdrawal" type="button" value="Withdrawal" />
+            </div>
+            
+          </div>
+        </div>
+        <div><h3>Total: <span id="totalOfAccounts"></span></h3></div>
+      </div>
+    </section>
+    <script type="module" src="./js/index.js"></script>
+  </body>
+
+</html>

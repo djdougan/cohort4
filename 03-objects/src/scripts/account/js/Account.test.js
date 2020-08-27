@@ -25,6 +25,7 @@ test("Test: Account", () => {
     '{"accountName":"checking","balance":0,"accountNumber":1}'
   );
 });
+
 test("Testing AccountController", () => {
   const accCtrl = new AccountController();
   const savings = accCtrl.createAccount("A", 1.0);
@@ -68,8 +69,9 @@ test("Testing AccountController", () => {
   } catch (e) {
     expect(e.message).toBe("Accounts with balances cannot be deleted");
   }
+
   try {
-    let transfer = accCtrl.withdrawal(4, 4);
+    let transfer = accCtrl.withdrawal(2, 4);
     accCtrl.deposit(transfer, 3);
     accCtrl.removeAccount(4);
 
@@ -89,8 +91,40 @@ test("Testing AccountController", () => {
         accountNumber: 3,
         balance: 3,
       },
+      {
+        accountName: "E",
+        accountNumber: 4,
+        balance: 2,
+      },
     ]);
   } catch (e) {
     expect(e.message).toBe("Accounts with balances cannot be deleted");
   }
+  
+  try {
+    let transfer = accCtrl.withdrawal(2, 4);
+    accCtrl.deposit(transfer, 3);
+    accCtrl.removeAccount(4);
+
+    expect(accCtrl.getAllAccounts()).toEqual([
+      {
+        accountName: "A",
+        accountNumber: 1,
+        balance: 1,
+      },
+      {
+        accountName: "B",
+        accountNumber: 2,
+        balance: 2,
+      },
+      {
+        accountName: "C",
+        accountNumber: 3,
+        balance: 7,
+      },
+    ]);
+  } catch (e) {
+    expect(e.message).toBe("Accounts with balances cannot be deleted");
+  }
+
 });

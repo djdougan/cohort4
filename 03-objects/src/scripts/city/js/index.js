@@ -1,6 +1,6 @@
 import City from "./City.js";
 import Community from "./Community.js";
-import Card from "./Card.js";
+import Card from "./CityCard.js";
 import fetchApi from "./fetchApi.js";
 import Overlay from "./overlay.js";
 

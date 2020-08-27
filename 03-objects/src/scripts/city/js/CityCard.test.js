@@ -1,5 +1,5 @@
 import City from './City';
-import Card from './Card';
+import Card from './CityCard';
 import Community from './Community';
 
 describe('contains test for Card.BuildCard', () => {

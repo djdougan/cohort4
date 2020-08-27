@@ -1,32 +1,11 @@
-/**
- * Copyright (c) 2020
- *
- * @summary Creates a overlay with information about a city
- * @author Douglas J Dougan djdougan@gmail.com
- * @summary Competency 100D exercise at https://www.evolveu.ca/
- * Created at     : 2020-04-01 ‏‎20:17:55
- * Last modified  : 2020-04-02, ‏‎12:27:04
- *
- * @class Overlay
- */
+
 class Overlay {
 
     constructor(parent) {
             this.parent = parent;
             this.overlayDiv = document.createElement('div');
         }
-        /**
-         * @description creates a overlay with information on Most North/South city from Greenwich, England and the Equator.
-         * @name buildOverlay
-         * @param {string} title -- "Population","Most Northern", "Most Southern", "Most Eastern", "Most Western".
-         * @param {string} name -- name of city
-         * @param {number} latitude -- latitude of city
-         * @param {number} longitude -- longitude of city
-         * @param {number} population -- population of city
-         * @param {string} nsHem -- "N" for Northern and "S" for Southern
-         * @param {string} ewHem -- "W" for Western and "E" for Eastern
-         * 
-         */
+     
     buildOverlay(title = "Title", name = "name", latitude = 0, longitude = 0, population = 0, nsHem = "", ewHem = "") {
         this.overlayDiv.id = 'overlay';
         const container = document.createElement('div');

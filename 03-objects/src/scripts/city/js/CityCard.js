@@ -1,22 +1,5 @@
-/**
- * Copyright (c) 2020
- *
- * @summary Working with objects
- * @author Douglas J Dougan djdougan@gmail.com
- * @summary Competency 100D exercise at https://www.evolveu.ca/
- * Created at     : 2020-03-31 ‏‎20:17:55 
- * Last modified  : 2020-04-02, ‏‎12:27:04 
- *
- * @class Card
- */
-
-
-class Card {
-    /**
-     * jsDoc
-     * @description
-     * @name constructor
-     */
+class CityCard {
+  
     constructor() {
 
         this.divCity = document.createElement('div'); // Card container
@@ -50,11 +33,6 @@ class Card {
         return this;
     };
 
-    /**
-     * @description builds a card element with city properties
-     * @name buildCard
-     * @return {HTMLDivElement} -- returns a Div
-     */
     buildCard(key, name, latitude, longitude, population, cityType, nsHem, ewHem) {
         // header
         this.divCity.className = "city rounded-10";
@@ -146,4 +124,4 @@ class Card {
 }
 
 
-export default Card;
+export default CityCard;
