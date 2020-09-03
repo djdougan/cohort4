@@ -174,7 +174,6 @@ class CityCard {
     ctrl.classList.add("hidden");
   };
   getCityData = () => {
-    console.log(this.city);
     return this.city;
   };
 }

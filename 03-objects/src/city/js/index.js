@@ -114,7 +114,6 @@ btnAdd.addEventListener("click", async (e) => {
       txtLongitude.value,
       txtPopulation.value
     );
-    console.log(city)
     let card = new Card(city);
     cityList.appendChild(
       card.buildCard()
@@ -147,7 +146,6 @@ btnMostNorthern.addEventListener("click", async (e) => {
 
 btnMostSouthern.addEventListener("click", async (e) => {
   let city = com.getMostSouthern();
-  console.log(city.key);
   let overLay = new Overlay(document.body);
   overLay.buildOverlay(
     "Most Southern",

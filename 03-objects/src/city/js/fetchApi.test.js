@@ -56,8 +56,6 @@ test("Test if fetchApi works", async () => {
   data[0].name = "Y";
   data = await fetchApi.update(url, data[0]);
   expect(data.status).toEqual(200);
-  data = await fetchApi.read(url, { key: 2 });
-  console.log(data[0]);
   expect(data[0].key).toBe(2);
   expect(data[0].name).toBe("Y");
   expect(data[0].latitude).toBe(2);

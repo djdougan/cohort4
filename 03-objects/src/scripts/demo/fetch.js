@@ -83,10 +83,6 @@ const request = {
         return await response.json(); // parses JSON response into native JavaScript objects
     }
 
-    // postData('https://example.com/answer', { answer: 42 })
-    // .then((data) => {
-    //     console.log(data); // JSON data parsed by `response.json()` call
-    // });
 
 
 

@@ -13,7 +13,7 @@ const fetchApi = {
             json.statusText = response.statusText;
             return json;
         } catch (err) {
-            console.log(err.message);
+            throw err
         }
     },
     /* POST: /add */
@@ -33,7 +33,7 @@ const fetchApi = {
             json.statusText = response.statusText;
             return json;
         } catch (err) {
-            console.log(err);
+            throw err
         }
     },
 
@@ -54,7 +54,7 @@ const fetchApi = {
             json.statusText = response.statusText;
             return json;
         } catch (err) {
-            console.log(err.message);
+            throw err;
         }
     },
     /* POST: /delete */
@@ -74,7 +74,7 @@ const fetchApi = {
             json.statusText = response.statusText;
             return json;
         } catch (err) {
-            console.log(err.message);
+            throw err;
         }
     },
     /*POST: /update */
@@ -93,7 +93,7 @@ const fetchApi = {
             json.statusText = response.statusText;
             return json;
         } catch (err) {
-            console.log(err.message);
+            throw err;
         }
     },
 
@@ -104,7 +104,7 @@ const fetchApi = {
             let data = response.text();
             return data;
         } catch (err) {
-            console.log(err.message);
+            throw err;
         }
     },
     //GET and POST /clear
@@ -124,7 +124,7 @@ const fetchApi = {
             json.statusText = response.statusText;
             return json;
         } catch (err) {
-            console.log(err.message);
+            throw err;
         }
 
     }

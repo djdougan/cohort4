@@ -9,7 +9,6 @@ describe('contains test for Card.BuildCard', () => {
         let card = new Card(city);
         const cityList = document.createElement('div');
         let ca = card.buildCard()
-        console.log(ca)
         cityList.appendChild(ca);
         expect(cityList.children.length).toBe(1);
         city.movedIn(10)
