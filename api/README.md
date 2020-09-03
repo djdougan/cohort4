@@ -21,13 +21,13 @@ If you do not have at least version python 3, install the suggested version of p
 Once python is installed, check to see if pipenv is installed on your computer. To do this enter:
 
 ```sh
- python ?
+ pipenv --version
 ```
 
 If you get a "command not found" type message enter the following command to install pipenv:
 
 ```sh
-
+install pipenv
 ```
 
 Read the messages from the install very carefully. It may tell you to add pipenv to the path. If you do get that message, lookup on the internet on how to add a folder to a path for your operating system.
@@ -35,7 +35,7 @@ Read the messages from the install very carefully. It may tell you to add pipenv
 Now check to see if pipenv has been installed properly:
 
 ```sh
-pipenv ?
+pipenv --version
 ```
 
 If you get a "command not found" type message it did not work and you must start problem solving.
