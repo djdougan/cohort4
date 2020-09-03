@@ -88,7 +88,6 @@ class AccountController {
     } catch (error) {
       throw error
     }
-    console.log(account)
     return account;
   }
 
@@ -133,7 +132,7 @@ class AccountController {
     let results = {};
     try {
       let acc = this.accounts.find(
-        (x) => x.getAccountNumber() === accountNumber
+        (x) => x.getAccountNumber() === parseInt(accountNumber)
       );
       let index = this.accounts.indexOf(acc);
       if (this.accounts[index]) {

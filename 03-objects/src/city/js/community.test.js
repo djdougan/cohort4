@@ -108,66 +108,6 @@ describe("contains test Community.deleteCity(city)", () => {
 
 });
 
-describe("contains test Community.whichSphereNS(key)", () => {
-
-    test("Test: Should be Northern or Southern", () => {
-        const com = new Community();
-        com.createCity(1, "A", 1, 1, 1);
-        expect(com.whichSphereNS(1)).toEqual("Northern Hemisphere");
-        com.createCity(2, "B", -2, -2, 2);
-        expect(com.whichSphereNS(2)).toBe("Southern Hemisphere");
-    }); // Test: Should be Northern or Southern
-
-    test("Test: Should throw error if city doesn't exist", () => {
-        const com = new Community();
-        com.createCity(1, "A", 1, 1, 1);
-        com.createCity(2, "B", -2, -2, 2);
-        expect(() => {
-            com.whichSphereNS(3);
-        }).toThrow();
-    }); // Test: Should throw error if city doesn't exist
-
-    test("Test: Should throw error if letter passed as key", () => {
-        const com = new Community();
-        com.createCity(1, "A", 1, 1, 1);
-        com.createCity(2, "B", -2, -2, 2);
-        expect(() => {
-            com.whichSphereNS("A");
-        }).toThrow();
-    }); // Test: Should throw error if string passed as key
-
-}); // contains test Community.whichSphereNS(city)
-
-describe("contains test Community.whichSphereEW(city)", () => {
-
-
-    test("Test: Should be Eastern or Western", () => {
-        const com = new Community();
-        com.createCity(1, "A", 1, 1, 1);
-        expect(com.whichSphereEW(1)).toEqual("Eastern Hemisphere");
-        com.createCity(2, "B", -2, -2, 2);
-        expect(com.whichSphereEW(2)).toBe("Western Hemisphere");
-    }); // Test: Should be Eastern or Western
-
-    test("Test: Should throw error if city doesn't exist", () => {
-        const com = new Community();
-        com.createCity(1, "A", 1, 1, 1);
-        com.createCity(2, "B", -2, -2, 2);
-        expect(() => {
-            com.whichSphereEW(3)
-        }).toThrow();
-    }); // Test: Should throw error if city doesn't exist
-
-    test("Test: Should throw error if letter passed as key", () => {
-        const com = new Community();
-        com.createCity(1, "A", 1, 1, 1);
-        com.createCity(2, "B", -2, -2, 2);
-        expect(() => {
-            com.whichSphereEW("A")
-        }).toThrow();
-    }); // Test: Should throw error if number passed as name
-
-});
 
 
 describe("Contains test Community.getMostNorthern()", () => {

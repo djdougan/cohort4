@@ -10,7 +10,7 @@ const accountDropDownList = document.getElementById("accountDropDownList");
 const btnCreateAccount = document.getElementById("btnCreateAccount");
 const btnDeposit = document.getElementById("btnDeposit");
 const btnWithdrawal = document.getElementById("btnWithdrawal");
-
+const messageBox = document.getElementById("message");
 // containers
 const accountList = document.getElementById("accountList");
 // variables
@@ -33,7 +33,16 @@ btnCreateAccount.addEventListener("click", (e) => {
     alert(e.message);
   }
 });
-
+accountList.addEventListener("click", (e)=>{
+  try{
+  if(e.target.className==="btnClose"){
+      ac.removeAccount(e.target.parentElement.dataset.number)
+      accountDropDownList.remove(accountDropDownList.selectedIndex);
+  }
+}catch(e){
+  messageBox.textContent = e.message
+}
+})
 btnDeposit.addEventListener("click", (e) => {
   try {
       let deposit = txtAccountTransaction.value;

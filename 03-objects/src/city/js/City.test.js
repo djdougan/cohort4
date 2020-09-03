@@ -31,7 +31,7 @@ describe('Contains test for city constructor and show', () => {
         }).toThrowError();
 
         expect(() => {
-            // last 3 args should be numberic
+            // last 3 args should be numeric
             let F = com.createCity(1, "2", "2", "2", "2");
             F.show();
         }).toThrowError();

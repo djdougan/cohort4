@@ -53,15 +53,14 @@ class Card {
         let parent = e.target.parentElement;
         let container = parent.parentElement;
         container.removeChild(parent);
+
       } else if (this.account.getBalance() > 0) {
         throw new Error("Cannot delete a account with a balance.");
       } else if (this.account.getBalance() < 0) {
         throw new Error("Please add funds before you delete this account.");
       }
-    } catch (e) {
-      
+    } catch (e) { 
     alert(e.message);
-      throw e;
     }
     return true;
   }
