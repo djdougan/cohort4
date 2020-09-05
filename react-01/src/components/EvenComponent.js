@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import logo from '../logo.svg';
-import '../EvenComponent.css';
+import '../index.css';
 import * as serviceWorker from '../serviceWorker';
 
 class EvenComponent extends Component{
@@ -13,7 +13,7 @@ class EvenComponent extends Component{
     render(){
         return(
             <div>
-                <h1>EvenComponent value {this.props.counter}</h1>
+                <h1>EvenComponent value: <span class="blue">{this.props.counter}</span></h1>
             </div>
         )
     }
