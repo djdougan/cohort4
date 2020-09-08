@@ -107,51 +107,100 @@ class App extends Component {
         </header>
         <main>{this.state.selected}</main>
         <footer>
-          <div>
+          <div className="grid-2">
             <div>
-              <address>
-                Written by
-                <a href="mailto:ddougan@ddougan.com">Douglas Dougan</a>
-                .<br />
-                Visit me at:
-                <br />
-                ddougan.com
-                <br />
-                Calgary, Alberta
-                <br />
-                Canada
-              </address>
+              <h3>Contact Douglas Dougan</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/djdougan/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Douglas's LinkedIn Account">
+                    <i className="fa fa-linkedin hover-opacity"></i>linkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/djdougan/cohort4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Douglas's GitHub Account">
+                    <i className="fa fa-facebook-official hover-opacity"></i>
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/ddougan.CIS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Douglas's Facebook Account">
+                    <i className="fa fa-facebook-official hover-opacity"></i>
+                    facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/djdougan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Douglas's twitter Account">
+                    <i className="fa fa-twitter hover-opacity"></i>twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://ddougan.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="ddougan.com Web Site">
+                    <i className="fa fa-globe hover-opacity"></i>ddougan.com
+                  </a>
+                </li>
+              </ul>
             </div>
             <div>
-              <address>
-                Written by
-                <a href="mailto:ddougan@ddougan.com">Douglas Dougan</a>
-                .<br />
-                Visit me at:
-                <br />
-                ddougan.com
-                <br />
-                Calgary, Alberta
-                <br />
-                Canada
-              </address>
-            </div>
-            <div>
-              <address>
-                Written by:
-                <a href="mailto:ddougan@ddougan.com">Douglas Dougan</a>
-                .<br />
-                Phone:
-                <a href="tel:+14035856207">+1-(403)-585-6207</a>
-                <br />
-                <br /> Visit me at:
-                <br />
-                ddougan.com
-                <br />
-                Calgary, Alberta
-                <br />
-                Canada
-              </address>
+              <h3>Contact InceptionU(EvolveU)</h3>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/inceptionu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="InceptionU LinkedIn Account">
+                    <i className="fa fa-linkedin hover-opacity"></i>linkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/inceptionu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="InceptionU Facebook account">
+                    <i className="fa fa-facebook-official hover-opacity"></i>
+                    facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/_InceptionU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="InceptionU Twitter account">
+                    <i className="fa fa-twitter hover-opacity"></i>twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.inceptionu.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="InceptionU Web Site">
+                    <i className="fa fa-globe hover-opacity"></i>inceptionu.com
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </footer>

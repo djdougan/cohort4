@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../App.css";
 import { AppContext } from "../AppContext";
 
+import logo from '../../images/logo.svg';
 class Home extends Component {
   constructor() {
     super();
@@ -16,32 +17,19 @@ class Home extends Component {
   };
   render() {
     return (
-      <div
-        className="container"
-        style={{
-          color: this.context.theme[this.context.state.theme].color1,
-          background: this.context.theme[this.context.state.theme].background1,
-        }}>
-        <div>{this.state.selected}</div>
-        <div>
-          <div
-            className="App-logo clockwise"
-            style={{
-              color: this.context.theme[this.context.state.theme].icon,
-            }}
-            alt="logo"></div>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Learn React
-          </a>
-        </div>
-      </div>
+      <div>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a></div>
     );
   }
 }

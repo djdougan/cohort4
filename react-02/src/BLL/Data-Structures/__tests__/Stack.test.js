@@ -6,7 +6,6 @@ test("Test Stack Functions", () => {
   expect(stack.isEmpty()).toBeTruthy();
   stack.push(1);
   expect(stack.size()).toBe(1);
-  expect(stack.isEmpty()).not.toBeTruthy();
   stack.push(2, 3, 4);
   expect(stack.size()).toBe(4);
   stack.push([5, 6, 7]);

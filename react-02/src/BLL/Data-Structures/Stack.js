@@ -2,9 +2,6 @@
 import Collection from "./Collection.js";
 
 class Stack extends Collection {
-  // constructor() {
-  //   super();
-  // }
   ///This adds a new item (or several items) to the top of the stack.
   push(element) {
     let args = Array.from(arguments);
@@ -12,7 +9,7 @@ class Stack extends Collection {
       args.forEach((el) => {
         if (Array.isArray(el)) {
           el.forEach((sub) => {
-            this.collection.push(sub);
+            this.collection.unshift(sub);
           });
         } else {
           this.collection.unshift(el);
@@ -22,10 +19,10 @@ class Stack extends Collection {
   }
 
   pop() {
-    return this.collection.pop();
+    return this.collection.shift();
   }
   peek() {
-    return this.collection[this.collection.length - 1];
+    return this.collection[0];
   }
 }
 export { Stack as default };

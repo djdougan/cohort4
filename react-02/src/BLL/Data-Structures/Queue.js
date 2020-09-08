@@ -9,20 +9,20 @@ class Queue extends Collection {
       args.forEach((el) => {
         if (Array.isArray(el)) {
           el.forEach((sub) => {
-            this.collection.push(sub);
+            this.collection.unshift(sub);
           });
         } else {
-          this.collection.push(el);
+          this.collection.unshift(el);
         }
       });
     }
   }
 
   dequeue() {
-    return this.collection.shift();
+    return this.collection.pop();
   }
   peek() {
-    return this.collection[0];
+    return this.collection[this.size()-1];
   }
 }
 export { Queue as default };
