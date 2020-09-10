@@ -17,7 +17,7 @@
         "@babel/cli": "^7.0.0",
         "@babel/preset-env": "^7.0.0",
         "jest": "^24.9.0",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^2.6.1",
         "whatwg-fetch": "^3.0.0"
     },
     "dependencies": {
