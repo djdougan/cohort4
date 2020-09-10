@@ -51,7 +51,7 @@ def add():
 	return jsonify({}), 200
 
 
-@app.route("/delete", methods = ['POST'])
+@app.route("/delete", methods=['POST'])
 def delete():
 	global data
 
