@@ -15,7 +15,7 @@ class Account {
 
   deposit(amount) {
     try {
-      amount = parseFloat(amount)
+      amount = parseFloat(amount);
       if (amount > 0) {
         if (amount > 0) {
           this.balance += amount;
@@ -54,7 +54,6 @@ class Account {
   }
 
   getAccountDetails() {
-
     return JSON.stringify(this);
   }
   setAccountName(value) {
@@ -86,49 +85,47 @@ class AccountController {
         throw new Error(`Account not created.`);
       }
     } catch (error) {
-      throw error
+      throw error;
     }
     return account;
   }
 
   deposit(amount, accountNumber) {
-    try{
+    try {
       amount = parseFloat(amount);
       this.accounts.forEach((acc, i) => {
-      if (acc.getAccountNumber() === accountNumber) {
-      let prevBalance = acc.getBalance();
-       acc.deposit(amount);
-       if (acc.getBalance() == prevBalance){
-         throw new Error("Deposit failed.")
-       }
-      }
-    });
-    }catch(error){
-      throw error
+        if (acc.getAccountNumber() === accountNumber) {
+          let prevBalance = acc.getBalance();
+          acc.deposit(amount);
+          if (acc.getBalance() < prevBalance) {
+            throw new Error("Deposit failed, Insufficient Funds");
+          }
+        }
+      });
+    } catch (error) {
+      throw error;
     }
     return amount;
   }
 
   withdrawal(amount, accountNumber) {
-        try {
-        amount = parseFloat(amount);
-          this.accounts.forEach((acc, i) => {
-            if (acc.getAccountNumber() === accountNumber) {
-              let prevBalance = acc.getBalance();
-              acc.withdrawal(amount);
-              if (acc.getBalance() == prevBalance) {
-                throw new Error("Withdrawal failed.");
-              }
-            }
-          });
-        } catch (error) {
-          throw error;
+    try {
+      amount = parseFloat(amount);
+      this.accounts.forEach((acc, i) => {
+        if (acc.getAccountNumber() === accountNumber) {
+          if (acc.getBalance() < amount) {
+            throw new Error("Withdrawal failed, Insufficient Funds");
+          }
+          acc.withdrawal(amount);
         }
-        return amount
+      });
+    } catch (error) {
+      throw error;
+    }
+    return amount;
   }
 
   removeAccount(accountNumber) {
-  
     let results = {};
     try {
       let acc = this.accounts.find(
@@ -148,7 +145,7 @@ class AccountController {
         throw new Error("account not found");
       }
     } catch (error) {
-      throw error
+      throw error;
     }
     return results;
   }
@@ -181,36 +178,25 @@ class AccountController {
   }
 
   getHighestValuedAccount() {
-    let result;
-    try {
-      if (this.accounts) {
+    let result = { accountName: "", balance: 0, accountNumber: "" };
+      if (this.accounts.length > 0) {
         this.accounts.sort(function (a, b) {
           return b.getBalance() - a.getBalance();
         });
-        result = this.accounts[0].getAccountDetails();
-      } else {
-        throw new Error(`accounts not found`);
+        result = JSON.parse(this.accounts[0].getAccountDetails());
       }
-    } catch (error) {
-      throw error;
-    }
+     
     return result;
   }
 
   getLowestValuedAccount() {
-    let result;
-    try {
-      if (this.accounts) {
+    let result = { accountName: "", balance: 0, accountNumber: "" };
+      if (this.accounts.length > 0) {
         this.accounts.sort(function (a, b) {
           return a.getBalance() - b.getBalance();
         });
-        result = this.accounts[0].getAccountDetails();
-      } else {
-        throw new Error(`accounts not found`);
+        result = JSON.parse(this.accounts[0].getAccountDetails());
       }
-    } catch (error) {
-      throw error;
-    }
     return result;
   }
 

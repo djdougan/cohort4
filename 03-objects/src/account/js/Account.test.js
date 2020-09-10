@@ -35,10 +35,10 @@ test("Testing AccountController", () => {
   accCtrl.renameAccount(xmas.getAccountNumber(), "E");
   expect(xmas.getAccountName()).toBe("E");
   expect(accCtrl.getAccountTotal()).toBe(10);
-  expect(accCtrl.getHighestValuedAccount()).toEqual(
+  expect(JSON.stringify(accCtrl.getHighestValuedAccount())).toEqual(
     '{"accountName":"E","balance":4,"accountNumber":4}'
   );
-  expect(accCtrl.getLowestValuedAccount()).toEqual(
+  expect(JSON.stringify(accCtrl.getLowestValuedAccount())).toEqual(
     '{"accountName":"A","balance":1,"accountNumber":1}'
   );
   expect(accCtrl.getAllAccounts()).toEqual([
