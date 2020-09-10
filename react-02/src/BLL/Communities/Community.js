@@ -9,29 +9,14 @@ import City from "./City.js";
  * Last modified  : 2020-04-02, ‏‎12:27:04
  *
  * @class Community
- * @classdesc
  */
 
 class Community {
-  /**
-   * jsDoc
-   * @description
-   * @name constructor
-   */
   constructor() {
     this.communities = [];
   }
 
-  /**
-   * @description creates a city object
-   * @name createCity
-   * @param {string} name -- Name of the city.
-   * @param {number} latitude -- the angle, which ranges from 0° at the Equator to 90° (North(+) or South(-)) at the poles.
-   * @param {number} longitude -- the angle east or west from the Prime Meridian, ranging from 0° at the Prime Meridian to +180° eastward and −180° westward.
-   * @param {number} population -- The latest known population
-   * @returns {City} city object
-   */
-  createCity(name, latitude, longitude, population, key = null) {
+  createCity(key, name, latitude, longitude, population) {
     // get largest
     let city; // city object to be returned
     try {
@@ -42,7 +27,7 @@ class Community {
           ).key;
           key = maxKey + 1;
         } else {
-          key = 0;
+          key = 1;
         }
       }
       // check if latitude is a number
@@ -68,8 +53,8 @@ class Community {
       longitude = isValidNumber(longitude, "longitude", -180, 180);
 
       // check if population is a number
-      population = isValidNumber(population, "population", 0, 100000000);
-      city = new City(name, latitude, longitude, population, key);
+      population = isValidNumber(population, "population", 0, Number.MAX_VALUE);
+      city = new City(key, name, latitude, longitude, population);
       this.communities.push(city);
     } catch (err) {
       throw err;
@@ -78,12 +63,6 @@ class Community {
     return city;
   }
 
-  /**
-   * @description deletes a city
-   * @name getCity
-   * @param {number} key -- key of the city.
-   * @returns {City} city that was removed
-   */
   getCity(key) {
     let city;
     try {
@@ -107,12 +86,6 @@ class Community {
     }
     return city;
   }
-  /**
-   * @description deletes a city
-   * @name deleteCity
-   * @param {number} key -- key of the city.
-   * @returns {City} city that was removed
-   */
   deleteCity(key) {
     let city;
     try {
@@ -138,72 +111,6 @@ class Community {
     return city;
   }
 
-  /**
-   * @description returns the Hemisphere based on the value latitude
-   * @name whichSphereNS
-   * @param {number} key -- name of city.
-   * @returns {string} "Northern/Southern Hemisphere"
-   */
-  whichSphereNS(key) {
-    let result;
-    let city;
-    try {
-      city = this.communities.find((c) => {
-        return c.key === key;
-      });
-
-      // if city doesn't exit throw error
-      if (!city) {
-        throw new Error(`City ${key} does not exits.`);
-      } else {
-        if (city.latitude > 0) {
-          result = "Northern Hemisphere";
-        } else {
-          result = "Southern Hemisphere";
-        }
-      }
-    } catch (err) {
-      throw err;
-    }
-
-    return result;
-  }
-  /**
-   * @description returns the Hemisphere based on the value longitude
-   * @name whichSphereEW
-   * @param {number} key -- name of city.
-   * @returns {string} "Western/Eastern Hemisphere"
-   */
-  whichSphereEW(key) {
-    let result;
-    let city;
-    try {
-      city = this.communities.find((c) => {
-        return c.key === key;
-      });
-
-      // if city doesn't exit throw error
-      if (!city) {
-        throw new Error(`City with ${key} does not exits.`);
-      } else {
-        if (city.longitude > 0) {
-          result = "Eastern Hemisphere";
-        } else {
-          result = "Western Hemisphere";
-        }
-      }
-    } catch (err) {
-      throw err;
-    }
-
-    return result;
-  }
-
-  /**
-   * @description get the most northern city
-   * @name getMostNorthern
-   * @returns {{City}} most northern city object
-   */
   getMostNorthern() {
     let highestLatitude = Math.max.apply(
       Math,
@@ -214,11 +121,6 @@ class Community {
     return this.communities.find((city) => city.latitude === highestLatitude);
   }
 
-  /**
-   * @description get most southern city based on latitude
-   * @name getMostSouthern
-   * @returns {{City}} most southern city object
-   */
   getMostSouthern() {
     let lowestLatitude = Math.min.apply(
       Math,
@@ -228,13 +130,8 @@ class Community {
     );
     return this.communities.find((city) => city.latitude === lowestLatitude);
   }
-  /**
-   * @description get the total population of entire community
-   * @name getPopulation
-   * @returns {number} population of all cities in the community
-   */
+
   getPopulation() {
-    // //total for all
     let results = 0;
     let length = this.communities.length;
     let index;
@@ -252,11 +149,11 @@ function isValidNumber(value, fieldName, min, max) {
       value = parseFloat(value);
     }
   } else {
-    throw new Error(`${fieldName} ${value} is not a number`);
+    throw new Error(`${fieldName} is not a number`);
   }
 
   // check if value is out of range
-  if (value <= min || value >= max) {
+  if (value < min || value > max) {
     throw new Error(
       `${value} is out of range, value must be between ${min} and ${max} `
     );

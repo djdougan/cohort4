@@ -1,279 +1,205 @@
-/**
- * Copyright (c) 2020
- *
- * @summary Working with objects
- * @author Douglas J Dougan djdougan@gmail.com
- * @summary Competency 100D exercise at https://www.evolveu.ca/
- * Created at     : 2020-03-15 18:00:00
- * Last modified  : 2020-04-10 19:26:57
- *
- * @name Account
- * @class
- */
 class Account {
-  /**
-   * jsDoc
-   * @description
-   * @name constructor
-   * @param {number} account key
-   * @param {string} accName -- name of the account.
-   * @param {number} initialBalance -- amount deposited when account was created.
-   */
-  constructor(name, initialBalance, key = null) {
+  constructor(accName, amount, accountNumber) {
     try {
-      if (this.isValidNumber(initialBalance)) {
-        this.accountName = name;
-        this.balance = initialBalance;
-        this.key = key;
+      if (amount >= 0) {
+        this.accountName = accName;
+        this.balance = parseFloat(amount);
+        this.accountNumber = accountNumber;
       } else {
-        throw new Error(`The value ${initialBalance} is not a valid number.`);
+        throw new Error(`The value ${amount} is not a valid number.`);
       }
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw error;
     }
   }
 
-  /**
-   * @description deposits amount to account
-   * @name deposit
-   * @param {number} amount -- amount to be deposit
-   */
   deposit(amount) {
     try {
-      if (this.isValidNumber(amount)) {
+      amount = parseFloat(amount);
+      if (amount > 0) {
         if (amount > 0) {
           this.balance += amount;
         }
       } else {
-        throw Error(`The value ${amount} is not a valid number.`);
+        throw new Error(`The value ${amount} is not a valid number.`);
       }
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw error;
     }
   }
-  /**
-   * @description withdraws amount from account
-   * @name withdraw
-   * @param {number} amount -- amount to withdraw from account.
-   */
   withdrawal(amount) {
     try {
-      if (this.isValidNumber(amount)) {
+      amount = parseFloat(amount);
+      amount = Math.abs(amount);
+      if (amount > this.balance) {
+        throw new Error(`You can't withdrawal more than your balance.`);
+      }
+      if (amount > 0) {
         this.balance -= amount;
       } else {
         throw new Error(`The value ${amount} is not a valid number.`);
       }
-    } catch (err) {
-      throw err;
+    } catch (error) {
+      throw error;
     }
+    return amount;
   }
-  /**
-   * @description gets account balance
-   * @name getBalance
-   * @return {number} -- return a account balance.
-   */
-  get getBalance() {
+
+  getBalance() {
     return this.balance;
   }
 
-  /**
-   * @description gets account name
-   * @name getAccountName
-   * @return {string} -- return a account name.
-   */
-  get getAccountName() {
+  getAccountName() {
     return this.accountName;
   }
 
-  /**
-   * @description gets account name
-   * @name setAccountName
-   * @return {string} -- return a account name.
-   */
-  set setAccountName(value) {
+  getAccountDetails() {
+    return JSON.stringify(this);
+  }
+  setAccountName(value) {
     this.accountName = value;
   }
-  /**
-   * @description gets account balance
-   * @name getAccountNumber
-   * @return {string} -- return a account number.
-   */
-  get getAccountNumber() {
-    return this.key;
-  }
-
-  toString() {
-    return `{'key': '${this.key}', 'accountName': '${this.accountName}','balance': '${this.balance}'}`;
-  }
-  isValidNumber(number) {
-    let result = true;
-    if (!isNaN(number)) {
-      result = true;
-    } else {
-      result = false;
-    }
-    return result;
+  getAccountNumber() {
+    return this.accountNumber;
   }
 }
-/******************************************************************************************************* */
-/**
- * Copyright (c) 2020
- *
- * @summary Working with objects
- * @author Douglas J Dougan djdougan@gmail.com
- * @summary Competency 100D exercise at https://www.evolveu.ca/
- * Created at     : 2020-03-17 12:15:00
- * Last modified  : 2020-05-10 16:52:38
- *
- * @name AccountController
- * @class
- */
+
 class AccountController {
-  /**
-   * @description AccountController constructor
-   * @name constructor
-   */
   constructor() {
     this.accounts = [];
   }
 
-  /**
-   * @description creates a account object
-   * @param {string} key -- unique id of account.
-   * @name createAccount
-   * @param {number} key
-   * @param {string} name -- name of account.
-   * @param {number} initialBalance -- amount deposited at time of account creation.
-   * @return {{ key:string, accountName: string, balance:number}}  -- return a account object.
-   */
-  createAccount(name, initialBalance, key = null) {
-    if (key === null) {
-      if (this.accounts.length >= 1) {
-        var maxKey = this.accounts.reduce((a, b) => (a.key > b.key ? a : b))
-          .key;
-        key = maxKey + 1;
-      } else {
-        key = 1;
-      }
-    }
+  createAccount(name, amount) {
+    let accountNumber = 0;
+    let account;
     try {
-      let account = new Account(name, initialBalance, key);
+      accountNumber =
+        this.accounts.reduce(
+          (acc, a) => (acc = acc > a.accountNumber ? acc : a.accountNumber),
+          0
+        ) + 1;
+      account = new Account(name, amount, accountNumber);
       if (account) {
         this.accounts.push(account);
       } else {
-        throw new Error("account not created");
+        throw new Error(`Account not created.`);
       }
-    } catch (err) {
-      throw err.message;
+    } catch (error) {
+      throw error;
     }
+    return account;
   }
 
-  /**
-   * @description removes Accounts
-   * @name removeAccount
-   * @param {string} accountName -- name of account.
-   * @return {{ accountName: string, balance:number, key:string}}  -- return a account object.
-   */
-  getAccount(key) {
-    let results;
+  deposit(amount, accountNumber) {
     try {
-      let acc = this.accounts.find((x) => x.getAccountNumber === key);
+      amount = parseFloat(amount);
+      this.accounts.forEach((acc, i) => {
+        if (acc.getAccountNumber() === accountNumber) {
+          let prevBalance = acc.getBalance();
+          acc.deposit(amount);
+          if (acc.getBalance() < prevBalance) {
+            throw new Error("Deposit failed, Insufficient Funds");
+          }
+        }
+      });
+    } catch (error) {
+      throw error;
+    }
+    return amount;
+  }
+
+  withdrawal(amount, accountNumber) {
+    try {
+      amount = parseFloat(amount);
+      this.accounts.forEach((acc, i) => {
+        if (acc.getAccountNumber() === accountNumber) {
+          if (acc.getBalance() < amount) {
+            throw new Error("Withdrawal failed, Insufficient Funds");
+          }
+          acc.withdrawal(amount);
+        }
+      });
+    } catch (error) {
+      throw error;
+    }
+    return amount;
+  }
+
+  removeAccount(accountNumber) {
+    let results = {};
+    try {
+      let acc = this.accounts.find(
+        (x) => x.getAccountNumber() === parseInt(accountNumber)
+      );
       let index = this.accounts.indexOf(acc);
       if (this.accounts[index]) {
-        results = this.accounts[index];
+        if (acc.getBalance() > 0) {
+          throw new Error("Accounts with balances cannot be deleted");
+        }
+        if (acc.getBalance() < 0) {
+          throw new Error("Accounts with overdrafts cannot be deleted");
+        } else {
+          results = this.accounts.splice(index, 1);
+        }
       } else {
         throw new Error("account not found");
       }
-    } catch (err) {
-      throw err.message;
-    }
-    return results;
-  }
-  /**
-   * @description removes Accounts
-   * @name removeAccount
-   * @param {string} accountName -- name of account.
-   * @return {{ accountName: string, balance:number, key:string}}  -- return a account object.
-   */
-  removeAccount(key) {
-    let results;
-    try {
-      let acc = this.accounts.find((x) => x.getAccountNumber === key);
-      let index = this.accounts.indexOf(acc);
-      if (this.accounts[index]) {
-        results = this.accounts.splice(index, 1);
-      } else {
-        throw new Error("account not found");
-      }
-    } catch (err) {
-      throw err.message;
+    } catch (error) {
+      throw error;
     }
     return results;
   }
 
-  /**
-   * @description gets the number of accounts
-   * @name getAccountTotal
-   * @return {number}  -- returns the number of accounts owned by client.
-   */
+  renameAccount(accountNumber, newAccountName) {
+    let result;
+    try {
+      let index = this.accounts.indexOf(
+        this.accounts.find((x) => x.getAccountNumber() === accountNumber)
+      );
+      if (this.accounts[index]) {
+        this.accounts[index].setAccountName(newAccountName);
+        result = this.accounts[index].getAccountDetails();
+      } else {
+        throw new Error("account not found");
+      }
+    } catch (error) {
+      throw error;
+    }
+
+    return result;
+  }
+
   getAccountTotal() {
     let result = 0;
-    for (let i = 0; i < this.accounts.length; i++) {
-      result += this.accounts[i]["balance"];
-    }
-
+    this.accounts.forEach((element) => {
+      result += element.getBalance();
+    });
     return result;
   }
 
-  /**
-   * @description get highest valued account
-   * @name getHighestValuedAccount
-   * @return {{ accountName: string, balance:number, key:string}}  -- return a account object.
-   */
   getHighestValuedAccount() {
-    let result;
-    try {
-      if (this.accounts) {
+    let result = { accountName: "", balance: 0, accountNumber: "" };
+      if (this.accounts.length > 0) {
         this.accounts.sort(function (a, b) {
-          return b.getBalance - a.getBalance;
+          return b.getBalance() - a.getBalance();
         });
-        result = this.accounts[0];
-      } else {
-        throw new Error(`accounts not found`);
+        result = JSON.parse(this.accounts[0].getAccountDetails());
       }
-    } catch (err) {
-      throw err.message;
-    }
+     
     return result;
   }
 
-  /**
-   * @description get lowest valued account
-   * @name getLowestValuedAccount
-   * @return {{ accountName: string, balance:number, key:string}}  -- return a account object.
-   */
   getLowestValuedAccount() {
-    let result;
-    try {
-      if (this.accounts) {
+    let result = { accountName: "", balance: 0, accountNumber: "" };
+      if (this.accounts.length > 0) {
         this.accounts.sort(function (a, b) {
-          return a.getBalance - b.getBalance;
+          return a.getBalance() - b.getBalance();
         });
-        result = this.accounts[0];
-      } else {
-        throw new Error(`accounts not found`);
+        result = JSON.parse(this.accounts[0].getAccountDetails());
       }
-    } catch (err) {
-      throw err.message;
-    }
     return result;
   }
 
-  /**
-   * @description get all accounts
-   * @name getAllAccounts
-   * @return {{ accountName: string, balance:number, key:string}[]}  -- array of accounts
-   */
   getAllAccounts() {
     return this.accounts;
   }

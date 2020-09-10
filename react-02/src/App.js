@@ -7,6 +7,7 @@ import DoublyLinkedList from "./components/DoublyLinkedList/DoublyLinkedListApp"
 import DataStructuresApp from "./components/DataStructures/DataStructuresApp";
 import Home from "./components/Home/Home";
 import Theme from "./components/Theme/Theme";
+import ErrorComponent from "./components/ErrorComponent/ErrorComponent";
 import "./App.css";
 class App extends Component {
   constructor() {
@@ -204,6 +205,7 @@ class App extends Component {
             </div>
           </div>
         </footer>
+        <ErrorComponent/>
       </div>
     );
   }

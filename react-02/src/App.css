@@ -16,14 +16,13 @@ a:hover {
   text-decoration: 2px underline #e07a5f solid;
 }
 
-
 header,
 main,
 footer {
   width: 960px;
   margin: 10px auto;
   background-color: #c44536;
-  color:#f2cc8f;
+  color: #f2cc8f;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -70,16 +69,15 @@ footer a i {
 }
 
 .App-header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-content: center;
-  justify-content: flex-start space-around;
   min-height: 10vh;
 }
 
 .App-header div {
-  margin: 5px 20px;
+  margin: 5px auto;
+  align-self: center;
 }
 
 /* App Icons and logos */
@@ -105,7 +103,8 @@ footer a i {
 
 .home-icon {
   transform: scale(2);
-  -webkit-mask: url(../../react-02/src/images/Leonardo-da-Vinci.svg) no-repeat center;
+  -webkit-mask: url(../../react-02/src/images/Leonardo-da-Vinci.svg) no-repeat
+    center;
   mask: url(../../react-02/src/images/Leonardo-da-Vinci.svg) no-repeat center;
   -webkit-transform: scale(2);
   -moz-transform: scale(2);
@@ -205,7 +204,6 @@ footer a i {
   }
 }
 
-
 @keyframes App-logo-clock-spin {
   from {
     transform: rotate(0deg);
@@ -252,7 +250,8 @@ footer a i {
   }
 }
 
-@keyframes Tick-Tac-Toe {}
+@keyframes Tick-Tac-Toe {
+}
 
 .city-card,
 .benchmark {
@@ -396,7 +395,7 @@ footer a i {
   width: 600px;
 }
 
-.game-board>div {
+.game-board > div {
   display: inline;
   margin: 0 auto;
 }
@@ -605,4 +604,45 @@ footer ul {
 
 footer div {
   border: none;
+}
+.overlay:before,
+.overlay:after {
+  content: "";
+  display: table;
+}
+
+.overlay:after {
+  clear: both;
+}
+
+.overlay {
+  *zoom: 1;
+}
+.overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(38, 50, 58, 0.478);
+}
+.error {
+  position: absolute;
+  padding: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: bolder;
+  background-color: #f03b27;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.error button {
+  position: absolute;
+  right: 10px;
+  bottom:10px;
 }

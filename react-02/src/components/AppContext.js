@@ -25,9 +25,9 @@ export class ContextProvider extends Component {
     // accounts
     accounts: [],
     total: 0,
-    highestAccount: { accountName: "", balance: 0, key: "" },
-    lowestAccount: { accountName: "", balance: 0, key: "" },
-    newAccount: { accountName: "", balance: 0, key: "" },
+    highestAccount: { accountName: "", balance: 0, accountNumber: "" },
+    lowestAccount: { accountName: "", balance: 0, accountNumber: "" },
+    newAccount: { accountName: "", balance: 0, accountNumber: "" },
     // cities and community
     communities: [],
     northern: {},
@@ -44,6 +44,7 @@ export class ContextProvider extends Component {
     stepNumber: 0,
     xIsNext: true,
     theme: "default",
+    error: "",
   };
   // default #283D3B #197278 #EDDDD4 #c44536 #772E25
   // colorSet1 #F4F1DE #E07A5F #3D405B #81B29A #F2CC8F

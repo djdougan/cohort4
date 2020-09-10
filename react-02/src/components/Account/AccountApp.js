@@ -14,58 +14,71 @@ class AccountApp extends Component {
   static contextType = AppContext;
 
   createAccount = (e) => {
-    this.context.accountCtrl.createAccount(
-      this.context.state.newAccount.accountName,
-      this.context.state.newAccount.balance
-    );
-    console.log(
-      "createAccount",
-      this.context.accountCtrl.getHighestValuedAccount(),
-      this.context.state.highestAccount
-    );
-    this.context.handleStateChange([
-      { state: "accounts", newState: this.context.accountCtrl.accounts },
-      {
-        state: "highestAccount",
-        newState: this.context.accountCtrl.getHighestValuedAccount(),
-      },
-      {
-        state: "lowestAccount",
-        newState: this.context.accountCtrl.getLowestValuedAccount(),
-      },
-      {
-        state: "total",
-        newState: this.context.accountCtrl.getAccountTotal(),
-      },
-    ]);
+    try {
+      this.context.accountCtrl.createAccount(
+        this.context.state.newAccount.accountName,
+        this.context.state.newAccount.balance
+      );
+      this.context.handleStateChange([
+        { state: "accounts", newState: this.context.accountCtrl.accounts },
+        {
+          state: "highestAccount",
+          newState: this.context.accountCtrl.getHighestValuedAccount(),
+        },
+        {
+          state: "lowestAccount",
+          newState: this.context.accountCtrl.getLowestValuedAccount(),
+        },
+        {
+          state: "total",
+          newState: this.context.accountCtrl.getAccountTotal(),
+        },
+      ]);
+    } catch (err) {
+      this.context.handleStateChange([
+        {
+          state: "error",
+          newState: err,
+        },
+      ]);
+    }
   };
 
   handleDelete = (key) => {
-    this.context.accountCtrl.removeAccount(key);
-    console.log(
-      "handleDelete",
-      this.context.accountCtrl.getHighestValuedAccount(),
-      this.context.state.highestAccount
-    );
-    this.context.handleStateChange([
-      { state: "accounts", newState: this.context.accountCtrl.accounts },
-      {
-        state: "highestAccount",
-        newState: this.context.accountCtrl.getHighestValuedAccount()
-          ? this.context.accountCtrl.getHighestValuedAccount()
-          : { accountName: "", balance: 0, key: "" },
-      },
-      {
-        state: "lowestAccount",
-        newState: this.context.accountCtrl.getLowestValuedAccount()
-          ? this.context.accountCtrl.getLowestValuedAccount()
-          : { accountName: "", balance: 0, key: "" },
-      },
-      {
-        state: "total",
-        newState: this.context.accountCtrl.getAccountTotal(),
-      },
-    ]);
+    try {
+      this.context.accountCtrl.removeAccount(key);
+      console.log(
+        "handleDelete",
+        this.context.accountCtrl.getHighestValuedAccount(),
+        this.context.state.highestAccount
+      );
+      this.context.handleStateChange([
+        { state: "accounts", newState: this.context.accountCtrl.accounts },
+        {
+          state: "highestAccount",
+          newState: this.context.accountCtrl.getHighestValuedAccount()
+            ? this.context.accountCtrl.getHighestValuedAccount()
+            : { accountName: "", balance: 0, accountNumber: "" },
+        },
+        {
+          state: "lowestAccount",
+          newState: this.context.accountCtrl.getLowestValuedAccount()
+            ? this.context.accountCtrl.getLowestValuedAccount()
+            : { accountName: "", balance: 0, accountNumber: "" },
+        },
+        {
+          state: "total",
+          newState: this.context.accountCtrl.getAccountTotal(),
+        },
+      ]);
+    } catch (err) {
+      this.context.handleStateChange([
+        {
+          state: "error",
+          newState: err,
+        },
+      ]);
+    }
   };
 
   render() {

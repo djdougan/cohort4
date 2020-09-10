@@ -31,10 +31,16 @@ class AccountStats extends Component {
             }}>
             Largest account:
           </h2>
-          <p>
-            <span>{this.context.state.highestAccount.accountName}</span>
-            <span>{this.context.state.highestAccount.balance}</span>
-          </p>
+          <div>
+            <p>
+              Account Name: <span>{this.context.state.highestAccount.accountName}</span>
+            </p>
+          </div>
+          <div>
+            <p>
+              Amount: <span>{this.context.state.highestAccount.balance}</span>
+            </p>
+          </div>
         </div>
         <div>
           <h2
@@ -43,10 +49,12 @@ class AccountStats extends Component {
             }}>
             Smallest account:
           </h2>
-          <p>
-            <span>{this.context.state.lowestAccount.accountName}</span>
-            <span>{this.context.state.lowestAccount.balance}</span>
-          </p>
+          <div><p>
+            Account Name: <span>{this.context.state.lowestAccount.accountName}</span></p>
+          </div>
+          <div><p>
+            Amount: <span>{this.context.state.lowestAccount.balance}</span></p>
+          </div>
         </div>
       </div>
     );

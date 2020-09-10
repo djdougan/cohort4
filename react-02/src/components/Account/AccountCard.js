@@ -15,13 +15,72 @@ class AccountCard extends Component {
   }
   static contextType = AppContext;
   handleDeposit = (e) => {
-    this.props.account.balance += parseInt(this.state.amount);
+    try{
+    // this.props.account.balance += parseInt(this.state.amount);
+    this.context.accountCtrl.deposit(this.state.amount, this.props.account.accountNumber);
+     this.context.handleStateChange([
+       {
+         state: "highestAccount",
+         newState: this.context.accountCtrl.getHighestValuedAccount()
+           ? this.context.accountCtrl.getHighestValuedAccount()
+           : { accountName: "", balance: 0, accountNumber: "" },
+       },
+       {
+         state: "lowestAccount",
+         newState: this.context.accountCtrl.getLowestValuedAccount()
+           ? this.context.accountCtrl.getLowestValuedAccount()
+           : { accountName: "", balance: 0, accountNumber: "" },
+       },
+       {
+         state: "total",
+         newState: this.context.accountCtrl.getAccountTotal(),
+       },
+     ]);
     this.setState({ balance: this.state.amount });
+    }catch(err){
+       this.context.handleStateChange([ 
+         {
+           state: "error",
+           newState: err,
+         },
+       ]);
+    }
   };
 
   handleWithdrawal = (e) => {
-    this.props.account.balance -= parseInt(this.state.amount);
+    // this.props.account.balance -= parseInt(this.state.amount);
+    try{
+    this.context.accountCtrl.withdrawal(
+      this.state.amount,
+      this.props.account.accountNumber
+    );
+     this.context.handleStateChange([
+       {
+         state: "highestAccount",
+         newState: this.context.accountCtrl.getHighestValuedAccount()
+           ? this.context.accountCtrl.getHighestValuedAccount()
+           : { accountName: "", balance: 0, accountNumber: "" },
+       },
+       {
+         state: "lowestAccount",
+         newState: this.context.accountCtrl.getLowestValuedAccount()
+           ? this.context.accountCtrl.getLowestValuedAccount()
+           : { accountName: "", balance: 0, accountNumber: "" },
+       },
+       {
+         state: "total",
+         newState: this.context.accountCtrl.getAccountTotal(),
+       },
+     ]);
     this.setState({ balance: this.state.amount });
+     }catch(err){
+       this.context.handleStateChange([ 
+         {
+           state: "error",
+           newState: err,
+         },
+       ]);
+    }
   };
 
   handleChange(e) {
@@ -44,7 +103,7 @@ class AccountCard extends Component {
               Account key:
             </h3>
             <p>
-              <span className="key">{this.props.account.key}</span>
+              <span className="key">{this.props.account.accountNumber}</span>
             </p>
           </div>
           <div>
@@ -72,7 +131,7 @@ class AccountCard extends Component {
           <div className="top-right">
             <button
               className="btn"
-              onClick={() => this.props.handleDelete(this.props.account.key)}>
+              onClick={() => this.props.handleDelete(this.props.account.accountNumber)}>
               Delete
             </button>
           </div>

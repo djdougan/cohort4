@@ -11,7 +11,7 @@ class AccountList extends Component {
     const accounts = this.props.accounts.map((account, i) => {
       return (
         <AccountCard
-          key={account.key}
+          key={account.accountNumber}
           account={account}
           handleDelete={this.props.handleDelete}
           handleDeposit={this.props.handleDeposit}
