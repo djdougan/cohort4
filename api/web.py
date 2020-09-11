@@ -7,11 +7,11 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import json
 
-data = {}
-
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
 CORS(app, supports_credentials=True)
+
+data = {}
 
 
 @app.route("/")
@@ -33,6 +33,7 @@ firstKeyType = None
 @app.route("/add", methods=['POST'])
 def add():
     global data, firstKeyType
+
     content = request.get_json()
 
     if 'key' not in content:

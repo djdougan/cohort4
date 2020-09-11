@@ -21,8 +21,8 @@ main,
 footer {
   width: 960px;
   margin: 10px auto;
-  background-color: #c44536;
-  color: #f2cc8f;
+  /* background-color: #c44536;
+  color: #f2cc8f; */
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -282,16 +282,19 @@ footer a i {
   border: #fdfeff 2px solid;
 }
 
+.theme-picker .theme.default {
+  background-color: #c44536;
+}
 .theme-picker .theme.red {
-  background-color: red;
+  background-color: #e07a5f;
 }
 
 .theme-picker .theme.blue {
-  background-color: blue;
+  background-color: #0d3b66;
 }
 
 .theme-picker .theme.high-contrast {
-  background-color: yellow;
+  background-color: #000000;
 }
 
 .btn {

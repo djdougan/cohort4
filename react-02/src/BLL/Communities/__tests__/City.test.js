@@ -4,21 +4,21 @@ import City from "../City";
 describe("Contains test for city constructor and show", () => {
   test("Test: Show output should be JSON", () => {
     const com = new Community();
-    let A = com.createCity(1, "A", 1, 1, 1);
+    let A = com.createCity("A", 1, 1, 1, 1);
     expect(A.show()).toEqual(
       '{"key":1,"name":"A","latitude":1,"longitude":1,"population":1}'
     );
 
-    let B = com.createCity(2, "B", 2, 2, 2);
+    let B = com.createCity("B", 2, 2, 2, 2);
     expect(B.show()).toEqual(
       '{"key":2,"name":"B","latitude":2,"longitude":2,"population":2}'
     );
 
-    let C = com.createCity(3, "C", "1", "1", "1");
+    let C = com.createCity("C", "1", "1", "1", 3);
     expect(C.show()).toEqual(
       '{"key":3,"name":"C","latitude":1,"longitude":1,"population":1}'
     );
-    let D = com.createCity(4, "D", "2", "2", "2");
+    let D = com.createCity("D", "2", "2", "2", 4);
     expect(D.show()).toEqual(
       '{"key":4,"name":"D","latitude":2,"longitude":2,"population":2}'
     );
@@ -35,13 +35,13 @@ describe("Contains test for city constructor and show", () => {
 
     expect(() => {
       // last 3 args should be numeric
-      let F = com.createCity(1, "2", "2", "2", "2");
+      let F = com.createCity("2", "2", "2", "2", 1);
       F.show();
     }).toThrowError();
 
     expect(() => {
       // last 3 items should be numbers
-      let F = com.createCity(1, "A", "B", "C", "D");
+      let F = com.createCity("A", "B", "C", "D", 1);
       F.show();
     }).toThrowError();
   });
@@ -51,8 +51,8 @@ describe("Contains test for moveIn", () => {
   // Test moveIn()
   test("Test: moveIn(1) should add to current population", () => {
     const com = new Community();
-    let A = com.createCity(1, "a", 1, 2, 1);
-    let B = com.createCity(2, "b", 2, 3, 2);
+    let A = com.createCity("a", 1, 2, 1, 1);
+    let B = com.createCity("b", 2, 3, 2, 2);
     expect(com.getPopulation()).toBe(3);
     A.movedIn(1);
     expect(com.getPopulation()).toBe(4);
@@ -62,8 +62,8 @@ describe("Contains test for moveIn", () => {
 
   test("Test: moveIn('1') should add to current population", () => {
     const com = new Community();
-    let A = com.createCity(1, "a", 1, 2, 1);
-    let B = com.createCity(2, "b", 2, 3, 2);
+    let A = com.createCity("a", 1, 2, 1, 1);
+    let B = com.createCity("b", 2, 3, 2, 2);
     A.movedIn("1");
     expect(com.getPopulation()).toBe(4);
     B.movedIn("2");
@@ -72,8 +72,8 @@ describe("Contains test for moveIn", () => {
 
   test("Test: moveIn('a') should add to current population", () => {
     const com = new Community();
-    let A = com.createCity(1, "a", 1, 2, 1);
-    let B = com.createCity(2, "b", 2, 3, 2);
+    let A = com.createCity("a", 1, 2, 1, 1);
+    let B = com.createCity("b", 2, 3, 2, 2);
     expect(() => {
       com.getPopulation();
       A.movedIn("a");
@@ -86,8 +86,8 @@ describe("Contains tests for moveOut", () => {
   // Test moveOut()
   test("Test: moveOut(5) should subtract to current population", () => {
     const com = new Community();
-    let A = com.createCity(1, "a", 1, 2, 10);
-    let B = com.createCity(2, "b", 2, 3, 5);
+    let A = com.createCity("a", 1, 2, 10, 1);
+    let B = com.createCity("b", 2, 3, 5, 2);
     A.movedOut(5);
     expect(com.getPopulation()).toBe(10);
     B.movedOut(4);
@@ -95,8 +95,8 @@ describe("Contains tests for moveOut", () => {
   });
   test("Test: moveOut('1') should add to current population", () => {
     const com = new Community();
-    let A = com.createCity(1, "a", 1, 2, 10);
-    let B = com.createCity(2, "b", 2, 3, 5);
+    let A = com.createCity("a", 1, 2, 10, 1);
+    let B = com.createCity("b", 2, 3, 5, 2);
     A.movedOut("5");
     expect(com.getPopulation()).toBe(10);
     B.movedOut("4");
@@ -105,8 +105,8 @@ describe("Contains tests for moveOut", () => {
 
   test("Test: moveOut('a') should add to current population", () => {
     const com = new Community();
-    let A = com.createCity(1, "a", 1, 2, 10);
-    let B = com.createCity(2, "b", 2, 3, 5);
+    let A = com.createCity("a", 1, 2, 10, 1);
+    let B = com.createCity("b", 2, 3, 5, 2);
     expect(() => {
       A.movedOut("a");
       com.getPopulation();
@@ -117,7 +117,7 @@ describe("Contains tests for moveOut", () => {
 describe("Contains test for city for moveIn", () => {
   test("should be 10", () => {
     const com = new Community();
-    let A = com.createCity(1, "A", 1, 1, 1);
+    let A = com.createCity("A", 1, 1, 1, 1);
     A.movedIn(2);
     expect(com.getPopulation()).toBe(3);
     A.movedIn(1);
@@ -128,7 +128,7 @@ describe("Contains test for city for moveIn", () => {
 describe("Contains test for city for moveOut", () => {
   test("should be 10", () => {
     const com = new Community();
-    let A = com.createCity(1, "A", 1, 1, 10);
+    let A = com.createCity("A", 1, 1, 10, 1);
     A.movedOut(2);
     expect(com.getPopulation()).toBe(8);
     A.movedOut(1);
@@ -141,27 +141,27 @@ describe("Contains a test for howBig()", () => {
   test("Test: howBig() City – a population > 100,000", () => {
     let com = new Community();
 
-    const A = com.createCity(1, "A", 1, 1, 100001);
+    const A = com.createCity("A", 1, 1, 100001, 1);
     expect(A.howBig()).toBe("City");
   });
   test("Test: howBig() Large town – a large town has a population of 20,000 to 100,000", () => {
     let com = new Community();
-    const A = com.createCity(1, "A", 1, 1, 90000);
+    const A = com.createCity("A", 1, 1, 90000, 1);
     expect(A.howBig()).toBe("Large Town");
   });
   test("Test: howBig() Town – a town has a population of 1,000 to 20,000", () => {
     let com = new Community();
-    const A = com.createCity(1, "A", 1, 1, 15000);
+    const A = com.createCity("A", 1, 1, 15000, 1);
     expect(A.howBig()).toBe("Town");
   });
   test("Test: howBig() Village – larger than a hamlet but smaller than a town", () => {
     let com = new Community();
-    const A = com.createCity(1, "A", 1, 1, 500);
+    const A = com.createCity("A", 1, 1, 500, 1);
     expect(A.howBig()).toBe("Village");
   });
   test("Test: howBig() Hamlet – population 1 - 100", () => {
     let com = new Community();
-    const A = com.createCity(1, "A", 1, 1, 50);
+    const A = com.createCity("A", 1, 1, 50, 1);
     expect(A.howBig()).toBe("Hamlet");
   });
 });

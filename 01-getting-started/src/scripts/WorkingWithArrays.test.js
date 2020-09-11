@@ -9,7 +9,6 @@ test("myArrayList: Add(1) should be 'the number has been added to the array'", (
     expect(list1.add(4)).toBe("The number has been added to the array.");
     expect(list1.add("1")).toBe("The number has been added to the array.");
     expect(list1.add('a')).toBe("Not a valid number.");
-    console.log(list1.show);
 });
 
 test("myArrayList: show() shows current contents", () => {

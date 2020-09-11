@@ -16,11 +16,11 @@ class Community {
     this.communities = [];
   }
 
-  createCity(key, name, latitude, longitude, population) {
+  createCity(name, latitude, longitude, population, key) {
     // get largest
     let city; // city object to be returned
     try {
-      if (key === null) {
+      if (key === null || key === undefined) {
         if (this.communities.length >= 1) {
           let maxKey = this.communities.reduce((a, b) =>
             a.key > b.key ? a : b

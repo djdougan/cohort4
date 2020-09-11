@@ -8,10 +8,10 @@ const url = "http://localhost:5000/";
 
 test("Test if fetchApi works", async () => {
   let com = new Community();
-  com.createCity(1, "A", 1, 1, 1);
-  com.createCity(2, "B", 2, 2, 2);
-  com.createCity(3, "C", 3, 3, 3);
-  com.createCity(4, "D", -1, -1, 1);
+  com.createCity("A", 1, 1, 1, 1);
+  com.createCity("B", 2, 2, 2, 2);
+  com.createCity("C", 3, 3, 3, 3);
+  com.createCity("D", -1, -1, 1, 4);
 
   // clear server
   let data = await fetchApi.clear(url);
@@ -56,6 +56,7 @@ test("Test if fetchApi works", async () => {
   data[0].name = "Y";
   data = await fetchApi.update(url, data[0]);
   expect(data.status).toEqual(200);
+  data = await fetchApi.read(url, { key: 2 });
   expect(data[0].key).toBe(2);
   expect(data[0].name).toBe("Y");
   expect(data[0].latitude).toBe(2);

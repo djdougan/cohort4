@@ -46,11 +46,8 @@ export class ContextProvider extends Component {
     theme: "default",
     error: "",
   };
-  // default #283D3B #197278 #EDDDD4 #c44536 #772E25
-  // colorSet1 #F4F1DE #E07A5F #3D405B #81B29A #F2CC8F
-  // colorSet2 #0D3B66 #FAF0CA #F4D35E #EE964B #F95738
-  // HIGH    #ffffff #ffff00 #3ff23f #1aebff #000000
   theme = {
+    // default #283D3B #197278 #EDDDD4 #c44536 #772E25
     default: {
       icon: "#EDDDD4",
       color1: "#EDDDD4",
@@ -60,6 +57,7 @@ export class ContextProvider extends Component {
       background1: "#c44536",
       background2: "#772E25",
     },
+    // colorSet1 #F4F1DE #E07A5F #3D405B #81B29A #F2CC8F
     colorSet1: {
       icon: "#F4F1DE",
       color1: "#F4F1DE",
@@ -69,15 +67,17 @@ export class ContextProvider extends Component {
       background1: "#E07A5F",
       background2: "#81B29A",
     },
+    // colorSet2 #0D3B66 #FAF0CA #F4D35E #EE964B #F95738
     colorSet2: {
       icon: "#F4F1DE",
-      color1: "#F4F1DE",
-      color2: "#F4D35E",
-      h1: "#EE964B",
-      h2: "#EE964B",
-      background1: "#F95738",
+      color1: "#F95738",
+      color2: "#F95738",
+      h1: "#F95738",
+      h2: "#F95738",
+      background1: "#0D3B66",
       background2: "#0D3B66",
     },
+    // HIGH    #ffffff #ffff00 #3ff23f #1aebff #000000
     hightContrast: {
       icon: "#ffff00",
       color1: "#ffff00",

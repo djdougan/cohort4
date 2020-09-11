@@ -81,7 +81,7 @@ class App extends Component {
                 "Doubly Linked List was clicked",
                 <DoublyLinkedList />
               )}></div>
-            <p> Doubly Linked List</p>
+            <p>Doubly Linked List</p>
           </div>
           <div>
             <div
@@ -93,7 +93,7 @@ class App extends Component {
                 "Queues and Stacks was clicked",
                 <DataStructuresApp />
               )}></div>
-            <p> Queues and Stacks</p>
+            <p>Queues and Stacks</p>
           </div>
           <div>
             <div
@@ -101,13 +101,26 @@ class App extends Component {
                 background: this.context.theme[this.context.state.theme].icon,
               }}
               className="github-icon svg-link-icon counter-clockwise"
-              onClick={this.handleClick("Git was clicked")}></div>
-            <p> Git</p>
+              onClick={(e) => {
+                window.open("https://github.com/djdougan/cohort4", "_blank");
+              }}></div>
+            <p>Git</p>
           </div>
           {/**End grid container */}
         </header>
-        <main>{this.state.selected}</main>
-        <footer>
+        <main
+          style={{
+            color: this.context.theme[this.context.state.theme].color1,
+            background: this.context.theme[this.context.state.theme]
+              .background1,
+          }}>
+          {this.state.selected}
+        </main>
+        <footer  style={{
+            color: this.context.theme[this.context.state.theme].color1,
+            background: this.context.theme[this.context.state.theme]
+              .background1,
+          }}>
           <div className="grid-2">
             <div>
               <h3>Contact Douglas Dougan</h3>
@@ -205,7 +218,7 @@ class App extends Component {
             </div>
           </div>
         </footer>
-        <ErrorComponent/>
+        <ErrorComponent />
       </div>
     );
   }

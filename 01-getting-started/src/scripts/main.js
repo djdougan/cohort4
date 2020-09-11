@@ -84,7 +84,6 @@ btnCalculateTax.addEventListener("click", (e) => {
       let totalTax = canadianTax.calculateTax(income + ot);
       let overTimeTax = canadianTax.calculateOvertimeTax(income, ot);
       txtOvertimeTax.value = formatter.format(overTimeTax + tax);
-      console.log(tax, overTimeTax, totalTax);
 
       txtDifference.value = formatter.format(overTimeTax);
       if (txtOvertime.value > 0) {
