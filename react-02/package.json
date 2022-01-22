@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/polyfill": "^7.10.1",
     "@testing-library/dom": "^7.5.6",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3.1.1",
     "pretty": "^2.0.0",
     "styled-components": "^5.1.1"
   }
